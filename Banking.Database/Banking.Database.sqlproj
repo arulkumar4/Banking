@@ -56,5 +56,33 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="CustomerAccount\" />
+    <Folder Include="CustomerAccount\Tables\" />
+    <Folder Include="Bank\" />
+    <Folder Include="Bank\Tables\" />
+    <Folder Include="AccountTransaction\" />
+    <Folder Include="AccountTransaction\Tables\" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\User Defined Types\" />
+    <Folder Include="Security\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="CustomerAccount\Tables\Account.sql" />
+    <Build Include="CustomerAccount\Tables\AccountType.sql" />
+    <Build Include="CustomerAccount\Tables\Customer.sql" />
+    <Build Include="Bank\Tables\Employee.sql" />
+    <Build Include="Bank\Tables\Manager.sql" />
+    <Build Include="Bank\Tables\Branch.sql" />
+    <Build Include="Bank\Tables\City.sql" />
+    <Build Include="AccountTransaction\Tables\Payment.sql" />
+    <Build Include="AccountTransaction\Tables\Transaction.sql" />
+    <Build Include="AccountTransaction\Tables\TransactionType.sql" />
+    <Build Include="dbo\User Defined Types\DataTypeName.sql" />
+    <Build Include="dbo\User Defined Types\DataTypeMail.sql" />
+    <Build Include="dbo\User Defined Types\DataTypeContactNumber.sql" />
+    <Build Include="dbo\User Defined Types\DataTypeAddress.sql" />
+    <Build Include="Security\CustomerAccount.sql" />
+    <Build Include="Security\Bank.sql" />
+    <Build Include="Security\AccountTransaction.sql" />
   </ItemGroup>
 </Project>

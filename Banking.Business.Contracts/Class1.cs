@@ -8,5 +8,6 @@ namespace Banking.Business.Contracts
 {
     public class Class1
     {
+
     }
 }
