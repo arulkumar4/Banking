@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05.Database", "05.Database"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banking.WebApi", "Banking.WebApi\Banking.WebApi.csproj", "{FE70CD37-D449-4EE2-A55E-07CDE402341F}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Banking.Database", "Banking.Database\Banking.Database.sqlproj", "{1EB22B4D-11B8-4763-9C83-861F6901E538}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,12 +27,19 @@ Global
 		{FE70CD37-D449-4EE2-A55E-07CDE402341F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE70CD37-D449-4EE2-A55E-07CDE402341F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE70CD37-D449-4EE2-A55E-07CDE402341F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EB22B4D-11B8-4763-9C83-861F6901E538}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EB22B4D-11B8-4763-9C83-861F6901E538}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EB22B4D-11B8-4763-9C83-861F6901E538}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1EB22B4D-11B8-4763-9C83-861F6901E538}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EB22B4D-11B8-4763-9C83-861F6901E538}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EB22B4D-11B8-4763-9C83-861F6901E538}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FE70CD37-D449-4EE2-A55E-07CDE402341F} = {C71D3286-F791-4DB7-A183-A74409C20EF7}
+		{1EB22B4D-11B8-4763-9C83-861F6901E538} = {6F0EE2D3-48EE-48CC-93FE-C23D86982F6A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E9E28FE-3616-4757-9793-4AA7D3A1E719}
