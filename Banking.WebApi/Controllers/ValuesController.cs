@@ -17,10 +17,6 @@ namespace Banking.WebApi.Controllers
             this._bankBl = bankBl;
         }
 
-        //public ValuesController(IBankBl bl)
-        //{
-        //    this._bl = bl;
-        //}
         // GET api/values
         public int Get()
         {
