@@ -22,7 +22,7 @@ namespace Banking.WebApi
             var container = new UnityContainer();
             container.RegisterType<IBankBl, BankBl>(new HierarchicalLifetimeManager());
             config.DependencyResolver = new UnityResolver(container);
-            //container.AddNewExtension<UnityExtension>();
+            container.AddNewExtension<Banking.Business.UnityExtension>();
         }
     }
 }
