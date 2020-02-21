@@ -1,11 +1,10 @@
 ﻿using Banking.DataAccess.Contracts;
 
-namespace Business.Data.Access
+namespace Banking.DataAccess
 {
     public class BankDal : IBankDal
     {
         public BankDal() { }
-      
 
         public int GetBankDetails()
         {

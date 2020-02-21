@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="BankBl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnityExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -65,8 +66,8 @@
       <Project>{A465A125-9F30-455C-B3FC-C699951D15CE}</Project>
       <Name>Banking.DataAccess.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Business.Data.Access\Banking.DataAccess.csproj">
-      <Project>{BDDB1A7A-CDB1-4ABE-A6FF-E31B2C3F747F}</Project>
+    <ProjectReference Include="..\Banking.DataAccess\Banking.DataAccess.csproj">
+      <Project>{494F8A45-6E8A-4E0B-AD43-AF0AE875C0FA}</Project>
       <Name>Banking.DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
