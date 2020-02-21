@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Banking.Business;
+using Banking.Business.Contracts;
 using System.Web.Http;
+using Unity;
+using Unity.Lifetime;
 
 namespace Banking.WebApi
 {
@@ -10,7 +11,6 @@ namespace Banking.WebApi
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-
             // Web API routes
             config.MapHttpAttributeRoutes();
 
@@ -19,6 +19,10 @@ namespace Banking.WebApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            var container = new UnityContainer();
+            container.RegisterType<IBankBl, BankBl>(new HierarchicalLifetimeManager());
+            config.DependencyResolver = new UnityResolver(container);
+            //container.AddNewExtension<UnityExtension>();
         }
     }
 }

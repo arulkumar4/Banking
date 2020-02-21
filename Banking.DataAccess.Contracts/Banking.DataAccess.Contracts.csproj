@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A187DBF1-5416-4D49-B7BA-5D30C180F54E}</ProjectGuid>
+    <ProjectGuid>{A465A125-9F30-455C-B3FC-C699951D15CE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Banking.Business</RootNamespace>
-    <AssemblyName>Banking.Business</AssemblyName>
+    <RootNamespace>Banking.DataAccess.Contracts</RootNamespace>
+    <AssemblyName>Banking.DataAccess.Contracts</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -33,42 +33,17 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Unity.Abstractions, Version=5.11.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.11.3\lib\net47\Unity.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Container, Version=5.11.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.11.3\lib\net47\Unity.Container.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BankBl.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="IBankDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Banking.Business.Contracts\Banking.Business.Contracts.csproj">
-      <Project>{6B96F49D-A18A-4036-80E0-DE5E5C7D70CC}</Project>
-      <Name>Banking.Business.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Banking.DataAccess.Contracts\Banking.DataAccess.Contracts.csproj">
-      <Project>{A465A125-9F30-455C-B3FC-C699951D15CE}</Project>
-      <Name>Banking.DataAccess.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Business.Data.Access\Banking.DataAccess.csproj">
-      <Project>{BDDB1A7A-CDB1-4ABE-A6FF-E31B2C3F747F}</Project>
-      <Name>Banking.DataAccess</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Banking.Business.Contract
+namespace Banking.DataAccess.Contracts
 {
     public class Class1
     {

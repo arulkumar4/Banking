@@ -1,18 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using Banking.Business.Contracts;
 using System.Web.Http;
 
 namespace Banking.WebApi.Controllers
 {
     public class ValuesController : ApiController
     {
-        // GET api/values
-        public IEnumerable<string> Get()
+         IBankBl _bankBl;
+
+        public ValuesController()
         {
-            return new string[] { "value1", "value2" };
+
+        }
+
+        public ValuesController(IBankBl bankBl)
+        {
+            this._bankBl = bankBl;
+        }
+
+        //public ValuesController(IBankBl bl)
+        //{
+        //    this._bl = bl;
+        //}
+        // GET api/values
+        public int Get()
+        {
+            return _bankBl.GetBankDetails();
         }
 
         // GET api/values/5
