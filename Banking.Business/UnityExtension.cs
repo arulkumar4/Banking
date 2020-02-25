@@ -10,6 +10,7 @@ namespace Banking.Business
         protected override void Initialize()
         {
             Container.RegisterType<IBankDal, BankDal>();
+            Container.RegisterType<ICityDal, CityDal>();
         }
     }
 }
