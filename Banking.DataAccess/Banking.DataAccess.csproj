@@ -31,7 +31,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationBlocks.Data.2.0.0\lib\net45\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,16 +43,32 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BankDal.cs" />
+    <Compile Include="BaseDal.cs" />
+    <Compile Include="CityDal.cs" />
+    <Compile Include="ProcedureNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Banking.Business.Contracts\Banking.Business.Contracts.csproj">
+      <Project>{6B96F49D-A18A-4036-80E0-DE5E5C7D70CC}</Project>
+      <Name>Banking.Business.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Banking.Business.Models\Banking.Business.Models.csproj">
+      <Project>{7BEC9AC9-BD08-455E-A43B-EA1CD37F783D}</Project>
+      <Name>Banking.Business.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Banking.DataAccess.Contracts\Banking.DataAccess.Contracts.csproj">
       <Project>{a465a125-9f30-455c-b3fc-c699951d15ce}</Project>
       <Name>Banking.DataAccess.Contracts</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
