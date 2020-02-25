@@ -42,7 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBankBl.cs" />
+    <Compile Include="ICityBl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Banking.Business.Models\Banking.Business.Models.csproj">
+      <Project>{7BEC9AC9-BD08-455E-A43B-EA1CD37F783D}</Project>
+      <Name>Banking.Business.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

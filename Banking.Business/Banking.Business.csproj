@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BankBl.cs" />
+    <Compile Include="CityBl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnityExtension.cs" />
   </ItemGroup>
@@ -71,6 +72,10 @@
     <ProjectReference Include="..\Banking.Business.Contracts\Banking.Business.Contracts.csproj">
       <Project>{6B96F49D-A18A-4036-80E0-DE5E5C7D70CC}</Project>
       <Name>Banking.Business.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Banking.Business.Models\Banking.Business.Models.csproj">
+      <Project>{7BEC9AC9-BD08-455E-A43B-EA1CD37F783D}</Project>
+      <Name>Banking.Business.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\Banking.DataAccess.Contracts\Banking.DataAccess.Contracts.csproj">
       <Project>{A465A125-9F30-455C-B3FC-C699951D15CE}</Project>

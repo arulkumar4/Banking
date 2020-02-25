@@ -16,7 +16,6 @@ namespace Banking.WebApi
             //DependencyResolver.SetResolver(new UnityDependencyResolver(container));
             //HttpConfiguration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver();
             //container.AddNewExtension<UnityExtension>();
-
             //var builder = new ContainerBuilder();
             //builder.RegisterControllers(typeof(WebApiApplication).Assembly);
             //builder.RegisterType<BankBl>()
