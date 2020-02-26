@@ -1,6 +1,9 @@
 ﻿using Banking.Business;
 using Banking.Business.Contracts;
+
+using Banking.Business.Contracts.Transaction;
 using Banking.Business.Models;
+using Banking.Business.Transaction;
 using System.Web.Http;
 using Unity;
 using Unity.Lifetime;
@@ -23,6 +26,7 @@ namespace Banking.WebApi
             var container = new UnityContainer();
             container.RegisterType<IBankBl, BankBl>(new HierarchicalLifetimeManager());
             container.RegisterType<ICityBl, CityBl>(new HierarchicalLifetimeManager());
+            container.RegisterType<ITransactionTypeBl, TransactionTypeBl>(new HierarchicalLifetimeManager());
             config.DependencyResolver = new UnityResolver(container);
             container.AddNewExtension<Banking.Business.UnityExtension>();
         }

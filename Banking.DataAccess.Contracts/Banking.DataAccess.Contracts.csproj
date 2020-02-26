@@ -44,6 +44,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="IBankDal.cs" />
     <Compile Include="ICityDal.cs" />
+    <Compile Include="ITransaction\ITransactionTypeDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -52,5 +53,6 @@
       <Name>Banking.Business.Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

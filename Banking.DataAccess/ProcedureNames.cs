@@ -16,5 +16,12 @@ namespace Banking.DataAccess
             public const string UpdateCity = "[Bank].[UpdateCityDetail]";
             public const string DeleteCity = "[Bank].[DeleteCityDetail]";
         }        
+        public class Transaction
+        {
+            public const string GetTransactionTypes = "[Transaction].GetTransactionTypes";
+            public const string InsertTransactionType = "[Transaction].InsertTransactionType";
+
+            public const string UpdateTransactionType = "[Transaction].UpdateTransactionType";
+        }
     }
 }
