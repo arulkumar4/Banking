@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Banking.Business.Models.Account
 {
-    class CustomerAccount
+    public class CustomerAccount
     {
-        public int AccountNumber { get; set; }
+        public long CustomerId { get; set; }
+        public long AccountNumber { get; set; }
         public int InitialDeposit { get; set; }
         public int AccountType { get; set; }
     }

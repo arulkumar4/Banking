@@ -7,14 +7,14 @@ namespace Banking.Business.Models.Account
     {
         public Customer() : this(0) { }
         public Customer(int customerId) => CustomerId = customerId;
-        public int CustomerId { get; set; }
+        public long CustomerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int ContactNumber { get; set; }
         public string Email { get; set; }
         public DateTimeOffset Dob { get; set; }
         public string Gender { get; set; }
-        public List<Address> AddressList { get; set; }
+        public string Address { get; set; }
         public int EmployeeId { get; set; }
         public string FullName
         {

@@ -1,5 +1,7 @@
 ﻿using Banking.DataAccess;
+using Banking.DataAccess.Account;
 using Banking.DataAccess.Contracts;
+using Banking.DataAccess.Contracts.IAccount;
 using Unity;
 using Unity.Extension;
 
@@ -11,6 +13,7 @@ namespace Banking.Business
         {
             Container.RegisterType<IBankDal, BankDal>();
             Container.RegisterType<ICityDal, CityDal>();
+            Container.RegisterType<IAccountDal, AccountDal>();
         }
     }
 }

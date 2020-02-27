@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\CustomerAccount.cs" />
-    <Compile Include="Account\CustomerAddress.cs" />
     <Compile Include="Account\Customer.cs" />
     <Compile Include="Bank\Address.cs" />
     <Compile Include="Bank\Branch.cs" />

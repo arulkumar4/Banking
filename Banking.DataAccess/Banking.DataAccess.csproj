@@ -46,10 +46,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountDal\AccountBaseDal.cs" />
     <Compile Include="AccountDal\AccountDal.cs" />
-    <Compile Include="AccountDal\AccountExtentions.cs" />
-    <Compile Include="AccountDal\AccountProcedureName.cs" />
     <Compile Include="AccountDal\CustomerDal.cs" />
     <Compile Include="BankDal.cs" />
     <Compile Include="BaseDal.cs" />

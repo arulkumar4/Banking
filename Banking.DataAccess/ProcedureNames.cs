@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Banking.DataAccess
 {
@@ -15,6 +11,10 @@ namespace Banking.DataAccess
             public const string AddCity = "[Bank].[AddCity]";
             public const string UpdateCity = "[Bank].[UpdateCityDetail]";
             public const string DeleteCity = "[Bank].[DeleteCityDetail]";
-        }        
+        }    
+        public class Account
+        {
+            public const string GetCustomerDetails = "[Account].GetCustomerDetails";
+        }
     }
 }

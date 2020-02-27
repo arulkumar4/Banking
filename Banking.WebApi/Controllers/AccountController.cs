@@ -1,47 +1,53 @@
-﻿using System.Collections.Generic;
-using Account.Business.Contracts;
+﻿using Banking.Business.Contracts.IAccount;
+using Banking.Business.Models.Account;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Banking.WebApi.Controllers
 {
+    [EnableCors("http://localhost:4200", "*", "GET,POST,PUT,DELETE")]
     public class AccountController : ApiController
     {
-        IAccountBl _accountBl;
-
-        public AccountController()
+        private readonly IAccountBl _accountbl;
+        public AccountController(IAccountBl accountbl)
         {
-
-        }
-        public AccountController(IAccountBl accountBl)
-        {
-            this._accountBl = accountBl;
+            _accountbl = accountbl;
         }
 
-        // GET: api/Account
-        public int Get()
+        // GET: api/Account/string/id
+        [Route("api/Account")]
+        [HttpGet]
+        public IHttpActionResult GetAccount(long customerId, long accountNo)
         {
-            return _accountBl.GetAccountDetails();
+            return Ok(_accountbl.GetCustomerAccounts(customerId, accountNo));
         }
 
-        // GET: api/Account/5
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //[Route("api/cities")]
+        //[HttpGet]
+        //public IHttpActionResult Getcities()
+        //{
+        //    return Ok(_citybl.GetCities());
+        //}
+        //[Route("api/Addcity")]
+        //[HttpPost]
+        //public IHttpActionResult Addcity([FromBody]City city)
+        //{
+        //    return Ok(_citybl.AddCity(city));
+        //}
 
-        // POST: api/Account
-        public void Post([FromBody]string value)
-        {
-        }
+        //[Route("api/Updatecity/{id}")]
+        //[HttpPut]
+        //public IHttpActionResult Updatecity(int id, [FromBody]City city)
+        //{
+        //    return Ok(_citybl.UpdateCity(id, city));
+        //}
 
-        // PUT: api/Account/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/Account/5
-        public void Delete(int id)
-        {
-        }
+        //[Route("api/Deletecity/{id}")]
+        //[HttpDelete]
+        //public IHttpActionResult Deletecity(int id)
+        //{
+        //    return Ok(_citybl.DeleteCity(id));
+        //}
     }
 }
+
