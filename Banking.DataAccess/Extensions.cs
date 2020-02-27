@@ -27,6 +27,12 @@ namespace Banking.DataAccess
             if (prop.PropertyType == typeof(int?))
                 return row[prop.Name] == DBNull.Value ? (int?)null : Convert.ToInt32(row[prop.Name]);
 
+            if (prop.PropertyType == typeof(long))
+                return row[prop.Name] == DBNull.Value ? 0 : Convert.ToInt64(row[prop.Name]);
+
+            if (prop.PropertyType == typeof(long?))
+                return row[prop.Name] == DBNull.Value ? (long?)null : Convert.ToInt64(row[prop.Name]);
+
             if (prop.PropertyType == typeof(double))
                 return Convert.ToDouble(row[prop.Name]);
 

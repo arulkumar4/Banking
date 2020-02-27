@@ -14,7 +14,7 @@ namespace Banking.DataAccess.Account
         public List<CustomerAccount> GetCustomerAccount(long customerId, long accountNo)
         {
             List<CustomerAccount> CustomerAcc = new List<CustomerAccount>();
-            using (var dataset = GetDataset(ProcedureNames.Account.GetCustomerDetails))
+            using (var dataset = GetDataset(ProcedureNames.Account.GetCustomerDetails, customerId, accountNo))
             {
                 var accountTable = dataset.Tables[0];
                 var accountTableDetail = accountTable.AsEnumerable();
