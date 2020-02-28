@@ -1,6 +1,5 @@
 ﻿using Banking.Business;
 using Banking.Business.Contracts;
-using Banking.Business.Models;
 using System.Web.Http;
 using Unity;
 using Unity.Lifetime;
@@ -21,10 +20,12 @@ namespace Banking.WebApi
                 defaults: new { id = RouteParameter.Optional }
             );
             var container = new UnityContainer();
-            container.RegisterType<IBankBl, BankBl>(new HierarchicalLifetimeManager());
             container.RegisterType<ICityBl, CityBl>(new HierarchicalLifetimeManager());
+            container.RegisterType<IBranchBl, BranchBl>(new HierarchicalLifetimeManager());
+            container.RegisterType<IManagerBl, ManagerBl>(new HierarchicalLifetimeManager());
+            container.RegisterType<IEmployeeBl, EmployeeBl>(new HierarchicalLifetimeManager());
             config.DependencyResolver = new UnityResolver(container);
-            container.AddNewExtension<Banking.Business.UnityExtension>();
+            container.AddNewExtension<UnityExtension>();
         }
     }
 }

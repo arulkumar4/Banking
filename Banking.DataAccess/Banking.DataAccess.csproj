@@ -48,7 +48,10 @@
   <ItemGroup>
     <Compile Include="BankDal.cs" />
     <Compile Include="BaseDal.cs" />
+    <Compile Include="BranchDal.cs" />
     <Compile Include="CityDal.cs" />
+    <Compile Include="EmployeeDal.cs" />
+    <Compile Include="ManagerDal.cs" />
     <Compile Include="ProcedureNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions.cs" />

@@ -42,7 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBankBl.cs" />
+    <Compile Include="IBranchBl.cs" />
     <Compile Include="ICityBl.cs" />
+    <Compile Include="IEmployeeBl.cs" />
+    <Compile Include="IManagerBl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

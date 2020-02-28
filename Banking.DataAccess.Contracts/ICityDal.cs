@@ -7,8 +7,8 @@ namespace Banking.DataAccess.Contracts
     {
         List<City> GetCityDetail(int cityId);
         List<City> GetCities();
-        bool AddCity(City city);
-        bool UpdateCity(int id, City city);
-        bool DeleteCity(int id);
+        int AddCity(City city);
+        int UpdateCity(int id, City city);
+        int DeleteCity(int id);
     }
 }
