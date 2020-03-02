@@ -47,7 +47,9 @@
     <Compile Include="IEmployeeBl.cs" />
     <Compile Include="IManagerBl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transaction\IpaymentBl.cs" />
     <Compile Include="Transaction\ITransactionTypeBl.cs" />
+    <Compile Include="Transaction\ITransactionBl.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Banking.Business.Models\Banking.Business.Models.csproj">

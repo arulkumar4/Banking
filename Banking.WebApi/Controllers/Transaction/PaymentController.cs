@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Http;
+using Banking.Business.Contracts.Transaction;
+using Banking.Business.Models.Transaction;
+
+namespace Banking.WebApi.Controllers.Transaction
+{
+    [RoutePrefix("Payment")]
+    public class PaymentController : ApiController
+    {
+        private readonly IpaymentBl _paymentBl;
+        public PaymentController() { }
+        public PaymentController(IpaymentBl paymentBl) => _paymentBl = paymentBl;
+
+        [Route("DoPayment")]
+        [HttpGet]
+        public IHttpActionResult GetTransactionTypes(PaymentClass payment )
+        {
+            return Ok(_paymentBl.DoPayment(payment));
+        }
+    }
+}

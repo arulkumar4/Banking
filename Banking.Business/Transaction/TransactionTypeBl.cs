@@ -15,14 +15,14 @@ namespace Banking.Business.Transaction
             return _transactionTypeDal.GetTransactionTypes();
         }
 
-        public bool InsertTransactionType(TransactionType transactionType)
+        public int InsertTransactionType(TransactionType transactionType)
         {
            return _transactionTypeDal.InsertTransactionType(transactionType);
         }
 
-        public bool UpdateTransactionType(TransactionType transactionType, TransactionType transactiontype)
+        public int UpdateTransactionType(TransactionType[] transactionType)
         {
-            return _transactionTypeDal.UpdateTransactionType(transactionType , transactiontype);
+            return _transactionTypeDal.UpdateTransactionType(transactionType);
         }
     }
 }

@@ -10,8 +10,8 @@ namespace Banking.DataAccess.Contracts.ITransaction
     public interface ITransactionTypeDal
     {
         List<TransactionType> GetTransactionTypes();
-        bool InsertTransactionType(TransactionType transactionType);
-        bool UpdateTransactionType(TransactionType transactionType, TransactionType transactiontype);
+        int InsertTransactionType(TransactionType transactionType);
+        int UpdateTransactionType(TransactionType[] transactionType);
         
     }
 }

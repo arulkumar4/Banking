@@ -30,31 +30,22 @@ namespace Banking.DataAccess.Transaction
          
         }
 
-        public bool InsertTransactionType(TransactionType transactionType)
+        public int InsertTransactionType(TransactionType transactionType)
         {
-            bool result = false;
-            SqlParameter[] p = new SqlParameter[1];
-            p[0] = new SqlParameter("@Type",transactionType.Type);
-            int res = GetResult(ProcedureNames.Transaction.InsertTransactionType, p);
-            if (res > 0)
-            {
-                result = true;
-            }
-            return result;
+            
+           
+            var res = GetValue<int>(ProcedureNames.Transaction.InsertTransactionType, new SqlParameter("@TType", transactionType.Type));
+           
+            return res;
         }
 
-        public bool UpdateTransactionType(TransactionType transactionType, TransactionType transactiontype)
+        public int UpdateTransactionType(TransactionType[] transactionType)
         {
-            bool result = false;
-            SqlParameter[] p = new SqlParameter[2];
-            p[0] = new SqlParameter("@Type", transactionType.Type);
-            p[1] = new SqlParameter("@Type", transactiontype.Type);
-            int res = GetResult(ProcedureNames.Transaction.UpdateTransactionType, p);
-            if (res > 0)
-            {
-                result = true;
-            }
-            return result;
+           
+
+            int res = GetValue<int>(ProcedureNames.Transaction.UpdateTransactionType, new SqlParameter("@oldType", transactionType[0].Type), new SqlParameter("@newType", transactionType[1].Type));
+           
+            return res;
         }
     }
 }
