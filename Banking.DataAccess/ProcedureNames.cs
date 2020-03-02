@@ -34,6 +34,14 @@
             public const string GetEmployeeById = "[Bank].[GetEmployeeById]";
             public const string UpdateEmployeeById = "[Bank].[UpdateEmployeeById]";
             public const string DeleteEmployee = "[Bank].DeleteEmployee";
+
+        }        
+        public class Transaction
+        {
+            public const string GetTransactionTypes = "[Transaction].GetTransactionTypes";
+            public const string InsertTransactionType = "[Transaction].InsertTransactionType";
+            public const string UpdateTransactionType = "[Transaction].UpdateTransactionType";
+
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Banking.DataAccess;
 using Banking.DataAccess.Contracts;
+using Banking.DataAccess.Transaction;
+using Banking.DataAccess.Contracts.ITransaction;
 using Unity;
 using Unity.Extension;
 
@@ -14,6 +16,8 @@ namespace Banking.Business
             Container.RegisterType<IBranchDal, BranchDal>();
             Container.RegisterType<IManagerDal, ManagerDal>();
             Container.RegisterType<IEmployeeDal, EmployeeDal>();
+            Container.RegisterType<ITransactionTypeDal, TransactionTypeDal>();
+
         }
     }
 }
