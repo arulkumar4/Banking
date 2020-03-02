@@ -18,6 +18,7 @@ namespace Banking.Business
             Container.RegisterType<IEmployeeDal, EmployeeDal>();
             Container.RegisterType<ITransactionTypeDal, TransactionTypeDal>();
             Container.RegisterType<ITransactionDAL, TransactionDAL>();
+            Container.RegisterType<IpaymentDAL, PaymentDAL>();
 
         }
     }

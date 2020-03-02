@@ -44,6 +44,8 @@
 
             public const string DebitTransaction = "[Transaction].DebitTransaction";
             public const string GetAllTransactions = "[Transaction].GetAllTransactions";
+
+            public const string DoPayment = "[Transaction].AccountPayment";
         }
 
     }

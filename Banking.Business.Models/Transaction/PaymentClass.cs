@@ -16,5 +16,10 @@ namespace Banking.Business.Models.Transaction
         public Decimal AvailableBalance { get; set; }
 
         public string SenderName { get; set; }
+
+        public string ReciverName { get; set; }
+        public string status { get; set; }
+
+        public string AccountId { get; set; }
     }
 }
