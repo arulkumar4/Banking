@@ -18,9 +18,34 @@ namespace Banking.Business.Account
             _accountDal = accountDal;
         }
 
-        public List<CustomerAccount> GetCustomerAccounts(long customerId, long accountNo)
+        public List<CustomerAccount> GetAllCustomerAccounts()
         {
-            return _accountDal.GetCustomerAccount(customerId,accountNo);
+            return _accountDal.GetAllCustomersAccount();
+        }
+
+        public List<CustomerAccount> GetCustomerAccounts(long customerId, long accountNo, string password)
+        {
+            return _accountDal.GetCustomerAccount(customerId,accountNo, password);
+        }
+        public List<CustomerAccount> GetAccountbyAccountType(string accountType)
+        {
+            return _accountDal.GetCustomerAccountbyAccountType(accountType);
+        }
+        public List<CustomerAccount> GetAccountByBalance(decimal balance)
+        {
+            return _accountDal.GetCustomerAccountbyBalance(balance);
+        }
+        public List<CustomerAccount> GetCustomerByAccountStatus(bool status)
+        {
+            return _accountDal.GetCustomerByAccountStatus(status);
+        }
+        public bool DeleteCustomerAccount(CustomerAccount account)
+        {
+            return _accountDal.DeleteCustomerAccount(account);
+        }
+        public bool DeleteAccountByBalance()
+        {
+            return _accountDal.DeleteAccountByBalance();
         }
     }
 

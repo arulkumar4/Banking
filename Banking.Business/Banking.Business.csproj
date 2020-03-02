@@ -61,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AccountBl.cs" />
+    <Compile Include="Account\AccountTypeBl.cs" />
+    <Compile Include="Account\CustomerBl.cs" />
     <Compile Include="BankBl.cs" />
     <Compile Include="CityBl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

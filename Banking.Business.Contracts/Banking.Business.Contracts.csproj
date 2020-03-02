@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAccount\IAccountBl.cs" />
+    <Compile Include="IAccount\IAccountTypeBl.cs" />
+    <Compile Include="IAccount\ICustomerBl.cs" />
     <Compile Include="IBankBl.cs" />
     <Compile Include="ICityBl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

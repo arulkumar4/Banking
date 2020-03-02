@@ -14,40 +14,61 @@ namespace Banking.WebApi.Controllers
             _accountbl = accountbl;
         }
 
-        // GET: api/Account/string/id
-        [Route("api/Account")]
+        // GET: api/GetAccount
+        [Route("api/Account/GetAllCustomerAccounts")]
         [HttpGet]
-        public IHttpActionResult GetAccount(long customerId, long accountNo)
+        public IHttpActionResult GetAllCustomerAccounts()
         {
-            return Ok(_accountbl.GetCustomerAccounts(customerId, accountNo));
+            return Ok(_accountbl.GetAllCustomerAccounts());
         }
 
-        //[Route("api/cities")]
-        //[HttpGet]
-        //public IHttpActionResult Getcities()
-        //{
-        //    return Ok(_citybl.GetCities());
-        //}
-        //[Route("api/Addcity")]
-        //[HttpPost]
-        //public IHttpActionResult Addcity([FromBody]City city)
-        //{
-        //    return Ok(_citybl.AddCity(city));
-        //}
+        // GET: api/GetAccount/string/id
+        [Route("api/Account/GetCustomerAccounts")]
+        [HttpGet]
+        public IHttpActionResult GetCustomerAccounts(long customerId, long accountNo, string password)
+        {
+            return Ok(_accountbl.GetCustomerAccounts(customerId, accountNo, password));
+        }
 
-        //[Route("api/Updatecity/{id}")]
-        //[HttpPut]
-        //public IHttpActionResult Updatecity(int id, [FromBody]City city)
-        //{
-        //    return Ok(_citybl.UpdateCity(id, city));
-        //}
+        // GET: api/GetAccount/string/accountType
+        [Route("api/Account/GetAccountByAcountType")]
+        [HttpGet]
+        public IHttpActionResult GetAccountByAcountType(string acccountType)
+        {
+            return Ok(_accountbl.GetAccountbyAccountType(acccountType));
+        }
 
-        //[Route("api/Deletecity/{id}")]
-        //[HttpDelete]
-        //public IHttpActionResult Deletecity(int id)
-        //{
-        //    return Ok(_citybl.DeleteCity(id));
-        //}
+        // GET: api/GetAccount/string/balance
+        [Route("api/AccountGetAccountByBalance")]
+        [HttpGet]
+        public IHttpActionResult GetAccountByBalance(decimal balance)
+        {
+            return Ok(_accountbl.GetAccountByBalance(balance));
+        }
+
+        // GET: api/GetAccount/string/accountstatus
+        [Route("api/Account/GetCustomerByAccountStatus")]
+        [HttpGet]
+        public IHttpActionResult GetCustomerByAccountStatus(bool status)
+        {
+            return Ok(_accountbl.GetCustomerByAccountStatus(status));
+        }
+
+        // GET: api/DeleteAccount/string/
+        [Route("api/Account/DeleteAccount")]
+        [HttpDelete]
+        public IHttpActionResult DeleteAccount([FromBody]CustomerAccount account)
+        {
+            return Ok(_accountbl.DeleteCustomerAccount(account));
+        }
+        // GET: api/DeleteAccount/
+        [Route("api/AccountDeleteAccountByBalance")]
+        [HttpDelete]
+        public IHttpActionResult DeleteAccountByBalance()
+        {
+            return Ok(_accountbl.DeleteAccountByBalance());
+        }
+
     }
 }
 

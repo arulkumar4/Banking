@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountDal\AccountDal.cs" />
+    <Compile Include="AccountDal\AccountTypeDal.cs" />
     <Compile Include="AccountDal\CustomerDal.cs" />
     <Compile Include="BankDal.cs" />
     <Compile Include="BaseDal.cs" />

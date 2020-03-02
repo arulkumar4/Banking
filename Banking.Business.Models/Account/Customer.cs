@@ -10,28 +10,18 @@ namespace Banking.Business.Models.Account
         public long CustomerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int ContactNumber { get; set; }
-        public string Email { get; set; }
-        public DateTimeOffset Dob { get; set; }
+        public string ContactNumber { get; set; }
+        public string Mail { get; set; }
+        public DateTime Dob { get; set; }
         public string Gender { get; set; }
         public string Address { get; set; }
+        public decimal Balance { get; set; }
+        public string Password { get; set; }
+        public string AccountType { get; set; }
         public int EmployeeId { get; set; }
-        public string FullName
-        {
-            get
-            {
-                string fullName = LastName;
-                if (!string.IsNullOrWhiteSpace(FirstName))
-                {
-                    if (!string.IsNullOrWhiteSpace(LastName))
-                    {
-                        fullName += ", ";
-                    }
-                    fullName += FirstName;
-                }
-                return fullName;
-            }
-        }
+        public string FullName { get; set; }
+        public int AccountTypeId { get; set; }
+        
     }
 }
 

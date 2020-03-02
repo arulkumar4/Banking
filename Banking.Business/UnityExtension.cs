@@ -14,6 +14,8 @@ namespace Banking.Business
             Container.RegisterType<IBankDal, BankDal>();
             Container.RegisterType<ICityDal, CityDal>();
             Container.RegisterType<IAccountDal, AccountDal>();
+            Container.RegisterType<IAccountTypeDal, AccountTypeDal>();
+            Container.RegisterType<ICustomerDal, CustomerDal>();
         }
     }
 }

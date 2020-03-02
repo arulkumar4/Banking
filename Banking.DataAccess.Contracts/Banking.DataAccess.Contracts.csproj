@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="IAccount\IAccountDal.cs" />
+    <Compile Include="IAccount\IAccountTypeDal.cs" />
+    <Compile Include="IAccount\ICustomerDal.cs" />
     <Compile Include="IBankDal.cs" />
     <Compile Include="ICityDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
