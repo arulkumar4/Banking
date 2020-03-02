@@ -13,7 +13,7 @@ namespace Banking.DataAccess
         public List<City> GetCities()
         {
             List<City> Cities = new List<City>();
-            using (var dataset = GetDataset(ProcedureNames.Bank.GetCities))
+            using (var dataset = GetDataset(ProcedureNames.City.GetCities))
             {
                 var citytable = dataset.Tables[0];
                 var citytableDetail = citytable.AsEnumerable();
@@ -30,7 +30,7 @@ namespace Banking.DataAccess
         public List<City> GetCityDetail(int cityId)
         {
             List<City> Cities = new List<City>();
-            using (var dataset = GetDataset(ProcedureNames.Bank.GetCityDetail, cityId))
+            using (var dataset = GetDataset(ProcedureNames.City.GetCityDetail, cityId))
             {
                 var citytable = dataset.Tables[0];
                 var citytableDetail = citytable.AsEnumerable();
@@ -43,44 +43,31 @@ namespace Banking.DataAccess
             return Cities;
         }
 
-        public bool AddCity(City city)
+        public int AddCity(City city)
         {
-            bool result = false;
-            SqlParameter[] p = new SqlParameter[1];
-            p[0] = new SqlParameter("@Name",city.Name);
-            int res = GetResult(ProcedureNames.Bank.AddCity, p);
-            if(res>0)
-            {
-                result = true;
-            }
-            return result;
+            int cityId = GetValue<int>(ProcedureNames.City.AddCity,
+                new SqlParameter("Name", city.Name));
+            return cityId;
+        }
+        public int UpdateCity(int id, City city)
+        {
+            //SqlParameter[] p = new SqlParameter[2];
+            //p[0] = new SqlParameter("@Id", id);
+            //p[1] = new SqlParameter("@Name", city.Name);
+            int status = GetValue<int>(ProcedureNames.City.UpdateCity,
+                        new SqlParameter("Id", id),
+                        new SqlParameter("Name", city.Name));
+
+            return status;
         }
 
-        public bool UpdateCity(int id, City city)
+        public int DeleteCity(int id)
         {
-            bool result = false;
-            SqlParameter[] p = new SqlParameter[2];
-            p[0] = new SqlParameter("@Id", id);
-            p[1] = new SqlParameter("@Name", city.Name);
-            int res = GetResult(ProcedureNames.Bank.UpdateCity, p);
-            if (res > 0)
-            {
-                result = true;
-            }
-            return result;
-        }
-
-        public bool DeleteCity(int id)
-        {
-            bool result = false;
-            SqlParameter[] p = new SqlParameter[1];
-            p[0] = new SqlParameter("@Id", id);
-            int res = GetResult(ProcedureNames.Bank.DeleteCity, p);
-            if (res > 0)
-            {
-                result = true;
-            }
-            return result;
+            //SqlParameter[] p = new SqlParameter[1];
+            //p[0] = new SqlParameter("@Id", id);
+            int status = GetValue<int>(ProcedureNames.City.DeleteCity,
+               new SqlParameter("Id", id));
+            return status;
         }
     }
 }

@@ -71,6 +71,11 @@ namespace Banking.DataAccess
             return (T)SqlHelper.ExecuteScalar(GetConnection(), CommandType.StoredProcedure, storedProcName, parameterValues);
         }
 
+        protected static void NonQuery(string storedProcName, params SqlParameter[] parameterValues)
+        {
+            SqlHelper.ExecuteNonQuery(GetConnection(), storedProcName, parameterValues);
+        }
+        
         protected static T GetObject<T>(string storedProcName, params object[] parameterValues) where T : class, new()
         {
             var obj = new T();
@@ -83,11 +88,6 @@ namespace Banking.DataAccess
 
                 return obj;
             }
-        }
-
-        protected static int GetResult(string storedProcName, params SqlParameter[] parameterValues)
-        {
-            return SqlHelper.ExecuteNonQuery(GetConnection(), CommandType.StoredProcedure, storedProcName, parameterValues);
         }
     }
 }

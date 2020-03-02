@@ -1,7 +1,10 @@
 ﻿using Banking.Business;
 using Banking.Business.Account;
 using Banking.Business.Contracts;
+using Banking.Business.Contracts.Transaction;
+using Banking.Business.Models;
 using Banking.Business.Contracts.IAccount;
+using Banking.Business.Transaction;
 using System.Web.Http;
 using Unity;
 using Unity.Lifetime;
@@ -21,8 +24,11 @@ namespace Banking.WebApi
                 defaults: new { id = RouteParameter.Optional }
             );
             var container = new UnityContainer();
-            container.RegisterType<IBankBl, BankBl>(new HierarchicalLifetimeManager());
             container.RegisterType<ICityBl, CityBl>(new HierarchicalLifetimeManager());
+            container.RegisterType<IBranchBl, BranchBl>(new HierarchicalLifetimeManager());
+            container.RegisterType<IManagerBl, ManagerBl>(new HierarchicalLifetimeManager());
+            container.RegisterType<IEmployeeBl, EmployeeBl>(new HierarchicalLifetimeManager());
+          container.RegisterType<ITransactionTypeBl, TransactionTypeBl>(new HierarchicalLifetimeManager());
             container.RegisterType<IAccountBl, AccountBl>(new HierarchicalLifetimeManager());
             container.RegisterType<IAccountTypeBl, AccountTypeBl>(new HierarchicalLifetimeManager());
             container.RegisterType<ICustomerBl, CustomerBl>(new HierarchicalLifetimeManager());
