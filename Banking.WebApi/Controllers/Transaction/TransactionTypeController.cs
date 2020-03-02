@@ -25,16 +25,16 @@ namespace Banking.WebApi.Controllers.Transaction
         }
         [Route("InsertType")]
         [HttpPost]
-        public IHttpActionResult Addcity([FromBody]TransactionType transactionType)
+        public IHttpActionResult AddTransaction([FromBody]TransactionType transactionType)
         {
             return Ok(_transactionTypeBl.InsertTransactionType(transactionType));
         }
 
         [Route("UpdateType")]
         [HttpPut]
-        public IHttpActionResult Updatecity([FromBody] TransactionType transactionType, [FromBody] TransactionType transactiontype )
+        public IHttpActionResult UpdateTransaction([FromBody] TransactionType[] transactionType )
         {
-            return Ok(_transactionTypeBl.UpdateTransactionType(transactionType,transactiontype));
+            return Ok(_transactionTypeBl.UpdateTransactionType(transactionType));
         }
 
     }

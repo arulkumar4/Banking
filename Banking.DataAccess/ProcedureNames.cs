@@ -42,6 +42,9 @@
             public const string InsertTransactionType = "[Transaction].InsertTransactionType";
             public const string UpdateTransactionType = "[Transaction].UpdateTransactionType";
 
+            public const string DebitTransaction = "[Transaction].DebitTransaction";
+            public const string GetAllTransactions = "[Transaction].GetAllTransactions";
         }
+
     }
 }

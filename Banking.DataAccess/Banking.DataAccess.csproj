@@ -55,6 +55,7 @@
     <Compile Include="ProcedureNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="Transaction\TransactionDAL.cs" />
     <Compile Include="Transaction\TransactionTypeDal.cs" />
   </ItemGroup>
   <ItemGroup>

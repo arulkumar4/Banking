@@ -258,6 +258,7 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MangerController.cs" />
+    <Compile Include="Controllers\Transaction\TransactionsController.cs" />
     <Compile Include="Controllers\Transaction\TransactionTypeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -321,6 +322,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Transactions\" />
     <Folder Include="Views\TransactionType\" />
   </ItemGroup>
   <ItemGroup>
