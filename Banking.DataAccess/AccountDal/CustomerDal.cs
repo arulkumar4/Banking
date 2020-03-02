@@ -24,68 +24,34 @@ namespace Banking.DataAccess.Account
             }
             return CustomerAcc;
         }
-        public bool AddNewCustomer(Customer customer)
+        public int AddNewCustomer(Customer customer)
         {
-            bool result = false;
-            SqlParameter[] p = new SqlParameter[10];
-            p[0] = new SqlParameter("@FirstName", customer.FirstName);
-            p[1] = new SqlParameter("@LastName", customer.LastName);
-            p[2] = new SqlParameter("@Address", customer.Address);
-            p[3] = new SqlParameter("@ContactNumber", customer.ContactNumber);
-            p[4] = new SqlParameter("@Gender", customer.Gender);
-            p[5] = new SqlParameter("@Dob", customer.Dob);
-            p[6] = new SqlParameter("@Mail", customer.Mail);
-            p[7] = new SqlParameter("@Balance", customer.Balance);
-            p[8] = new SqlParameter("@Password", customer.Password);
-            p[9] = new SqlParameter("@AccType", customer.AccountTypeId);
-            int res = GetResult(ProcedureNames.Account.AddNewCustomers, p);
-            if (res > 0)
-            {
-                result = true;
-            }
-            return result;
-        }
-        public bool AddCustomerByEmployee(Customer customer)
-        {
-            bool result = false;
-            SqlParameter[] p = new SqlParameter[11];
-            p[0] = new SqlParameter("@FirstName", customer.FirstName);
-            p[1] = new SqlParameter("@LastName", customer.LastName);
-            p[2] = new SqlParameter("@Address", customer.Address);
-            p[3] = new SqlParameter("@ContactNumber", customer.ContactNumber);
-            p[4] = new SqlParameter("@Gender", customer.Gender);
-            p[5] = new SqlParameter("@Dob", customer.Dob);
-            p[6] = new SqlParameter("@Mail", customer.Mail);
-            p[7] = new SqlParameter("@Balance", customer.Balance);
-            p[8] = new SqlParameter("@Password", customer.Password);
-            p[9] = new SqlParameter("@AccountType", customer.AccountType);
-            p[10] = new SqlParameter("@EmpId", customer.EmployeeId);
-            int res = GetResult(ProcedureNames.Account.InsertCustomerByEmployee, p);
-            if (res > 0)
-            {
-                result = true;
-            }
-            return result;
+                var status = GetValue<int>(ProcedureNames.Account.AddNewCustomers,
+                new SqlParameter("@FirstName", customer.FirstName),
+                new SqlParameter("@LastName", customer.LastName),
+                new SqlParameter("@Address", customer.Address),
+                new SqlParameter("@ContactNumber", customer.ContactNumber),
+                new SqlParameter("@Gender", customer.Gender),
+                new SqlParameter("@Gender", customer.Gender),
+                new SqlParameter("@Dob", customer.Dob),
+                new SqlParameter("@Password", customer.Password),
+                new SqlParameter("@AccType", customer.AccountTypeId)
+                );
+                return status;
         }
 
-        public bool UpdateCustomerDetails(Customer customer)
+        public int UpdateCustomerDetails(Customer customer)
         {
-            bool result = false;
-            SqlParameter[] p = new SqlParameter[7];
-            p[0] = new SqlParameter("@CustomerId", customer.Password);
-            p[1] = new SqlParameter("@Password", customer.Password);
-            p[2] = new SqlParameter("@FirstName", customer.FirstName);
-            p[3] = new SqlParameter("@LastName", customer.LastName);
-            p[4] = new SqlParameter("@Address", customer.Address);
-            p[5] = new SqlParameter("@ContactNumber", customer.ContactNumber);
-            p[6] = new SqlParameter("@Mail", customer.Mail);
-            int res = GetResult(ProcedureNames.Account.UpdateCustomerDetails, p);
-
-            if (res > 0)
-            {
-                result = true;
-            }
-            return result;
+            var status = GetValue<int>(ProcedureNames.Account.UpdateCustomerDetails,
+            new SqlParameter("@CustomerId", customer.CustomerId),
+            new SqlParameter("@Password", customer.Password),
+            new SqlParameter("@FirstName", customer.FirstName),
+            new SqlParameter("@LastName", customer.LastName),
+            new SqlParameter("@Address", customer.Address),
+            new SqlParameter("@ContactNumber", customer.ContactNumber),
+            new SqlParameter("@Mail", customer.Mail)
+            );
+            return status;
         }
         
     }

@@ -43,10 +43,6 @@ namespace Banking.Business.Account
         {
             return _accountDal.DeleteCustomerAccount(account);
         }
-        public bool DeleteAccountByBalance()
-        {
-            return _accountDal.DeleteAccountByBalance();
-        }
     }
 
 }

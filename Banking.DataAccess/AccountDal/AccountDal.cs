@@ -84,31 +84,13 @@ namespace Banking.DataAccess.Account
             }
             return CustomerAcc;
         }
-        public bool DeleteCustomerAccount(CustomerAccount account)
+        public int DeleteCustomerAccount(CustomerAccount account)
         {
-            bool result = false;
-            SqlParameter[] p = new SqlParameter[7];
-            p[0] = new SqlParameter("@Number", account.Number);
-            p[1] = new SqlParameter("@Password", account.Password);
-            int res = GetResult(ProcedureNames.Account.DeleteCustomerAccount, p);
-
-            if (res > 0)
-            {
-                result = true;
-            }
-            return result;
+            var status = GetValue<int>(ProcedureNames.Account.DeleteCustomerAccount,
+            new SqlParameter("@Number", account.Number),
+            new SqlParameter("@Password", account.Password)
+            );
+            return status;
         }
-        public bool DeleteAccountByBalance()
-        {
-            bool result = false;            
-            int res = GetResult(ProcedureNames.Account.DeleteAccountByBalance);
-            if (res > 0)
-            {
-                result = true;
-            }
-            return result;
-        }
-        
-
     }
 }

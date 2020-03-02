@@ -11,6 +11,5 @@ namespace Banking.DataAccess.Contracts.IAccount
         List<CustomerAccount> GetCustomerAccountbyBalance(decimal balance);
         List<CustomerAccount> GetCustomerByAccountStatus(bool status);
         bool DeleteCustomerAccount(CustomerAccount account);
-        bool DeleteAccountByBalance();
     }
 }

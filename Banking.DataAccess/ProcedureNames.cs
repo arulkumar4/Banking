@@ -45,7 +45,7 @@ namespace Banking.DataAccess
             public const string UpdateTransactionType = "[Transaction].UpdateTransactionType";
 
         }
-        }    
+        
         public class Account
         {
             public const string GetOneCustomerDetails = "[Account].[GetOneCustomerDetails]";

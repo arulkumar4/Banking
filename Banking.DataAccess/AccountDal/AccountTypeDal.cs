@@ -39,48 +39,33 @@ namespace Banking.DataAccess.Account
             }
             return acctype;
         }
-        public bool AddNewAccountType(AccountType acctype)
+        public int AddNewAccountType(AccountType acctype)
         {
-            bool result = false;
-            SqlParameter[] p = new SqlParameter[3];
-            p[0] = new SqlParameter("@AccountType", acctype.Type);
-            p[1] = new SqlParameter("@MinimumBalance", acctype.MinimumBalance);
-            p[2] = new SqlParameter("@TransactionLimit", acctype.TransactionLimit);
-            int res = GetResult(ProcedureNames.Account.InsertNewAccountType, p);
-            if (res > 0)
-            {
-                result = true;
-            }
-            return result;
+            var status = GetValue<int>(ProcedureNames.Account.InsertNewAccountType,
+            new SqlParameter("@AccountType", acctype.Type),
+            new SqlParameter("@MinimumBalance", acctype.MinimumBalance),
+            new SqlParameter("@TransactionLimit", acctype.TransactionLimit)
+            );
+            return status;
         }
-        public bool UpdateAccountType(AccountType acctype)
+        public int UpdateAccountType(AccountType acctype)
         {
-            bool result = false;
-            SqlParameter[] p = new SqlParameter[3];
-            p[0] = new SqlParameter("@AccId", acctype.Id);
-            p[1] = new SqlParameter("@AccountType", acctype.Type);
-            p[2] = new SqlParameter("@MinimumBalance", acctype.MinimumBalance);
-            p[3] = new SqlParameter("@TransactionLimit", acctype.TransactionLimit);
-            int res = GetResult(ProcedureNames.Account.UpdateAccountType, p);
-            if (res > 0)
-            {
-                result = true;
-            }
-            return result;
+            
+            var status = GetValue<int>(ProcedureNames.Account.UpdateAccountType,
+            new SqlParameter("@AccId", acctype.Id),
+            new SqlParameter("@AccountType", acctype.Type),
+            new SqlParameter("@MinimumBalance", acctype.MinimumBalance),
+            new SqlParameter("@TransactionLimit", acctype.TransactionLimit)
+            );
+            return status;
         }
-        public bool DeleteAccountType(AccountType acctype)
+        public int DeleteAccountType(AccountType acctype)
         {
-            bool result = false;
-            SqlParameter[] p = new SqlParameter[3];
-            p[0] = new SqlParameter("@AccId", acctype.Id);
-            p[1] = new SqlParameter("@AccountType", acctype.Type);
-            int res = GetResult(ProcedureNames.Account.DeleteAccountType, p);
-            if (res > 0)
-            {
-                result = true;
-            }
-            return result;
+            var status = GetValue<int>(ProcedureNames.Account.DeleteAccountType,
+            new SqlParameter("@AccId", acctype.Id),
+            new SqlParameter("@AccountType", acctype.Type)
+            );
+            return status;
         }
-
     }
 }
