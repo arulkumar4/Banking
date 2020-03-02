@@ -43,7 +43,10 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="IBankDal.cs" />
+    <Compile Include="IBranchDal.cs" />
     <Compile Include="ICityDal.cs" />
+    <Compile Include="IEmployeeDal.cs" />
+    <Compile Include="IManagerDal.cs" />
     <Compile Include="ITransaction\ITransactionTypeDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

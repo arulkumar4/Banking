@@ -6,10 +6,7 @@ namespace Banking.Business
     public class BankBl : IBankBl
     {
         private readonly IBankDal _bankDal;
-
-        public BankBl() { }
-        
-
+        public BankBl() { }  
         public BankBl(IBankDal bankDal)
         {
             _bankDal = bankDal;

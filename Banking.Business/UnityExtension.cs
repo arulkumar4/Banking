@@ -13,7 +13,11 @@ namespace Banking.Business
         {
             Container.RegisterType<IBankDal, BankDal>();
             Container.RegisterType<ICityDal, CityDal>();
+            Container.RegisterType<IBranchDal, BranchDal>();
+            Container.RegisterType<IManagerDal, ManagerDal>();
+            Container.RegisterType<IEmployeeDal, EmployeeDal>();
             Container.RegisterType<ITransactionTypeDal, TransactionTypeDal>();
+
         }
     }
 }

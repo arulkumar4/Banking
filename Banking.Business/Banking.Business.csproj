@@ -61,7 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BankBl.cs" />
+    <Compile Include="BranchBl.cs" />
     <Compile Include="CityBl.cs" />
+    <Compile Include="EmployeeBl.cs" />
+    <Compile Include="ManagerBl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transaction\TransactionTypeBl.cs" />
     <Compile Include="UnityExtension.cs" />

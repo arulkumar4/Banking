@@ -20,17 +20,17 @@ namespace Banking.Business
             return _cityDal.GetCities();
         }
 
-        public bool AddCity(City city)
+        public int AddCity(City city)
         {
             return _cityDal.AddCity(city);
         }
 
-        public bool UpdateCity(int id, City city)
+        public int UpdateCity(int id, City city)
         {
             return _cityDal.UpdateCity(id, city);
         }
 
-        public bool DeleteCity(int id)
+        public int DeleteCity(int id)
         {
             return _cityDal.DeleteCity(id);
         }
