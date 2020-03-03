@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Banking.Business.Models.Transaction;
+using Banking.Business.Models.TransactionModels;
 
 namespace Banking.DataAccess.Contracts.ITransaction
 {
    public interface ITransactionDAL
     {
-        List<TransactionClass> DebitTransaction(TransactionClass transaction);
-        List<TransactionClass> GetAllTransactions(string AccountId);
+        List<MTransaction> DebitTransaction(MTransaction transaction);
+        List<MTransaction> GetAllTransactions(string AccountId);
     }
 }

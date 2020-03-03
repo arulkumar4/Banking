@@ -46,6 +46,7 @@
             public const string GetAllTransactions = "[Transaction].GetAllTransactions";
 
             public const string DoPayment = "[Transaction].AccountPayment";
+            public const string GetAllPayments = "[Transaction].GetAllPayments";
         }
 
     }

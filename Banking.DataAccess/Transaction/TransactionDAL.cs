@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Banking.Business.Models.Transaction;
+using Banking.Business.Models.TransactionModels;
 using Banking.DataAccess.Contracts.ITransaction;
 using System.Data;
 using System.Data.SqlClient;
@@ -13,14 +13,16 @@ namespace Banking.DataAccess.Transaction
 {
     public class TransactionDAL : BaseDal, ITransactionDAL
     {
-        public List<TransactionClass> DebitTransaction(TransactionClass transaction)
+        public List<MTransaction> DebitTransaction(MTransaction transaction)
         {
-            List<TransactionClass> transactionClass = new List<TransactionClass>();
-            var dataset = GetDataset(ProcedureNames.Transaction.DebitTransaction, new SqlParameter("@TransferAmmount", transaction.TransferAmount)
-                                        , new SqlParameter("@SenderName", transaction.SenderName), 
+            List<MTransaction> _transaction = new List<MTransaction>();
+            var dataset = GetDataset(ProcedureNames.Transaction.DebitTransaction, 
+                                        new SqlParameter("@TransferAmmount", transaction.TransferAmount),
+                                        new SqlParameter("@SenderName", transaction.SenderName), 
                                         new SqlParameter("@ReciverName", transaction.ReceiverName),
-                                         new SqlParameter("@AccountId", transaction.AccountId),
-                                          new SqlParameter("@TransactionTypeId", transaction.TransactionTypeId));
+                                        new SqlParameter("@AccountId", transaction.AccountId),
+                                        new SqlParameter("@TransactionTypeId", transaction.TransactionTypeId),
+                                        new SqlParameter("@ReciverAccountId", transaction.ReciverAccountId));
 
             using (dataset)
             {
@@ -29,15 +31,15 @@ namespace Banking.DataAccess.Transaction
 
                 foreach (var typeRow in transactiontableDetail)
                 {
-                    transactionClass.Add(PopulateData<TransactionClass>(typeRow));
+                    _transaction.Add(PopulateData<MTransaction>(typeRow));
                 }
             }
-            return transactionClass;
+            return _transaction;
         }
 
-        public List<TransactionClass> GetAllTransactions(string AccountId)
+        public List<MTransaction> GetAllTransactions(string AccountId)
         {
-            List<TransactionClass> transactionClass = new List<TransactionClass>();
+            List<MTransaction> _transaction = new List<MTransaction>();
            
 
             using (var dataset = GetDataset(ProcedureNames.Transaction.GetAllTransactions, new SqlParameter("@AccountId",AccountId)))
@@ -47,10 +49,10 @@ namespace Banking.DataAccess.Transaction
 
                 foreach (var typeRow in transactiontableDetail)
                 {
-                    transactionClass.Add(PopulateData<TransactionClass>(typeRow));
+                    _transaction.Add(PopulateData<MTransaction>(typeRow));
                 }
             }
-            return transactionClass;
+            return _transaction;
         }
     }
 }

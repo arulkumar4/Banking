@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using Banking.Business.Contracts.Transaction;
-using Banking.Business.Models.Transaction;
+using Banking.Business.Models.TransactionModels;
 
 namespace Banking.WebApi.Controllers.Transaction
 {
@@ -17,9 +17,15 @@ namespace Banking.WebApi.Controllers.Transaction
 
         [Route("DoPayment")]
         [HttpGet]
-        public IHttpActionResult GetTransactionTypes(PaymentClass payment )
+        public IHttpActionResult GetTransactionTypes(Payment payment )
         {
             return Ok(_paymentBl.DoPayment(payment));
+        }
+        [Route("GetAllPayments")]
+        [HttpGet]
+        public IHttpActionResult GetAllPayments(String accountId)
+        {
+            return Ok(_paymentBl.GetAllPayments(accountId));
         }
     }
 }
