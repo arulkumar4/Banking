@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Banking.DataAccess.Contracts.ITransaction;
 using Banking.Business.Models;
-using Banking.Business.Models.Transaction;
+using Banking.Business.Models.TransactionModels;
 using System.Data;
 using System.Data.SqlClient;
 

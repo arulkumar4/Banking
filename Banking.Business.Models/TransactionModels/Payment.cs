@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Banking.Business.Models.Transaction
+namespace Banking.Business.Models.TransactionModels
 {
-    public class PaymentClass
+    public class Payment
     {
         public string  Id { get; set; }
         public string Type { get; set; }
@@ -21,5 +21,6 @@ namespace Banking.Business.Models.Transaction
         public string status { get; set; }
 
         public string AccountId { get; set; }
+        public DateTime Date { get; set; }
     }
 }

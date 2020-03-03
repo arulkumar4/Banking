@@ -1,4 +1,4 @@
-﻿using Banking.Business.Models.Transaction;
+﻿using Banking.Business.Models.TransactionModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

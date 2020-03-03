@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Banking.Business.Models.Transaction
+namespace Banking.Business.Models.TransactionModels
 {
-    public class TransactionClass
+    public class MTransaction
      {
     
         public string Id { get; set; }
@@ -19,5 +19,7 @@ namespace Banking.Business.Models.Transaction
         public string status { get; set; }
         public string AccountId { get; set; }
         public string TransactionTypeId { get; set; }
+
+        public String ReciverAccountId { get; set; }
     }
 }
