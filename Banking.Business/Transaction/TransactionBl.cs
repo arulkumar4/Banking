@@ -19,6 +19,11 @@ namespace Banking.Business.Transaction
             return _transactionDal.DebitTransaction(transaction);
         }
 
+        public List<MTransaction> GetAllAccountTransfers(string AccountId)
+        {
+            return _transactionDal.GetAllAccountTransfers(AccountId);
+        }
+
         public List<MTransaction> GetAllTransactions(string AccountId)
         {
             return _transactionDal.GetAllTransactions(AccountId);

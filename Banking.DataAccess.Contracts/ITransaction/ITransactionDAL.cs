@@ -11,5 +11,6 @@ namespace Banking.DataAccess.Contracts.ITransaction
     {
         List<MTransaction> DebitTransaction(MTransaction transaction);
         List<MTransaction> GetAllTransactions(string AccountId);
+        List<MTransaction> GetAllAccountTransfers(string AccountId);
     }
 }

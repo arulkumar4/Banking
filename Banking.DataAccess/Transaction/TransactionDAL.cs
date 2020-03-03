@@ -37,6 +37,25 @@ namespace Banking.DataAccess.Transaction
             return _transaction;
         }
 
+        public List<MTransaction> GetAllAccountTransfers(string AccountId)
+        {
+            List<MTransaction> _transaction = new List<MTransaction>();
+
+
+            using (var dataset = GetDataset(ProcedureNames.Transaction.GetAllAccountTransfers, 
+                                                        new SqlParameter("@AccountId", AccountId)))
+            {
+                var transactiontable = dataset.Tables[0];
+                var transactiontableDetail = transactiontable.AsEnumerable();
+
+                foreach (var typeRow in transactiontableDetail)
+                {
+                    _transaction.Add(PopulateData<MTransaction>(typeRow));
+                }
+            }
+            return _transaction;
+        }
+
         public List<MTransaction> GetAllTransactions(string AccountId)
         {
             List<MTransaction> _transaction = new List<MTransaction>();

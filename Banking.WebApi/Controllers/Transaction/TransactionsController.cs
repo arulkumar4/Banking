@@ -28,6 +28,14 @@ namespace Banking.WebApi.Controllers.Transaction
         {
             return Ok(_transactionBl.DebitTransaction(transaction));
         }
-       
+
+        [Route("GetAllAccountTransfers")]
+        [HttpGet]
+        public IHttpActionResult GetAllAccountTransfers(string AccountId)
+        {
+            return Ok(_transactionBl.GetAllAccountTransfers(AccountId));
+        }
+
+
     }
 }
