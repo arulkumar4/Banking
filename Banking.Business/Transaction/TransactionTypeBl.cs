@@ -10,19 +10,13 @@ namespace Banking.Business.Transaction
         public readonly ITransactionTypeDal _transactionTypeDal;
         public TransactionTypeBl(ITransactionTypeDal transactionTypeDal) => _transactionTypeDal = transactionTypeDal;
 
-        public List<TransactionType> GetTransactionTypes()
-        {
-            return _transactionTypeDal.GetTransactionTypes();
-        }
+        public List<TransactionType> GetTransactionTypes() =>_transactionTypeDal.GetTransactionTypes();
+        
 
-        public int InsertTransactionType(TransactionType transactionType)
-        {
-           return _transactionTypeDal.InsertTransactionType(transactionType);
-        }
-
-        public int UpdateTransactionType(TransactionType[] transactionType)
-        {
-            return _transactionTypeDal.UpdateTransactionType(transactionType);
-        }
+        public int InsertTransactionType(TransactionType transactionType) =>                                                        _transactionTypeDal.InsertTransactionType(transactionType);
+       
+        public int UpdateTransactionType(TransactionType[] transactionType) =>
+                               _transactionTypeDal.UpdateTransactionType(transactionType);
+       
     }
 }
