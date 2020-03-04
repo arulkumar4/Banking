@@ -15,14 +15,12 @@ namespace Banking.Business.Transaction
         public readonly IpaymentDAL _paymentDAL;
         public PaymentBl(IpaymentDAL paymentDAL) => _paymentDAL = paymentDAL;
 
-        public List<Payment> DoPayment(Payment payment)
-        {
-            return _paymentDAL.DoPayment(payment);
-        }
+        public List<Payment> DoPayment(Payment payment) =>
+                                 _paymentDAL.DoPayment(payment);
 
-        public List<Payment> GetAllPayments(string accountId)
-        {
-            return _paymentDAL.GetAllPayments(accountId);
-        }
+
+        public List<Payment> GetAllPayments(string accountId) =>
+                                 _paymentDAL.GetAllPayments(accountId);
+
     }
 }

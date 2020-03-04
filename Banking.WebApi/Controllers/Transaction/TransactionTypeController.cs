@@ -20,22 +20,19 @@ namespace Banking.WebApi.Controllers.Transaction
         [Route("GetAllTypes")]
         [HttpGet]
         public IHttpActionResult GetTransactionTypes()
-        {
-            return Ok(_transactionTypeBl.GetTransactionTypes());
-        }
+                                => Ok(_transactionTypeBl.GetTransactionTypes());
+
         [Route("InsertType")]
         [HttpPost]
         public IHttpActionResult AddTransaction([FromBody]TransactionType transactionType)
-        {
-            return Ok(_transactionTypeBl.InsertTransactionType(transactionType));
-        }
+                                =>Ok(_transactionTypeBl.InsertTransactionType(transactionType));
+
 
         [Route("UpdateType")]
         [HttpPut]
         public IHttpActionResult UpdateTransaction([FromBody] TransactionType[] transactionType )
-        {
-            return Ok(_transactionTypeBl.UpdateTransactionType(transactionType));
-        }
+                                => Ok(_transactionTypeBl.UpdateTransactionType(transactionType));
+
 
     }
 }

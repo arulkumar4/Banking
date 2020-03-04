@@ -18,23 +18,20 @@ namespace Banking.WebApi.Controllers.Transaction
         [Route("GetAllTransactions")]
         [HttpGet]
         public IHttpActionResult GetAllTransactions(string AccountId)
-        {
-            return Ok(_transactionBl.GetAllTransactions(AccountId));
-        }
+                  => Ok(_transactionBl.GetAllTransactions(AccountId));
+        
 
         [Route("DebitTransaction")]
         [HttpGet]
         public IHttpActionResult DebitTransaction(MTransaction transaction)
-        {
-            return Ok(_transactionBl.DebitTransaction(transaction));
-        }
+                  => Ok(_transactionBl.DebitTransaction(transaction));
+        
 
         [Route("GetAllAccountTransfers")]
         [HttpGet]
         public IHttpActionResult GetAllAccountTransfers(string AccountId)
-        {
-            return Ok(_transactionBl.GetAllAccountTransfers(AccountId));
-        }
+                  => Ok(_transactionBl.GetAllAccountTransfers(AccountId));
+      
 
 
     }

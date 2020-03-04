@@ -14,19 +14,16 @@ namespace Banking.Business.Transaction
     {
         public readonly ITransactionDAL _transactionDal;
         public TransactionBl(ITransactionDAL transactionDal) => _transactionDal = transactionDal;
-        public List<MTransaction> DebitTransaction(MTransaction transaction)
-        {
-            return _transactionDal.DebitTransaction(transaction);
-        }
+        public List<MTransaction> DebitTransaction(MTransaction transaction) =>
+                                       _transactionDal.DebitTransaction(transaction);
+ 
 
-        public List<MTransaction> GetAllAccountTransfers(string AccountId)
-        {
-            return _transactionDal.GetAllAccountTransfers(AccountId);
-        }
+        public List<MTransaction> GetAllAccountTransfers(string AccountId) =>
+                                       _transactionDal.GetAllAccountTransfers(AccountId);
+       
 
-        public List<MTransaction> GetAllTransactions(string AccountId)
-        {
-            return _transactionDal.GetAllTransactions(AccountId);
-        }
+        public List<MTransaction> GetAllTransactions(string AccountId) =>
+                                       _transactionDal.GetAllTransactions(AccountId);
+        
     }
 }

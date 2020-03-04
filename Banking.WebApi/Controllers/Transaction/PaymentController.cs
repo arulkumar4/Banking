@@ -18,14 +18,12 @@ namespace Banking.WebApi.Controllers.Transaction
         [Route("DoPayment")]
         [HttpGet]
         public IHttpActionResult GetTransactionTypes(Payment payment )
-        {
-            return Ok(_paymentBl.DoPayment(payment));
-        }
+                    => Ok(_paymentBl.DoPayment(payment));
+
         [Route("GetAllPayments")]
         [HttpGet]
         public IHttpActionResult GetAllPayments(String accountId)
-        {
-            return Ok(_paymentBl.GetAllPayments(accountId));
-        }
+                    => Ok(_paymentBl.GetAllPayments(accountId));
+
     }
 }
