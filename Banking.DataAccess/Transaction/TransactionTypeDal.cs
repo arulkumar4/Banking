@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace Banking.DataAccess.Transaction
 {
-    public class TransactionTypeDal : BaseDal
+    public class TransactionTypeDal : BaseDal,ITransactionTypeDal
     {
         public List<TransactionType> GetTransactionTypes()
         {
