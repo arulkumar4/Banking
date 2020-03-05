@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Banking.DataAccess.Contracts.ITransaction;
 using Banking.Business.Models;
-using Banking.Business.Models.Transaction;
+using Banking.Business.Models.TransactionModels;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -30,9 +30,11 @@ namespace Banking.DataAccess.Transaction
          
         }
 
-        public bool InsertTransactionType(TransactionType transactionType)
+        public int InsertTransactionType(TransactionType transactionType)
         {
-            throw new NotImplementedException();
+            var res = GetValue<int>(ProcedureNames.Transaction.InsertTransactionType, new SqlParameter("@TType", transactionType.Type));
+           
+            return res;
         }
 
         //public bool InsertTransactionType(TransactionType transactionType)
@@ -61,5 +63,13 @@ namespace Banking.DataAccess.Transaction
         //    }
         //    return result;
         //}
+           
+         
+       public int UpdateTransactionType(TransactionType[] transactionType)
+        {
+            int res = GetValue<int>(ProcedureNames.Transaction.UpdateTransactionType, new SqlParameter("@oldType", transactionType[0].Type), new SqlParameter("@newType", transactionType[1].Type));
+           
+            return res;
+        }
     }
 }

@@ -18,8 +18,9 @@ namespace Banking.Business
             Container.RegisterType<IBranchDal, BranchDal>();
             Container.RegisterType<IManagerDal, ManagerDal>();
             Container.RegisterType<IEmployeeDal, EmployeeDal>();
-            //Container.RegisterType<ITransactionTypeDal, TransactionTypeDal>();
-
+            Container.RegisterType<ITransactionTypeDal, TransactionTypeDal>();
+            Container.RegisterType<ITransactionDAL, TransactionDAL>();
+            Container.RegisterType<IpaymentDAL, PaymentDAL>();
             Container.RegisterType<IAccountDal, AccountDal>();
             Container.RegisterType<IAccountTypeDal, AccountTypeDal>();
             Container.RegisterType<ICustomerDal, CustomerDal>();

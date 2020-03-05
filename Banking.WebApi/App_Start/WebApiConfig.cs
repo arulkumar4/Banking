@@ -28,10 +28,13 @@ namespace Banking.WebApi
             container.RegisterType<IBranchBl, BranchBl>(new HierarchicalLifetimeManager());
             container.RegisterType<IManagerBl, ManagerBl>(new HierarchicalLifetimeManager());
             container.RegisterType<IEmployeeBl, EmployeeBl>(new HierarchicalLifetimeManager());
-          container.RegisterType<ITransactionTypeBl, TransactionTypeBl>(new HierarchicalLifetimeManager());
+            container.RegisterType<ITransactionTypeBl, TransactionTypeBl>(new HierarchicalLifetimeManager());
             container.RegisterType<IAccountBl, AccountBl>(new HierarchicalLifetimeManager());
             container.RegisterType<IAccountTypeBl, AccountTypeBl>(new HierarchicalLifetimeManager());
             container.RegisterType<ICustomerBl, CustomerBl>(new HierarchicalLifetimeManager());
+            container.RegisterType<ITransactionBl, TransactionBl>(new HierarchicalLifetimeManager());
+            container.RegisterType<IpaymentBl, PaymentBl>(new HierarchicalLifetimeManager());
+
             config.DependencyResolver = new UnityResolver(container);
             container.AddNewExtension<UnityExtension>();
         }

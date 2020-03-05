@@ -50,7 +50,9 @@
     <Compile Include="Bank\Employee.cs" />
     <Compile Include="Bank\Manager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Transaction\TransactionType.cs" />
+    <Compile Include="TransactionModels\Payment.cs" />
+    <Compile Include="TransactionModels\MTransaction.cs" />
+    <Compile Include="TransactionModels\TransactionType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

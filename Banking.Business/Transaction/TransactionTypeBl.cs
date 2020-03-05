@@ -1,5 +1,5 @@
 ﻿using Banking.Business.Contracts.Transaction;
-using Banking.Business.Models.Transaction;
+using Banking.Business.Models.TransactionModels;
 using Banking.DataAccess.Contracts.ITransaction;
 using System.Collections.Generic;
 
@@ -10,19 +10,13 @@ namespace Banking.Business.Transaction
         public readonly ITransactionTypeDal _transactionTypeDal;
         public TransactionTypeBl(ITransactionTypeDal transactionTypeDal) => _transactionTypeDal = transactionTypeDal;
 
-        public List<TransactionType> GetTransactionTypes()
-        {
-            return _transactionTypeDal.GetTransactionTypes();
-        }
+        public List<TransactionType> GetTransactionTypes() =>_transactionTypeDal.GetTransactionTypes();
+        
 
-        public bool InsertTransactionType(TransactionType transactionType)
-        {
-           return _transactionTypeDal.InsertTransactionType(transactionType);
-        }
-
-        public bool UpdateTransactionType(TransactionType transactionType, TransactionType transactiontype)
-        {
-            return _transactionTypeDal.UpdateTransactionType(transactionType , transactiontype);
-        }
+        public int InsertTransactionType(TransactionType transactionType) =>                                                        _transactionTypeDal.InsertTransactionType(transactionType);
+       
+        public int UpdateTransactionType(TransactionType[] transactionType) =>
+                               _transactionTypeDal.UpdateTransactionType(transactionType);
+       
     }
 }

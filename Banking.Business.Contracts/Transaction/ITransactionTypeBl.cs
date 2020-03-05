@@ -1,4 +1,4 @@
-﻿using Banking.Business.Models.Transaction;
+﻿using Banking.Business.Models.TransactionModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +10,8 @@ namespace Banking.Business.Contracts.Transaction
    public interface ITransactionTypeBl
     {
         List<TransactionType> GetTransactionTypes();
-        bool InsertTransactionType(TransactionType transactionType);
-        bool UpdateTransactionType(TransactionType transactionType, TransactionType transactiontype);
+        int InsertTransactionType(TransactionType transactionType);
+        int UpdateTransactionType(TransactionType[] transactionType);
 
     }
 }

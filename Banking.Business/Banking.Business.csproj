@@ -69,6 +69,8 @@
     <Compile Include="EmployeeBl.cs" />
     <Compile Include="ManagerBl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transaction\PaymentBl.cs" />
+    <Compile Include="Transaction\TransactionBl.cs" />
     <Compile Include="Transaction\TransactionTypeBl.cs" />
     <Compile Include="UnityExtension.cs" />
   </ItemGroup>

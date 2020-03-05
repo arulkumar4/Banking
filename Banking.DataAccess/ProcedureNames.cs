@@ -44,8 +44,13 @@ namespace Banking.DataAccess
             public const string InsertTransactionType = "[Transaction].InsertTransactionType";
             public const string UpdateTransactionType = "[Transaction].UpdateTransactionType";
 
+            public const string DebitTransaction = "[Transaction].DebitTransaction";
+            public const string GetAllTransactions = "[Transaction].GetAllTransactions";
+            public const string GetAllAccountTransfers = "[Transaction].AccountTransaction";
+
+            public const string DoPayment = "[Transaction].AccountPayment";
+            public const string GetAllPayments = "[Transaction].GetAllPayments";
         }
-        
         public class Account
         {
             public const string GetOneCustomerDetails = "[Account].[GetOneCustomerDetails]";

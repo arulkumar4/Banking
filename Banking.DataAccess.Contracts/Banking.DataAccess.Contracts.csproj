@@ -50,6 +50,8 @@
     <Compile Include="ICityDal.cs" />
     <Compile Include="IEmployeeDal.cs" />
     <Compile Include="IManagerDal.cs" />
+    <Compile Include="ITransaction\IpaymentDAL.cs" />
+    <Compile Include="ITransaction\ITransactionDAL.cs" />
     <Compile Include="ITransaction\ITransactionTypeDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
