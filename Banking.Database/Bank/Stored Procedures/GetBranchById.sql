@@ -1,0 +1,13 @@
+﻿CREATE   PROCEDURE [Bank].[GetBranchById]
+(
+	@Id INT
+)
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+
+	SELECT * FROM [BANK].Branch
+	WHERE Id=@Id
+
+END
