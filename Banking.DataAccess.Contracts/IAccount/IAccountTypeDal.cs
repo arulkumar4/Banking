@@ -7,8 +7,8 @@ namespace Banking.DataAccess.Contracts.IAccount
     {
         List<AccountType> GetAllAccountType();
         List<AccountType> GetOneAccountType(int accounttypeId, string accounttypeName);
-        int AddNewAccountType(AccountType acctype);
-        int UpdateAccountType(AccountType acctype);
-        int DeleteAccountType(AccountType acctype);
+        string AddNewAccountType(AccountType acctype);
+        string UpdateAccountType(AccountType acctype);
+        string DeleteAccountType(AccountType acctype);
     }
 }

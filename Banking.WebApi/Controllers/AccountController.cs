@@ -34,6 +34,7 @@ namespace Banking.WebApi.Controllers
         [Route("api/Account/GetAccountByAcountType")]
         [HttpGet]
         public IHttpActionResult GetAccountByAcountType(string acccountType)
+        
         {
             return Ok(_accountbl.GetAccountbyAccountType(acccountType));
         }
@@ -53,20 +54,19 @@ namespace Banking.WebApi.Controllers
         {
             return Ok(_accountbl.GetCustomerByAccountStatus(status));
         }
-
-        // GET: api/DeleteAccount/string/
+        // GET: api/UpdateAccountPassword
+        [Route("api/Account/UpdateAccountPassword")]
+        [HttpPut]
+        public IHttpActionResult UpdateAccountPassword(long accnumber, string oldpassword, string newpassword)
+        {
+            return Ok(_accountbl.UpdateAccountPassword(accnumber, oldpassword, newpassword));
+        }
+        // GET: api/DeleteAccount/string
         [Route("api/Account/DeleteAccount")]
         [HttpDelete]
         public IHttpActionResult DeleteAccount([FromBody]CustomerAccount account)
         {
             return Ok(_accountbl.DeleteCustomerAccount(account));
-        }
-        // GET: api/DeleteAccount/
-        [Route("api/AccountDeleteAccountByBalance")]
-        [HttpDelete]
-        public IHttpActionResult DeleteAccountByBalance()
-        {
-            return Ok(_accountbl.DeleteAccountByBalance());
         }
 
     }

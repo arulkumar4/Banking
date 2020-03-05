@@ -39,19 +39,19 @@ namespace Banking.DataAccess.Account
             }
             return acctype;
         }
-        public int AddNewAccountType(AccountType acctype)
+        public string AddNewAccountType(AccountType acctype)
         {
-            var status = GetValue<int>(ProcedureNames.Account.InsertNewAccountType,
+            var status = GetValue<string>(ProcedureNames.Account.InsertNewAccountType,
             new SqlParameter("@AccountType", acctype.Type),
             new SqlParameter("@MinimumBalance", acctype.MinimumBalance),
             new SqlParameter("@TransactionLimit", acctype.TransactionLimit)
             );
             return status;
         }
-        public int UpdateAccountType(AccountType acctype)
+        public string UpdateAccountType(AccountType acctype)
         {
             
-            var status = GetValue<int>(ProcedureNames.Account.UpdateAccountType,
+            var status = GetValue<string>(ProcedureNames.Account.UpdateAccountType,
             new SqlParameter("@AccId", acctype.Id),
             new SqlParameter("@AccountType", acctype.Type),
             new SqlParameter("@MinimumBalance", acctype.MinimumBalance),
@@ -59,9 +59,9 @@ namespace Banking.DataAccess.Account
             );
             return status;
         }
-        public int DeleteAccountType(AccountType acctype)
+        public string DeleteAccountType(AccountType acctype)
         {
-            var status = GetValue<int>(ProcedureNames.Account.DeleteAccountType,
+            var status = GetValue<string>(ProcedureNames.Account.DeleteAccountType,
             new SqlParameter("@AccId", acctype.Id),
             new SqlParameter("@AccountType", acctype.Type)
             );

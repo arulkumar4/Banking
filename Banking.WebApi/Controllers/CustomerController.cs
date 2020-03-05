@@ -28,14 +28,7 @@ namespace Banking.WebApi.Controllers
         {
             return Ok(_customerbl.AddNewCustomer(customer));
         }
-        // Post: api/Customer/AddCustomerByEmployee
-        //[Route("api/Customer/AddNewCustomerByEmployee")]
-        //[HttpPost]
-        //public IHttpActionResult AddNewCustomerByEmployee([FromBody]Customer customer)
-        //{
-        //    return Ok(_customerbl.AddNewCustomerByEmployee(customer));
-        //}
-        // PUT: api/Customer/UpdateCustomerDetails
+        
         [Route("api/Customer/UpdateCustomerDetails")]
         [HttpPut]
         public IHttpActionResult UpdateCustomerDetails([FromBody]Customer customer)

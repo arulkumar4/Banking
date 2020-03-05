@@ -10,9 +10,9 @@ namespace Banking.Business.Models.Account
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public decimal Balance { get; set; }
-        public int AccountType { get; set; }
+        public string AccountType { get; set; }
         public int AccountTypeId { get; set; }
-        public bool AccountStatus { get; set; }
+        public bool Status { get; set; }
         public DateTime OpenDate { get; set; }
         public string ContactNumber { get; set; }
         public string Mail { get; set; }

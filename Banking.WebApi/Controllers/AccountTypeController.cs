@@ -47,7 +47,7 @@ namespace Banking.WebApi.Controllers
         }
 
         // DELETE: api/AccountType
-        [Route("api/AccountTypeController/GetAllAccountType")]
+        [Route("api/AccountTypeController/DeleteAccountType")]
         [HttpDelete]
         public IHttpActionResult DeleteAccountType([FromBody]AccountType acctype)
         {

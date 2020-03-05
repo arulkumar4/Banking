@@ -20,12 +20,12 @@ namespace Banking.Business.Account
         {
             return _customerDal.GetCustomerDetails(customerId, accountNo);
         }
-        public int AddNewCustomer(Customer customer)
+        public string AddNewCustomer(Customer customer)
         {
             return _customerDal.AddNewCustomer(customer);
         }
 
-        public int UpdateCustomerDetails(Customer customer)
+        public string UpdateCustomerDetails(Customer customer)
         {
             return _customerDal.UpdateCustomerDetails(customer);
         }

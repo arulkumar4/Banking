@@ -72,7 +72,7 @@ namespace Banking.DataAccess.Account
         public List<CustomerAccount> GetCustomerByAccountStatus(bool status)
         {
             List<CustomerAccount> CustomerAcc = new List<CustomerAccount>();
-            using (var dataset = GetDataset(ProcedureNames.Account.GetCustomersByAccountStatus))
+            using (var dataset = GetDataset(ProcedureNames.Account.GetCustomersByAccountStatus, status))
             {
                 var accountTable = dataset.Tables[0];
                 var accountTableDetail = accountTable.AsEnumerable();
@@ -84,9 +84,19 @@ namespace Banking.DataAccess.Account
             }
             return CustomerAcc;
         }
-        public int DeleteCustomerAccount(CustomerAccount account)
+        public string UpdateAccountPassword(long accnumber, string oldpassword, string newpassword)
         {
-            var status = GetValue<int>(ProcedureNames.Account.DeleteCustomerAccount,
+            var status = GetValue<string>(ProcedureNames.Account.UpdateAccountPassword,
+            new SqlParameter("@Number", accnumber),
+            new SqlParameter("@OldPassword", oldpassword),
+            new SqlParameter("@NewPassword", newpassword)
+            );
+            return status;
+        }
+
+        public string DeleteCustomerAccount(CustomerAccount account)
+        {
+            var status = GetValue<string>(ProcedureNames.Account.DeleteCustomerAccount,
             new SqlParameter("@Number", account.Number),
             new SqlParameter("@Password", account.Password)
             );

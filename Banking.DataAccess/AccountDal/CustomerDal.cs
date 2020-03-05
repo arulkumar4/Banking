@@ -24,25 +24,27 @@ namespace Banking.DataAccess.Account
             }
             return CustomerAcc;
         }
-        public int AddNewCustomer(Customer customer)
+        public string AddNewCustomer(Customer customer)
         {
-                var status = GetValue<int>(ProcedureNames.Account.AddNewCustomers,
+                var status = GetValue<string>(ProcedureNames.Account.AddNewCustomers,
                 new SqlParameter("@FirstName", customer.FirstName),
                 new SqlParameter("@LastName", customer.LastName),
                 new SqlParameter("@Address", customer.Address),
                 new SqlParameter("@ContactNumber", customer.ContactNumber),
                 new SqlParameter("@Gender", customer.Gender),
-                new SqlParameter("@Gender", customer.Gender),
                 new SqlParameter("@Dob", customer.Dob),
+                new SqlParameter("@Mail", customer.Mail),
+                new SqlParameter("@Balance", customer.Balance),
                 new SqlParameter("@Password", customer.Password),
-                new SqlParameter("@AccType", customer.AccountTypeId)
+                new SqlParameter("@AccType", customer.AccountType),
+                new SqlParameter("@EmpId", customer.EmployeeId)
                 );
                 return status;
         }
 
-        public int UpdateCustomerDetails(Customer customer)
+        public string UpdateCustomerDetails(Customer customer)
         {
-            var status = GetValue<int>(ProcedureNames.Account.UpdateCustomerDetails,
+            var status = GetValue<string>(ProcedureNames.Account.UpdateCustomerDetails,
             new SqlParameter("@CustomerId", customer.CustomerId),
             new SqlParameter("@Password", customer.Password),
             new SqlParameter("@FirstName", customer.FirstName),
@@ -52,7 +54,6 @@ namespace Banking.DataAccess.Account
             new SqlParameter("@Mail", customer.Mail)
             );
             return status;
-        }
-        
+        }        
     }
 }

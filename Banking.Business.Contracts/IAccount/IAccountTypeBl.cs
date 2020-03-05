@@ -7,9 +7,9 @@ namespace Banking.Business.Contracts.IAccount
     {
         List<AccountType> GetAllAccountType();
         List<AccountType> GetOneAccountType(int accounttypeId, string accounttypeName);
-        bool AddNewAccountType(AccountType acctype);
-        bool UpdateAccountType(AccountType acctype);
-        bool DeleteAccountType(AccountType acctype);
+        string AddNewAccountType(AccountType acctype);
+        string UpdateAccountType(AccountType acctype);
+        string DeleteAccountType(AccountType acctype);
 
     }
 }

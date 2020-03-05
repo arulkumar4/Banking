@@ -10,6 +10,7 @@ namespace Banking.Business.Contracts.IAccount
         List<CustomerAccount> GetAccountbyAccountType(string accountType);
         List<CustomerAccount> GetAccountByBalance(decimal balance);
         List<CustomerAccount> GetCustomerByAccountStatus(bool status);
-        bool DeleteCustomerAccount(CustomerAccount account);
+        string UpdateAccountPassword(long accnumber, string oldpassword, string newpassword);
+        string DeleteCustomerAccount(CustomerAccount account);
     }
 }

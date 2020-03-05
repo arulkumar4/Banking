@@ -26,15 +26,15 @@ namespace Banking.Business.Account
         {
             return _accountTypeDal.GetOneAccountType(acctypeId,accType);
         }
-        public bool AddNewAccountType(AccountType acctype)
+        public string AddNewAccountType(AccountType acctype)
         {
             return _accountTypeDal.AddNewAccountType(acctype);
         }
-        public bool UpdateAccountType(AccountType acctype)
+        public string UpdateAccountType(AccountType acctype)
         {
             return _accountTypeDal.UpdateAccountType(acctype);
         }
-        public bool DeleteAccountType(AccountType acctype)
+        public string DeleteAccountType(AccountType acctype)
         {
             return _accountTypeDal.DeleteAccountType(acctype);
         }

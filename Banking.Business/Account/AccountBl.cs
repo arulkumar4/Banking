@@ -39,7 +39,11 @@ namespace Banking.Business.Account
         {
             return _accountDal.GetCustomerByAccountStatus(status);
         }
-        public bool DeleteCustomerAccount(CustomerAccount account)
+        public string UpdateAccountPassword(long accnumber, string oldpassword, string newpassword)
+        {
+            return _accountDal.UpdateAccountPassword(accnumber,oldpassword,newpassword);
+        }
+        public string DeleteCustomerAccount(CustomerAccount account)
         {
             return _accountDal.DeleteCustomerAccount(account);
         }
