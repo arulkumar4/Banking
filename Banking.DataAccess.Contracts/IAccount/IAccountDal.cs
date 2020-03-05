@@ -5,12 +5,12 @@ namespace Banking.DataAccess.Contracts.IAccount
 {
     public interface IAccountDal
     {
-        List<CustomerAccount> GetAllCustomersAccount();
-        List<CustomerAccount> GetCustomerAccount(long customerId, long accountNo , string password);
-        List<CustomerAccount> GetCustomerAccountbyAccountType(string accountType);
-        List<CustomerAccount> GetCustomerAccountbyBalance(decimal balance);
-        List<CustomerAccount> GetCustomerByAccountStatus(bool status);
+        List<Customer> GetAllCustomersAccount();
+        List<Customer> GetCustomerAccount(long customerId, long accountNo , string password);
+        List<Customer> GetCustomerAccountbyAccountType(string accountType);
+        List<Customer> GetCustomerAccountbyBalance(decimal balance);
+        List<Customer> GetCustomerByAccountStatus(bool status);
         string UpdateAccountPassword(long accnumber, string oldpassword, string newpassword);
-        string DeleteCustomerAccount(CustomerAccount account);
+        string DeleteCustomerAccount(Customer account);
     }
 }

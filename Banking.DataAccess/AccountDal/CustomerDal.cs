@@ -9,9 +9,9 @@ namespace Banking.DataAccess.Account
 {
     public class CustomerDal : BaseDal, ICustomerDal
     {
-        public List<CustomerAccount> GetCustomerDetails(long customerId, long accountNo)
+        public List<Customer> GetCustomerDetails(long customerId, long accountNo)
         {
-            List<CustomerAccount> CustomerAcc = new List<CustomerAccount>();
+            List<Customer> CustomerAcc = new List<Customer>();
             using (var dataset = GetDataset(ProcedureNames.Account.GetCustomerDetails, customerId,accountNo))
             {
                 var accountTable = dataset.Tables[0];
@@ -19,7 +19,7 @@ namespace Banking.DataAccess.Account
 
                 foreach (var accountRow in accountTableDetail)
                 {
-                    CustomerAcc.Add(PopulateData<CustomerAccount>(accountRow));
+                    CustomerAcc.Add(PopulateData<Customer>(accountRow));
                 }
             }
             return CustomerAcc;

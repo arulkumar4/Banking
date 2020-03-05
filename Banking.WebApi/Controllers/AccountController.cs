@@ -64,7 +64,7 @@ namespace Banking.WebApi.Controllers
         // GET: api/DeleteAccount/string
         [Route("api/Account/DeleteAccount")]
         [HttpDelete]
-        public IHttpActionResult DeleteAccount([FromBody]CustomerAccount account)
+        public IHttpActionResult DeleteAccount([FromBody]Customer account)
         {
             return Ok(_accountbl.DeleteCustomerAccount(account));
         }

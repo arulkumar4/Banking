@@ -9,9 +9,9 @@ namespace Banking.DataAccess.Account
 {
     public class AccountDal : BaseDal, IAccountDal
     {
-        public List<CustomerAccount> GetAllCustomersAccount()
+        public List<Customer> GetAllCustomersAccount()
         {
-            List<CustomerAccount> CustomerAcc = new List<CustomerAccount>();
+            List<Customer> CustomerAcc = new List<Customer>();
             using (var dataset = GetDataset(ProcedureNames.Account.GetAllCustomers))
             {
                 var accountTable = dataset.Tables[0];
@@ -19,14 +19,14 @@ namespace Banking.DataAccess.Account
 
                 foreach (var accountRow in accountTableDetail)
                 {
-                    CustomerAcc.Add(PopulateData<CustomerAccount>(accountRow));
+                    CustomerAcc.Add(PopulateData<Customer>(accountRow));
                 }
             }
             return CustomerAcc;
         }
-        public List<CustomerAccount> GetCustomerAccount(long customerId, long accountNo, string password)
+        public List<Customer> GetCustomerAccount(long customerId, long accountNo, string password)
         {
-            List<CustomerAccount> CustomerAcc = new List<CustomerAccount>();
+            List<Customer> CustomerAcc = new List<Customer>();
             using (var dataset = GetDataset(ProcedureNames.Account.GetOneCustomerDetails, customerId, accountNo, password))
             {
                 var accountTable = dataset.Tables[0];
@@ -34,14 +34,14 @@ namespace Banking.DataAccess.Account
 
                 foreach (var accountRow in accountTableDetail)
                 {
-                    CustomerAcc.Add(PopulateData<CustomerAccount>(accountRow));
+                    CustomerAcc.Add(PopulateData<Customer>(accountRow));
                 }
             }
             return CustomerAcc;
         }
-        public List<CustomerAccount> GetCustomerAccountbyAccountType(string accountType)
+        public List<Customer> GetCustomerAccountbyAccountType(string accountType)
         {
-            List<CustomerAccount> CustomerAcc = new List<CustomerAccount>();
+            List<Customer> CustomerAcc = new List<Customer>();
             using (var dataset = GetDataset(ProcedureNames.Account.GetAccountByAccountType, accountType))
             {
                 var accountTable = dataset.Tables[0];
@@ -49,14 +49,14 @@ namespace Banking.DataAccess.Account
 
                 foreach (var accountRow in accountTableDetail)
                 {
-                    CustomerAcc.Add(PopulateData<CustomerAccount>(accountRow));
+                    CustomerAcc.Add(PopulateData<Customer>(accountRow));
                 }
             }
             return CustomerAcc;
         }
-        public List<CustomerAccount> GetCustomerAccountbyBalance(decimal balance)
+        public List<Customer> GetCustomerAccountbyBalance(decimal balance)
         {
-            List<CustomerAccount> CustomerAcc = new List<CustomerAccount>();
+            List<Customer> CustomerAcc = new List<Customer>();
             using (var dataset = GetDataset(ProcedureNames.Account.GetAccountByBalance, balance))
             {
                 var accountTable = dataset.Tables[0];
@@ -64,14 +64,14 @@ namespace Banking.DataAccess.Account
 
                 foreach (var accountRow in accountTableDetail)
                 {
-                    CustomerAcc.Add(PopulateData<CustomerAccount>(accountRow));
+                    CustomerAcc.Add(PopulateData<Customer>(accountRow));
                 }
             }
             return CustomerAcc;
         }
-        public List<CustomerAccount> GetCustomerByAccountStatus(bool status)
+        public List<Customer> GetCustomerByAccountStatus(bool status)
         {
-            List<CustomerAccount> CustomerAcc = new List<CustomerAccount>();
+            List<Customer> CustomerAcc = new List<Customer>();
             using (var dataset = GetDataset(ProcedureNames.Account.GetCustomersByAccountStatus, status))
             {
                 var accountTable = dataset.Tables[0];
@@ -79,7 +79,7 @@ namespace Banking.DataAccess.Account
 
                 foreach (var accountRow in accountTableDetail)
                 {
-                    CustomerAcc.Add(PopulateData<CustomerAccount>(accountRow));
+                    CustomerAcc.Add(PopulateData<Customer>(accountRow));
                 }
             }
             return CustomerAcc;
@@ -94,7 +94,7 @@ namespace Banking.DataAccess.Account
             return status;
         }
 
-        public string DeleteCustomerAccount(CustomerAccount account)
+        public string DeleteCustomerAccount(Customer account)
         {
             var status = GetValue<string>(ProcedureNames.Account.DeleteCustomerAccount,
             new SqlParameter("@Number", account.Number),
