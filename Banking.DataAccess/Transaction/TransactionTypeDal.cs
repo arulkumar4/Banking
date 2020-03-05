@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace Banking.DataAccess.Transaction
 {
-    public class TransactionTypeDal : BaseDal, ITransactionTypeDal
+    public class TransactionTypeDal : BaseDal
     {
         public List<TransactionType> GetTransactionTypes()
         {
@@ -32,17 +32,41 @@ namespace Banking.DataAccess.Transaction
 
         public int InsertTransactionType(TransactionType transactionType)
         {
-            
-           
             var res = GetValue<int>(ProcedureNames.Transaction.InsertTransactionType, new SqlParameter("@TType", transactionType.Type));
            
             return res;
         }
 
-        public int UpdateTransactionType(TransactionType[] transactionType)
-        {
-           
+        //public bool InsertTransactionType(TransactionType transactionType)
+        //{
+        //    bool result = false;
+        //    SqlParameter[] p = new SqlParameter[1];
+        //    p[0] = new SqlParameter("@Type",transactionType.Type);
+        //    int res = GetResult(ProcedureNames.Transaction.InsertTransactionType, p);
+        //    if (res > 0)
+        //    {
+        //        result = true;
+        //    }
+        //    return result;
+        //}
 
+        //public bool UpdateTransactionType(TransactionType transactionType, TransactionType transactiontype)
+        //{
+        //    bool result = false;
+        //    SqlParameter[] p = new SqlParameter[2];
+        //    p[0] = new SqlParameter("@Type", transactionType.Type);
+        //    p[1] = new SqlParameter("@Type", transactiontype.Type);
+        //    int res = GetResult(ProcedureNames.Transaction.UpdateTransactionType, p);
+        //    if (res > 0)
+        //    {
+        //        result = true;
+        //    }
+        //    return result;
+        //}
+           
+         
+       public int UpdateTransactionType(TransactionType[] transactionType)
+        {
             int res = GetValue<int>(ProcedureNames.Transaction.UpdateTransactionType, new SqlParameter("@oldType", transactionType[0].Type), new SqlParameter("@newType", transactionType[1].Type));
            
             return res;
