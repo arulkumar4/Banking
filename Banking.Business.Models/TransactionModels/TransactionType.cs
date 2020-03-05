@@ -9,5 +9,6 @@ namespace Banking.Business.Models.TransactionModels
     public class TransactionType
     {
         public string Type { get; set; }
+        public String Id { get; set; }
     }
 }
