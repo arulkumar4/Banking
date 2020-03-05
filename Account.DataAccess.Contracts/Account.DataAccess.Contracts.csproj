@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7BEC9AC9-BD08-455E-A43B-EA1CD37F783D}</ProjectGuid>
+    <ProjectGuid>{71A54F88-0202-42F4-A415-1A161D9AAFD5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Banking.Business.Models</RootNamespace>
-    <AssemblyName>Banking.Business.Models</AssemblyName>
+    <RootNamespace>Account.DataAccess.Contracts</RootNamespace>
+    <AssemblyName>Account.DataAccess.Contracts</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,18 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\AccountType.cs" />
-    <Compile Include="Account\CustomerAccount.cs" />
-    <Compile Include="Account\Customer.cs" />
-    <Compile Include="Bank\Address.cs" />
-    <Compile Include="Bank\Branch.cs" />
-    <Compile Include="Bank\City.cs" />
-    <Compile Include="Bank\Employee.cs" />
-    <Compile Include="Bank\Manager.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="IAccountDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TransactionModels\Payment.cs" />
-    <Compile Include="TransactionModels\MTransaction.cs" />
-    <Compile Include="TransactionModels\TransactionType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
