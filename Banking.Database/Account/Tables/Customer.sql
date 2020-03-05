@@ -7,7 +7,7 @@
     [DOB]           DATE                          NOT NULL,
     [Age]           AS                            (datediff(year,[DOB],getdate())),
     [Mail]          VARCHAR (50)                  NULL,
-    [EmployeeId]    UNIQUEIDENTIFIER              NULL,
+    [EmployeeId]    INT              NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
     CHECK ([DOB]<getdate()),
     CHECK ([Mail] like '%___@___%.__%'),

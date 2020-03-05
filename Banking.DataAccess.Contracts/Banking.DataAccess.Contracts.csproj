@@ -42,11 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="IBankDal.cs" />
-    <Compile Include="IBranchDal.cs" />
-    <Compile Include="ICityDal.cs" />
-    <Compile Include="IEmployeeDal.cs" />
-    <Compile Include="IManagerDal.cs" />
+    <Compile Include="IBank\IBankDal.cs" />
+    <Compile Include="IBank\IBranchDal.cs" />
+    <Compile Include="IBank\ICityDal.cs" />
+    <Compile Include="IBank\IEmployeeDal.cs" />
+    <Compile Include="IBank\IManagerDal.cs" />
     <Compile Include="ITransaction\IpaymentDAL.cs" />
     <Compile Include="ITransaction\ITransactionDAL.cs" />
     <Compile Include="ITransaction\ITransactionTypeDal.cs" />
