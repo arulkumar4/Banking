@@ -1,4 +1,6 @@
-﻿namespace Banking.DataAccess
+﻿using System;
+
+namespace Banking.DataAccess
 {
     public class ProcedureNames
     {
@@ -46,10 +48,26 @@
             public const string GetAllTransactions = "[Transaction].GetAllTransactions";
             public const string GetAllAccountTransfers = "[Transaction].AccountTransaction";
 
-
             public const string DoPayment = "[Transaction].AccountPayment";
             public const string GetAllPayments = "[Transaction].GetAllPayments";
         }
-
+        public class Account
+        {
+            public const string GetOneCustomerDetails = "[Account].[GetOneCustomerDetails]";
+            public const string AddNewCustomers = "[Account].[InsertCustomer]";
+            public const string UpdateCustomerDetails = "[Account].[UpdateCustomerDetails]";
+            public const string DeleteCustomerAccount = "[Account].[DeleteCustomerAccount]";
+            public const string GetAllCustomers = "[Account].[GetAllCustomers]";
+            public const string GetCustomerDetails = "[Account].[GetCustomerDetails]";
+            public const string GetAccountByAccountType = "[Account].[GetAllAccountByAccountType]";
+            public const string GetAccountByBalance = "[Account].[GetAllAccountByBalance]";
+            public const string GetCustomersByAccountStatus = "[Account].[GetAllCustomersByStatus]";
+            public const string UpdateAccountPassword = "[Account].[UpdateAccountPassword]";
+            public const string GetAccountTypesDetails = "[Account].[GetAccountTypesDetails]";
+            public const string GetOneAccountType = "[Account].[GetOneAccountType]";
+            public const string InsertNewAccountType = "[Account].[InsertNewAccountType]";
+            public const string UpdateAccountType = "[Account].[UpdateAccountType]";
+            public const string DeleteAccountType = "[Account].[DeleteAccountType]";
+        }
     }
 }

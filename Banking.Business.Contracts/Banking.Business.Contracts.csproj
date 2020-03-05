@@ -41,11 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+
+    <Compile Include="IAccount\IAccountBl.cs" />
+    <Compile Include="IAccount\IAccountTypeBl.cs" />
+    <Compile Include="IAccount\ICustomerBl.cs" />
+  
+
     <Compile Include="Bank\IBankBl.cs" />
     <Compile Include="Bank\IBranchBl.cs" />
     <Compile Include="Bank\ICityBl.cs" />
     <Compile Include="Bank\IEmployeeBl.cs" />
     <Compile Include="Bank\IManagerBl.cs" />
+
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transaction\IpaymentBl.cs" />
     <Compile Include="Transaction\ITransactionTypeBl.cs" />

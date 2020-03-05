@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A187DBF1-5416-4D49-B7BA-5D30C180F54E}</ProjectGuid>
+    <ProjectGuid>{61DBAEFC-1A3E-441C-8411-661D9C100474}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Banking.Business</RootNamespace>
-    <AssemblyName>Banking.Business</AssemblyName>
+    <RootNamespace>Account.Business</RootNamespace>
+    <AssemblyName>Account.Business</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -52,52 +52,35 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Unity.Abstractions, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.Abstractions.5.11.1\lib\net47\Unity.Abstractions.dll</HintPath>
+    <Reference Include="Unity.Abstractions, Version=5.11.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Abstractions.5.11.3\lib\net47\Unity.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Container, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.Container.5.11.1\lib\net47\Unity.Container.dll</HintPath>
+    <Reference Include="Unity.Container, Version=5.11.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Container.5.11.5\lib\net47\Unity.Container.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-
-    <Compile Include="Account\AccountBl.cs" />
-    <Compile Include="Account\AccountTypeBl.cs" />
-    <Compile Include="Account\CustomerBl.cs" />
-
-
-    <Compile Include="Bank\BankBl.cs" />
-    <Compile Include="Bank\BranchBl.cs" />
-    <Compile Include="Bank\CityBl.cs" />
-    <Compile Include="Bank\EmployeeBl.cs" />
-    <Compile Include="Bank\ManagerBl.cs" />
-
+    <Compile Include="AccountBl.cs" />
+    <Compile Include="AccountUnityExtention.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Transaction\PaymentBl.cs" />
-    <Compile Include="Transaction\TransactionBl.cs" />
-    <Compile Include="Transaction\TransactionTypeBl.cs" />
-    <Compile Include="UnityExtension.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Account.Business.Contracts\Account.Business.Contracts.csproj">
+      <Project>{df9fa0b0-4858-4378-a279-2528aed95187}</Project>
+      <Name>Account.Business.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Account.DataAccess.Contracts\Account.DataAccess.Contracts.csproj">
+      <Project>{71a54f88-0202-42f4-a415-1a161d9aafd5}</Project>
+      <Name>Account.DataAccess.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Account.DataAccess\Account.DataAccess.csproj">
+      <Project>{b98726ae-2ab4-4ef3-89a2-7e6c9d73406d}</Project>
+      <Name>Account.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Banking.Business.Contracts\Banking.Business.Contracts.csproj">
-      <Project>{6B96F49D-A18A-4036-80E0-DE5E5C7D70CC}</Project>
-      <Name>Banking.Business.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Banking.Business.Models\Banking.Business.Models.csproj">
-      <Project>{7BEC9AC9-BD08-455E-A43B-EA1CD37F783D}</Project>
-      <Name>Banking.Business.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Banking.DataAccess.Contracts\Banking.DataAccess.Contracts.csproj">
-      <Project>{A465A125-9F30-455C-B3FC-C699951D15CE}</Project>
-      <Name>Banking.DataAccess.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Banking.DataAccess\Banking.DataAccess.csproj">
-      <Project>{494F8A45-6E8A-4E0B-AD43-AF0AE875C0FA}</Project>
-      <Name>Banking.DataAccess</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
