@@ -16,7 +16,7 @@ namespace Banking.Business.Account
         {
             _customerDal = customerDal;
         }
-        public List<CustomerAccount> GetCustomerDetails(long customerId, long accountNo)
+        public List<Customer> GetCustomerDetails(long customerId, long accountNo)
         {
             return _customerDal.GetCustomerDetails(customerId, accountNo);
         }

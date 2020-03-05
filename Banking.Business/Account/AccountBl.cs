@@ -18,24 +18,24 @@ namespace Banking.Business.Account
             _accountDal = accountDal;
         }
 
-        public List<CustomerAccount> GetAllCustomerAccounts()
+        public List<Customer> GetAllCustomerAccounts()
         {
             return _accountDal.GetAllCustomersAccount();
         }
 
-        public List<CustomerAccount> GetCustomerAccounts(long customerId, long accountNo, string password)
+        public List<Customer> GetCustomerAccounts(long customerId, long accountNo, string password)
         {
             return _accountDal.GetCustomerAccount(customerId,accountNo, password);
         }
-        public List<CustomerAccount> GetAccountbyAccountType(string accountType)
+        public List<Customer> GetAccountbyAccountType(string accountType)
         {
             return _accountDal.GetCustomerAccountbyAccountType(accountType);
         }
-        public List<CustomerAccount> GetAccountByBalance(decimal balance)
+        public List<Customer> GetAccountByBalance(decimal balance)
         {
             return _accountDal.GetCustomerAccountbyBalance(balance);
         }
-        public List<CustomerAccount> GetCustomerByAccountStatus(bool status)
+        public List<Customer> GetCustomerByAccountStatus(bool status)
         {
             return _accountDal.GetCustomerByAccountStatus(status);
         }
@@ -43,7 +43,7 @@ namespace Banking.Business.Account
         {
             return _accountDal.UpdateAccountPassword(accnumber,oldpassword,newpassword);
         }
-        public string DeleteCustomerAccount(CustomerAccount account)
+        public string DeleteCustomerAccount(Customer account)
         {
             return _accountDal.DeleteCustomerAccount(account);
         }
