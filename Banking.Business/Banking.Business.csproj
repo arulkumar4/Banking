@@ -60,14 +60,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+
     <Compile Include="Account\AccountBl.cs" />
     <Compile Include="Account\AccountTypeBl.cs" />
     <Compile Include="Account\CustomerBl.cs" />
-    <Compile Include="BankBl.cs" />
-    <Compile Include="BranchBl.cs" />
-    <Compile Include="CityBl.cs" />
-    <Compile Include="EmployeeBl.cs" />
-    <Compile Include="ManagerBl.cs" />
+
+
+    <Compile Include="Bank\BankBl.cs" />
+    <Compile Include="Bank\BranchBl.cs" />
+    <Compile Include="Bank\CityBl.cs" />
+    <Compile Include="Bank\EmployeeBl.cs" />
+    <Compile Include="Bank\ManagerBl.cs" />
+
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transaction\PaymentBl.cs" />
     <Compile Include="Transaction\TransactionBl.cs" />

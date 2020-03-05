@@ -65,6 +65,7 @@
     <Folder Include="dbo\" />
     <Folder Include="dbo\User Defined Types\" />
     <Folder Include="Security\" />
+    <Folder Include="Bank\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Transaction\Tables\Payment.sql" />
@@ -84,5 +85,25 @@
     <Build Include="Security\Transaction.sql" />
     <Build Include="Security\Bank.sql" />
     <Build Include="Security\Account.sql" />
+    <Build Include="Bank\Stored Procedures\UpdateMangersById.sql" />
+    <Build Include="Bank\Stored Procedures\UpdateEmployeeById.sql" />
+    <Build Include="Bank\Stored Procedures\UpdateCityDetail.sql" />
+    <Build Include="Bank\Stored Procedures\UpdateBranchById.sql" />
+    <Build Include="Bank\Stored Procedures\InsertManager.sql" />
+    <Build Include="Bank\Stored Procedures\InsertEmployee.sql" />
+    <Build Include="Bank\Stored Procedures\GetMangersById.sql" />
+    <Build Include="Bank\Stored Procedures\GetMangers.sql" />
+    <Build Include="Bank\Stored Procedures\GetEmployees.sql" />
+    <Build Include="Bank\Stored Procedures\GetEmployeeById.sql" />
+    <Build Include="Bank\Stored Procedures\GetCityDetail.sql" />
+    <Build Include="Bank\Stored Procedures\GetCities.sql" />
+    <Build Include="Bank\Stored Procedures\GetBranchById.sql" />
+    <Build Include="Bank\Stored Procedures\GetBranch.sql" />
+    <Build Include="Bank\Stored Procedures\DeleteManager.sql" />
+    <Build Include="Bank\Stored Procedures\DeleteEmployee.sql" />
+    <Build Include="Bank\Stored Procedures\DeleteCityDetail.sql" />
+    <Build Include="Bank\Stored Procedures\DeleteBranch.sql" />
+    <Build Include="Bank\Stored Procedures\AddCity.sql" />
+    <Build Include="Bank\Stored Procedures\AddBranch.sql" />
   </ItemGroup>
 </Project>
