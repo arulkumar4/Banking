@@ -67,6 +67,7 @@
     <Folder Include="Security\" />
     <Folder Include="Bank\Stored Procedures\" />
     <Folder Include="Account\Stored Procedures\" />
+    <Folder Include="Transaction\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Transaction\Tables\Payment.sql" />
@@ -121,5 +122,13 @@
     <Build Include="Account\Stored Procedures\GetAccountTypesDetails.sql" />
     <Build Include="Account\Stored Procedures\DeleteCustomerAccount.sql" />
     <Build Include="Account\Stored Procedures\DeleteAccountType.sql" />
+    <Build Include="Transaction\Stored Procedures\UpdateTransactionType.sql" />
+    <Build Include="Transaction\Stored Procedures\InsertTransactionType.sql" />
+    <Build Include="Transaction\Stored Procedures\GetTransactionTypes.sql" />
+    <Build Include="Transaction\Stored Procedures\GetAllTransactions.sql" />
+    <Build Include="Transaction\Stored Procedures\GetAllPayments.sql" />
+    <Build Include="Transaction\Stored Procedures\DebitTransaction.sql" />
+    <Build Include="Transaction\Stored Procedures\AccountTransaction.sql" />
+    <Build Include="Transaction\Stored Procedures\AccountPayment.sql" />
   </ItemGroup>
 </Project>
