@@ -66,6 +66,7 @@
     <Folder Include="dbo\User Defined Types\" />
     <Folder Include="Security\" />
     <Folder Include="Bank\Stored Procedures\" />
+    <Folder Include="Account\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Transaction\Tables\Payment.sql" />
@@ -105,5 +106,20 @@
     <Build Include="Bank\Stored Procedures\DeleteBranch.sql" />
     <Build Include="Bank\Stored Procedures\AddCity.sql" />
     <Build Include="Bank\Stored Procedures\AddBranch.sql" />
+    <Build Include="Account\Stored Procedures\UpdateCustomerDetails_1.sql" />
+    <Build Include="Account\Stored Procedures\UpdateAccountType_1.sql" />
+    <Build Include="Account\Stored Procedures\UpdateAccountPassword_1.sql" />
+    <Build Include="Account\Stored Procedures\InsertNewAccountType_1.sql" />
+    <Build Include="Account\Stored Procedures\InsertCustomer_1.sql" />
+    <Build Include="Account\Stored Procedures\GetOneCustomerDetails_1.sql" />
+    <Build Include="Account\Stored Procedures\GetOneAccountType_1.sql" />
+    <Build Include="Account\Stored Procedures\GetCustomerDetails_1.sql" />
+    <Build Include="Account\Stored Procedures\GetAllCustomersByStatus_1.sql" />
+    <Build Include="Account\Stored Procedures\GetAllCustomers_1.sql" />
+    <Build Include="Account\Stored Procedures\GetAllAccountByBalance_1.sql" />
+    <Build Include="Account\Stored Procedures\GetAllAccountByAccountType_1.sql" />
+    <Build Include="Account\Stored Procedures\GetAccountTypesDetails_1.sql" />
+    <Build Include="Account\Stored Procedures\DeleteCustomerAccount_1.sql" />
+    <Build Include="Account\Stored Procedures\DeleteAccountType_1.sql" />
   </ItemGroup>
 </Project>
