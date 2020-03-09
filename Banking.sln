@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banking.DataAccess", "Banki
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banking.Business.Models", "Banking.Business.Models\Banking.Business.Models.csproj", "{7BEC9AC9-BD08-455E-A43B-EA1CD37F783D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banking.NgWeb", "Banking.NgWeb\Banking.NgWeb.csproj", "{CACF0237-9E72-4F93-84A8-324BEA899D4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{7BEC9AC9-BD08-455E-A43B-EA1CD37F783D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BEC9AC9-BD08-455E-A43B-EA1CD37F783D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BEC9AC9-BD08-455E-A43B-EA1CD37F783D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CACF0237-9E72-4F93-84A8-324BEA899D4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CACF0237-9E72-4F93-84A8-324BEA899D4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CACF0237-9E72-4F93-84A8-324BEA899D4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CACF0237-9E72-4F93-84A8-324BEA899D4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +81,7 @@ Global
 		{6B96F49D-A18A-4036-80E0-DE5E5C7D70CC} = {D1DA9901-C9C0-4CF5-A7C1-44A2FED4DFAD}
 		{494F8A45-6E8A-4E0B-AD43-AF0AE875C0FA} = {498170B8-4DB4-4692-86C2-04AC94BB4D6A}
 		{7BEC9AC9-BD08-455E-A43B-EA1CD37F783D} = {D1DA9901-C9C0-4CF5-A7C1-44A2FED4DFAD}
+		{CACF0237-9E72-4F93-84A8-324BEA899D4E} = {4A67160D-3B09-40FE-B3CB-4C331292C852}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E9E28FE-3616-4757-9793-4AA7D3A1E719}
