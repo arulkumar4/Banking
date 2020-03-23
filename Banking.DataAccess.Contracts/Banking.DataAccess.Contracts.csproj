@@ -42,8 +42,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="IBankDal.cs" />
-    <Compile Include="ICityDal.cs" />
+
+    <Compile Include="IAccount\IAccountDal.cs" />
+    <Compile Include="IAccount\IAccountTypeDal.cs" />
+    <Compile Include="IAccount\ICustomerDal.cs" />
+    
+
+    <Compile Include="IBank\IBankDal.cs" />
+    <Compile Include="IBank\IBranchDal.cs" />
+    <Compile Include="IBank\ICityDal.cs" />
+    <Compile Include="IBank\IEmployeeDal.cs" />
+    <Compile Include="IBank\IManagerDal.cs" />
+
+    <Compile Include="ITransaction\IpaymentDAL.cs" />
+    <Compile Include="ITransaction\ITransactionDAL.cs" />
+    <Compile Include="ITransaction\ITransactionTypeDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -52,5 +65,6 @@
       <Name>Banking.Business.Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

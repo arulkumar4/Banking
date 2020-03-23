@@ -41,12 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\AccountType.cs" />
+    <Compile Include="Account\CustomerAccount.cs" />
+    <Compile Include="Account\Customer.cs" />
     <Compile Include="Bank\Address.cs" />
     <Compile Include="Bank\Branch.cs" />
     <Compile Include="Bank\City.cs" />
     <Compile Include="Bank\Employee.cs" />
     <Compile Include="Bank\Manager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransactionModels\Payment.cs" />
+    <Compile Include="TransactionModels\MTransaction.cs" />
+    <Compile Include="TransactionModels\TransactionType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

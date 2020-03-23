@@ -1,6 +1,11 @@
 ﻿CREATE TABLE [Transaction].[TransactionType] (
-    [Id]   UNIQUEIDENTIFIER NOT NULL,
-    [Type] VARCHAR (40)     NULL,
+    [SLNO] INT          IDENTITY (1, 1) NOT NULL,
+    [Id]   AS           ('TY'+right(CONVERT([varchar],[SLNO]),(8))) PERSISTED NOT NULL,
+    [Type] VARCHAR (40) NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
+
+
+
 
