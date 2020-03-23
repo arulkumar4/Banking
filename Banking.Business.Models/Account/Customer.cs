@@ -16,8 +16,8 @@ namespace Banking.Business.Models.Account
         public string Gender { get; set; }
         public string Address { get; set; }
         public int EmployeeId { get; set; }
-
         
+
     }
 }
 
