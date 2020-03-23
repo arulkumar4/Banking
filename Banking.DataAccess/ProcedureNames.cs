@@ -36,6 +36,7 @@ namespace Banking.DataAccess
             public const string GetEmployeeById = "[Bank].[GetEmployeeById]";
             public const string UpdateEmployeeById = "[Bank].[UpdateEmployeeById]";
             public const string DeleteEmployee = "[Bank].DeleteEmployee";
+            public const string GetEmployeeBykeyword = "[Bank].[SearchEmployeeByKeyword]";
 
         }        
         public class Transaction

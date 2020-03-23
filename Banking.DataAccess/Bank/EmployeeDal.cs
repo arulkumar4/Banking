@@ -61,6 +61,22 @@ namespace Banking.DataAccess
             return Employees;
         }
 
+        public List<Employee> GetEmployeesByKeyword(string keyword)
+        {
+            List<Employee> Employees = new List<Employee>();
+            using (var dataset = GetDataset(ProcedureNames.Employee.GetEmployeeBykeyword,
+                                    new SqlParameter("keyword", keyword)))
+            {
+                var employeetable = dataset.Tables[0];
+                var employeetableDetail = employeetable.AsEnumerable();
+                foreach (var employeeRow in employeetableDetail)
+                {
+                    Employees.Add(PopulateData<Employee>(employeeRow));
+                }
+            }
+            return Employees;
+        }
+
         public int UpdateEmployee(Employee employee)
         {
             var status = GetValue<int>(ProcedureNames.Employee.UpdateEmployeeById,

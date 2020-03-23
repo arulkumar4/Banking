@@ -1,8 +1,8 @@
 ﻿using Banking.Business.Contracts;
 using Banking.Business.Models;
 using Banking.DataAccess.Contracts;
-using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Banking.Business
 {
@@ -32,6 +32,12 @@ namespace Banking.Business
         public List<Employee> GetEmployees()
         {
             return _employeedal.GetEmployees();
+            
+        }
+
+        public List<Employee> GetEmployeesByKeyword(string keyword)
+        {
+            return _employeedal.GetEmployeesByKeyword(keyword);
         }
 
         public int UpdateEmployee(Employee employee)
