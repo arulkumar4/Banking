@@ -6,7 +6,7 @@ namespace Banking.Business.Contracts.IAccount
     public interface ICustomerBl
     {
         List<Customer> GetCustomerDetails(long customerId, long accountNo);
-        string AddNewCustomer(Customer customer);
+        List<Customer> AddNewCustomer(Customer customer);
         string UpdateCustomerDetails(Customer customer);
     }
 }

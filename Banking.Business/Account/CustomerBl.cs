@@ -20,7 +20,7 @@ namespace Banking.Business.Account
         {
             return _customerDal.GetCustomerDetails(customerId, accountNo);
         }
-        public string AddNewCustomer(Customer customer)
+        public List<Customer> AddNewCustomer(Customer customer)
         {
             return _customerDal.AddNewCustomer(customer);
         }

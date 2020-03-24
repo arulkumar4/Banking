@@ -1,33 +1,16 @@
 ﻿using Banking.Business.Contracts.IAccount;
 using Banking.Business.Models.Account;
-using Banking.WebApi.Models;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
 namespace Banking.WebApi.Controllers
 {
-    [EnableCors("http://localhost:4200", "*", "GET,POST,PUT,DELETE")]
     public class CustomerController : ApiController
     {
         private readonly ICustomerBl _customerbl;
-
         public CustomerController(ICustomerBl customerbl)
         {
             _customerbl = customerbl;
-        }
-
-        [Route("api/RegisterCustomer")]
-        [HttpPost]
-        public IdentityResult Register(Customer customer)
-        {
-            _customerbl.AddNewCustomer(customer);
-            var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
-            var manager = new UserManager<ApplicationUser>(userStore);
-            var user = new ApplicationUser() { UserName = customer.LastName,Email=customer.Mail};
-            IdentityResult result = manager.Create(user, customer.Password);
-            return result;
         }
         // Get: api/Customer/GetCustomerDetails
         [Route("api/Customer/GetCustomerDetails")]

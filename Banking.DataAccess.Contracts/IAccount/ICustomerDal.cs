@@ -6,7 +6,7 @@ namespace Banking.DataAccess.Contracts.IAccount
     public interface ICustomerDal
     {
         List<Customer> GetCustomerDetails(long customerId, long accountNo);
-        string AddNewCustomer(Customer customer);
+        List<Customer> AddNewCustomer(Customer customer);
         string UpdateCustomerDetails(Customer customer);
     }
 }

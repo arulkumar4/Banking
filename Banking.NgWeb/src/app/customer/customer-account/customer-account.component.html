@@ -1,0 +1,56 @@
+<h5>DBG-Customers</h5>
+
+<table class="table table-hover">
+  <tr style="background-color:rgb(65, 71, 69)">
+    <th style="color:rgb(177, 177, 177);">CustomerID</th>
+    <th style="color:rgb(179, 179, 179);">AccountNumber</th>
+    <th style="color:rgb(179, 179, 179);">FirstName</th>
+    <th style="color:rgb(179, 179, 179);">LastName</th>
+    <th style="color:rgb(179, 179, 179);">OpenDate</th>
+    <th style="color:rgb(179, 179, 179);">Status</th>
+    <th style="color:rgb(179, 179, 179);">Balance</th>
+    <th style="color:rgb(179, 179, 179);">AccountType</th>
+    <th style="color:rgb(179, 179, 179);">ContactNumber</th>
+    <th style="color:rgb(179, 179, 179);">Mail</th>
+  </tr>
+
+  <!-- <tr *ngFor="let ques of services.list" (click)="populateForm(ques)"> -->
+  <tr *ngFor="let acc of account">
+    <td width="700%">
+      {{acc.CustomerId}}
+    </td>
+    <td>
+      {{acc.Number}}
+    </td>
+    <td>
+      {{acc.FirstName}}
+    </td>
+    <td>
+      {{acc.LastName}}
+    </td>
+    <td>
+      {{acc.OpenDate}}
+    </td>
+    <td>
+      {{acc.Status}}
+    </td>
+    <td>
+      {{acc.Balance}}
+    </td>
+    <td>
+      {{acc.AccountType}}
+    </td>
+    <td>
+      {{acc.ContactNumber}}
+    </td>
+    <td>
+      {{acc.Mail}}
+    </td>
+    <!--<td>
+      <button (click)="onDelete(data.SNo)" class="btn btn-sm btn-outline-danger">Delete</button>
+    </td>-->
+  </tr>
+</table>
+
+
+

@@ -24,9 +24,9 @@ namespace Banking.DataAccess.Account
             }
             return CustomerAcc;
         }
-        public string AddNewCustomer(Customer customer)
+        public List<Customer> AddNewCustomer(Customer customer)
         {
-                var status = GetValue<string>(ProcedureNames.Account.AddNewCustomers,
+                var status = GetValue<List<Customer>>(ProcedureNames.Account.AddNewCustomers,
                 new SqlParameter("@FirstName", customer.FirstName),
                 new SqlParameter("@LastName", customer.LastName),
                 new SqlParameter("@Address", customer.Address),
