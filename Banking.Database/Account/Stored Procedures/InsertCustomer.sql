@@ -63,7 +63,14 @@ BEGIN
 							SELECT 'Process Failed. Check Your Data And Please Try Again !!!'
 						  END	
 						ELSE
-							SELECT 'New Cutomer Added!!!'
+							SELECT a.CustomerId, a.Number, c.FirstName,c.LastName,c.FullName,c.ContactNumber,
+								   c.Mail,a. Balance, at.Type AS AccountType
+							FROM [Account].[Customer] c
+							JOIN [Account].[Account] a
+							ON c.Id = a.CustomerId
+							JOIN [Account].[AccountType] as at
+							ON at.Id=a.AccountTypeId
+							WHERE a.CustomerId=@Id
 							--PRINT 'Added Successfully !!!'
 					 END
 				 END
