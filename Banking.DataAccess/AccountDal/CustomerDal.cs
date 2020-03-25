@@ -26,20 +26,44 @@ namespace Banking.DataAccess.Account
         }
         public List<Customer> AddNewCustomer(Customer customer)
         {
-                var status = GetValue<List<Customer>>(ProcedureNames.Account.AddNewCustomers,
-                new SqlParameter("@FirstName", customer.FirstName),
-                new SqlParameter("@LastName", customer.LastName),
-                new SqlParameter("@Address", customer.Address),
-                new SqlParameter("@ContactNumber", customer.ContactNumber),
-                new SqlParameter("@Gender", customer.Gender),
-                new SqlParameter("@Dob", customer.Dob),
-                new SqlParameter("@Mail", customer.Mail),
-                new SqlParameter("@Balance", customer.Balance),
-                new SqlParameter("@Password", customer.Password),
-                new SqlParameter("@AccType", customer.AccountType),
-                new SqlParameter("@EmpId", customer.EmployeeId)
-                );
-                return status;
+            //List<Customer> newCustomer = GetValue<List<Customer>>(ProcedureNames.Account.AddNewCustomers,
+            //new SqlParameter("@FirstName", customer.FirstName),
+            //new SqlParameter("@LastName", customer.LastName),
+            //new SqlParameter("@Address", customer.Address),
+            //new SqlParameter("@ContactNumber", customer.ContactNumber),
+            //new SqlParameter("@Gender", customer.Gender),
+            //new SqlParameter("@Dob", customer.Dob),
+            //new SqlParameter("@Mail", customer.Mail),
+            //new SqlParameter("@Balance", customer.Balance),
+            //new SqlParameter("@Password", customer.Password),
+            //new SqlParameter("@AccType", customer.AccountType),
+            //new SqlParameter("@EmpId", customer.EmployeeId)
+            //);
+        //    return newCustomer;
+        //}
+            List<Customer> newCustomer = new List<Customer>();
+            using (var dataset = GetDataset(ProcedureNames.Account.AddNewCustomers,
+                    new SqlParameter("@FirstName", customer.FirstName),
+                    new SqlParameter("@LastName", customer.LastName),
+                    new SqlParameter("@Address", customer.Address),
+                    new SqlParameter("@ContactNumber", customer.ContactNumber),
+                    new SqlParameter("@Gender", customer.Gender),
+                    new SqlParameter("@Dob", customer.Dob),
+                    new SqlParameter("@Mail", customer.Mail),
+                    new SqlParameter("@Balance", customer.Balance),
+                    new SqlParameter("@Password", customer.Password),
+                    new SqlParameter("@AccType", customer.AccountType),
+                    new SqlParameter("@EmpId", customer.EmployeeId)))
+            {
+                var accountTable = dataset.Tables[0];
+                var accountTableDetail = accountTable.AsEnumerable();
+
+                foreach (var accountRow in accountTableDetail)
+                {
+                newCustomer.Add(PopulateData<Customer>(accountRow));
+                }
+            }
+            return newCustomer;
         }
 
         public string UpdateCustomerDetails(Customer customer)

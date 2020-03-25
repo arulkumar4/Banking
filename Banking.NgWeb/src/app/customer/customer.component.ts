@@ -75,14 +75,22 @@ export class CustomerComponent implements OnInit {
 
   bsValueChange(val){
     setTimeout(()=>{
-      // this.value = val;
+      this.value = val;
       if (val instanceof Date){
         this.onDateChange(new Date(val.getTime() - val.getTimezoneOffset() * 60 * 1000));  
         console.log(val);
         this.birthday=val;
-        this.value = val;
         this.ageValidation(this.birthday);
-        
+        if(this.age>=18)
+        {
+          console.log(this.age);
+          this.account.Dob=val;
+        }
+        else 
+        {
+          this.age=0;
+          this.ageError="Your age must be atleast 18!!!";
+        }
         // let timeDiff = Math.abs(Date.now() - this.account.Dob.getTime());
         // this.age = Math.floor((timeDiff / (1000 * 3600 * 24))/365.25);
         // if(this.age>=18)
@@ -109,16 +117,6 @@ export class CustomerComponent implements OnInit {
     {
       this.age--;
     }
-    if(this.age>=18)
-        {
-          console.log(this.age);
-          this.account.Dob=this.value;
-        }
-        else 
-        {
-          this.age=0;
-          this.ageError="Your age must be atleast 18!!!";
-        }
     return this.age;
   }
   postCustomer(formData: AccountModel) {
