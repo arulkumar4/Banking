@@ -63,6 +63,7 @@ namespace Banking.DataAccess
             public const string GetAccountByAccountType = "[Account].[GetAllAccountByAccountType]";
             public const string GetAccountByBalance = "[Account].[GetAllAccountByBalance]";
             public const string GetCustomersByAccountStatus = "[Account].[GetAllCustomersByStatus]";
+            public const string UpdateCustomerDetailsByEmployee = "[Account].[UpdateCustomerByEmployee]";
             public const string UpdateAccountPassword = "[Account].[UpdateAccountPassword]";
             public const string GetAccountTypesDetails = "[Account].[GetAccountTypesDetails]";
             public const string GetOneAccountType = "[Account].[GetOneAccountType]";

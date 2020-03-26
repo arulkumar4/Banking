@@ -53,6 +53,13 @@ namespace Banking.WebApi.Controllers
         {
             return Ok(_accountbl.GetCustomerByAccountStatus(status));
         }
+        // GET: api/UpdateCustomerByEmployee
+        [Route("api/Account/UpdateCustomerByEmployee")]
+        [HttpPut]
+        public IHttpActionResult UpdateCustomerByEmployee(Customer customer)
+        {
+            return Ok(_accountbl.UpdateCustomerByEmployee(customer));
+        }
         // GET: api/UpdateAccountPassword
         [Route("api/Account/UpdateAccountPassword")]
         [HttpPut]

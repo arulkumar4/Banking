@@ -13,7 +13,6 @@ import { AccountTypesComponent } from './account-types/account-types.component';
 import { AccountService } from './service/account.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import{DatepickerModule,BsDatepickerModule} from 'ngx-bootstrap/datepicker';
-import { MzRadioButtonModule } from 'ngx-materialize';
 import { CustomerDashboardComponent } from './customer/customer-dashboard/customer-dashboard.component';
 
 @NgModule({
@@ -25,12 +24,10 @@ import { CustomerDashboardComponent } from './customer/customer-dashboard/custom
     CustomerDashboardComponent,
     AccountTypesComponent
   ],
-  
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule,
-    MzRadioButtonModule,
     ReactiveFormsModule,
     HttpClientModule,
     DatepickerModule,
