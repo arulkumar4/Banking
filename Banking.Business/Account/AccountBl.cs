@@ -39,6 +39,11 @@ namespace Banking.Business.Account
         {
             return _accountDal.GetCustomerByAccountStatus(status);
         }
+        public List<Customer> UpdateCustomerByEmployee(Customer customer)
+        {
+            return _accountDal.UpdateCustomerByEmployee(customer);
+        }
+
         public string UpdateAccountPassword(long accnumber, string oldpassword, string newpassword)
         {
             return _accountDal.UpdateAccountPassword(accnumber,oldpassword,newpassword);

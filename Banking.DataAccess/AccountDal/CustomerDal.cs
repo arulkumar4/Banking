@@ -26,21 +26,6 @@ namespace Banking.DataAccess.Account
         }
         public List<Customer> AddNewCustomer(Customer customer)
         {
-            //List<Customer> newCustomer = GetValue<List<Customer>>(ProcedureNames.Account.AddNewCustomers,
-            //new SqlParameter("@FirstName", customer.FirstName),
-            //new SqlParameter("@LastName", customer.LastName),
-            //new SqlParameter("@Address", customer.Address),
-            //new SqlParameter("@ContactNumber", customer.ContactNumber),
-            //new SqlParameter("@Gender", customer.Gender),
-            //new SqlParameter("@Dob", customer.Dob),
-            //new SqlParameter("@Mail", customer.Mail),
-            //new SqlParameter("@Balance", customer.Balance),
-            //new SqlParameter("@Password", customer.Password),
-            //new SqlParameter("@AccType", customer.AccountType),
-            //new SqlParameter("@EmpId", customer.EmployeeId)
-            //);
-        //    return newCustomer;
-        //}
             List<Customer> newCustomer = new List<Customer>();
             using (var dataset = GetDataset(ProcedureNames.Account.AddNewCustomers,
                     new SqlParameter("@FirstName", customer.FirstName),

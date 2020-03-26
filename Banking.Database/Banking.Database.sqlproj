@@ -130,5 +130,6 @@
     <Build Include="Transaction\Stored Procedures\DebitTransaction.sql" />
     <Build Include="Transaction\Stored Procedures\AccountTransaction.sql" />
     <Build Include="Transaction\Stored Procedures\AccountPayment.sql" />
+    <Build Include="Account\Stored Procedures\UpdateCustomerByEmployee.sql" />
   </ItemGroup>
 </Project>
