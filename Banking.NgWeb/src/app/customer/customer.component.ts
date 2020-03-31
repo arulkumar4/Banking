@@ -5,7 +5,9 @@ import { AccountModel } from '../model/account.model';
 import { HttpClient } from '@angular/common/http';
 import {AccountConfig} from '../constants/account-config';
 import {Router,ActivatedRoute} from '@angular/router';
-
+import {AppRoutingModule} from '../app-routing.module';
+import { EventEmitter } from 'protractor';
+import { moment } from 'ngx-bootstrap/chronos/test/chain';
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
@@ -81,13 +83,13 @@ export class CustomerComponent implements OnInit {
         this.ageValidation(this.birthday);
         if(this.age>=18)
         {
-          this.age=0;
-          this.ageError="Your age must be atleast 18!!!";
+          console.log(this.age);
+          this.account.Dob=val;
         }
         else 
         {
-          console.log(this.age);
-          this.account.Dob=val;
+          this.age=0;
+          this.ageError="Your age must be atleast 18!!!";
         }
         // let timeDiff = Math.abs(Date.now() - this.account.Dob.getTime());
         // this.age = Math.floor((timeDiff / (1000 * 3600 * 24))/365.25);
@@ -117,59 +119,46 @@ export class CustomerComponent implements OnInit {
     }
     return this.age;
   }
-
   postCustomer(formData: AccountModel) {
     debugger;
     return this.http.post(this.myroot+this.account_config.postNewCustomer,formData).subscribe(res=>{
-      console.log(this.myroot+this.account_config.postNewCustomer,formData)
       this.onReset();
       console.log(res);
       this.data=res;
+      
       // alert("Form Submitted Successfully");
     })
   }
 
-  onSubmit()
-  {
-  this.submitted = true;
-  this.account.FirstName="";
-  this.account.LastName="";
-  this.account.Address="";
-  this.account.ContactNumber=null;
-  this.account.Gender="";
-  this.account.Dob=null
-  this.account.Mail="";
-  this.account.Balance=null;
-  this.account.AccountType="";
-  this.account.Password="";
-  this.account.EmployeeId=null
-        if (this.registerationForm.valid) 
-        {
-          this.postCustomer(this.registerationForm.value)
-              // this.myRoute.navigate(['CustomerDetails']);   
-          this.newCustomer=true;
-        }
-        else
-        {
-          this.errormessage="Invalid Form.Please check all the details"
-        }
-  }
+    onSubmit()
+    {
+    this.submitted = true;
+    this.account.FirstName="";
+    this.account.LastName="";
+    this.account.Address="";
+    this.account.ContactNumber=null;
+    this.account.Gender="";
+    this.account.Dob=null
+    this.account.Mail="";
+    this.account.Balance=null;
+    this.account.AccountType="";
+    this.account.Password="";
+    this.account.EmployeeId=null
+          if (this.registerationForm.valid) 
+          {
+            this.postCustomer(this.registerationForm.value)
+                // this.myRoute.navigate(['CustomerDetails']);   
+            this.newCustomer=true;
+          }
+          else
+          {
+            this.errormessage="Please fill all the details"
+          }
+    }
         
   onReset()
   {
     this.submitted = false;
     this.registerationForm.reset();
   }
-  back(){
-    // this.myRoute.navigate([''])
-  }
-
-  dashboard(){
-    // this.myRoute.navigate(['customerDashboard'])
-  }
 }
-
-
-
-
-

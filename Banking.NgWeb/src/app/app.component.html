@@ -1,30 +1,34 @@
-<nav class='navbar navbar-expand-sm'>
-  <a class='navbar-brand' href="#">
-    <img src="assets/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-    DBG Bank
-  </a>
-  <ul class='nav nav-pills'>
-    <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Home</a></li>
-    <li class='nav-item'>
-      <a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-         [routerLink]="['/employees']">Employee List</a>
-    </li>
-    <li class='nav-item'>
-      <a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-         [routerLink]="['/employees/0/edit']">Add Employee</a>
-    </li>
-  </ul>
-</nav>
-
-<div class='container'>
-  <router-outlet></router-outlet>
-</div>
-
-<div class="footer">
-  <div class="footer-copyright text-center py-3">
-    © 2020 Copyright:Deril
+<!-- <nav class='navbar navbar-expand-sm'>
+    <a class='navbar-brand' href="#">
+      <img src="assets/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+      DBG Bank
+    </a>
+    <ul class='nav nav-pills'>
+      <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Home</a></li>
+      <li class='nav-item'>
+        <a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
+           [routerLink]="['/employees']">Employee List</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
+           [routerLink]="['/employees/0/edit']">Add Employee</a>
+      </li>
+    </ul>
+  </nav>
+  
+  <div class='container'>
+    <router-outlet></router-outlet>
   </div>
-</div>
-
- <!-- <app-customer></app-customer> -->
- <app-customer-dashboard></app-customer-dashboard>
+  
+  <div class="footer">
+    <div class="footer-copyright text-center py-3">
+      © 2020 Copyright:Deril
+    </div>
+  </div>
+   -->
+   <!-- <app-customer></app-customer> -->
+   <app-customer-dashboard></app-customer-dashboard>
+   <div>
+    <router-outlet></router-outlet>
+   </div>
+  

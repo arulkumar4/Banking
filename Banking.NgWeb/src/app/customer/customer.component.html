@@ -1,24 +1,15 @@
-<!-- <div *ngIf="newCustomer===false">
-    <form [formGroup]="registerationForm" 
-          (ngSubmit)="onSubmit(form)" 
-          autocomplete="off">
-        <h3>
-            DBG Bank Registeration
-        </h3>
-        <p>
-            Create your bank account by filling in this bank account registration form. All fields are Mandatory .
-        </p>
-        <h6>IMPORTANT INFORMATION FOR OPENING A NEW ACCOUNT</h6>
-        <p>
-            To help fight the funding of terrorism and money laundering activities, 
-            federal law requires all financial institutions to collect, validate, 
-            and record information that identifies each person who opens an account.
-        </p> 
-        <div id="errormsg" style="color: rgb(255, 0, 0);">{{errormessage}}</div>
-        <div class="main">
+<div class="main">
+    <div *ngIf="newCustomer===false">
+        <form [formGroup]="registerationForm" 
+            (ngSubmit)="onSubmit(form)" 
+            autocomplete="off">
+            <h4>
+                REGISTRATION
+            </h4>
+            <div id="errormsg" style="color: rgb(255, 0, 0);">{{errormessage}}</div>
             <div class="container">
                 <div class="form-group" >
-                    <div>
+                    <div style="display:flex;flex-direction:row;">
                         <label>
                             First Name
                         </label> 
@@ -46,13 +37,14 @@
                     </div>
                 
                     <div class="form-group" >
-                        <div>
+                        <div style="display:flex;flex-direction:row;">
                             <label>
                                 Last Name
                             </label>
                             &nbsp;
                             <input  id="lname" 
                                     class="form-control"
+                                    type="text"
                                     placeholder="Last Name"
                                     formControlName="lastName"
                                     [(ngModel)]="account.LastName" 
@@ -73,66 +65,7 @@
                     </div>
 
                     <div class="form-group" >
-                        <div>
-                            <label>
-                                Gender
-                            </label>
-                            <mat-radio-group class="radio-group"
-                                             formControlName="gender"
-                                             [(ngModel)]="account.Gender"
-                                             [ngClass]="{ 'is-invalid':submitted && f.gender.errors }">
-                                <mat-radio-button class="radio-button" 
-                                                  *ngFor="let gend of gen" 
-                                                  [value]="gend"
-                                                  color="primary">
-                                    {{gend}}
-                                </mat-radio-button>
-                            </mat-radio-group>
-                            
-                        </div>
-                            <span *ngIf="submitted && f.gender.errors" class="invalid-feedback" id="gender-error">
-                                <span *ngIf="f.gender.errors.required">
-                                    Please select your Gender !!!
-                                </span>
-                            </span>
-                    </div>
-
-                    <div class="form-group" >
-                        <div>
-                            <label id="dob-label">
-                                Date-Of-Birth
-                            </label>
-                            <br>
-                        <div id="dateofbirth" style="display:flex;flex-direction:row;">
-                            <input type="text"
-                                    class="form-control"
-                                    formControlName="dob"
-                                    [(ngModel)]="account.Dob"
-                                    [ngClass]="{'is-invalid':submitted && f.dob.errors}"
-                                    placeholder="Choose a Date"
-                                    class1="col-xs-12 col-12 col-md-4 form-group"
-                                    bsDatepicker
-                                    [bsConfig]="{containerClass:'theme-dark-blue'}"
-                                    [(bsValue)]="datevalue" 
-                                    (bsValueChange)="bsValueChange($event)"
-                                    value="{{ datevalue | date:'yyyy-MM-dd' }}">
-                                    <mat-icon class="column"
-                                                style="font-size: xx-large;">
-                                        event
-                                    </mat-icon> 
-                        </div>
-                                    <span *ngIf="submitted && f.dob.errors" class="invalid-feedback" id="dob-error">
-                                        <span *ngIf="f.dob.errors" style="color: rgb(255, 0, 0);">
-                                            Please Select your Dob !!!
-                                        </span>
-                                    </span>
-                                    <span *ngIf="age===0"id="age-error" style="color: rgb(255, 0, 0);">
-                                        {{ageError}}
-                                    </span>
-                    </div>
-
-                    <div class="form-group" >
-                        <div>
+                        <div style="display:flex;flex-direction:row;">
                             <label>
                                 Address
                             </label>
@@ -159,7 +92,7 @@
                     </div>
 
                     <div class="form-group" >
-                        <div>
+                        <div style="display:flex;flex-direction:row;">
                             <label>
                                 Contact Number
                             </label>
@@ -182,12 +115,11 @@
                     </div>
 
                     <div class="form-group" >
-                        <div>
-                            
+                        <div style="display:flex;flex-direction:row;">
                             <label>
                                 Mail ID
                             </label>
-                            <input matInput id="mail" 
+                            <input  id="mail" 
                                     class="form-control"
                                     type="text"
                                     placeholder="_____@____.com"
@@ -207,9 +139,68 @@
                             </span>
                         </span>
                     </div>
+
+                    <div class="form-group" >
+                        <div style="display:flex;flex-direction:row;">
+                            <label>
+                                Gender
+                            </label>
+                            <mat-radio-group
+                                class="radio-group"
+                                formControlName="gender"
+                                [(ngModel)]="account.Gender"
+                                [ngClass]="{ 'is-invalid':submitted && f.gender.errors }">
+                                <mat-radio-button class="radio-button" 
+                                                *ngFor="let gend of gen" 
+                                                [value]="gend"
+                                                color="primary">
+                                    {{gend}}
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                            <span *ngIf="submitted && f.gender.errors" class="invalid-feedback" id="gender-error">
+                                <span *ngIf="f.gender.errors.required">
+                                    Please select your Gender !!!
+                                </span>
+                            </span>
+                    </div>
+
+                    <div class="form-group" >
+                        <div style="display:flex;flex-direction:row;">
+                            <label id="dob-label">
+                                Date-Of-Birth
+                            </label>
+                            <br>
+                        <div style="display:flex;flex-direction:row;" id="dateofbirth">
+                            <input type="text"
+                                    class="form-control"
+                                    formControlName="dob"
+                                    [(ngModel)]="account.Dob"
+                                    [ngClass]="{'is-invalid':submitted && f.dob.errors}"
+                                    placeholder="Choose a Date"
+                                    class1="col-xs-12 col-12 col-md-4 form-group"
+                                    bsDatepicker
+                                    [bsConfig]="{containerClass:'theme-dark-blue'}"
+                                    [(bsValue)]="datevalue" 
+                                    (bsValueChange)="bsValueChange($event)"
+                                    value="{{ datevalue | date:'yyyy-MM-dd' }}">
+                                    <mat-icon class="column"
+                                                style="font-size: xx-large;">
+                                        event
+                                    </mat-icon> 
+                        </div>
+                                    <span *ngIf="submitted && f.dob.errors" class="invalid-feedback" id="dob-error">
+                                        <span *ngIf="f.dob.errors" style="color: rgb(255, 0, 0);">
+                                            Please Select your Dob !!!
+                                        </span>
+                                    </span>
+                                    <span *ngIf="age===0"id="age-error" style="color: rgb(255, 0, 0);">
+                                        {{ageError}}
+                                    </span>
+                    </div>
                     
                     <div class="form-group" >
-                        <div>
+                        <div style="display:flex;flex-direction:row;">
                             <label>
                                 Account Type
                             </label>
@@ -235,7 +226,7 @@
                     </div>
 
                     <div class="form-group" >
-                        <div>
+                        <div style="display:flex;flex-direction:row;">
                             <label>
                                 Deposit Amount
                             </label>
@@ -258,7 +249,7 @@
                     </div>
 
                     <div class="form-group" >
-                        <div>
+                        <div style="display:flex;flex-direction:row;">
                             <label>
                                 Password
                             </label>
@@ -283,8 +274,8 @@
                         </span>
                     </div>
 
-                     <div class="form-group" >
-                        <div>
+                    <div class="form-group" >
+                        <div style="display:flex;flex-direction:row;">
                             <label>
                                 Confirm Password
                             </label>
@@ -307,35 +298,8 @@
                                 Your Password must be maximum of 500 characters !!!
                             </span>
                         </span>
-                    </div> 
-
-                    <div class="form-group" >
-                        <div>
-                            <label>
-                                EmployeeId
-                            </label>
-                            <input  id="empId" 
-                                    class="form-control"
-                                    type="password"
-                                    placeholder="Password"
-                                    formControlName="employeeId"
-                                    [(ngModel)]="account.EmployeeId"
-                                    [ngClass]="{ 'is-invalid':submitted && f.employeeId.errors }">
-                        </div>
-                                <span *ngIf="submitted && f.employeeId.errors" class="invalid-feedback"id="error">
-                            <span *ngIf="f.employeeId.errors.required">
-                                Please enter your Password !!!
-                            </span>
-                            <span *ngIf="f.employeeId.errors.minlength">
-                                Your Password must be minimum of 3 digits !!!
-                            </span>
-                            <span *ngIf="f.employeeId.errors.maxlength">
-                                Your Password must be within 10 digits !!!
-                            </span>
-                        </span>
                     </div>
-
-                    <div class="form-group"  style="display:flex;flex-direction:row;"
+                    <div class="form-group" style="display:flex;flex-direction:row;"
                             id="buttons">       
                         <div class="form-group" >
                             <button class="btn btn-lg btn-block"
@@ -362,80 +326,77 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </form> -->
+        </form>
+    </div>
 
-    <!-- <div *ngIf="newCustomer===true"> -->
-        <div>
-            <h3 id="newCustomerDetails">
-                   Your New Account Details 
-            </h3>
-            <table class="table table-hover">
-               <tr style="background-color:rgb(255, 255, 255)">
-                 <th style="color:rgb(3, 3, 3);">CustomerID</th>
-                 <th style="color:rgb(3, 3, 3);">AccountNumber</th>
-                 <th style="color:rgb(3, 3, 3);">FirstName</th>
-                 <th style="color:rgb(3, 3, 3);">LastName</th>
-                 <th style="color:rgb(3, 3, 3);">OpenDate</th>
-                 <th style="color:rgb(3, 3, 3);">Status</th>
-                 <th style="color:rgb(3, 3, 3);">Balance</th>
-                 <th style="color:rgb(3, 3, 3);">AccountType</th>
-                 <th style="color:rgb(3, 3, 3);">ContactNumber</th>
-                 <th style="color:rgb(3, 3, 3);">Mail</th>
-               </tr>
-   
-               <tr *ngFor="let dat of data">
-                 <td width="700%">
-                   {{dat.CustomerId}}
-                 </td>
-                 <td>
-                   {{dat.Number}}
-                 </td>
-                 <td>
-                   {{dat.FirstName}}
-                 </td>
-                 <td>
-                   {{dat.LastName}}
-                 </td>
-                 <td>
-                   {{dat.OpenDate}}
-                 </td>
-                 <td>
-                   {{dat.Status}}
-                 </td>
-                 <td>
-                   {{dat.Balance}}
-                 </td>
-                 <td>
-                   {{dat.AccountType}}
-                 </td>
-                 <td>
-                   {{dat.ContactNumber}}
-                 </td>
-                 <td>
-                   {{dat.Mail}}
-                 </td>
-                   <div class="form-group"
-                       id="buttons">       
-                       <div class="form-group" >
-                           <button class="btn btn-lg btn-block"
-                                   type="button"
-                                   id="cancel"
-                                   (click)="back">
-                               Back
-                           </button>
-                       </div>
-                       <div class="form-group" >
-                           <button class="btn btn-lg btn-block"
-                                   type="button"
-                                   id="dashboard"
-                                   (click)="dashboard">
-                                   Dashboard
-                           </button>
-                       </div>
-                   </div>
-               </tr>
-             </table>
-       </div>
-   <!-- </div>  -->
-   
+    <div *ngIf="newCustomer===true">
+    
+         <h3 id="newCustomerDetails">
+                Your New Account Details 
+         </h3>
+         <table class="table table-hover">
+            <tr style="background-color:rgb(255, 255, 255)">
+              <th style="color:rgb(3, 3, 3);">CustomerID</th>
+              <th style="color:rgb(3, 3, 3);">AccountNumber</th>
+              <th style="color:rgb(3, 3, 3);">FirstName</th>
+              <th style="color:rgb(3, 3, 3);">LastName</th>
+              <th style="color:rgb(3, 3, 3);">OpenDate</th>
+              <th style="color:rgb(3, 3, 3);">Status</th>
+              <th style="color:rgb(3, 3, 3);">Balance</th>
+              <th style="color:rgb(3, 3, 3);">AccountType</th>
+              <th style="color:rgb(3, 3, 3);">ContactNumber</th>
+              <th style="color:rgb(3, 3, 3);">Mail</th>
+            </tr>
+
+            <tr *ngFor="let dat of data">
+              <td width="700%">
+                {{dat.CustomerId}}
+              </td>
+              <td>
+                {{dat.Number}}
+              </td>
+              <td>
+                {{dat.FirstName}}
+              </td>
+              <td>
+                {{dat.LastName}}
+              </td>
+              <td>
+                {{dat.OpenDate}}
+              </td>
+              <td>
+                {{dat.Status}}
+              </td>
+              <td>
+                {{dat.Balance}}
+              </td>
+              <td>
+                {{dat.AccountType}}
+              </td>
+              <td>
+                {{dat.ContactNumber}}
+              </td>
+              <td>
+                {{dat.Mail}}
+              </td>
+                <div class="form-group" style="display:flex;flex-direction:row;"
+                    id="buttons">       
+                    <div class="form-group" >
+                        <button class="btn btn-lg btn-block"
+                                type="button"
+                                id="cancel">
+                            Cancel
+                        </button>
+                    </div>
+                    <div class="form-group" >
+                        <button class="btn btn-lg btn-block"
+                                type="reset"
+                                id="reset">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </tr>
+          </table>
+    </div>
+</div> 

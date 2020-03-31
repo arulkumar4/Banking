@@ -3,33 +3,15 @@
         border-radius: 0px;
     }
 }
-.main{
-    margin-left: 60px;
-}
-h3{
+h4{
     margin-left:180px;
     margin-bottom: 20px;
     padding-top: 33px;
     text-shadow: 0px 0px 3px rgba(75, 69, 155, 0.12);
-    color: rgb(20, 4, 107);
-}
-h6{
-    margin-left:30px;
-    margin-bottom: 20px;
-    padding-top: 13px;
-    text-shadow: 0px 0px 3px rgba(75, 69, 155, 0.12);
-    color: rgb(20, 4, 107);
-}
-p{
-    margin-left:50px;
-    margin-bottom: 20px;
-    padding-top: 13px;
-    font-style: italic;
-    text-shadow: 0px 0px 3px rgba(75, 69, 155, 0.12);
     color: rgb(0, 0, 0);
 }
 form{
-    width: 70%;
+    width: 80%;
     height: 40%;
     border-radius: 30px;
     margin-top:100px;
@@ -50,25 +32,25 @@ label{
 input{
     position: relative;
     height: 38px;
-    width: 50%;  
-    margin-left: 10px;
+    width: 40%;  
+    margin-left: 90px;
     margin-bottom: 40px;
 }
 textarea{
     position: relative;
     height: 68px;
     width: 40.3% !important;  
-    margin-left: 10px !important;
+    margin-left: 110px !important;
     margin-top: -10px;
 }
  .form-group>input,textarea{
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
     color: rgb(39, 37, 37);
     width:470px;
-    margin-left: 0px;
+    margin-left: 20px;
 }
 #contactNo{
-    margin-left:10px;
+    margin-left:50px;
 }
 /* #add{
     margin-top: 3px;
@@ -78,7 +60,7 @@ textarea{
   display: flex;
   flex-direction: row;
   margin: 15px 0;
-  margin-left: 145px;
+  margin-left: 100px;
   margin-top: 5px;
 }
 #dateofbirth{
@@ -114,6 +96,9 @@ mat-icon{
     font-size: .68rem;
     margin-top: -26px;
     color:red;
+  }
+  .example-radio-button {
+    margin-left: 30px;
   }
 
 #submit{
@@ -184,7 +169,6 @@ textarea.ng-touched.ng-invalid,textarea.ng-dirty.ng-invalid{
     margin-left: 90px;
     font-size: .68rem;
     color:red;
-    margin-top: -20px;
 }
 
 html, body { height: 100%; }
