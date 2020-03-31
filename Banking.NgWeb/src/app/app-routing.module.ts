@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerDashboardComponent } from './customer/customer-dashboard/customer-dashboard.component';
 import { CustomerRegisteredDetailsComponent } from './customer/customer-registered-details/customer-registered-details.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'customer_Register',component:CustomerRegisteredDetailsComponent},
   {path:'customer_Dashboard',component:CustomerDashboardComponent}
   ]
-  }
+  },
+  {path:'login', component:LoginComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

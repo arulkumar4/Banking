@@ -14,7 +14,7 @@ namespace Banking.Business.Transaction
     {
         public readonly ITransactionDAL _transactionDal;
         public TransactionBl(ITransactionDAL transactionDal) => _transactionDal = transactionDal;
-        public List<MTransaction> DebitTransaction(MTransaction transaction) =>
+        public MTransaction DebitTransaction(MTransaction transaction) =>
                                        _transactionDal.DebitTransaction(transaction);
  
 

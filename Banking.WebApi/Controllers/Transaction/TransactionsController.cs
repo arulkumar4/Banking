@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using Banking.Business.Contracts.Transaction;
 using Banking.Business.Models.TransactionModels;
 
 namespace Banking.WebApi.Controllers.Transaction
 {
-    [RoutePrefix("Transaction")]
+    [EnableCors("http://localhost:4200", "*", "GET,POST,PUT,DELETE")]
     public class TransactionsController : ApiController
     {
         private readonly ITransactionBl _transactionBl;
@@ -22,7 +23,7 @@ namespace Banking.WebApi.Controllers.Transaction
         
 
         [Route("DebitTransaction")]
-        [HttpGet]
+        [HttpPost]
         public IHttpActionResult DebitTransaction(MTransaction transaction)
                   => Ok(_transactionBl.DebitTransaction(transaction));
         
