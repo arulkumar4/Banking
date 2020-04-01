@@ -1,0 +1,90 @@
+<div class = "entire">
+    <div class="navbar">
+        <div class="wrapper">
+            <ul class="navLinks">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Find ATM/Branch</a></li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <img src="/assets/background.jpg"class="image" >
+        <form (ngSubmit)="login()" [formGroup]="myForm">    
+        <div class="container">      
+            <h3><span>🔒&#xFE0E;</span> Login to Internet Banking</h3><br><br>
+              <div class="group">  
+                <input type="text" formControlName="emailAddress" class="form-control" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Email Address</label>
+                <span *ngIf="(emailAddress.errors && emailAddress.touched)||(submitted && emailAddress.errors)">
+                  <span class="errors" *ngIf="emailAddress.errors.required">Email Address cannot be empty</span>
+                  <span class="errors" *ngIf="emailAddress.errors.pattern">Email Address is not valid</span>
+                  </span>
+              </div>
+              <div class="group">      
+                <input type="password" value="FakePSW" formControlName="password" class="form-control" id="myInput" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Password</label>
+                <input type="checkbox" (click)="func()" style="position: absolute; top: 60%; ">  
+                <span style="position: absolute;left: 4%; top:58%;">Show Password</span>
+                <br><br>            
+                <span  *ngIf = "(password.errors && password.touched) || (submitted && password.errors)">
+                  <span class="errors" *ngIf = "password.errors.required">Password cannot be empty</span>
+                  <span class="errors" *ngIf = "password.errors.pattern">Invalid Password</span>
+                </span>
+              </div>
+              <br><br><button class="btn first" >Login</button>
+              <div class="needhelp">
+                <hr>
+                <p class="pos"><a style="color: #5264AE;" href="https://www.w3schools.com/html/">Need Help?</a></p>
+            </div>   
+          </div>
+        </form>  
+          <div class="imginfo">
+              <p style="color:darkblue;font-size: 20px;">Important Notices</p><br>
+            <ol type="1" style="font-size: 12px;">
+                <li>As per RBI guidelines, National Electronic Funds Transfer (NEFT) is available 24x7 with effect from Dec 16, 2019. Please click here for details.</li>
+                <li>As per RBI guideline, the revised timings for Real Time Gross Settlement (RTGS) are from 07:00 a.m. to 06:00 p.m. with effect from August 26, 2019</li>
+                <li>OTP/URN for internet banking transactions for NRI customers which was earlier sent on email, is now sent on SMS at customer’s registered India/International Mobile numbers. Key transactions where OTP/URN will be sent on SMS are- Funds Transfer/Add payee or biller*/Online User id/Password generation and Risk based OTP. Please note that post new payee/biller addition, there will be a 30 minutes cooling period before NRI customers can initiate a transaction to the newly added payee/biller</li>
+              </ol>  
+          </div>
+          <div>
+            <ul class="list2"><br>
+                <p style="color:darkblue;font-size: 20px;">Did you know</p><br>
+                <li>Before logging in, please ensure that the URL address on the address bar of your internet browser starts with https://infinity.dbg.com.</li><br>
+                <li>Never provide your User ID or password to any one on phone or in response to a mail.Report a suspicious mail</li><br>
+                <li>Do not enter login or other sensitive information in any pop up window.</li>
+              </ul>  <br>
+          </div>
+    
+          <div class="info1">
+            <p>Important security information</p>
+            <ul class="list"><br>
+                <li>Before logging in, please ensure that the URL address on the address bar of your internet browser starts with https://infinity.dbg.com.</li><br>
+                <li>Never provide your User ID or password to any one on phone or in response to a mail.Report a suspicious mail</li><br>
+                <li>Do not enter login or other sensitive information in any pop up window.</li>
+              </ul>  <br>
+              <p>Digital Security</p><br>
+              <section class="list1">https://infinity.dbg.com has been verified by Entrust. The communication of your private information from any address beginning with <br>"https" is encrypted and secured using SSL.</section>
+    
+        </div>   
+        
+    </div>
+    <div class="lastinfo">
+        <section>Terms & Conditions | Interest Rates | Service Charges & Fees | Do Not Call Registry | Disclaimer | Multilingual Disclaimer | Code of Commitment | Group Code of Business Conduct and Ethics <br> Basel II Disclosures | Notice Board | Use of Unparliamentary Language by Customers | Privacy | USA Patriot Act Certification</section>
+    </div>
+    
+</div>
+
+
+
+  
+
+
+  
+

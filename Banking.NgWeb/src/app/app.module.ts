@@ -14,6 +14,7 @@ import { AccountService } from './service/account.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import{DatepickerModule,BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import { CustomerDashboardComponent } from './customer/customer-dashboard/customer-dashboard.component';
+import { LoginComponent } from './Transaction/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CustomerDashboardComponent } from './customer/customer-dashboard/custom
     CustomerAccountComponent,
     CustomerRegisteredDetailsComponent,
     CustomerDashboardComponent,
-    AccountTypesComponent
+    AccountTypesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

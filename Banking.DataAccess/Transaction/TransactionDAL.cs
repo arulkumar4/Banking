@@ -13,9 +13,9 @@ namespace Banking.DataAccess.Transaction
 {
     public class TransactionDAL : BaseDal, ITransactionDAL
     {
-        public List<MTransaction> DebitTransaction(MTransaction transaction)
+        public MTransaction DebitTransaction(MTransaction transaction)
         {
-            List<MTransaction> _transaction = new List<MTransaction>();
+            MTransaction _transaction = null;
             var dataset = GetDataset(ProcedureNames.Transaction.DebitTransaction, 
                                         new SqlParameter("@TransferAmmount", transaction.TransferAmount),
                                         new SqlParameter("@SenderName", transaction.SenderName), 
@@ -31,7 +31,7 @@ namespace Banking.DataAccess.Transaction
 
                 foreach (var typeRow in transactiontableDetail)
                 {
-                    _transaction.Add(PopulateData<MTransaction>(typeRow));
+                    _transaction = (PopulateData<MTransaction>(typeRow));
                 }
             }
             return _transaction;
