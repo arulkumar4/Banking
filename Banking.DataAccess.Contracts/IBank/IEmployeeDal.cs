@@ -11,5 +11,7 @@ namespace Banking.DataAccess.Contracts
         int UpdateEmployee(Employee employee);
         int DeleteEmployee(int employeeid);
         List<Employee> GetEmployeesByKeyword(string keyword);
+        int GetEmployeeId(string mail);
+
     }
 }

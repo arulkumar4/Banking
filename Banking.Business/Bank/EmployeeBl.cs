@@ -29,6 +29,12 @@ namespace Banking.Business
             return _employeedal.GetEmployeeById(employeeid);
         }
 
+        public int GetEmployeeId(string mail)
+        {
+            return _employeedal.GetEmployeeId(mail);
+
+        }
+
         public List<Employee> GetEmployees()
         {
             return _employeedal.GetEmployees();

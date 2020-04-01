@@ -10,6 +10,7 @@ namespace Banking.Business.Contracts
         List<Employee> GetEmployeeById(int employeeid);
         int UpdateEmployee(Employee employee);
         int DeleteEmployee(int employeeid);
+        int GetEmployeeId(string mail);
         List<Employee> GetEmployeesByKeyword(string keyword);
     }
 }

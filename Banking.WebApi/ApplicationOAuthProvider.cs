@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security.OAuth;
+using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -23,6 +24,9 @@ namespace Banking.WebApi
             {
                 var identity = new ClaimsIdentity(context.Options.AuthenticationType);
                 identity.AddClaim(new Claim("Username", user.UserName));
+                identity.AddClaim(new Claim("Email", user.Email));
+                identity.AddClaim(new Claim("LoggedOn", DateTime.Now.ToString()));
+
                 context.Validated(identity);
             }
             else
