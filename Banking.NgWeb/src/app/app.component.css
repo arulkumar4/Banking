@@ -1,9 +1,23 @@
-.footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: gray;
-  color: white;
-  text-align: center;
-}
+.navbar{
+    background-color: #169be7fb;
+    height:40px
+  }
+  li a{
+    color: rgb(255, 255, 255);
+  }
+  #navitem{
+    margin-left: 50px;
+  }
+  .footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #169be7fb;
+    color: white;
+    text-align: center;
+  }
+  .footer-copyright{
+    font-size: smaller;
+  }
+  

@@ -154,8 +154,6 @@ export class CustomerComponent implements OnInit {
           {
             this.errormessage="Please fill all the details"
           }
-        
-
     }
         
   onReset()
