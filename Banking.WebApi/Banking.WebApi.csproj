@@ -304,6 +304,10 @@
     <Compile Include="Migrations\202003100729225_UpdatedDB.Designer.cs">
       <DependentUpon>202003100729225_UpdatedDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004010851216_addcolumns.cs" />
+    <Compile Include="Migrations\202004010851216_addcolumns.Designer.cs">
+      <DependentUpon>202004010851216_addcolumns.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -364,7 +368,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Payment\" />
     <Folder Include="Views\Transactions\" />
     <Folder Include="Views\TransactionType\" />
@@ -418,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003100729225_UpdatedDB.resx">
       <DependentUpon>202003100729225_UpdatedDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004010851216_addcolumns.resx">
+      <DependentUpon>202004010851216_addcolumns.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

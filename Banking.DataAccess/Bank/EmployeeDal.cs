@@ -46,6 +46,14 @@ namespace Banking.DataAccess
             return Employees;
         }
 
+        public int GetEmployeeId(string mail)
+        {
+            var id = GetValue<int>(ProcedureNames.Employee.GetEmployeeId,
+                 new SqlParameter("email", mail)
+                 );
+            return id;
+        }
+
         public List<Employee> GetEmployees()
         {
             List<Employee> Employees = new List<Employee>();

@@ -9,7 +9,7 @@ namespace Banking.Business.Contracts.Transaction
 {
     public interface ITransactionBl
     {
-        List<MTransaction> DebitTransaction(MTransaction transaction);
+        MTransaction DebitTransaction(MTransaction transaction);
         List<MTransaction> GetAllTransactions(string AccountId);
         List<MTransaction> GetAllAccountTransfers(string AccountId);
     }

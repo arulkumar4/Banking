@@ -68,6 +68,7 @@
     <Folder Include="Bank\Stored Procedures\" />
     <Folder Include="Account\Stored Procedures\" />
     <Folder Include="Transaction\Stored Procedures\" />
+    <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Transaction\Tables\Payment.sql" />
@@ -131,5 +132,17 @@
     <Build Include="Transaction\Stored Procedures\AccountTransaction.sql" />
     <Build Include="Transaction\Stored Procedures\AccountPayment.sql" />
     <Build Include="Account\Stored Procedures\UpdateCustomerByEmployee.sql" />
+    <Build Include="dbo\Tables\xyz.sql" />
+    <Build Include="dbo\Tables\UserRole.sql" />
+    <Build Include="dbo\Tables\UserLogin.sql" />
+    <Build Include="dbo\Tables\UserClaim.sql" />
+    <Build Include="dbo\Tables\User.sql" />
+    <Build Include="dbo\Tables\Search.sql" />
+    <Build Include="dbo\Tables\Role.sql" />
+    <Build Include="dbo\Tables\Details.sql" />
+    <Build Include="dbo\Tables\__MigrationHistory.sql" />
+    <Build Include="Bank\Stored Procedures\SearchEmployeeByKeyword.sql" />
+    <Build Include="Bank\Stored Procedures\GetEmployeesByManagerId.sql" />
+    <Build Include="Bank\Stored Procedures\FindEmployeeId.sql" />
   </ItemGroup>
 </Project>

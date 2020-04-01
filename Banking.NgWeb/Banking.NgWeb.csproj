@@ -24,7 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>3.7</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>3.5</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,6 +46,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -19256,6 +19260,10 @@
     <Content Include="src\app\customer\customer-registered-details\customer-registered-details.component.html" />
     <Content Include="src\app\customer\customer.component.css" />
     <Content Include="src\app\customer\customer.component.html" />
+    <Content Include="src\app\Transaction\login\login.component.css" />
+    <Content Include="src\app\Transaction\login\login.component.html" />
+    <Content Include="src\assets\background.jpg" />
+    <Content Include="src\assets\scripts\custom.js" />
     <Content Include="src\favicon.ico" />
     <Content Include="src\index.html" />
     <Content Include="src\styles.css" />
@@ -30832,6 +30840,8 @@
     <TypeScriptCompile Include="src\app\customer\customer.component.ts" />
     <TypeScriptCompile Include="src\app\model\account.model.ts" />
     <TypeScriptCompile Include="src\app\service\account.service.ts" />
+    <TypeScriptCompile Include="src\app\Transaction\login\login.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\Transaction\login\login.component.ts" />
     <TypeScriptCompile Include="src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="src\environments\environment.ts" />
     <TypeScriptCompile Include="src\main.ts" />
