@@ -8,5 +8,6 @@ namespace Banking.Business.Contracts.IAccount
         List<Customer> GetCustomerDetails(long customerId, long accountNo);
         List<Customer> AddNewCustomer(Customer customer);
         string UpdateCustomerDetails(Customer customer);
+        long GetCustomerId(string mail);
     }
 }
