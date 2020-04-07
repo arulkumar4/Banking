@@ -1,0 +1,186 @@
+
+.image
+{
+    position: relative;
+    background-color: white;
+    width :80px;
+    border-radius: 12px;  
+    margin-right: 4%; 
+    margin-bottom: 1%;
+}
+.icontxt
+{
+    position: relative;
+    margin-right: 6%; 
+    margin-bottom: 1%;
+}
+.icontxt1
+{
+    position: relative;
+    left:5%;
+    margin-right: 10%; 
+    margin-bottom: 1%;
+}
+.icontxt2
+{
+    position: relative;
+    left:7%;
+    margin-right: 11%; 
+    margin-bottom: 1%;
+}
+.icontxtRecharge{position: absolute;left: 22%;top: 45% ;}
+
+.icontxtLandLine2
+{
+ position: absolute;
+ top: 93%;
+ left: 7%;
+
+}
+.pos
+{
+    position: absolute;
+    top: 80%;
+    left:30%
+}
+
+.atm:hover{background-color: grey;}
+.bulb:hover{background-color: grey;}
+.cylinder:hover{background-color: grey;}
+.waterTap:hover{background-color: grey;}
+.dth:hover{background-color: grey;}
+.phone:hover{background-color: grey;}
+.landline:hover{background-color: grey;}
+.money:hover{background-color: grey;}
+.imgContainer
+{
+    background-color:whitesmoke;
+    position: absolute;
+    padding-left: 40px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    top:100px;
+    left: 350px;
+    width:700px;
+    border-radius: 13px;
+    border-style:   solid;
+    border-color: gray;
+
+}
+/* phone */
+.inRowPhone1{margin: 2px 91px 4px 0px; width:200px;}
+/* Button */
+button {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background-color: transparent;
+    border: 2px solid #141E30;
+    border-radius: 0.3em;
+    color:#141E30;
+    cursor: pointer;
+    position: relative;
+    top: 40%;
+    display: -webkit-box;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1;
+    margin: 20px;
+    padding: 6px 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+  }
+  button:focus
+  {
+    color:#141E30;
+  }
+  button:hover {
+    color: #fff;
+    outline: 0;
+  }
+  h3{
+    color:#5264AE;
+  }
+  span{
+      color:#5264AE;
+  }
+  
+  .first {
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  }
+  .first:hover {
+    box-shadow: 0 0 20px 40px #141E30 inset;
+  }
+  /* ==================dth========== */
+  .rDthcolumn1
+  {
+    margin: 2px 228px 4px 0px;  }
+  .rDthcolumn2
+{
+    margin: 2px 90px 4px 0px;
+}
+.indthRow1{margin: 2px 120px 4px 0px; width:200px;}
+/* ==================bulb================ */
+.rbulbcolumn1
+{
+  margin: 2px 240px 4px 0px;  }
+.rbulbcolumn2
+{
+  margin: 2px 90px 4px 0px;
+}
+.inbulbRow1{margin: 2px 120px 4px 0px; width:200px;}
+/* =====================gas================= */
+.rgascolumn1
+{
+  margin: 2px 240px 4px 0px;  }
+.rgascolumn2
+{
+  margin: 2px 90px 4px 0px;
+}
+.ingasRow1{margin: 2px 120px 4px 0px; width:200px;}
+/* =====================Mutual================= */
+.rmutualcolumn1
+{
+  margin: 2px 260px 4px 0px;  }
+.rmutualcolumn2
+{
+  margin: 2px 90px 4px 0px;
+}
+.inmutualRow1{margin: 2px 120px 4px 0px; width:200px;}
+
+/* ---------------credit card-------------------- */
+.rcolumn1{margin: 2px 178px 4px 0px;}
+.rcolumn2{margin: 2px 90px 4px 0px;}
+.inRow1{margin: 2px 120px 4px 0px; width:200px;}
+.pos{
+    background-color:whitesmoke;
+    position: absolute;
+    padding-left: 40px;
+    padding-top: 20px;
+    top:70%;
+    left: 350px;
+    width:700px;
+    border-radius: 13px;
+    border-style:   solid;
+    border-color: gray;
+}
+.lastinfo
+{
+    position: absolute;
+    padding-left: 5%;
+    padding-bottom: 2%;
+    padding-top: 3%;
+    font-size: 15px;
+    top: 200%;
+    width: 99%;
+    background-color: lightgray;
+    
+}
+

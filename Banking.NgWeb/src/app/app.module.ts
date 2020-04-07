@@ -15,6 +15,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import{DatepickerModule,BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import { CustomerDashboardComponent } from './customer/customer-dashboard/customer-dashboard.component';
 import { LoginComponent } from './Transaction/login/login.component';
+import { TransactionPageComponent } from './Transaction/transaction-page/transaction-page.component';
+import { MyTransactionComponent } from './Transaction/transaction-page/my-transaction/my-transaction.component';
+import { FundTransferComponent } from './Transaction/transaction-page/fund-transfer/fund-transfer.component';
+import { PayBillsComponent } from './Transaction/transaction-page/pay-bills/pay-bills.component';
+import { TransactionService } from './service/transaction/transaction.service';
+import { MyTransactionService } from './service/transaction/myTransaction.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +30,11 @@ import { LoginComponent } from './Transaction/login/login.component';
     CustomerRegisteredDetailsComponent,
     CustomerDashboardComponent,
     AccountTypesComponent,
-    LoginComponent
+    LoginComponent,
+    TransactionPageComponent,
+    MyTransactionComponent,
+    FundTransferComponent,
+    PayBillsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +49,7 @@ import { LoginComponent } from './Transaction/login/login.component';
     DatepickerModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [AccountService],
+  providers: [AccountService,TransactionService,MyTransactionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

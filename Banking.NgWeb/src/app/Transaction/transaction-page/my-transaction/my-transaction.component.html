@@ -1,0 +1,43 @@
+<!-- hhhhhhhhhhhhhhhhhhhhhhhhhhhhhh -->
+<div class="container">
+  <table>
+    <tbody>
+      <tr [hidden]="showHeadings">
+        <th>AccountId</th>
+        <th>Transaction Id</th>
+        <th>ReceiverName</th>
+        <th>ReciverAccountId</th>
+        <th>SenderName</th>
+        <th>Status</th>
+        <th>TransactionDate</th>
+        <th>TransactionType</th>
+        <th>TransferAmount</th>
+      </tr>
+      <tr *ngFor="let tran of transaction" class="popupOpen" data-href="#entry1">
+        <td>{{tran.AccountId}}</td>
+        <td>{{tran.Id}}</td>
+        <td>{{tran.ReceiverName}}</td>
+        <td>{{tran.ReciverAccountId}}</td>
+        <td>{{tran.SenderName}}</td>
+        <td>{{tran.status}}</td>
+        <td>{{tran.TransactionDate | date:'shortDate'}}</td>
+        <td>{{tran.Type}}</td>
+        <td>{{tran.TransferAmount}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
+<img class="srcimg" [hidden]="msg" src="assets/search.png" />
+
+<div class="errorloading">
+  <p [hidden]="msg">
+    No transaction for the selected timeframe
+  </p>
+  <p [hidden]="msg">
+    Ensure that your application is under load, generate traffic or adapt the selected timeframe.
+  </p>
+  <a [hidden]="msg" routerLink="/transaction-page">back</a>
+
+</div>

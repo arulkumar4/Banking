@@ -19,6 +19,8 @@ namespace Banking.Business.Models.TransactionModels
         public string status { get; set; }
         public string AccountId { get; set; }
         public string TransactionTypeId { get; set; }
+        public string Type { get; set; }
+
 
         public String ReciverAccountId { get; set; }
     }

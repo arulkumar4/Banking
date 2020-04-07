@@ -27,7 +27,7 @@ namespace Banking.WebApi
                 defaults: new { id = RouteParameter.Optional }
             );
             var corsAttr = new EnableCorsAttribute("http://localhost:4200", "*", "*");
-            config.EnableCors(corsAttr);
+            //config.EnableCors(corsAttr);
             var container = new UnityContainer();
             container.RegisterType<ICityBl, CityBl>(new HierarchicalLifetimeManager());
             container.RegisterType<IBranchBl, BranchBl>(new HierarchicalLifetimeManager());
