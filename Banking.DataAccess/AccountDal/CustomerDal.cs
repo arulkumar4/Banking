@@ -63,6 +63,14 @@ namespace Banking.DataAccess.Account
             new SqlParameter("@Mail", customer.Mail)
             );
             return status;
-        }        
+        }
+
+        public long GetCustomerId(string mail)
+        {
+            var id = GetValue<long>(ProcedureNames.Account.GetCustomerId,
+                  new SqlParameter("email", mail)
+                  );
+            return id;
+        }
     }
 }
