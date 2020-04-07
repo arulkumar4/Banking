@@ -1,0 +1,69 @@
+.errorloading{
+  position:absolute;
+  left:35%;
+  top:35%;
+  width:60%;
+  font-size:15px;
+}
+.heading {
+  color: darkred;
+  font-family: "Lucida Console", Courier, monospace;
+  position :absolute;
+  top:90%
+}
+.srcimg{
+  background-color:white;
+  position:absolute;
+  top:35%;
+  width:5%;
+  left:29%; 
+  height:5%;
+}
+.container {
+position: absolute;
+left:15%;
+}
+table {
+    border:1px solid #ccc;
+    text-align:center;
+}
+table th {
+    background:#e3e3e3;
+}
+table tr td {
+    width:200px;
+    border-top:1px solid #ccc
+}
+table tr:hover td {
+    cursor:pointer;
+    background:#ccc
+}
+.largWin {
+    padding:20px;
+    background-color:#fff;
+    border:1px solid #ccc;
+    display:none;
+    z-index: 99999;
+    width:400px;
+    height:400px;
+    position:absolute;
+    overflow:scroll;
+}
+#mask {
+    display: none;
+    background: #666;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    -moz-opacity:0.80;
+    opacity:0.80;
+    z-index: 999;
+}
+.close {
+    font:2em tahoma;
+    color:red;
+    text-decoration:none;
+}

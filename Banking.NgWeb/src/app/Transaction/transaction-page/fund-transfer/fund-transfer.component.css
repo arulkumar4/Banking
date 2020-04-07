@@ -1,0 +1,149 @@
+.errorloading {
+  position: absolute;
+  left: 35%;
+  top: 35%;
+  width: 60%;
+  font-size: 15px;
+}
+.srcimg {
+  background-color: white;
+  position: absolute;
+  top: 35%;
+  width: 5%;
+  left: 29%;
+  height: 5%;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+}
+
+td, th {
+  text-align: left;
+  padding: 8px;
+}
+
+.rcolumn1{margin: 2px 224px 0px 0px;}
+.rcolumn2{margin: 2px 180px 0px 0px;}
+.rcolumn4{margin: 2px 180px 0px 0px;}
+.rcolumn3{margin: 2px 0px 0px 0px;}
+.inRow1{margin: 2px 120px 0px 0px; width:200px;}
+.r2c1{margin: 2px 237px 0px 0px;}
+.r2c2{margin: 2px 258px 0px 0px;}
+.r2c3{ margin: 2px 0px 0px 0px;}
+.inRow2{margin: 2px 120px 0px 0px; width: 200px;}
+select{width:180px}
+
+.notes
+{
+  width:75%;
+  font-size: 12px;
+  position: relative;
+  top:100%;
+  left:310Px;
+}
+/* ---------BUTTON-------------- */
+  /* Button */
+  .btn {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background-color: transparent;
+    border: 2px solid #141E30;
+    border-radius: 0.3em;
+    color:#141E30;
+    cursor: pointer;
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1;
+    margin: 20px;
+    padding: 6px 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+  }
+  .btn:focus
+  {
+    color:#141E30;
+  }
+  .btn:hover {
+    color: #fff;
+    outline: 0;
+    
+  }
+  .first {
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  }
+  .first:hover {
+    box-shadow: 0 0 20px 40px #141E30 inset;
+  }
+  .box
+  {
+    width: 100%;
+    position: absolute;
+  }
+  .container
+{
+    position: relative;
+    padding-top: 0px;
+    left:10%;
+    width: 75%;
+    background-color: whitesmoke;
+    
+}
+  .lastinfo
+  {
+      position: relative;
+      padding-left: 5%;
+      padding-bottom: 2%;
+      padding-top: 3%;
+      font-size: 15px;
+      width: 100%;
+      background-color:lightgray;
+      
+  }
+  .errorsRow1
+{
+  color: darkred;
+  position: absolute;
+  font-size: 12px;
+  margin:2px 0px 0px 4px;
+}
+.errorsRow2
+{
+  color: darkred;
+  position: absolute;
+  font-size: 12px;
+  margin:2px 0px 0px 320px;
+}
+.errorsCross
+{
+  color: darkred;
+  position: absolute;
+  font-size: 12px;
+  right:20%
+}
+.errorsRow4
+{
+  color: darkred;
+  position: absolute;
+  font-size: 12px;
+  margin:2px 0px 0px 320px;
+
+}
+.errorsRow3
+{
+  color: darkred;
+  position: absolute;
+  font-size: 12px;
+  margin:2px 0px 0px 4px;
+
+}
