@@ -12,7 +12,7 @@ namespace Banking.DataAccess.Account
         public List<Customer> GetCustomerDetails(long customerId, long accountNo)
         {
             List<Customer> CustomerAcc = new List<Customer>();
-            using (var dataset = GetDataset(ProcedureNames.Account.GetCustomerDetails, customerId,accountNo))
+            using (var dataset = GetDataset(ProcedureNames.Account.GetCustomerDetails, customerId, accountNo))
             {
                 var accountTable = dataset.Tables[0];
                 var accountTableDetail = accountTable.AsEnumerable();
@@ -51,11 +51,10 @@ namespace Banking.DataAccess.Account
             return newCustomer;
         }
 
-        public string UpdateCustomerDetails(Customer customer)
+        public string UpdateCustomerDetails(Customer customer, long customerId)
         {
             var status = GetValue<string>(ProcedureNames.Account.UpdateCustomerDetails,
-            new SqlParameter("@CustomerId", customer.CustomerId),
-            new SqlParameter("@Password", customer.Password),
+            new SqlParameter("@CustomerId", customerId),
             new SqlParameter("@FirstName", customer.FirstName),
             new SqlParameter("@LastName", customer.LastName),
             new SqlParameter("@Address", customer.Address),

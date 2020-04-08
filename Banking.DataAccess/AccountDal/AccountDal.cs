@@ -24,10 +24,10 @@ namespace Banking.DataAccess.Account
             }
             return CustomerAcc;
         }
-        public List<Customer> GetCustomerAccount(long customerId, long accountNo, string password)
+        public List<Customer> GetCustomerAccount(long customerId, long accountNo)
         {
             List<Customer> CustomerAcc = new List<Customer>();
-            using (var dataset = GetDataset(ProcedureNames.Account.GetOneCustomerDetails, customerId, accountNo, password))
+            using (var dataset = GetDataset(ProcedureNames.Account.GetOneCustomerDetails, customerId, accountNo))
             {
                 var accountTable = dataset.Tables[0];
                 var accountTableDetail = accountTable.AsEnumerable();

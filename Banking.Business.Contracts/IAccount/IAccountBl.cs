@@ -6,7 +6,7 @@ namespace Banking.Business.Contracts.IAccount
     public interface IAccountBl
     {
         List<Customer> GetAllCustomerAccounts();
-        List<Customer> GetCustomerAccounts(long customerId, long accountNo, string password);
+        List<Customer> GetCustomerAccounts(long customerId, long accountNo);
         List<Customer> GetAccountbyAccountType(string accountType);
         List<Customer> GetAccountByBalance(decimal balance);
         List<Customer> GetCustomerByAccountStatus(bool status);

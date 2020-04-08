@@ -32,9 +32,9 @@ namespace Banking.WebApi.Controllers
         
         [Route("api/Customer/UpdateCustomerDetails")]
         [HttpPut]
-        public IHttpActionResult UpdateCustomerDetails([FromBody]Customer customer)
+        public IHttpActionResult UpdateCustomerDetails([FromBody]Customer customer, long customerId)
         {
-            return Ok(_customerbl.UpdateCustomerDetails(customer));
+            return Ok(_customerbl.UpdateCustomerDetails(customer, customerId));
         }        
     }
 }

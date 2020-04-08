@@ -7,6 +7,6 @@ namespace Banking.DataAccess.Contracts.IAccount
     {
         List<Customer> GetCustomerDetails(long customerId, long accountNo);
         List<Customer> AddNewCustomer(Customer customer);
-        string UpdateCustomerDetails(Customer customer);
+        string UpdateCustomerDetails(Customer customer, long customerId);
     }
 }
