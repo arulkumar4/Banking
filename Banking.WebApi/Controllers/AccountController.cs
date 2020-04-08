@@ -26,9 +26,9 @@ namespace Banking.WebApi.Controllers
         // GET: api/GetAccount/string/id
         [Route("api/Account/GetCustomerAccounts")]
         [HttpGet]
-        public IHttpActionResult GetCustomerAccounts(long customerId, long accountNo, string password)
+        public IHttpActionResult GetCustomerAccounts(long customerId, long accountNo)
         {
-            return Ok(_accountbl.GetCustomerAccounts(customerId, accountNo, password));
+            return Ok(_accountbl.GetCustomerAccounts(customerId, accountNo));
         }
 
         // GET: api/GetAccount/string/accountType

@@ -1,14 +1,320 @@
-table {
-  width: 1000px;
-  margin-left: 0%;
-}
-
-  table tr:hover {
-    cursor: pointer;
-    background-color: rgb(241, 241, 241);
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -250px;
   }
 
-table {
-  background: white;
-  border: 1px solid lightgray;
+    #sidebar.active {
+      margin-left: 0;
+    }
+}
+
+#acc {
+  background-color: #fcead877;
+  height: 850px;
+}
+
+#servicedetails {
+  /* position:absolute; */
+  width: 250px;
+  height: 380px;
+  margin-top: 50px;
+  margin-left: 100px;
+  border-radius: 20px;
+  color: rgb(156, 77, 77);
+  border-color: white;
+  box-shadow: 1px 1px 50px rgba(143, 39, 39, 0.342);
+}
+
+#cardtitle1 {
+  padding-top: 2rem;
+  padding-bottom: 20px;
+}
+
+#accservice {
+  cursor: pointer;
+  color: rgb(153, 125, 125);
+  ;
+  padding-left: 0px;
+  font-weight: 500;
+}
+
+  #accservice:hover {
+    color: rgb(109, 45, 45);
+  }
+
+p#line {
+  font-size: medium;
+  color: rgb(167, 164, 164);
+}
+
+#accdetails {
+  /* position:absolute; */
+  width: 780px;
+  height: 380px;
+  margin-top: 50px;
+  margin-left: 200px;
+  border-radius: 20px;
+  color: rgb(156, 77, 77);
+  border-color: white;
+  box-shadow: 1px 1px 50px rgba(143, 39, 39, 0.342);
+}
+
+#cardtitle2 {
+  padding-top: 2rem;
+  padding-bottom: 30px;
+  padding-left: 30px;
+}
+
+#customerdetails {
+  margin-top: 5px !important;
+}
+
+  #customerdetails .row {
+    margin-bottom: 30px;
+  }
+
+#user {
+  font-size: medium;
+  font-weight: 500;
+  margin-top: -160px;
+  margin-left: 200px;
+}
+
+#name {
+  margin-top: -160px;
+  margin-left: -10px;
+}
+
+#account {
+  width: 180px;
+  height: 200px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+#whatsnew {
+  width: 250px;
+  height: 340px;
+  margin-top: 30px;
+  margin-left: 100px;
+  border-radius: 20px;
+  color: rgb(156, 77, 77);
+  border-color: white;
+  box-shadow: 1px 1px 50px rgba(143, 39, 39, 0.342);
+}
+
+#cardtitle3 {
+  padding-top: 1rem;
+  padding-bottom: 15px;
+}
+
+#subhead3 {
+  padding-left: 10px;
+}
+
+#quickpay {
+  font-size: small;
+  color: rgb(107, 78, 78);
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+p#line1 {
+  font-size: medium;
+  color: rgb(167, 164, 164);
+  margin-top: 10px;
+}
+
+#cc {
+  width: 780px;
+  height: 340px;
+  margin-top: 30px;
+  margin-left: 200px;
+  border-radius: 20px;
+  color: rgb(156, 77, 77);
+  border-color: white;
+  box-shadow: 1px 1px 50px rgba(143, 39, 39, 0.342);
+}
+
+h6#reccard {
+  margin-top: 10px;
+  margin-bottom: -20px;
+}
+
+img#cardsection {
+  width: 45% !important;
+  height: 200px;
+  margin-top: 60px;
+  margin-left: 30px;
+  box-shadow: 1px 1px 50px rgba(218, 172, 172, 0.342);
+}
+
+#bankname {
+  position: absolute;
+  margin-top: 75px;
+  margin-left: 290px;
+  color: #fff6f6;
+  font-size: x-large;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+}
+
+#cardname {
+  position: absolute;
+  margin-top: 80px;
+  margin-left: 50px;
+  color: #fff6f6;
+  font-size: larger;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+}
+
+#ccname {
+  position: absolute;
+  margin-top: 135px;
+  margin-left: 130px;
+  color: #fff6f6;
+  font-size: large;
+  font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+  font-weight: 500;
+}
+
+img#cardlogo {
+  width: 12% !important;
+  height: 40px;
+  /* margin-top: 5px; */
+  margin-left: 280px;
+  box-shadow: 1px 1px 50px rgba(218, 172, 172, 0.342);
+}
+
+#ccpoint1 {
+  width: 260px;
+  margin-left: 450px;
+  margin-top: -240px;
+  font-weight: 400;
+}
+
+#ccpoint2 {
+  width: 260px;
+  margin-left: 450px;
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+#ccbutton {
+  position: absolute;
+  cursor: pointer;
+  margin-top: 260px;
+  margin-left: 580px;
+  color: #ffffff;
+  background-color: #750000da;
+  border-radius: 4px;
+  width: 100px;
+  padding: 10px;
+}
+
+#update {
+  width: 780px;
+  height: 380px;
+  margin-top: 50px;
+  margin-left: 200px;
+  border-radius: 20px;
+  color: rgb(156, 77, 77);
+  border-color: white;
+  box-shadow: 1px 1px 50px rgba(143, 39, 39, 0.342);
+}
+
+form {
+  padding-top: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+label {
+  font-weight: 500;
+  font-size: medium;
+}
+
+input {
+  width: 300px;
+  height: 40px;
+}
+
+textarea {
+  width: 300px;
+  height: 40px;
+}
+
+#conNo {
+  padding-left: 85px;
+}
+
+#conNo, #email {
+  margin-top: 0px;
+}
+
+#buttons {
+  margin-left: 55px;
+  margin-top: 30px;
+}
+
+#submit {
+  background-color: #50f03b;
+  color: rgb(8, 65, 10);
+  font-weight: 500;
+}
+
+  #submit:hover {
+    color: white;
+    background-color: green;
+  }
+
+#reset {
+  background-color: #850404f1;
+  color: #ffffff;
+}
+
+  #reset:hover {
+    background-color: rgb(231, 6, 6);
+    color: black;
+  }
+
+#submit, #reset {
+  cursor: pointer;
+  width: 90px;
+  height: 45px;
+  padding: 3px;
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+#errormsg {
+  position: absolute;
+  font-size: small;
+  margin-top: -12px;
+  margin-left: 260px;
+}
+
+#fnerror, #lnerror, #adderror, #conNoerror, #emailerror {
+  color: rgb(209, 9, 9);
+  font-size: small;
+}
+
+#adderror {
+  margin-top: 0px;
+}
+
+input.ng-touched.ng-invalid, input.ng-dirty.ng-invalid {
+  border-color: red
+}
+
+textarea.ng-touched.ng-invalid, textarea.ng-dirty.ng-invalid {
+  border-color: red
+}
+
+.invalid-feedback#error {
+  position: absolute;
+  margin-left: 90px;
+  font-size: .68rem;
+  color: red;
 }

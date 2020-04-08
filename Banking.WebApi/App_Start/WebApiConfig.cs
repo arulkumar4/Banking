@@ -1,4 +1,4 @@
-﻿using Banking.Business;
+using Banking.Business;
 using Banking.Business.Account;
 using Banking.Business.Contracts;
 using Banking.Business.Contracts.Transaction;
@@ -26,10 +26,8 @@ namespace Banking.WebApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-
-            var corsAttr = new EnableCorsAttribute("http://localhost:4200", "*", "*");
             //var corsAttr = new EnableCorsAttribute("http://localhost:4200", "*", "*");
-
+            //config.EnableCors();
             var container = new UnityContainer();
             container.RegisterType<ICityBl, CityBl>(new HierarchicalLifetimeManager());
             container.RegisterType<IBranchBl, BranchBl>(new HierarchicalLifetimeManager());

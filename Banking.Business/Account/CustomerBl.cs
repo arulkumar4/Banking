@@ -25,9 +25,9 @@ namespace Banking.Business.Account
             return _customerDal.AddNewCustomer(customer);
         }
 
-        public string UpdateCustomerDetails(Customer customer)
+        public string UpdateCustomerDetails(Customer customer, long customerId)
         {
-            return _customerDal.UpdateCustomerDetails(customer);
+            return _customerDal.UpdateCustomerDetails(customer, customerId);
         }
 
         public long GetCustomerId(string mail)

@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE [Account].[GetCustomerDetails]
+﻿--Procedure for GetOnecustomer	
+CREATE PROCEDURE [Account].[GetCustomerDetails]
 (
 	@CustomerId VARCHAR(20),
 	@AccNumber BIGINT
