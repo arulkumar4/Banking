@@ -42,14 +42,13 @@ namespace Banking.WebApi.Controllers
             _customerbl.AddNewCustomer(customer);
             return result;
         }
-        // Put: api/Cuatomer/UpdateCustomerDetails
+        
         [Route("api/Customer/UpdateCustomerDetails")]
         [HttpPut]
         public IHttpActionResult UpdateCustomerDetails([FromBody]Customer customer, long customerId)
         {
             return Ok(_customerbl.UpdateCustomerDetails(customer, customerId));
-        }   
-        
+        }        
         [HttpGet]
         [Route("api/GetUserClaims/customer")]
         
