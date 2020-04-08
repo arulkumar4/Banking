@@ -30,6 +30,10 @@ namespace Banking.Business.Account
             return _customerDal.UpdateCustomerDetails(customer, customerId);
         }
 
+        public long GetCustomerId(string mail)
+        {
+            return _customerDal.GetCustomerId(mail);
+        }
     }
 
 }

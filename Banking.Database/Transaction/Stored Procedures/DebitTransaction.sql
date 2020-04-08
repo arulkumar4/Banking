@@ -1,5 +1,4 @@
-﻿
-Create Procedure [Transaction].DebitTransaction (@TransferAmmount money , @SenderName varchar(100) ,@ReciverName varchar(100) , @AccountId Varchar(20),@TransactionTypeId Varchar(10),@ReciverAccountId Varchar(20))
+﻿CREATE Procedure [Transaction].DebitTransaction (@TransferAmmount money , @SenderName varchar(100) ,@ReciverName varchar(100) , @AccountId Varchar(20),@TransactionTypeId Varchar(10),@ReciverAccountId Varchar(20))
 AS
 Begin
 
@@ -11,7 +10,7 @@ Begin
 	
 
 			Begin Try
-			  If(@intialBalance > @TransferAmmount)
+			  If(@intialBalance >= @TransferAmmount)
 			   BEGIN
 				Insert Into [Transaction].[Transaction]
 				Values(@intialBalance,@TransferAmmount,(@intialBalance-@TransferAmmount),GetDate(),@SenderName,@ReciverName,'SUCCESS',@AccountId,@TransactionTypeId,@ReciverAccountId);
@@ -24,14 +23,16 @@ Begin
 				Set Balance +=@TransferAmmount 
 				where Id=@ReciverAccountId;
 
-				Select Id , [IntialBalance],[TransferAmount],[AvailableBalance],[TransactionDate],[SenderName],[ReceiverName],[status],[AccountId],[TransactionTypeId] ,[ReciverAccountId]
-				From [Transaction].[Transaction] WITH (NOLOCK)
-			   where SLNO = SCOPE_IDENTITY();
+				Select TRN.Id , [IntialBalance],[TransferAmount],[AvailableBalance],[TransactionDate],[SenderName],[ReceiverName],[status],[AccountId],TRNTY.[Type] ,[ReciverAccountId]
+				From [Transaction].[Transaction] TRN WITH (NOLOCK) inner join [Transaction].[TransactionType]  TRNTY WITH (NOLOCK)
+				ON TRN.TransactionTypeId = TRNTY.Id
+			   where TRN.SLNO = SCOPE_IDENTITY();
 				END
 			  Else 
 			   Begin 
 			    RAISERROR ('Error raised in TRY block.',16,1);
 			   End
+			   Commit Transaction Debit
 		    End Try
 		
 			Begin catch
@@ -39,13 +40,10 @@ Begin
 				Insert Into [Transaction].[Transaction]
 				Values(@intialBalance,0,0,GetDate(),@SenderName,@ReciverName,'FAILED',@AccountId,@TransactionTypeId,@ReciverAccountId);
 
-				Select Id , [IntialBalance],[TransferAmount],[AvailableBalance],[TransactionDate],[SenderName],[ReceiverName],[status],[AccountId],[TransactionTypeId] ,[ReciverAccountId]
-				From [Transaction].[Transaction] WITH (NOLOCK)
-				where SLNO = SCOPE_IDENTITY();
-				
+				Select TRN.Id , [IntialBalance],[TransferAmount],[AvailableBalance],[TransactionDate],[SenderName],[ReceiverName],[status],[AccountId],TRNTY.[Type] ,[ReciverAccountId]
+				From [Transaction].[Transaction] TRN WITH (NOLOCK) inner join [Transaction].[TransactionType]  TRNTY WITH (NOLOCK)
+				ON TRN.TransactionTypeId = TRNTY.Id
+			   where TRN.SLNO = SCOPE_IDENTITY();
 		    End catch
 
-			Commit Transaction Debit
-
-	
 End

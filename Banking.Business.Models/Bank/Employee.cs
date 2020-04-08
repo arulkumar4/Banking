@@ -43,5 +43,6 @@ namespace Banking.Business.Models
         public string UseName { get; set; }
         public string Password { get; set; }
         public string LoggedOn { get; set; }
+        public string Role { get; set; }
     }
 }

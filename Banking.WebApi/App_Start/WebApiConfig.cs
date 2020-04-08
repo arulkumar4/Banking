@@ -1,4 +1,4 @@
-﻿using Banking.Business;
+using Banking.Business;
 using Banking.Business.Account;
 using Banking.Business.Contracts;
 using Banking.Business.Contracts.Transaction;
