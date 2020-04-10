@@ -1,1 +1,72 @@
-<p>employee-list works!</p>
+<div class='card'>
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+  <div class='card-body'>
+    <div class="row">
+      <div class='col-md-2'>Filter by:</div>
+      <div class='col-md-4'>
+        <input type="text"
+               [(ngModel)]='listFilter' />
+      </div>
+    </div>
+    <div class="row">
+      <div class='col-md-6'>
+        <h4>Filterd by : {{listFilter}}</h4>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table"
+             *ngIf='filterEmployees && filterEmployees.length'>
+        <thead class="thead-dark">
+          <tr>
+            <th>Employee Id</th>
+            <th>FullName</th>
+            <th>Mail</th>
+            <th>Date of Birth</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of filterEmployees |  paginate: { itemsPerPage: 5, currentPage: p }">
+            <th scope="row">{{employee.Id}}</th>
+            <td>
+              <a [routerLink]="['/employeedashboard/employees',employee.Id]">
+                {{employee.FullName}}
+              </a>
+            </td>
+            <td><i style='font-size:20px' class='fas'>&#xf0e0;</i>{{employee.Mail}}</td>
+            <td>{{employee.DOB | date }}</td>
+            <td>
+              <button class="btn btn-outline-primary btn-sm"
+                      (click)="convertText(employee)">
+                <i style='font-size:24px' class='fas'>&#xf044;</i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+        <ul class="pagination">
+          <pagination-controls (pageChange)="p = $event" autoHide="false"></pagination-controls>
+        </ul>
+      </table>
+    </div>
+  </div>
+</div>
+
+<ngx-spinner bdOpacity=0.9
+             bdColor="#ffffff"
+             size="medium"
+             color="#4fb557"
+             type="line-spin-clockwise-fade"
+             [fullScreen]="true">
+  <p style="color: black"> Please wait... </p>
+</ngx-spinner>
+
+
+
+
+<div *ngIf='errorMessage'
+     class="alert alert-danger">
+  Error:{{errorMessage}}
+</div>
+

@@ -1,0 +1,14 @@
+.lastinfo {
+  position: absolute;
+  padding-left: 5%;
+  padding-bottom: 2%;
+  padding-top: 3%;
+  font-size: 15px;
+  top: 200%;
+  width: 99%;
+  background-color: lightgray;
+}
+
+.entire {
+  overflow-x: hidden;
+}
