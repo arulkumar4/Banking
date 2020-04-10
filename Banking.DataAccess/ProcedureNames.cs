@@ -28,6 +28,8 @@ namespace Banking.DataAccess
             public const string GetMangersById = "[Bank].[GetMangersById]";
             public const string UpdateMangersById = "[Bank].[UpdateMangersById]";
             public const string DeleteManager = "[Bank].[DeleteManager]";
+            public const string GetManagerId = "[Bank].[FindManagerId]";
+
         }
         public class Employee
         {

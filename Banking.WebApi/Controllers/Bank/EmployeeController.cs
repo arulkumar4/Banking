@@ -69,7 +69,6 @@ namespace Banking.WebApi.Controllers
         }
         [HttpGet]
         [Route("api/GetUserClaims")]
-        [Authorize(Roles ="Employee")]
         public IHttpActionResult GetUserClaims()
         {
             var identityClaims = (ClaimsIdentity)User.Identity;
@@ -78,7 +77,9 @@ namespace Banking.WebApi.Controllers
             {
                 Mail = identityClaims.FindFirst("UserName").Value,
                 Id=GetEmployeeId(identityClaims.FindFirst("UserName").Value),
-                LoggedOn=identityClaims.FindFirst("LoggedOn").Value
+                LoggedOn=identityClaims.FindFirst("LoggedOn").Value,
+                Password=identityClaims.FindFirst("Password").Value
+              
             };
             return Ok(employee);
         }
