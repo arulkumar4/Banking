@@ -1,56 +1,311 @@
-<h5>DBG-Customers</h5>
+<!-- <div id="main">
+    <div class="wrapper">
+        <nav id="sidebar">
+            <ul class="list-unstyled components">
+                <p>Dummy Heading</p>
+                <li class="active">
+                    <a data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Home 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Page 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div> -->
+<div>
+  <div id="acc"
+       *ngFor="let dat of data">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="card" id="servicedetails">
+          <h5 class="text-center" id="cardtitle1">ACCOUNT SERVICES</h5>
+          <a class="text-center" id="accservice" (click)="updateDetails()">Update Details</a>
+          <p id="line">--------------------------------------------------------</p>
+          <a class="text-center" id="accservice" (click)="updateDetails()">Change Password</a>
+          <p id="line">--------------------------------------------------------</p>
+          <a class="text-center" id="accservice">Delete Account</a>
+          <p id="line">--------------------------------------------------------</p>
+          <a class="text-center" id="accservice">New Account</a>
+          <p id="line">--------------------------------------------------------</p>
+          <a class="text-center" id="accservice">Queries/Issues</a>
+        </div>
+      </div>
 
-<table class="table table-hover">
-  <tr style="background-color:rgb(65, 71, 69)">
-    <th style="color:rgb(177, 177, 177);">CustomerID</th>
-    <th style="color:rgb(179, 179, 179);">AccountNumber</th>
-    <th style="color:rgb(179, 179, 179);">FirstName</th>
-    <th style="color:rgb(179, 179, 179);">LastName</th>
-    <th style="color:rgb(179, 179, 179);">OpenDate</th>
-    <th style="color:rgb(179, 179, 179);">Status</th>
-    <th style="color:rgb(179, 179, 179);">Balance</th>
-    <th style="color:rgb(179, 179, 179);">AccountType</th>
-    <th style="color:rgb(179, 179, 179);">ContactNumber</th>
-    <th style="color:rgb(179, 179, 179);">Mail</th>
-  </tr>
+      <div class="col-md-2"
+           *ngIf="useraccount===0">
+        <div class="card" id="accdetails">
+          <h5 class="text-center" id="cardtitle2">MY ACCOUNT PORTFOLIO</h5>
+          <img class="card-img-top" src="assets/account.png" id=account>
+          <div id="customerdetails">
+            <div class="row">
+              <a class="col-sm" id="user">User Name</a>
+              <a class="col-sm" id="name">{{dat.FullName}}</a>
+            </div>
+            <div class="row">
+              <a class="col-sm" id="user">ID</a>
+              <a class="col-sm" id="name"> {{dat.CustomerId}} </a>
+            </div>
+            <div class="row">
+              <a class="col-sm" id="user">Account Number</a>
+              <a class="col-sm" id="name"> {{dat.Number}} </a>
+            </div>
+            <div class="row">
+              <a class="col-sm" id="user">AccountType</a>
+              <a class="col-sm" id="name">{{dat.AccountType}}</a>
+            </div>
+            <div class="row">
+              <a class="col-sm" id="user">Balance</a>
+              <a class="col-sm" id="name">Rs.{{dat.Balance}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <!-- <tr *ngFor="let ques of services.list" (click)="populateForm(ques)"> -->
-  <tr *ngFor="let acc of account">
-    <td width="700%">
-      {{acc.CustomerId}}
-    </td>
-    <td>
-      {{acc.Number}}
-    </td>
-    <td>
-      {{acc.FirstName}}
-    </td>
-    <td>
-      {{acc.LastName}}
-    </td>
-    <td>
-      {{acc.OpenDate}}
-    </td>
-    <td>
-      {{acc.Status}}
-    </td>
-    <td>
-      {{acc.Balance}}
-    </td>
-    <td>
-      {{acc.AccountType}}
-    </td>
-    <td>
-      {{acc.ContactNumber}}
-    </td>
-    <td>
-      {{acc.Mail}}
-    </td>
-    <!--<td>
-      <button (click)="onDelete(data.SNo)" class="btn btn-sm btn-outline-danger">Delete</button>
-    </td>-->
-  </tr>
-</table>
+      <div class="col-md-2"
+           *ngIf="updatedetails===1">
+        <div class="card" id="update">
+          <form [formGroup]="updateForm" (ngSubmit)="onSubmit(form)" autocomplete="off">
+            <!-- <div id="errormsg" style="color: rgb(255, 0, 0);">
+                {{errormesg}}
+            </div> -->
+            <div class="form-group" id="fn">
+              <div class="row">
+                <div class="col-sm">
+                  <label>
+                    First Name
+                  </label>
+                  &nbsp;
+                  <input id="fname"
+                         class="form-control"
+                         type="text"
+                         placeholder="First Name"
+                         name="firstName"
+                         formControlName="firstName"
+                         [(ngModel)]="model.FirstName"
+                         [ngClass]="{ 'is-invalid' : submitted && f.firstName.errors }">
+                  <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback" id="fnerror">
+                    <span *ngIf="f.firstName.errors.required">
+                      Please enter your FirstName !!!
+                    </span>
+                    <span *ngIf="f.firstName.errors.pattern">
+                      Invalid Name!
+                    </span>
+                    <span *ngIf="f.firstName.errors.minlength">
+                      Name must be atleast of 3 characters
+                    </span>
+                  </div>
+                </div>
 
+                <div class="form-group" id="ln">
+                  <div class="col-sm">
+                    <label>
+                      Last Name
+                    </label>
+                    &nbsp;
+                    <input id="lname"
+                           class="form-control"
+                           type="text"
+                           placeholder="Last Name"
+                           name="lastName"
+                           formControlName="lastName"
+                           [(ngModel)]="model.LastName"
+                           [ngClass]="{ 'is-invalid':submitted && f.lastName.errors }">
 
+                    <span *ngIf="submitted && f.lastName.errors" class="invalid-feedback" id="lnerror">
+                      <span *ngIf="f.lastName.errors.required">
+                        Please enter your LastName !!!
+                      </span>
+                      <span *ngIf="f.lastName.errors.minlength">
+                        Your lastName must be minimum of 3 characters !!!
+                      </span>
+                      <span *ngIf="f.lastName.errors.maxlength">
+                        Your lastName must be maximum of 50 characters !!!
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
 
+              <div class="row">
+                <div class="form-group" id="add">
+                  <div class="col-sm">
+                    <label>
+                      Address
+                    </label>
+                    &nbsp;
+                    <textarea id="add"
+                              class="form-control"
+                              type="text"
+                              placeholder="Address"
+                              name="address"
+                              formControlName="address"
+                              [(ngModel)]="model.Address"
+                              [ngClass]="{ 'is-invalid':submitted && f.address.errors }">
+                                        </textarea>
+                    <span *ngIf="submitted && f.address.errors" class="invalid-feedback" id="adderror">
+                      <span *ngIf="f.address.errors.required">
+                        Please enter your Address !!!
+                      </span>
+                      <span *ngIf="f.address.errors.minlength">
+                        Your Address must be minimum of 3 characters !!!
+                      </span>
+                      <span *ngIf="f.address.errors.maxlength">
+                        Your Address must be within 200 characters !!!
+                      </span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="form-group" id="conNo">
+                  <div class="col-sm">
+                    <label>
+                      Contact Number
+                    </label>
+                    <input id="contactNo"
+                           class="form-control"
+                           type="text"
+                           placeholder="Contact Number"
+                           name="contactNumber"
+                           formControlName="contactNumber"
+                           [(ngModel)]="model.ContactNumber"
+                           [ngClass]="{ 'is-invalid':submitted && f.contactNumber.errors }">
+                    <span *ngIf="submitted && f.contactNumber.errors" class="invalid-feedback" id="conNoerror">
+                      <span *ngIf="f.contactNumber.errors.required">
+                        Please enter your Contact Number !!!
+                      </span>
+                      <span *ngIf="f.contactNumber.errors.minlength">
+                        Your Contact Number must be of 10 characters !!!
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group" id="email">
+                  <div class="col-sm">
+                    <label>
+                      Mail ID
+                    </label>
+                    <input id="mail"
+                           class="form-control"
+                           type="text"
+                           placeholder="_____@____.com"
+                           name="mail"
+                           formControlName="mail"
+                           [(ngModel)]="model.Mail"
+                           [ngClass]="{ 'is-invalid': submitted && f.mail.errors }">
+                    <span *ngIf="submitted && f.mail.errors" class="invalid-feedback" id="emailerror">
+                      <span *ngIf="f.mail.errors.required">
+                        Please enter your Mail ID !!!
+                      </span>
+                      <span *ngIf="f.mail.errors.minlength">
+                        Your Mail ID must be minimum of 3 characters !!!
+                      </span>
+                      <span *ngIf="f.mail.errors.maxlength">
+                        Your Mail ID must be maximum of 500 characters !!!
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <div class="form-group" style="display:flex;flex-direction:row;"
+                       id="buttons">
+                    <div class="form-group">
+                      <button class="btn btn-lg btn-block"
+                              type="reset"
+                              id="reset">
+                        Reset
+                      </button>
+                    </div>
+                    <div class="form-group">
+                      <button class="btn btn-lg btn-block"
+                              type="submit"
+                              id="submit">
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2">
+        <div class="card" id="whatsnew">
+          <h6 class="text-center" id="cardtitle3">What's New</h6>
+          <h5 id="subhead3">Quick Pay</h5>
+          <a id="quickpay">
+            Use <b>Quick Pay</b>
+            to make instance bill payments online with cashbacks
+            and offers.Conditions apply*
+          </a>
+          <p id="line1">----------------------------------------------</p>
+          <h5 id="subhead3">iWish-Flexible RD</h5>
+          <a id="quickpay">
+            Deposit any amount any time.
+            Open <b>Quick Pay</b> a/c and get Rs.200 Back instantly.Conditions apply*
+          </a>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="card" id="cc">
+          <h6 class="text-center" id="reccard">Recommended cards for you</h6>
+          <img class="d-block w-100" id="cardsection"
+               src="assets/visacard.png">
+          <a id="bankname">DBG</a>
+          <a id="cardname">CREDIT CARD</a>
+          <a id="ccname">CARD HOLDER NAME</a>
+          <img class="d-block w-100" id="cardlogo"
+               src="assets/cardlogo.png">
+          <a id="ccpoint1">
+            DBG Bank Credit Card offers a host of
+            benifits, offers & features to cater to your needs.
+          </a>
+          <br>
+          <a id="ccpoint2">
+            You can choose from a wide range of
+            Credit Cards that suits your requirement.
+          </a>
+          <a (click)="cc()" id="ccbutton">Apply Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

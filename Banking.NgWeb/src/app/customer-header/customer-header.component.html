@@ -1,0 +1,38 @@
+<div>
+  <a id="welcome">WELCOME</a>
+  <div id="customerNav">
+    <a id="customername">Customer !</a>
+  </div>
+  <div>
+    <button class="nav-link" (click)="logout()" id="logoutButton">LOGOUT</button>
+  </div>
+  <div>
+    <div id="navbar">
+      <nav class="navbar navbar-default navbar-expand-lg navbar-light" id="mainNav">
+        <div class="navbar-header d-flex col">
+          <img src="assets/icons/logopic.png" width="145" height="110" id="logo"
+               class="d-inline-block align-top" alt="logo"> &nbsp;
+          <a class="navbar-brand" id="dbg" style="font-size: 300%;">D<b>B</b>G</a>
+        </div>
+      </nav>
+    </div>
+
+    <div>
+      <nav class="navbar navbar-default navbar-expand-md navbar-light">
+        <div id="sub" class="collapse navbar-collapse justify-content-start">
+          <ul class="nav navbar-nav" id="subnav">
+            <li class="nav-item"><a routerLink="/customerDashboard" class="nav-link">Dashboard</a></li>
+            <li class="nav-item"><a routerLink="customerAccount" class="nav-link">MyAccounts</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Payments & Transfer</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Investments & Saving</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">CustomerService</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+

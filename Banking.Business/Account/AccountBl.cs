@@ -23,9 +23,9 @@ namespace Banking.Business.Account
             return _accountDal.GetAllCustomersAccount();
         }
 
-        public List<Customer> GetCustomerAccounts(long customerId, long accountNo, string password)
+        public List<Customer> GetCustomerAccounts(long customerId, long accountNo)
         {
-            return _accountDal.GetCustomerAccount(customerId,accountNo, password);
+            return _accountDal.GetCustomerAccount(customerId, accountNo);
         }
         public List<Customer> GetAccountbyAccountType(string accountType)
         {

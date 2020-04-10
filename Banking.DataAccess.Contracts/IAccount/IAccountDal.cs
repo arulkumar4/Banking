@@ -6,7 +6,7 @@ namespace Banking.DataAccess.Contracts.IAccount
     public interface IAccountDal
     {
         List<Customer> GetAllCustomersAccount();
-        List<Customer> GetCustomerAccount(long customerId, long accountNo , string password);
+        List<Customer> GetCustomerAccount(long customerId, long accountNo);
         List<Customer> GetCustomerAccountbyAccountType(string accountType);
         List<Customer> GetCustomerAccountbyBalance(decimal balance);
         List<Customer> GetCustomerByAccountStatus(bool status);

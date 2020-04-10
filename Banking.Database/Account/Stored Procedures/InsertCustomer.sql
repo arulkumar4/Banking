@@ -24,7 +24,7 @@ BEGIN
 		 BEGIN TRANSACTION	
 		    DECLARE @Id BIGINT
 			INSERT INTO [Account].[Customer]([FirstName],[LastName],[FullName],[Address],[ContactNumber],[Gender],[DOB],[Mail],[EmployeeId])
-			VALUES (@FirstName,@LastName,CONCAT(@LastName,' ',@FirstName),@Address,@ContactNumber,@Gender,@DOB,@Mail,@EmpId)
+			VALUES (@FirstName,@LastName,CONCAT(@FirstName,' ',@LastName),@Address,@ContactNumber,@Gender,@DOB,@Mail,@EmpId)
 			SET @Id=(SELECT MAX(Id) FROM [Account].[Customer])
 			 BEGIN 
 				DECLARE @AccNO BIGINT 
@@ -44,7 +44,7 @@ BEGIN
 						SET @COUNT = (SELECT COUNT(Id) FROM [Account].[Account])
 						SET @TypeId = (SELECT Id FROM [Account].[AccountType] WHERE Type = @AccType)
 						IF (@COUNT = 0 AND @Balance>1000)
-							BEGIN 
+							BEGIN	
 								INSERT INTO [Account].[Account]([Id],[Number],[Password],[Balance],[OpenDate],[Status],[CustomerId],[AccountTypeId])
 								VALUES('DBG-' + RIGHT(REPLACE(NEWID(),'-',''),16),@AccNo,@Pass,@Balance,GETDATE(),'1',@Id,@TypeId)
 							END

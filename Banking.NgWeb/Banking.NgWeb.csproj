@@ -19252,6 +19252,8 @@
     <Content Include="src\app\account-types\account-types.component.html" />
     <Content Include="src\app\app.component.css" />
     <Content Include="src\app\app.component.html" />
+    <Content Include="src\app\customer-header\customer-header.component.css" />
+    <Content Include="src\app\customer-header\customer-header.component.html" />
     <Content Include="src\app\customer\customer-account\customer-account.component.css" />
     <Content Include="src\app\customer\customer-account\customer-account.component.html" />
     <Content Include="src\app\customer\customer-dashboard\customer-dashboard.component.css" />
@@ -30856,6 +30858,8 @@
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\app\constants\account-config.ts" />
+    <TypeScriptCompile Include="src\app\customer-header\customer-header.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\customer-header\customer-header.component.ts" />
     <TypeScriptCompile Include="src\app\customer\customer-account\customer-account.component.spec.ts" />
     <TypeScriptCompile Include="src\app\customer\customer-account\customer-account.component.ts" />
     <TypeScriptCompile Include="src\app\customer\customer-dashboard\customer-dashboard.component.spec.ts" />
