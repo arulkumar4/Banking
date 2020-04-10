@@ -49,6 +49,14 @@ namespace Banking.DataAccess
             return Managers;
         }
 
+        public int GetManagerId(string mail)
+        {
+            var id = GetValue<int>(ProcedureNames.Manager.GetManagerId,
+             new SqlParameter("email", mail)
+             );
+            return id;
+        }
+
         public List<Manager> GetManagers()
         {
             List<Manager> Managers = new List<Manager>();

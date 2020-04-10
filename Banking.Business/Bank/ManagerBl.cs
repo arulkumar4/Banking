@@ -28,6 +28,11 @@ namespace Banking.Business
             return _managerDal.GetManagerById(managerid);
         }
 
+        public int GetManagerId(string mail)
+        {
+            return _managerDal.GetManagerId(mail);
+        }
+
         public List<Manager> GetManagers()
         {
             return _managerDal.GetManagers();
