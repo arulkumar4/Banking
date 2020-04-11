@@ -30869,6 +30869,7 @@
     <TypeScriptCompile Include="src\app\customer\customer.component.spec.ts" />
     <TypeScriptCompile Include="src\app\customer\customer.component.ts" />
     <TypeScriptCompile Include="src\app\model\account.model.ts" />
+    <TypeScriptCompile Include="src\app\model\account.datamodel.ts" />
     <TypeScriptCompile Include="src\app\model\transaction\myTransaction.model.ts" />
     <TypeScriptCompile Include="src\app\model\transaction\transaction.model.ts" />
     <TypeScriptCompile Include="src\app\model\transaction\TransactionResult.Model.ts" />

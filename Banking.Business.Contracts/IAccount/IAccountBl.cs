@@ -11,7 +11,7 @@ namespace Banking.Business.Contracts.IAccount
         List<Customer> GetAccountByBalance(decimal balance);
         List<Customer> GetCustomerByAccountStatus(bool status);
         List<Customer> UpdateCustomerByEmployee(Customer customer);
-        string UpdateAccountPassword(long accnumber, string oldpassword, string newpassword);
-        string DeleteCustomerAccount(Customer account);
+        string UpdateAccountPassword(Customer customer);
+        string DeleteCustomerAccount(long number, string pass);
     }
 }

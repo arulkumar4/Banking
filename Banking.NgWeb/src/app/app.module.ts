@@ -21,6 +21,7 @@ import { FundTransferComponent } from './Transaction/transaction-page/fund-trans
 import { PayBillsComponent } from './Transaction/transaction-page/pay-bills/pay-bills.component';
 import { TransactionService } from './service/transaction/transaction.service';
 import { MyTransactionService } from './service/transaction/myTransaction.service';
+import { CustomerHeaderComponent } from './customer-header/customer-header.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MyTransactionService } from './service/transaction/myTransaction.servic
     CustomerAccountComponent,
     CustomerRegisteredDetailsComponent,
     CustomerDashboardComponent,
+    CustomerHeaderComponent,
     AccountTypesComponent,
     LoginComponent,
     TransactionPageComponent,

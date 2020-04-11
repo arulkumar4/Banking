@@ -107,21 +107,21 @@ namespace Banking.DataAccess.Account
             return updateCustomer;
         }
 
-        public string UpdateAccountPassword(long accnumber, string oldpassword, string newpassword)
+        public string UpdateAccountPassword(Customer customer)
         {
             var status = GetValue<string>(ProcedureNames.Account.UpdateAccountPassword,
-            new SqlParameter("@Number", accnumber),
-            new SqlParameter("@OldPassword", oldpassword),
-            new SqlParameter("@NewPassword", newpassword)
+            new SqlParameter("@Number", customer.Number),
+            new SqlParameter("@OldPassword", customer.Password),
+            new SqlParameter("@NewPassword", customer.NewPassword)
             );
             return status;
         }
 
-        public string DeleteCustomerAccount(Customer account)
+        public string DeleteCustomerAccount(long number, string pass)
         {
             var status = GetValue<string>(ProcedureNames.Account.DeleteCustomerAccount,
-            new SqlParameter("@Number", account.Number),
-            new SqlParameter("@Password", account.Password)
+            new SqlParameter("@Number", number),
+            new SqlParameter("@Password", pass)
             );
             return status;
         }
