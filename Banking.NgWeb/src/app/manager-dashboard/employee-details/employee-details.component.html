@@ -1,1 +1,56 @@
-<p>employee-details works!</p>
+<div class="card" *ngIf='employee'>
+  <div class="card-header" *ngIf="employee">
+    <b>  {{pageTitle +': '+ employee.FullName}}</b>
+  </div>
+  <div class="card-body" *ngIf="employee">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class='col-md-4'><b>ID:</b></div>
+          <div class='col-md-8'><b>{{employee.Id}}</b></div>
+        </div>
+        <div class="row">
+          <div class='col-md-4'>FirstName:</div>
+          <div class='col-md-8'>{{employee.FirstName}}</div>
+        </div>
+        <div class="row">
+          <div class='col-md-4'>LastName:</div>
+          <div class='col-md-8'>{{employee.LastName}}</div>
+        </div>
+        <div class="row">
+          <div class='col-md-4'>FullName:</div>
+          <div class='col-md-8'>{{employee.FullName}}</div>
+        </div>
+        <div class="row">
+          <div class='col-md-4'>MailId:</div>
+          <div class='col-md-8'>{{employee.Mail}}</div>
+        </div>
+        <div class="row">
+          <div class='col-md-4'>Dob:</div>
+          <div class='col-md-8'>{{employee.DOB | date}}</div>
+        </div>
+        <div class="row">
+          <div class='col-md-4'>Contact Number:</div>
+          <div class='col-md-8'>{{employee.ContactNumber}}</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5">
+      <button class="btn btn-outline-primary"
+              style="width:80px"
+              (click)="onBack()">
+        <i class="fa fa-chevron-left"></i> Back
+      </button>
+      <button class="btn btn-outline-primary"
+              style="width:80px"
+              [routerLink]="['/employeedashboard/employees', employee.Id, 'edit']">
+        Edit
+      </button>
+    </div>
+  </div>
+</div>
+

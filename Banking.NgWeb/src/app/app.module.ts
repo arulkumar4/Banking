@@ -23,9 +23,21 @@ import { TransactionService } from './service/transaction/transaction.service';
 import { MyTransactionService } from './service/transaction/myTransaction.service';
 import { CustomerHeaderComponent } from './customer-header/customer-header.component';
 import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard.component';
-import { EmployeeDetailsComponent } from './manager-dashboard/employee-details/employee-details.component';
 import { EmployeeListComponent } from './manager-dashboard/employee-list/employee-list.component';
 import { EmployeeEditComponent } from './manager-dashboard/employee-edit/employee-edit.component';
+import { EmployeeService } from './service/Bank/employee.service';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxPaginationModule } from 'ngx-pagination';
+import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
+import { CustomerListComponent } from './employee-dashboard/customer-list/customer-list.component';
+import { CustomerEditComponent } from './employee-dashboard/customer-edit/customer-edit.component';
+import { EmployeeDetailsComponent } from './manager-dashboard/employee-details/employee-details.component';
+import { CustomerDetailComponent } from './employee-dashboard/customer-detail/customer-detail.component';
+import { WelcomeManagerComponent } from './manager-dashboard/welcome-manager/welcome-manager.component';
+import { UserService } from './service/Bank/user.service';
+
+
+
 
 @NgModule({
   declarations: [
@@ -45,7 +57,13 @@ import { EmployeeEditComponent } from './manager-dashboard/employee-edit/employe
     ManagerDashboardComponent,
     EmployeeDetailsComponent,
     EmployeeListComponent,
-    EmployeeEditComponent
+    EmployeeEditComponent,
+    EmployeeDashboardComponent,
+    CustomerListComponent,
+    CustomerEditComponent,
+    CustomerDetailComponent,
+    WelcomeManagerComponent,
+    EmployeeDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -58,9 +76,12 @@ import { EmployeeEditComponent } from './manager-dashboard/employee-edit/employe
     AppRoutingModule,
     BsDatepickerModule.forRoot(),
     DatepickerModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxSpinnerModule,
+    //PaginationModule.forRoot()
+    NgxPaginationModule
   ],
-  providers: [AccountService,TransactionService,MyTransactionService],
+  providers: [AccountService, TransactionService, MyTransactionService, EmployeeService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
