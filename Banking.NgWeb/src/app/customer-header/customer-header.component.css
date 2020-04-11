@@ -8,6 +8,10 @@
   border-radius: 75px;
 }
 
+b {
+  color: rgb(146, 17, 17);
+}
+
 a#welcome {
   position: absolute;
   margin-left: 55rem;
@@ -48,6 +52,10 @@ a#welcome {
   margin-left: -30px;
   font-weight: 500;
   color: rgb(6, 30, 44) !important;
+}
+
+#dbg1 {
+  font-size: 2.3rem;
 }
 
 #customerNav ul li a {

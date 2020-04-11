@@ -46,6 +46,7 @@ import { UserService } from './service/Bank/user.service';
     CustomerAccountComponent,
     CustomerRegisteredDetailsComponent,
     CustomerDashboardComponent,
+    CustomerHeaderComponent,
     AccountTypesComponent,
     LoginComponent,
     TransactionPageComponent,

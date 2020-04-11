@@ -44,13 +44,13 @@ namespace Banking.Business.Account
             return _accountDal.UpdateCustomerByEmployee(customer);
         }
 
-        public string UpdateAccountPassword(long accnumber, string oldpassword, string newpassword)
+        public string UpdateAccountPassword(Customer customer)
         {
-            return _accountDal.UpdateAccountPassword(accnumber,oldpassword,newpassword);
+            return _accountDal.UpdateAccountPassword(customer);
         }
-        public string DeleteCustomerAccount(Customer account)
+        public string DeleteCustomerAccount(long number, string pass)
         {
-            return _accountDal.DeleteCustomerAccount(account);
+            return _accountDal.DeleteCustomerAccount(number,pass);
         }
     }
 

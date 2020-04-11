@@ -30905,6 +30905,7 @@
     <TypeScriptCompile Include="src\app\model\account.model.ts" />
     <TypeScriptCompile Include="src\app\model\Bank\employee.ts" />
     <TypeScriptCompile Include="src\app\model\login.ts" />
+    <TypeScriptCompile Include="src\app\model\account.datamodel.ts" />
     <TypeScriptCompile Include="src\app\model\transaction\myTransaction.model.ts" />
     <TypeScriptCompile Include="src\app\model\transaction\transaction.model.ts" />
     <TypeScriptCompile Include="src\app\model\transaction\TransactionResult.Model.ts" />

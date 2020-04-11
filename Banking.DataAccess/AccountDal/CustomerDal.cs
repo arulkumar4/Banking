@@ -24,7 +24,7 @@ namespace Banking.DataAccess.Account
             }
             return CustomerAcc;
         }
-        public List<Customer> AddNewCustomer(Customer customer)
+        public List<Customer> AddNewCustomer(Customer customer, int empId)
         {
             List<Customer> newCustomer = new List<Customer>();
             using (var dataset = GetDataset(ProcedureNames.Account.AddNewCustomers,
@@ -38,7 +38,7 @@ namespace Banking.DataAccess.Account
                     new SqlParameter("@Balance", customer.Balance),
                     new SqlParameter("@Password", customer.Password),
                     new SqlParameter("@AccType", customer.AccountType),
-                    new SqlParameter("@EmpId", customer.EmployeeId)))
+                    new SqlParameter("@EmpId", empId)))
             {
                 var accountTable = dataset.Tables[0];
                 var accountTableDetail = accountTable.AsEnumerable();
