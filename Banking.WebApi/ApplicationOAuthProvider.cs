@@ -27,6 +27,7 @@ namespace Banking.WebApi
                 var identity = new ClaimsIdentity(context.Options.AuthenticationType);
                 identity.AddClaim(new Claim("Username", user.UserName));
                 identity.AddClaim(new Claim("Email", user.Email));
+                identity.AddClaim(new Claim("Password", user.PasswordHash));
                 identity.AddClaim(new Claim("LoggedOn", DateTime.Now.ToString()));
                 context.Validated(identity);
                 var userRole = manager.GetRoles(user.Id);

@@ -22,6 +22,10 @@ import { PayBillsComponent } from './Transaction/transaction-page/pay-bills/pay-
 import { TransactionService } from './service/transaction/transaction.service';
 import { MyTransactionService } from './service/transaction/myTransaction.service';
 import { CustomerHeaderComponent } from './customer-header/customer-header.component';
+import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard.component';
+import { EmployeeDetailsComponent } from './manager-dashboard/employee-details/employee-details.component';
+import { EmployeeListComponent } from './manager-dashboard/employee-list/employee-list.component';
+import { EmployeeEditComponent } from './manager-dashboard/employee-edit/employee-edit.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,12 @@ import { CustomerHeaderComponent } from './customer-header/customer-header.compo
     TransactionPageComponent,
     MyTransactionComponent,
     FundTransferComponent,
-    PayBillsComponent
+    PayBillsComponent,
+    CustomerHeaderComponent,
+    ManagerDashboardComponent,
+    EmployeeDetailsComponent,
+    EmployeeListComponent,
+    EmployeeEditComponent
   ],
   imports: [
     BrowserModule,

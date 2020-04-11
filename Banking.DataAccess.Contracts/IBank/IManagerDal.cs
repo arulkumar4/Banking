@@ -14,5 +14,6 @@ namespace Banking.DataAccess.Contracts
         List<Manager> GetManagerById(int managerid);
         int UpdateManager(Manager manager);
         int DeleteManager(int managerid);
+        int GetManagerId(string mail);
     }
 }
