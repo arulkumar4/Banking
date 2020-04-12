@@ -5,7 +5,7 @@ namespace Banking.WebApi
 {
     public class AuthorizeAttribute : System.Web.Http.AuthorizeAttribute
     {
-        protected override void HandleUnauthorizedRequest(HttpActionContext actionContext)
+        protected override void HandleUnauthorizedRequest(HttpActionContext actionContext) 
         {
             if(!HttpContext.Current.User.Identity.IsAuthenticated)
             {

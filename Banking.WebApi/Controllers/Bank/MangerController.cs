@@ -10,7 +10,7 @@ using System.Web.Http.Cors;
 
 namespace Banking.WebApi.Controllers
 {
-    [EnableCors("http://localhost:4200", "*", "GET,POST,PUT,DELETE")]
+    
     public class MangerController : ApiController
     {
         private readonly IManagerBl _managerbl; 
