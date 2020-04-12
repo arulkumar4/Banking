@@ -30875,6 +30875,9 @@
     <TypeScriptCompile Include="src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\auth\auth.guard.spec.ts" />
+    <TypeScriptCompile Include="src\app\auth\auth.guard.ts" />
+    <TypeScriptCompile Include="src\app\auth\auth.interceptor.ts" />
     <TypeScriptCompile Include="src\app\constants\account-config.ts" />
     <TypeScriptCompile Include="src\app\employee-dashboard\customer-detail\customer-detail.component.spec.ts" />
     <TypeScriptCompile Include="src\app\employee-dashboard\customer-detail\customer-detail.component.ts" />

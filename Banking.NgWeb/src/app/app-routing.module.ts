@@ -14,10 +14,10 @@ import { EmployeeListComponent } from './manager-dashboard/employee-list/employe
 import { EmployeeDetailsComponent } from './manager-dashboard/employee-details/employee-details.component';
 import { EmployeeEditComponent } from './manager-dashboard/employee-edit/employee-edit.component';
 import { WelcomeManagerComponent } from './manager-dashboard/welcome-manager/welcome-manager.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: '**', redirectTo: 'login', pathMatch: 'full' },
+  
   { path: 'customer', component: CustomerComponent },
   { path: 'customerDashboard', component: CustomerDashboardComponent },
   { path: 'customerAccount', component: CustomerAccountComponent },
@@ -30,14 +30,17 @@ const routes: Routes = [
   },
   { path: 'login', component: LoginComponent },
   {
-    path: 'employeedashboard', component: ManagerDashboardComponent,
+    path: 'employeedashboard', component: ManagerDashboardComponent, canActivate: [AuthGuard],
     children: [
-      { path: 'employees', component: EmployeeListComponent },
-      { path: 'welcome', component: WelcomeManagerComponent },
-      { path: 'employees/:id', component: EmployeeDetailsComponent },
-      { path: 'employees/:id/edit', component: EmployeeEditComponent}
+      { path: 'employees', component: EmployeeListComponent, canActivate:[AuthGuard] },
+      { path: 'welcome', component: WelcomeManagerComponent, canActivate: [AuthGuard]},
+      { path: 'employees/:id', component: EmployeeDetailsComponent, canActivate: [AuthGuard] },
+      { path: 'employees/:id/edit', component: EmployeeEditComponent, canActivate: [AuthGuard]}
     ],
   },
+  { path: '', component: LoginComponent },
+  { path: '**', component: LoginComponent }
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -144,5 +144,7 @@
     <Build Include="Bank\Stored Procedures\SearchEmployeeByKeyword.sql" />
     <Build Include="Bank\Stored Procedures\GetEmployeesByManagerId.sql" />
     <Build Include="Bank\Stored Procedures\FindEmployeeId.sql" />
+    <Build Include="Bank\Stored Procedures\FindManagerId.sql" />
+    <Build Include="Bank\Stored Procedures\FindCustomerId.sql" />
   </ItemGroup>
 </Project>
