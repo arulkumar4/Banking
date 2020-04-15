@@ -6,11 +6,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Web.Http;
-using System.Web.Http.Cors;
 
 namespace Banking.WebApi.Controllers
 {
-    [EnableCors("http://localhost:4200", "*", "GET,POST,PUT,DELETE")]
 
     public class CustomerController : ApiController
     {
@@ -31,22 +29,26 @@ namespace Banking.WebApi.Controllers
         [Route("api/Customer/AddNewCustomer")]
         [HttpPost]
 
-        public IHttpActionResult AddNewCustomer([FromBody]Customer customer, int empId)
+
+       
+        public IdentityResult AddNewCustomer([FromBody]Customer customer, int empId)
         {
-            return Ok(_customerbl.AddNewCustomer(customer, empId));
+            var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
+            var manager = new UserManager<ApplicationUser>(userStore);
+            var user = new ApplicationUser() { UserName = customer.Mail, Email = customer.Mail };
+            user.FirstName = customer.FirstName;
+            user.LastName = customer.LastName;
+            IdentityResult result = manager.Create(user, customer.Password);
+            manager.AddToRoles(user.Id, customer.Role);
+            _customerbl.AddNewCustomer(customer, empId);
+            return result;
         }
-        //public IdentityResult AddNewCustomer([FromBody]Customer customer, int empId)
+        //public IHttpActionResult AddNewCustomer([FromBody]Customer customer, int empId)
         //{
-        //    var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
-        //    var manager = new UserManager<ApplicationUser>(userStore);
-        //    var user = new ApplicationUser() { UserName = customer.Mail, Email = customer.Mail };
-        //    user.FirstName = customer.FirstName;
-        //    user.LastName = customer.LastName;
-        //    IdentityResult result = manager.Create(user, customer.Password);
-        //    manager.AddToRoles(user.Id, customer.Role);
-        //    _customerbl.AddNewCustomer(customer, empId);
-        //    return result;
+        //    return Ok(_customerbl.AddNewCustomer(customer, empId));
         //}
+      
+
 
         [Route("api/Customer/UpdateCustomerDetails")]
         [HttpPut]

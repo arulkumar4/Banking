@@ -37,7 +37,8 @@ import { WelcomeManagerComponent } from './manager-dashboard/welcome-manager/wel
 import { UserService } from './service/Bank/user.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
-
+import { CustomerService } from './service/Bank/customer.service';
+import { WelcomeEmployeeComponent } from './employee-dashboard/welcome-employee/welcome-employee.component';
 
 
 
@@ -65,7 +66,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     CustomerEditComponent,
     CustomerDetailComponent,
     WelcomeManagerComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    WelcomeEmployeeComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +85,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     //PaginationModule.forRoot()
     NgxPaginationModule
   ],
-  providers: [AccountService, TransactionService, MyTransactionService, EmployeeService, UserService, AuthGuard, , {
+  providers: [AccountService, TransactionService, MyTransactionService, EmployeeService, UserService, AuthGuard, CustomerService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true

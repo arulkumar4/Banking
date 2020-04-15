@@ -60,7 +60,7 @@ login()
         this.router.navigate(['/customerdashboard/welcomecustomer']);
       }
       else if (this.userService.roleMatch(['Customer'])) {
-        this.router.navigate(['/customerDashboard']);
+        this.router.navigate(['/userDashboard']);
       }
 
       //if(data.role=="Employee")
