@@ -5,7 +5,7 @@ export interface IEmployee {
   ContactNumber: string;
   Mail: string;
   DOB: Date;
-  ManagerId: number;
+  ManagerId: string;
   FullName: string;
   Password: string;
   Role: string;

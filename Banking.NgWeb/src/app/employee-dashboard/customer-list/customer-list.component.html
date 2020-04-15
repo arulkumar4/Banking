@@ -1,1 +1,72 @@
-<p>customer-list works!</p>
+<div class='card'>
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+  <div class='card-body'>
+    <div class="row">
+      <div class='col-md-2'>Filter by:</div>
+      <div class='col-md-4'>
+        <input type="text"
+               [(ngModel)]='listFilter' />
+      </div>
+    </div>
+    <div class="row">
+      <div class='col-md-6'>
+        <h4>Filterd by : {{listFilter}}</h4>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table"
+             *ngIf='filterCustomers && filterCustomers.length'>
+        <thead class="thead-dark">
+          <tr>
+            <th>Customer Id</th>
+            <th>FullName</th>
+            <th>Mail</th>
+            <th>Date of Birth</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of filterCustomers |  paginate: { itemsPerPage: 5, currentPage: p }">
+            <th scope="row">{{customer.CustomerId}}</th>
+            <td>
+              <a [routerLink]="['/customerdashboard/customers',customer.CustomerId]">
+                {{customer.FullName}}
+              </a>
+            </td>
+            <td><i style='font-size:20px' class='fas'>&#xf0e0;</i> {{customer.Mail}}</td>
+            <td>{{customer.Dob | date }}</td>
+            <td>
+              <button class="btn btn-outline-primary btn-sm"
+                      [routerLink]="['/customerdashboard/customers',customer.CustomerId,'edit']">
+                <i style='font-size:24px' class='fas'>&#xf044;</i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+        <ul class="pagination">
+          <pagination-controls (pageChange)="p = $event" autoHide="false"></pagination-controls>
+        </ul>
+      </table>
+    </div>
+  </div>
+</div>
+
+<ngx-spinner bdOpacity=0.9
+             bdColor="#ffffff"
+             size="medium"
+             color="#4fb557"
+             type="line-spin-clockwise-fade"
+             [fullScreen]="true">
+  <p style="color: black"> Please wait... </p>
+</ngx-spinner>
+
+
+
+
+<div *ngIf='errorMessage'
+     class="alert alert-danger">
+  Error:{{errorMessage}}
+</div>
+

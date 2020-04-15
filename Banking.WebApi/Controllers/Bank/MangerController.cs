@@ -6,11 +6,10 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Web.Http;
-using System.Web.Http.Cors;
 
 namespace Banking.WebApi.Controllers
 {
-    
+
     public class MangerController : ApiController
     {
         private readonly IManagerBl _managerbl; 
