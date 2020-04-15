@@ -48,6 +48,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     CustomerAccountComponent,
     CustomerRegisteredDetailsComponent,
     CustomerDashboardComponent,
+    CustomerHeaderComponent,
     AccountTypesComponent,
     LoginComponent,
     TransactionPageComponent,

@@ -65,16 +65,16 @@ namespace Banking.WebApi.Controllers
         // GET: api/UpdateAccountPassword
         [Route("api/Account/UpdateAccountPassword")]
         [HttpPut]
-        public IHttpActionResult UpdateAccountPassword(long accnumber, string oldpassword, string newpassword)
+        public IHttpActionResult UpdateAccountPassword(Customer customer)
         {
-            return Ok(_accountbl.UpdateAccountPassword(accnumber, oldpassword, newpassword));
+            return Ok(_accountbl.UpdateAccountPassword(customer));
         }
         // GET: api/DeleteAccount/string
         [Route("api/Account/DeleteAccount")]
         [HttpDelete]
-        public IHttpActionResult DeleteAccount([FromBody]Customer account)
+        public IHttpActionResult DeleteAccount(long number, string pass)
         {
-            return Ok(_accountbl.DeleteCustomerAccount(account));
+            return Ok(_accountbl.DeleteCustomerAccount(number, pass));
         }
 
     }

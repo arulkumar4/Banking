@@ -1,43 +1,46 @@
 <div class="main">
-  <div *ngIf="newCustomer===false">
+  <div *ngIf="newCustomer===true">
     <form [formGroup]="registerationForm"
           (ngSubmit)="onSubmit(form)"
           autocomplete="off">
-      <h4>
+      <h4 class="text-center">
         REGISTRATION
       </h4>
-      <div id="errormsg" style="color: rgb(255, 0, 0);">{{errormessage}}</div>
+      <div id="errormsg" class="text-center">
+        {{errormessage}}{{passerror}}
+      </div>
       <div class="container">
-        <div class="form-group">
-          <div style="display:flex;flex-direction:row;">
-            <label>
-              First Name
-            </label>
-            &nbsp;
-            <input style="padding-left: 20px;"
-                   id="fname"
-                   class="form-control"
-                   type="text"
-                   placeholder="First Name"
-                   name="firstName"
-                   formControlName="firstName"
-                   [(ngModel)]="account.FirstName"
-                   [ngClass]="{ 'is-invalid':submitted && f.firstName.errors }">
-            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback" id="error">
-              <span *ngIf="f.firstName.errors.required">
-                Please enter yor FirstName !!!
-              </span>
-              <span *ngIf="f.firstName.errors.pattern">
-                Invalid Name
-              </span>
-              <span *ngIf="f.firstName.errors.minlength">
-                Name must be atleast of 3 characters
-              </span>
+        <div class="row">
+          <div class="form-group">
+            <div class="col-md-2">
+              <label>
+                First Name
+              </label>
+              &nbsp;
+              <input id="fname"
+                     class="form-control"
+                     type="text"
+                     placeholder="First Name"
+                     name="firstName"
+                     formControlName="firstName"
+                     [(ngModel)]="account.FirstName"
+                     [ngClass]="{ 'is-invalid':submitted && f.firstName.errors }">
+              <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback" id="error">
+                <span *ngIf="f.firstName.errors.required">
+                  Please enter yor FirstName !!!
+                </span>
+                <span *ngIf="f.firstName.errors.pattern">
+                  Invalid Name
+                </span>
+                <span *ngIf="f.firstName.errors.minlength">
+                  Name must be atleast of 3 characters
+                </span>
+              </div>
             </div>
           </div>
 
           <div class="form-group">
-            <div style="display:flex;flex-direction:row;">
+            <div class="col-md-2">
               <label>
                 Last Name
               </label>
@@ -49,158 +52,170 @@
                      formControlName="lastName"
                      [(ngModel)]="account.LastName"
                      [ngClass]="{ 'is-invalid':submitted && f.lastName.errors }">
+              <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback" id="error">
+                <span *ngIf="f.lastName.errors.required">
+                  Please enter your LastName !!!
+                </span>
+                <span *ngIf="f.lastName.errors.minlength">
+                  Your lastName must be minimum of 3 characters !!!
+                </span>
+                <span *ngIf="f.lastName.errors.maxlength">
+                  Your lastName must be maximum of 50 characters !!!
+                </span>
+              </div>
             </div>
-            <span *ngIf="submitted && f.lastName.errors" class="invalid-feedback" id="error">
-              <span *ngIf="f.lastName.errors.required">
-                Please enter your LastName !!!
-              </span>
-              <span *ngIf="f.lastName.errors.minlength">
-                Your lastName must be minimum of 3 characters !!!
-              </span>
-              <span *ngIf="f.lastName.errors.maxlength">
-                Your lastName must be maximum of 50 characters !!!
-              </span>
-            </span>
           </div>
         </div>
 
-        <div class="form-group">
-          <div style="display:flex;flex-direction:row;">
-            <label>
-              Address
-            </label>
-            &nbsp;
-            <textarea id="add"
-                      class="form-control"
-                      type="text"
-                      formControlName="address"
-                      [(ngModel)]="account.Address"
-                      [ngClass]="{ 'is-invalid':submitted && f.address.errors }">
+        <div class="row">
+          <div class="form-group">
+            <div class="col-md-2">
+              <label>
+                Address
+              </label>
+              &nbsp;
+              <textarea id="add"
+                        class="form-control"
+                        type="text"
+                        placeholder="Address"
+                        formControlName="address"
+                        [(ngModel)]="account.Address"
+                        [ngClass]="{ 'is-invalid':submitted && f.address.errors }">
                             </textarea>
-          </div>
-          <span *ngIf="submitted && f.address.errors" class="invalid-feedback" id="error">
-            <span *ngIf="f.address.errors.required">
-              Please enter your Address !!!
-            </span>
-            <span *ngIf="f.address.errors.minlength">
-              Your Address must be minimum of 3 characters !!!
-            </span>
-            <span *ngIf="f.address.errors.maxlength">
-              Your Address must be within 200 characters !!!
-            </span>
-          </span>
-        </div>
-
-        <div class="form-group">
-          <div style="display:flex;flex-direction:row;">
-            <label>
-              Contact Number
-            </label>
-            <input id="contactNo"
-                   class="form-control"
-                   type="text"
-                   placeholder="Contact Number"
-                   formControlName="contactNumber"
-                   [(ngModel)]="account.ContactNumber"
-                   [ngClass]="{ 'is-invalid':submitted && f.contactNumber.errors }">
-          </div>
-          <span *ngIf="submitted && f.contactNumber.errors" class="invalid-feedback" id="error">
-            <span *ngIf="f.contactNumber.errors.required">
-              Please enter your Contact Number !!!
-            </span>
-            <span *ngIf="f.contactNumber.errors.minlength">
-              Your Contact Number must be of 10 characters !!!
-            </span>
-          </span>
-        </div>
-
-        <div class="form-group">
-          <div style="display:flex;flex-direction:row;">
-            <label>
-              Mail ID
-            </label>
-            <input id="mail"
-                   class="form-control"
-                   type="text"
-                   placeholder="_____@____.com"
-                   formControlName="mail"
-                   [(ngModel)]="account.Mail"
-                   [ngClass]="{ 'is-invalid': submitted && f.mail.errors }">
-          </div>
-          <span *ngIf="submitted && f.mail.errors" class="invalid-feedback" id="error">
-            <span *ngIf="f.mail.errors.required">
-              Please enter your Mail ID !!!
-            </span>
-            <span *ngIf="f.mail.errors.minlength">
-              Your Mail ID must be minimum of 3 characters !!!
-            </span>
-            <span *ngIf="f.mail.errors.maxlength">
-              Your Mail ID must be maximum of 500 characters !!!
-            </span>
-          </span>
-        </div>
-
-        <div class="form-group">
-          <div style="display:flex;flex-direction:row;">
-            <label>
-              Gender
-            </label>
-            <mat-radio-group class="radio-group"
-                             formControlName="gender"
-                             [(ngModel)]="account.Gender"
-                             [ngClass]="{ 'is-invalid':submitted && f.gender.errors }">
-              <mat-radio-button class="radio-button"
-                                *ngFor="let gend of gen"
-                                [value]="gend"
-                                color="primary">
-                {{gend}}
-              </mat-radio-button>
-            </mat-radio-group>
-          </div>
-          <span *ngIf="submitted && f.gender.errors" class="invalid-feedback" id="gender-error">
-            <span *ngIf="f.gender.errors.required">
-              Please select your Gender !!!
-            </span>
-          </span>
-        </div>
-
-        <div class="form-group">
-          <div style="display:flex;flex-direction:row;">
-            <label id="dob-label">
-              Date-Of-Birth
-            </label>
-            <br>
-            <div style="display:flex;flex-direction:row;" id="dateofbirth">
-              <input type="text"
-                     class="form-control"
-                     formControlName="dob"
-                     [(ngModel)]="account.Dob"
-                     [ngClass]="{'is-invalid':submitted && f.dob.errors}"
-                     placeholder="Choose a Date"
-                     class1="col-xs-12 col-12 col-md-4 form-group"
-                     bsDatepicker
-                     [bsConfig]="{containerClass:'theme-dark-blue'}"
-                     [(bsValue)]="datevalue"
-                     (bsValueChange)="bsValueChange($event)"
-                     value="{{ datevalue | date:'yyyy-MM-dd' }}">
-              <mat-icon class="column"
-                        style="font-size: xx-large;">
-                event
-              </mat-icon>
+              <div *ngIf="submitted && f.address.errors" class="invalid-feedback" id="error">
+                <span *ngIf="f.address.errors.required">
+                  Please enter your Address !!!
+                </span>
+                <span *ngIf="f.address.errors.minlength">
+                  Your Address must be minimum of 3 characters !!!
+                </span>
+                <span *ngIf="f.address.errors.maxlength">
+                  Your Address must be within 200 characters !!!
+                </span>
+              </div>
             </div>
-            <span *ngIf="submitted && f.dob.errors" class="invalid-feedback" id="dob-error">
-              <span *ngIf="f.dob.errors" style="color: rgb(255, 0, 0);">
-                Please Select your Dob !!!
-              </span>
-            </span>
-            <span *ngIf="age===0" id="age-error" style="color: rgb(255, 0, 0);">
-              {{ageError}}
-            </span>
           </div>
 
           <div class="form-group">
-            <div style="display:flex;flex-direction:row;">
+            <div class="col-md-2">
               <label>
+                Contact Number
+              </label>
+              <input id="contactNo"
+                     class="form-control"
+                     type="text"
+                     placeholder="Contact Number"
+                     formControlName="contactNumber"
+                     [(ngModel)]="account.ContactNumber"
+                     [ngClass]="{ 'is-invalid':submitted && f.contactNumber.errors }">
+              <div *ngIf="submitted && f.contactNumber.errors" class="invalid-feedback" id="error">
+                <span *ngIf="f.contactNumber.errors.required">
+                  Please enter your Contact Number !!!
+                </span>
+                <span *ngIf="f.contactNumber.errors.minlength">
+                  Your Contact Number must be of 10 characters !!!
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <div class="col-md-2">
+              <label>
+                Mail ID
+              </label>
+              <input id="mail"
+                     class="form-control"
+                     type="text"
+                     placeholder="_____@____.com"
+                     formControlName="mail"
+                     [(ngModel)]="account.Mail"
+                     [ngClass]="{ 'is-invalid': submitted && f.mail.errors }">
+              <div *ngIf="submitted && f.mail.errors" class="invalid-feedback" id="error">
+                <span *ngIf="f.mail.errors.required">
+                  Please enter your Mail ID !!!
+                </span>
+                <span *ngIf="f.mail.errors.minlength">
+                  Your Mail ID must be minimum of 3 characters !!!
+                </span>
+                <span *ngIf="f.mail.errors.maxlength">
+                  Your Mail ID must be maximum of 500 characters !!!
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-2">
+              <label>
+                Gender
+              </label>
+              <mat-radio-group class="radio-group"
+                               formControlName="gender"
+                               [(ngModel)]="account.Gender"
+                               [ngClass]="{ 'is-invalid':submitted && f.gender.errors }">
+                <mat-radio-button class="radio-button"
+                                  *ngFor="let gend of gen"
+                                  [value]="gend"
+                                  color="primary">
+                  {{gend}} &nbsp;
+                </mat-radio-button>
+              </mat-radio-group>
+              <div *ngIf="submitted && f.gender.errors" class="invalid-feedback" id="error">
+                <span *ngIf="f.gender.errors.required">
+                  Please select your Gender !!!
+                </span>
+              </div>
+              <div>
+                {{generror}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <div class="col-md-2">
+              <label id="dob-label">
+                Date-Of-Birth
+              </label>
+              <div class="row">
+                <div class="col-sm-2">
+                  <input id="dateofbirth"
+                         type="text"
+                         class="form-control"
+                         formControlName="dob"
+                         [(ngModel)]="account.Dob"
+                         [ngClass]="{'is-invalid':submitted && f.dob.errors }"
+                         placeholder="Choose a Date"
+                         bsDatepicker
+                         [bsConfig]="{containerClass:'theme-dark-blue'}"
+                         (bsValueChange)="bsValueChange($event)"
+                         value="{{ datevalue | date:'yyyy-MM-dd' }}">
+                  <!-- <div class="col-sm-2"> -->
+                  <mat-icon class="column" id="icon"
+                            style="font-size: xx-large;">
+                    event
+                  </mat-icon>
+                  <!-- </div>  -->
+                  <div *ngIf="submitted && f.dob.errors" class="invalid-feedback" id="error">
+                    <span *ngIf="f.dob.errors.required">
+                      Please Select your Dob !!!
+                    </span>
+                  </div>
+                  <div *ngIf="age===0" id="ageError">
+                    {{ageError}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-2">
+              <label id="actype">
                 Account Type
               </label>
               <input id="accType"
@@ -210,22 +225,25 @@
                      formControlName="accountType"
                      [(ngModel)]="account.AccountType"
                      [ngClass]="{ 'is-invalid':submitted && f.accountType.errors }">
-            </div>
-            <span *ngIf="submitted && f.accountType.errors" class="invalid-feedback" id="error">
-              <span *ngIf="f.accountType.errors.required">
-                Please enter your Account Type !!!
-              </span>
-              <span *ngIf="f.accountType.errors.minlength">
-                Your Account Type must be minimum of 3 characters !!!
-              </span>
-              <span *ngIf="f.accountType.errors.maxlength">
-                Your Account Type must be maximum of 500 characters !!!
-              </span>
-            </span>
-          </div>
 
+              <div *ngIf="submitted && f.accountType.errors" class="invalid-feedback" id="accerror">
+                <span *ngIf="f.accountType.errors.required">
+                  Please enter your Account Type !!!
+                </span>
+                <span *ngIf="f.accountType.errors.minlength">
+                  Your Account Type must be minimum of 3 characters !!!
+                </span>
+                <span *ngIf="f.accountType.errors.maxlength">
+                  Your Account Type must be maximum of 500 characters !!!
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
           <div class="form-group">
-            <div style="display:flex;flex-direction:row;">
+            <div class="col-md-2">
               <label>
                 Deposit Amount
               </label>
@@ -236,19 +254,20 @@
                      formControlName="balance"
                      [(ngModel)]="account.Balance"
                      [ngClass]="{ 'is-invalid':submitted && f.balance.errors }">
+
+              <div *ngIf="submitted && f.balance.errors" class="invalid-feedback" id="error">
+                <span *ngIf="f.balance.errors.required">
+                  Please enter Initial Deposit Amount !!!
+                </span>
+                <span *ngIf="f.balance.errors.maxlength">
+                  Invalid Amount !!!
+                </span>
+              </div>
             </div>
-            <span *ngIf="submitted && f.balance.errors" class="invalid-feedback" id="error">
-              <span *ngIf="f.balance.errors.required">
-                Please enter Initial Deposit Amount !!!
-              </span>
-              <span *ngIf="f.balance.errors.maxlength">
-                Invalid Amount !!!
-              </span>
-            </span>
           </div>
 
           <div class="form-group">
-            <div style="display:flex;flex-direction:row;">
+            <div class="col-md-2">
               <label>
                 Password
               </label>
@@ -259,22 +278,24 @@
                      formControlName="password"
                      [(ngModel)]="account.Password"
                      [ngClass]="{ 'is-invalid':submitted && f.password.errors }">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback" id="error">
+                <span *ngIf="f.password.errors.required">
+                  Please enter your Password !!!
+                </span>
+                <span *ngIf="f.password.errors.minlength">
+                  Your Password must be minimum of 3 characters !!!
+                </span>
+                <span *ngIf="f.password.errors.maxlength">
+                  Your Password must be maximum of 500 characters !!!
+                </span>
+              </div>
             </div>
-            <span *ngIf="submitted && f.password.errors" class="invalid-feedback" id="error">
-              <span *ngIf="f.password.errors.required">
-                Please enter your Password !!!
-              </span>
-              <span *ngIf="f.password.errors.minlength">
-                Your Password must be minimum of 3 characters !!!
-              </span>
-              <span *ngIf="f.password.errors.maxlength">
-                Your Password must be maximum of 500 characters !!!
-              </span>
-            </span>
           </div>
+        </div>
 
-          <div class="form-group">
-            <div style="display:flex;flex-direction:row;">
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="form-group">
               <label>
                 Confirm Password
               </label>
@@ -282,31 +303,32 @@
                      class="form-control"
                      type="password"
                      placeholder="Password"
-                     formControlName="password"
-                     [(ngModel)]="account.Password"
+                     formControlName="confirmpassword"
+                     [(ngModel)]="extradata.ConfirmPassword"
                      [ngClass]="{ 'is-invalid':submitted && f.password.errors }">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback" id="error">
+                <span *ngIf="f.password.errors.required">
+                  Please enter your Password !!!
+                </span>
+                <span *ngIf="f.password.errors.minlength">
+                  Your Password must be minimum of 3 characters !!!
+                </span>
+                <span *ngIf="f.password.errors.maxlength">
+                  Your Password must be maximum of 500 characters !!!
+                </span>
+              </div>
             </div>
-            <span *ngIf="submitted && f.password.errors" class="invalid-feedback" id="error">
-              <span *ngIf="f.password.errors.required">
-                Please enter your Password !!!
-              </span>
-              <span *ngIf="f.password.errors.minlength">
-                Your Password must be minimum of 3 characters !!!
-              </span>
-              <span *ngIf="f.password.errors.maxlength">
-                Your Password must be maximum of 500 characters !!!
-              </span>
-            </span>
           </div>
-          <div class="form-group" style="display:flex;flex-direction:row;"
-               id="buttons">
-            <div class="form-group">
-              <button class="btn btn-lg btn-block"
-                      type="button"
-                      id="cancel">
-                Cancel
-              </button>
-            </div>
+        </div>
+        <div class=row id="buttons">
+          <div class="form-group" class1="col-md-2">
+            <button class="btn btn-lg btn-block"
+                    type="button"
+                    id="cancel">
+              Cancel
+            </button>
+          </div>
+          <div class="col-md-2">
             <div class="form-group">
               <button class="btn btn-lg btn-block"
                       type="reset"
@@ -314,6 +336,8 @@
                 Reset
               </button>
             </div>
+          </div>
+          <div class="col-md-2">
             <div class="form-group">
               <button class="btn btn-lg btn-block "
                       id="submit"
@@ -327,8 +351,7 @@
     </form>
   </div>
 
-  <div *ngIf="newCustomer===true">
-
+  <div *ngIf="newCustomer===false">
     <h3 id="newCustomerDetails">
       Your New Account Details
     </h3>
@@ -348,16 +371,16 @@
 
       <tr *ngFor="let dat of data">
         <td width="700%">
-          {{dat.CustomerId}}
+          {{dat.CustomerId}}dfghj
         </td>
         <td>
-          {{dat.Number}}
+          {{dat.Number}}dfghj
         </td>
         <td>
-          {{dat.FirstName}}
+          {{dat.FirstName}}fghj
         </td>
         <td>
-          {{dat.LastName}}
+          {{dat.LastName}}fghjk
         </td>
         <td>
           {{dat.OpenDate}}
@@ -377,24 +400,30 @@
         <td>
           {{dat.Mail}}
         </td>
-        <div class="form-group" style="display:flex;flex-direction:row;"
-             id="buttons">
-          <div class="form-group">
-            <button class="btn btn-lg btn-block"
-                    type="button"
-                    id="cancel">
-              Cancel
-            </button>
-          </div>
-          <div class="form-group">
-            <button class="btn btn-lg btn-block"
-                    type="reset"
-                    id="reset">
-              Reset
-            </button>
-          </div>
-        </div>
       </tr>
     </table>
+    <div class="form-group"
+         id="buttons">
+      <div class="form-group">
+        <button class="btn btn-lg btn-block"
+                type="button"
+                id="back">
+          Back
+        </button>
+      </div>
+      <div>
+        <button class="btn btn-lg btn-block"
+                type="button"
+                id="home">
+          Home
+        </button>
+        <!-- <mat-icon class="btn btn-lg btn-block"
+                    id="arrowicon"
+                    style="font-size: xx-large;">
+                    keyboard_arrow_right
+        </mat-icon> -->
+
+      </div>
+    </div>
   </div>
 </div>

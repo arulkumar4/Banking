@@ -224,26 +224,26 @@ img#cardlogo {
   box-shadow: 1px 1px 50px rgba(143, 39, 39, 0.342);
 }
 
-form {
+form#updateform {
   padding-top: 40px;
   padding-left: 30px;
   padding-right: 30px;
 }
 
-label {
-  font-weight: 500;
-  font-size: medium;
-}
+  form#updateform label {
+    font-weight: 500;
+    font-size: medium;
+  }
 
-input {
-  width: 300px;
-  height: 40px;
-}
+  form#updateform input {
+    width: 300px;
+    height: 40px;
+  }
 
-textarea {
-  width: 300px;
-  height: 40px;
-}
+  form#updateform textarea {
+    width: 300px;
+    height: 40px;
+  }
 
 #conNo {
   padding-left: 85px;
@@ -253,7 +253,7 @@ textarea {
   margin-top: 0px;
 }
 
-#buttons {
+#updatebuttons {
   margin-left: 55px;
   margin-top: 30px;
 }
@@ -289,10 +289,11 @@ textarea {
 }
 
 #errormsg {
-  position: absolute;
   font-size: small;
-  margin-top: -12px;
-  margin-left: 260px;
+  font-weight: 500;
+  margin-top: -20px;
+  color: rgb(221, 40, 40);
+  /* margin-left: 200px; */
 }
 
 #fnerror, #lnerror, #adderror, #conNoerror, #emailerror {
@@ -312,9 +313,71 @@ textarea.ng-touched.ng-invalid, textarea.ng-dirty.ng-invalid {
   border-color: red
 }
 
-.invalid-feedback#error {
-  position: absolute;
-  margin-left: 90px;
-  font-size: .68rem;
-  color: red;
+#password {
+  width: 780px;
+  height: 380px;
+  margin-top: 50px;
+  margin-left: 200px;
+  border-radius: 20px;
+  color: rgb(156, 77, 77);
+  border-color: white;
+  box-shadow: 1px 1px 50px rgba(143, 39, 39, 0.342);
+}
+
+form#passwordform {
+  padding-top: 20px;
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+#opass {
+  padding-top: 10px;
+}
+
+#operror, #nperror, #cperror {
+  height: 5px;
+  font-size: small;
+}
+
+#passwordbuttons {
+  margin-left: 95px;
+  margin-top: -10px;
+}
+/* ----------------------------------------------------- */
+#deleteacc {
+  width: 780px;
+  height: 380px;
+  margin-top: 50px;
+  margin-left: 200px;
+  border-radius: 20px;
+  color: rgb(156, 77, 77);
+  border-color: white;
+  box-shadow: 1px 1px 50px rgba(143, 39, 39, 0.342);
+}
+
+form#delaccform {
+  padding-top: 20px;
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+#pass {
+  padding-top: 20px;
+}
+
+#passerrormsg {
+  font-size: small;
+  font-weight: 500;
+  margin-top: 0px;
+  color: rgb(221, 40, 40);
+}
+
+#perror, #npasserror {
+  height: 5px;
+  font-size: small;
+}
+
+#delaccbuttons {
+  margin-left: 95px;
+  margin-top: 20px;
 }

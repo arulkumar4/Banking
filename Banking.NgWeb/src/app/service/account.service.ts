@@ -30,9 +30,9 @@ export class AccountService {
     });
     return this.account;
   }
-  postCustomer(formData: AccountModel) {
+  postCustomer(formData: AccountModel, empId: number) {
     debugger;
-    return this.http.post(this.rootURL + this.account_config.postNewCustomer, formData)
+    return this.http.post(this.rootURL + this.account_config.postNewCustomer + empId, formData)
     // alert("Form Submitted Successfully");
   }
   getCustomerDetails(customerId: number) {

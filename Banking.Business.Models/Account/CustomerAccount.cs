@@ -6,6 +6,7 @@ namespace Banking.Business.Models.Account
     {
         public long Number { get; set; }
         public string Password { get; set; }
+        public string NewPassword { get; set; }
         public decimal Balance { get; set; }
         public string AccountType { get; set; }
         public int AccountTypeId { get; set; }
