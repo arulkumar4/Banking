@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { myFunction } from 'src/assets/scripts/custom.js';
 import { UserService } from '../../service/Bank/user.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
-
+declare const myFunction: any
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,7 +20,7 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private userService: UserService, private router: Router) { 
+  constructor(private userService: UserService, private router: Router) {
     this.myForm = new FormGroup(
       {
         emailAddress: new FormControl(null, Validators.compose([
@@ -32,12 +31,10 @@ export class LoginComponent implements OnInit {
           Validators.required]))
       })
   }
-  public get emailAddress()
-  {
+  public get emailAddress() {
     return this.myForm.get("emailAddress");
   }
-  public get password()
-  {
+  public get password() {
     return this.myForm.get("password");
   }
 login()
@@ -63,7 +60,7 @@ login()
         this.router.navigate(['/userDashboard']);
       }
 
-      //if(data.role=="Employee")
+        //if(data.role=="Employee")
 
 
     },
