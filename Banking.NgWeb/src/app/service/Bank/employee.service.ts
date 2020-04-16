@@ -24,7 +24,7 @@ export class EmployeeService {
   createEmployee(employee: IEmployee): Observable<IEmployee> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     employee.Id = null;
-    employee.ManagerId = 1000;
+    employee.ManagerId = 1014;
     console.log(employee);
     return this.http.post<IEmployee>(this.AddEmployeeUrl, employee, { headers })
       .pipe(
