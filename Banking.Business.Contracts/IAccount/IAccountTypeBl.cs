@@ -6,10 +6,10 @@ namespace Banking.Business.Contracts.IAccount
     public interface IAccountTypeBl
     {
         List<AccountType> GetAllAccountType();
-        List<AccountType> GetOneAccountType(int accounttypeId, string accounttypeName);
+        List<AccountType> GetOneAccountType(int accounttypeId);
         string AddNewAccountType(AccountType acctype);
         string UpdateAccountType(AccountType acctype);
-        string DeleteAccountType(AccountType acctype);
+        string DeleteAccountType(string acctype);
 
     }
 }

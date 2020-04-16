@@ -26,9 +26,9 @@ namespace Banking.WebApi.Controllers
         // GET: api/GetAccountType
         [Route("api/AccountTypeController/GetOneAccountType")]
         [HttpGet]
-        public IHttpActionResult GetOneAccountType(int acctypeId, string accType)
+        public IHttpActionResult GetOneAccountType(int acctypeId)
         {
-            return Ok(_accountTypeBl.GetOneAccountType(acctypeId, accType));
+            return Ok(_accountTypeBl.GetOneAccountType(acctypeId));
         }
 
         // POST: api/PostAccountType
@@ -50,7 +50,7 @@ namespace Banking.WebApi.Controllers
         // DELETE: api/AccountType
         [Route("api/AccountTypeController/DeleteAccountType")]
         [HttpDelete]
-        public IHttpActionResult DeleteAccountType([FromBody]AccountType acctype)
+        public IHttpActionResult DeleteAccountType(string acctype)
         {
             return Ok(_accountTypeBl.DeleteAccountType(acctype));
         }

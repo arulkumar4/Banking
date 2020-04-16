@@ -24,10 +24,10 @@ namespace Banking.DataAccess.Account
             }
             return acctype;
         }
-        public List<AccountType> GetOneAccountType(int accounttypeId, string accounttypeName)
+        public List<AccountType> GetOneAccountType(int accounttypeId)
         {
             List<AccountType> acctype = new List<AccountType>();
-            using (var dataset = GetDataset(ProcedureNames.Account.GetOneAccountType, accounttypeId, accounttypeName))
+            using (var dataset = GetDataset(ProcedureNames.Account.GetOneAccountType, accounttypeId))
             {
                 var accountTable = dataset.Tables[0];
                 var accountTableDetail = accountTable.AsEnumerable();
@@ -59,11 +59,10 @@ namespace Banking.DataAccess.Account
             );
             return status;
         }
-        public string DeleteAccountType(AccountType acctype)
+        public string DeleteAccountType(string acctype)
         {
             var status = GetValue<string>(ProcedureNames.Account.DeleteAccountType,
-            new SqlParameter("@AccId", acctype.Id),
-            new SqlParameter("@AccountType", acctype.Type)
+            new SqlParameter("@AccountType", acctype)
             );
             return status;
         }

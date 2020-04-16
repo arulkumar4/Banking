@@ -57,7 +57,6 @@ namespace Banking.DataAccess
         }
         public class Account
         {
-            public const string GetOneCustomerDetails = "[Account].[GetOneCustomerDetails]";
             public const string AddNewCustomers = "[Account].[InsertCustomer]";
             public const string UpdateCustomerDetails = "[Account].[UpdateCustomerDetails]";
             public const string DeleteCustomerAccount = "[Account].[DeleteCustomerAccount]";
