@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError, of } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { IEmployee } from '../../model/Bank/employee';
+import { UserService } from './user.service';
 
 
 @Injectable()
@@ -17,14 +18,17 @@ export class EmployeeService {
   private GetEmployeeById = 'https://localhost:44395/api/GetEmployee'
   private DeleteEmployeeById = 'https://localhost:44395/api/DeleteEmployee'
   private GetEmployeeKeywordUrl = 'https://localhost:44395/api/GetEmployeebykeyword'
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private userService: UserService) {
     this.employees = [];
 
   }
   createEmployee(employee: IEmployee): Observable<IEmployee> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    this.userService.getUserClaimsManager().subscribe((data: any) => {
+      localStorage.setItem('id', data.Id);
+    })
     employee.Id = null;
-    employee.ManagerId = 1014;
+    employee.ManagerId = localStorage.getItem("id");
     console.log(employee);
     return this.http.post<IEmployee>(this.AddEmployeeUrl, employee, { headers })
       .pipe(

@@ -39,7 +39,8 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { MatTableModule, MatSortModule, MatFormFieldModule, MatInputModule, MatPaginatorModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { CustomerService } from './service/Bank/customer.service';
+import { WelcomeEmployeeComponent } from './employee-dashboard/welcome-employee/welcome-employee.component';
 
 
 
@@ -68,8 +69,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CustomerEditComponent,
     CustomerDetailComponent,
     WelcomeManagerComponent,
-    EmployeeDetailsComponent
-
+    EmployeeDetailsComponent,
+    WelcomeEmployeeComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +87,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     NgxSpinnerModule,
     //PaginationModule.forRoot()
     NgxPaginationModule,
-    BrowserAnimationsModule,
     MatTableModule,
     MatSortModule,
     MatFormFieldModule,
@@ -94,7 +94,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule,
     MatPaginatorModule
   ],
-  providers: [AccountService, TransactionService, MyTransactionService, EmployeeService, UserService, AuthGuard, , {
+  providers: [AccountService, TransactionService, MyTransactionService, EmployeeService, UserService, AuthGuard, CustomerService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true

@@ -19,8 +19,8 @@ import { EmployeeService } from '../../service/Bank/employee.service';
 })
 export class EmployeeEditComponent implements OnInit {
 @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[];
-  private sub: Subscription;
-  employee: IEmployee;
+private sub: Subscription;
+employee: IEmployee;
 datepickerConfig:Partial<BsDatepickerConfig>;
 errorMessage:string;
 value:any
@@ -193,6 +193,7 @@ private genericValidator: GenericValidator;
   }
   onSaveComplete() {
     this.employeeForm.reset();
+    localStorage.removeItem("id");
     this.router.navigate(['/employeedashboard/employees']);
   }
 

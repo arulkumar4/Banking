@@ -15,6 +15,7 @@ export class WelcomeManagerComponent implements OnInit {
   ngOnInit() {
     this.userService.getUserClaimsManager().subscribe((data: any) => {
       this.userClaims = data;
+      console.log(this.userClaims);
     })
       }
 
