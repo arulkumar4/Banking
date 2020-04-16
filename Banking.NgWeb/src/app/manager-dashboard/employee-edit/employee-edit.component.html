@@ -1,1 +1,158 @@
-<p>employee-edit works!</p>
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form novalidate
+          (ngSubmit)="saveEmployee()"
+          [formGroup]="employeeForm">
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="EmployeeFirstNameId">First Name</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="EmployeeFirstNameId"
+                 type="text"
+                 placeholder="FirstName (required)"
+                 formControlName="FirstName"
+                 [ngClass]="{'is-invalid': displayMessage.FirstName}" />
+          <span class="invalid-feedback">
+            {{displayMessage.FirstName}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="EmployeeLastNameId">Last Name</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="EmployeeLastNameId"
+                 type="text"
+                 placeholder="LastName (required)"
+                 formControlName="LastName"
+                 [ngClass]="{'is-invalid': displayMessage.LastName}" />
+          <span class="invalid-feedback">
+            {{displayMessage.LastName}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="EmployeeMailId">Mail</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="EmployeeMailId"
+                 type="text"
+                 placeholder="Mail (required)"
+                 formControlName="Mail"
+                 [ngClass]="{'is-invalid': displayMessage.Mail}" />
+          <span class="invalid-feedback">
+            {{displayMessage.Mail}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="ContactNumberId">Contact Number</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="ContactNumberId"
+                 type="text"
+                 placeholder="ContactNumber (required)"
+                 formControlName="ContactNumber"
+                 [ngClass]="{'is-invalid': displayMessage.ContactNumber}" />
+          <span class="invalid-feedback">
+            {{displayMessage.ContactNumber}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="ContactNumberId">Date</label>
+        <div class="col-md-8">
+          <input type="text"
+                 [value]="employeeForm.get('DOB').value | date"
+                 placeholder="Datepicker"
+                 formControlName="DOB"
+                 [ngClass]="{'is-invalid': displayMessage.DOB}"
+                 class="form-control"
+                 placement="right"
+                 [bsConfig]="datepickerConfig"
+                 bsDatepicker
+                 (bsValueChange)="onValueChange($event)">
+          <span class="invalid-feedback">
+            {{displayMessage.DOB}}
+          </span>
+        </div>
+      </div>
+
+      <div *ngIf="!this.isButtonVisible" class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="RoleId">Role</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="RoleId"
+                 type="text"
+                 value="Employee"
+                 disabled
+                 placeholder="Role (required)"
+                 formControlName="Role"
+                 [ngClass]="{'is-invalid': displayMessage.Role}" />
+          <span class="invalid-feedback">
+            {{displayMessage.Role}}
+          </span>
+        </div>
+      </div>
+
+      <div *ngIf="!this.isButtonVisible" class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="EmployeePasswordId">Password</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="EmployeePasswordId"
+                 type="password"
+                 placeholder="Password (required)"
+                 formControlName="Password"
+                 [ngClass]="{'is-invalid': displayMessage.Password}" />
+          <span class="invalid-feedback">
+            {{displayMessage.Password}}
+          </span>
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px;"
+                  type="submit"
+                  [title]="employeeForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!employeeForm.valid">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px;"
+                  type="button"
+                  title="Cancel your edits"
+                  [routerLink]="['/employeedashboard/employees']">
+            Cancel
+          </button>
+          <button *ngIf="this.isButtonVisible" class="btn btn-outline-danger"
+                  style="width:80px"
+                  type="button"
+                  title="Delete this product"
+                  (click)="deleteEmployee()">
+            Delete
+          </button>
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+</div>
+

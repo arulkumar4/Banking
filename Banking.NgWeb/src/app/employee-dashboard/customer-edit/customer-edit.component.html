@@ -1,1 +1,234 @@
-<p>customer-edit works!</p>
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form novalidate
+          (ngSubmit)="saveCustomer()"
+          [formGroup]="customerForm">
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="CustomerFirstNameId">First Name</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="CustomerFirstNameId"
+                 type="text"
+                 placeholder="FirstName (required)"
+                 formControlName="FirstName"
+                 [ngClass]="{'is-invalid': displayMessage.FirstName}" />
+          <span class="invalid-feedback">
+            {{displayMessage.FirstName}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="CustomerLastNameId">Last Name</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="CustomerLastNameId"
+                 type="text"
+                 placeholder="LastName (required)"
+                 formControlName="LastName"
+                 [ngClass]="{'is-invalid': displayMessage.LastName}" />
+          <span class="invalid-feedback">
+            {{displayMessage.LastName}}
+          </span>
+        </div>
+      </div>
+
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="CustomerMailId">Mail</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="CustomerMailId"
+                 type="text"
+                 placeholder="Mail (required)"
+                 formControlName="Mail"
+                 [ngClass]="{'is-invalid': displayMessage.Mail}" />
+          <span class="invalid-feedback">
+            {{displayMessage.Mail}}
+          </span>
+        </div>
+      </div>
+
+
+      <div *ngIf="!this.isButtonVisible" class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="ContactNumberId">Password</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="PasswordId"
+                 type="password"
+                 placeholder="Password (required)"
+                 formControlName="Password"
+                 [ngClass]="{'is-invalid': displayMessage.Password}" />
+          <span class="invalid-feedback">
+            {{displayMessage.Password}}
+          </span>
+        </div>
+      </div>
+
+
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="ContactNumberId">Contact Number</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="ContactNumberId"
+                 type="text"
+                 placeholder="ContactNumber (required)"
+                 formControlName="ContactNumber"
+                 [ngClass]="{'is-invalid': displayMessage.ContactNumber}" />
+          <span class="invalid-feedback">
+            {{displayMessage.ContactNumber}}
+          </span>
+        </div>
+      </div>
+
+
+      <div *ngIf="!this.isButtonVisible" class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="DateId">DOB</label>
+        <div class="col-md-8">
+          <input type="text"
+                 [value]="customerForm.get('Dob').value | date"
+                 placeholder="Datepicker"
+                 formControlName="Dob"
+                 [ngClass]="{'is-invalid': displayMessage.Dob}"
+                 class="form-control"
+                 placement="right"
+                 [bsConfig]="datepickerConfig"
+                 bsDatepicker
+                 (bsValueChange)="onValueChange($event)">
+          <span class="invalid-feedback">
+            {{displayMessage.Dob}}
+          </span>
+        </div>
+      </div>
+
+      <div *ngIf="!this.isButtonVisible" class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="AddressId">Address</label>
+        <div class="col-md-8">
+          <textarea class="form-control"
+                    id="AddressId"
+                    placeholder="Address"
+                    rows=3
+                    formControlName="Address"
+                    [ngClass]="{'is-invalid': displayMessage.Address}"></textarea>
+          <span class="invalid-feedback">
+            {{ displayMessage.Address}}
+          </span>
+        </div>
+      </div>
+
+      <div *ngIf="!this.isButtonVisible" class="form-group row mb-2">
+        <label class="col-md-2 col-form-label pt-0">Gender</label>
+        <div class="col-md-8">
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input"
+                     type="radio"
+                     value="Male"
+                     formControlName="Gender">Male
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input"
+                     type="radio"
+                     value="Female"
+                     formControlName="Gender">Female
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="!this.isButtonVisible" class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="AccountTypeid">Account Type</label>
+        <div class="col-md-8">
+          <select class="form-control"
+                  id="AccountTypeid"
+                  formControlName="AccountType">
+            <option value=""
+                    disabled
+                    selected
+                    hidden>
+              Select a Account Type...
+            </option>
+            <option value="Savings">Savings</option>
+            <option value="Current">Current</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="RoleId">Role</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="RoleId"
+                 type="text"
+                 value="Customer"
+                 disabled
+                 placeholder="Role (required)"
+                 formControlName="Role"
+                 [ngClass]="{'is-invalid': displayMessage.Role}" />
+          <span class="invalid-feedback">
+            {{displayMessage.Role}}
+          </span>
+        </div>
+      </div>
+
+
+      <div *ngIf="!this.isButtonVisible" class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="CustomerBalanceId">Balance</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="CustomerBalanceId"
+                 type="number"
+                 placeholder="0.0 "
+                 formControlName="Balance"
+                 [ngClass]="{'is-invalid': displayMessage.Balance}" />
+          <span class="invalid-feedback">
+            {{displayMessage.Balance}}
+          </span>
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px;"
+                  type="submit"
+                  [title]="customerForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!customerForm.valid">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px;"
+                  type="button"
+                  title="Cancel your edits"
+                  [routerLink]="['/customerdashboard/customers']">
+            Cancel
+          </button>
+          <!-- <button *ngIf="this.isButtonVisible" class="btn btn-outline-danger"
+                  style="width:80px"
+                  type="button"
+                  title="Delete this product"
+                  (click)="deletecustomer()">
+               Delete
+          </button> -->
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

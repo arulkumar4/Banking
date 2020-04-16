@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import { AngularMaterialModule } from '../app/angular-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,7 +35,10 @@ import { EmployeeDetailsComponent } from './manager-dashboard/employee-details/e
 import { CustomerDetailComponent } from './employee-dashboard/customer-detail/customer-detail.component';
 import { WelcomeManagerComponent } from './manager-dashboard/welcome-manager/welcome-manager.component';
 import { UserService } from './service/Bank/user.service';
-
+import { AuthGuard } from './auth/auth.guard';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { CustomerService } from './service/Bank/customer.service';
+import { WelcomeEmployeeComponent } from './employee-dashboard/welcome-employee/welcome-employee.component';
 
 
 
@@ -63,7 +66,8 @@ import { UserService } from './service/Bank/user.service';
     CustomerEditComponent,
     CustomerDetailComponent,
     WelcomeManagerComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    WelcomeEmployeeComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +85,11 @@ import { UserService } from './service/Bank/user.service';
     //PaginationModule.forRoot()
     NgxPaginationModule
   ],
-  providers: [AccountService, TransactionService, MyTransactionService, EmployeeService, UserService],
+  providers: [AccountService, TransactionService, MyTransactionService, EmployeeService, UserService, AuthGuard, CustomerService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

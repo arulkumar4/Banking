@@ -14,12 +14,17 @@ import { EmployeeListComponent } from './manager-dashboard/employee-list/employe
 import { EmployeeDetailsComponent } from './manager-dashboard/employee-details/employee-details.component';
 import { EmployeeEditComponent } from './manager-dashboard/employee-edit/employee-edit.component';
 import { WelcomeManagerComponent } from './manager-dashboard/welcome-manager/welcome-manager.component';
+import { AuthGuard } from './auth/auth.guard';
+import { CustomerDetailComponent } from './employee-dashboard/customer-detail/customer-detail.component';
+import { CustomerListComponent } from './employee-dashboard/customer-list/customer-list.component';
+import { CustomerEditComponent } from './employee-dashboard/customer-edit/customer-edit.component';
+import { WelcomeEmployeeComponent } from './employee-dashboard/welcome-employee/welcome-employee.component';
+import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: '**', redirectTo: 'login', pathMatch: 'full' },
+  
   { path: 'customer', component: CustomerComponent },
-  { path: 'customerDashboard', component: CustomerDashboardComponent },
+  { path: 'userDashboard', component: CustomerDashboardComponent },
   { path: 'customerAccount', component: CustomerAccountComponent },
   {
     path: 'transaction-page', component: TransactionPageComponent, children: [
@@ -30,14 +35,27 @@ const routes: Routes = [
   },
   { path: 'login', component: LoginComponent },
   {
-    path: 'employeedashboard', component: ManagerDashboardComponent,
+    path: 'employeedashboard', component: ManagerDashboardComponent, canActivate: [AuthGuard],
     children: [
-      { path: 'employees', component: EmployeeListComponent },
-      { path: 'welcome', component: WelcomeManagerComponent },
-      { path: 'employees/:id', component: EmployeeDetailsComponent },
-      { path: 'employees/:id/edit', component: EmployeeEditComponent}
+      { path: 'employees', component: EmployeeListComponent, canActivate:[AuthGuard] },
+      { path: 'welcome', component: WelcomeManagerComponent, canActivate: [AuthGuard]},
+      { path: 'employees/:id', component: EmployeeDetailsComponent, canActivate: [AuthGuard] },
+      { path: 'employees/:id/edit', component: EmployeeEditComponent, canActivate: [AuthGuard]}
     ],
   },
+  {
+    path: 'customerdashboard', component: EmployeeDashboardComponent, canActivate: [AuthGuard],
+    children: [{
+      path: 'customers/:id', component: CustomerDetailComponent, canActivate: [AuthGuard]
+    },
+      { path: 'customers', component: CustomerListComponent, canActivate: [AuthGuard] },
+      { path: 'customers/:id/edit', component: CustomerEditComponent, canActivate: [AuthGuard] },
+      { path: 'welcomecustomer', component: WelcomeEmployeeComponent, canActivate: [AuthGuard] }
+    ]
+  },
+  { path: '', component: LoginComponent },
+  { path: '**', component: LoginComponent }
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
