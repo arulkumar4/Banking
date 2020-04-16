@@ -2,17 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AngularMaterialModule } from '../app/angular-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerComponent } from './customer/customer.component';
-import {CustomerRegisteredDetailsComponent} from './customer/customer-registered-details/customer-registered-details.component';
+import { CustomerRegisteredDetailsComponent } from './customer/customer-registered-details/customer-registered-details.component';
 import { CustomerAccountComponent } from './customer/customer-account/customer-account.component';
 import { AccountTypesComponent } from './account-types/account-types.component';
 import { AccountService } from './service/account.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import{DatepickerModule,BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { CustomerDashboardComponent } from './customer/customer-dashboard/customer-dashboard.component';
 import { LoginComponent } from './Transaction/login/login.component';
 import { TransactionPageComponent } from './Transaction/transaction-page/transaction-page.component';
@@ -37,6 +37,9 @@ import { WelcomeManagerComponent } from './manager-dashboard/welcome-manager/wel
 import { UserService } from './service/Bank/user.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { MatTableModule, MatSortModule, MatFormFieldModule, MatInputModule, MatPaginatorModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 
 
@@ -66,6 +69,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     CustomerDetailComponent,
     WelcomeManagerComponent,
     EmployeeDetailsComponent
+
   ],
   imports: [
     BrowserModule,
@@ -81,7 +85,14 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     BrowserAnimationsModule,
     NgxSpinnerModule,
     //PaginationModule.forRoot()
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FlexLayoutModule,
+    MatPaginatorModule
   ],
   providers: [AccountService, TransactionService, MyTransactionService, EmployeeService, UserService, AuthGuard, , {
     provide: HTTP_INTERCEPTORS,
