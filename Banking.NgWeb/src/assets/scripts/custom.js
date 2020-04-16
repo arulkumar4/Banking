@@ -1,4 +1,4 @@
-export function myFunction() {
+ function myFunction() {
   var store = document.getElementById("myInput");
   if (store.type === "password") {
     store.type = "text";
@@ -6,3 +6,4 @@ export function myFunction() {
     store.type = "password";
   }
 }
+

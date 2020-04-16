@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { myFunction } from 'src/assets/scripts/custom.js';
 import { UserService } from '../../service/Bank/user.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
-
+declare const myFunction:any
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -60,6 +59,7 @@ login()
         this.router.navigate(['/customerdashboard/welcomecustomer']);
       }
       else if (this.userService.roleMatch(['Customer'])) {
+        console.log("customer");
         this.router.navigate(['/customerDashboard']);
       }
 
