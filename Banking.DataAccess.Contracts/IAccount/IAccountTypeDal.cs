@@ -6,9 +6,9 @@ namespace Banking.DataAccess.Contracts.IAccount
     public interface IAccountTypeDal
     {
         List<AccountType> GetAllAccountType();
-        List<AccountType> GetOneAccountType(int accounttypeId, string accounttypeName);
+        List<AccountType> GetOneAccountType(int accounttypeId);
         string AddNewAccountType(AccountType acctype);
         string UpdateAccountType(AccountType acctype);
-        string DeleteAccountType(AccountType acctype);
+        string DeleteAccountType(string accType);
     }
 }

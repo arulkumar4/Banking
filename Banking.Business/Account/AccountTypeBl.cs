@@ -22,9 +22,9 @@ namespace Banking.Business.Account
         {
             return _accountTypeDal.GetAllAccountType();
         }
-        public List<AccountType> GetOneAccountType(int acctypeId, string accType )
+        public List<AccountType> GetOneAccountType(int acctypeId)
         {
-            return _accountTypeDal.GetOneAccountType(acctypeId,accType);
+            return _accountTypeDal.GetOneAccountType(acctypeId);
         }
         public string AddNewAccountType(AccountType acctype)
         {
@@ -34,7 +34,7 @@ namespace Banking.Business.Account
         {
             return _accountTypeDal.UpdateAccountType(acctype);
         }
-        public string DeleteAccountType(AccountType acctype)
+        public string DeleteAccountType(string acctype)
         {
             return _accountTypeDal.DeleteAccountType(acctype);
         }
