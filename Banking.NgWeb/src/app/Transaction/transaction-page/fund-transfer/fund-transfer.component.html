@@ -1,166 +1,167 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        </head>
-    <body>
-      <div class="box" [hidden]="showBox">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="box" [hidden]="showBox">
 
-        <div class="container">
-          <form [formGroup]="myForm" (ngSubmit)="send()">
-            <h4 style="padding-top: 2%;">Enter Transaction Details</h4><hr>
-            <label class="rcolumn1">Transfer From</label>
-            <label class="rcolumn2">To Account Number</label>
-            <label class="rcolumn3">Confirm Account Number</label>
-            <br>
-            <input class="inRow1" type="text" formControlName="SenderName">
-            <input class="inRow1" type="text" formControlName="ReciverAccountId">
-            <input class="inRow1" type="text" formControlName="ConfirmAccountID"><br>
-            <span *ngIf="(SenderName.errors && SenderName.touched) || (submitted && SenderName.errors)">
-              <span class="errorsRow1" *ngIf="SenderName.errors.required">SenderName cannot be empty</span>
-              <span class="errorsRow1" *ngIf="SenderName.errors.pattern">Invalid </span>
-            </span>
-            <span *ngIf="(ReciverAccountId.errors && ReciverAccountId.touched) || (submitted && ReciverAccountId.errors)">
-              <span class="errorsRow2" *ngIf="ReciverAccountId.errors.required">ReceiverAccountId cannot be empty</span>
-              <span class="errorsRow2" *ngIf="ReciverAccountId.errors.minlength">Invalid ReceiverAccountId</span>
-            </span>
-            <span *ngIf="(ConfirmAccountID.errors && ConfirmAccountID.touched) || (submitted)">
-              <span class="errorsCross" *ngIf="(myForm.hasError('emailNotSame')
+    <div class="container">
+      <form [formGroup]="myForm" (ngSubmit)="send()">
+        <h4 style="padding-top: 2%;">Enter Transaction Details</h4><hr>
+        <label class="rcolumn1">Transfer From</label>
+        <label class="rcolumn2">To Account Number</label>
+        <label class="rcolumn3">Confirm Account Number</label>
+        <br>
+        <input class="inRow1" type="text" formControlName="SenderName">
+        <input class="inRow1" type="text" formControlName="ReciverAccountId">
+        <input class="inRow1" type="text" formControlName="ConfirmAccountID"><br>
+        <span *ngIf="(SenderName.errors && SenderName.touched) || (submitted && SenderName.errors)">
+          <span class="errorsRow1" *ngIf="SenderName.errors.required">SenderName cannot be empty</span>
+          <span class="errorsRow1" *ngIf="SenderName.errors.pattern">Invalid </span>
+        </span>
+        <span *ngIf="(ReciverAccountId.errors && ReciverAccountId.touched) || (submitted && ReciverAccountId.errors)">
+          <span class="errorsRow2" *ngIf="ReciverAccountId.errors.required">ReceiverAccountId cannot be empty</span>
+          <span class="errorsRow2" *ngIf="ReciverAccountId.errors.minlength">Invalid ReceiverAccountId</span>
+        </span>
+        <span *ngIf="(ConfirmAccountID.errors && ConfirmAccountID.touched) || (submitted)">
+          <span class="errorsCross" *ngIf="(myForm.hasError('emailNotSame')
                         && myForm.get('ConfirmAccountID').touched)">
-                Mismatch Account Number
-              </span>
-            </span>
+            Mismatch Account Number
+          </span>
+        </span>
 
-            <br>
-            <label class="r2c1">Payee Name</label>
-            <label class="r2c2">Amount</label>
-            <label class="r2c3">Select options to pay</label><br>
-            <input class="inRow2" type="text" formControlName="ReceiverName">
-            <input class="inRow2" type="text" formControlName="TransferAmount">
-            <select class="inRow2" (change)="getChangeType($event)">
-              <option value="select" disabled="true">--Select--</option>
-              <option value={{trans.Id}} *ngFor="let trans of trans">{{trans.Type}}</option>
-            </select><br>
+        <br>
+        <label class="r2c1">Payee Name</label>
+        <label class="r2c2">Amount</label>
+        <label class="r2c3">Select options to pay</label><br>
+        <input class="inRow2" type="text" formControlName="ReceiverName">
+        <input class="inRow2" type="text" formControlName="TransferAmount">
+        <select class="inRow2" (change)="getChangeType($event)">
+          <option value="select" disabled="true">--Select--</option>
+          <option value={{trans.Id}} *ngFor="let trans of trans">{{trans.Type}}</option>
+        </select><br>
 
-            <span *ngIf="(ReceiverName.errors && ReceiverName.touched) || (submitted && ReceiverName.errors)">
-              <span class="errorsRow3" *ngIf="ReceiverName.errors.required">ReciverName cannot be empty</span>
-              <span class="errorsRow3" *ngIf="ReceiverName.errors.pattern">Invalid ReceiverName</span>
-            </span>
-            <span *ngIf="(TransferAmount.errors && TransferAmount.touched) || (submitted && TransferAmount.errors)">
-              <span class="errorsRow4" *ngIf="TransferAmount.errors.required">TransferAmount cannot be empty</span>
-              <span class="errorsRow4" *ngIf="TransferAmount.errors.pattern || TransferAmount.errors.maxlength">Invalid Amount</span>
-            </span>
+        <span *ngIf="(ReceiverName.errors && ReceiverName.touched) || (submitted && ReceiverName.errors)">
+          <span class="errorsRow3" *ngIf="ReceiverName.errors.required">ReciverName cannot be empty</span>
+          <span class="errorsRow3" *ngIf="ReceiverName.errors.pattern">Invalid ReceiverName</span>
+        </span>
+        <span *ngIf="(TransferAmount.errors && TransferAmount.touched) || (submitted && TransferAmount.errors)">
+          <span class="errorsRow4" *ngIf="TransferAmount.errors.required">TransferAmount cannot be empty</span>
+          <span class="errorsRow4" *ngIf="TransferAmount.errors.pattern || TransferAmount.errors.maxlength">Invalid Amount</span>
+        </span>
 
-            <br><label class="rcolumn4">Remarks (Optional)</label>
-            <label [hidden]="show" class="rcolumn2">Type Your Own</label><br>
-            <select class="inRow2" (change)="selectFunction($event)">
-              <option value="select" disabled="true">--Select--</option>
-              <option value="Family">Family</option>
-              <option value="Rent">Rent</option>
-              <option value="Friends">Friends</option>
-              <option value="Rent">Rent</option>
-              <option value="Work">Work</option>
-              <option value="TypeYourOwn" id="TypeYourOwn">Type Your Own</option>
-            </select>
-            <input type="text" class="inRow2" [hidden]="show" style="width: 200px;">
-            <button class="btn first">Send</button><br><br>
-            <div [hidden]="showTranDetails">
-              <hr>
-              <h4>Transaction Details</h4>
-              <hr>
-              <table>
-                <tr>
-                  <th>Account Id</th>
-                  <th>:</th>
-                  <th style="color: darkolivegreen;">{{transaction.AccountId}}</th>
-                </tr>
-                <tr>
-                  <th>Available Balance</th>
-                  <th>:</th>
-                  <th style="color: darkolivegreen;">{{transaction.AvailableBalance}}</th>
-                </tr>
-                <tr>
-                  <th>Tansaction Id</th>
-                  <th>:</th>
-                  <th style="color: darkolivegreen;">{{transaction.Id}}</th>
-                </tr>
-                <tr>
-                  <th>Intial Balance</th>
-                  <th>:</th>
-                  <th style="color: darkolivegreen;">{{transaction.IntialBalance}}</th>
-                </tr>
-                <tr>
-                  <th>Receiver Name</th>
-                  <th>:</th>
-                  <th style="color: darkolivegreen;">{{transaction.ReceiverName}}</th>
-                </tr>
+        <br><label class="rcolumn4">Remarks (Optional)</label>
+        <label [hidden]="show" class="rcolumn2">Type Your Own</label><br>
+        <select class="inRow2" (change)="selectFunction($event)">
+          <option value="select" disabled="true">--Select--</option>
+          <option value="Family">Family</option>
+          <option value="Rent">Rent</option>
+          <option value="Friends">Friends</option>
+          <option value="Rent">Rent</option>
+          <option value="Work">Work</option>
+          <option value="TypeYourOwn" id="TypeYourOwn">Type Your Own</option>
+        </select>
+        <input type="text" class="inRow2" [hidden]="show" style="width: 200px;">
+        <button class="btn first">Send</button><br><br>
+        <div [hidden]="showTranDetails">
+          <hr>
+          <h4>Transaction Details</h4>
+          <hr>
+          <table>
+            <tr>
+              <th>Account Id</th>
+              <th>:</th>
+              <th style="color: darkolivegreen;">{{transaction.AccountId}}</th>
+            </tr>
+            <tr>
+              <th>Available Balance</th>
+              <th>:</th>
+              <th style="color: darkolivegreen;">{{transaction.AvailableBalance}}</th>
+            </tr>
+            <tr>
+              <th>Tansaction Id</th>
+              <th>:</th>
+              <th style="color: darkolivegreen;">{{transaction.Id}}</th>
+            </tr>
+            <tr>
+              <th>Intial Balance</th>
+              <th>:</th>
+              <th style="color: darkolivegreen;">{{transaction.IntialBalance}}</th>
+            </tr>
+            <tr>
+              <th>Receiver Name</th>
+              <th>:</th>
+              <th style="color: darkolivegreen;">{{transaction.ReceiverName}}</th>
+            </tr>
 
-                <tr>
-                  <th>Receiver AccountId</th>
-                  <th>:</th>
-                  <th style="color: darkolivegreen;">{{transaction.ReciverAccountId}}</th>
-                </tr>
-                <tr>
-                  <th>Sender Name</th>
-                  <th>:</th>
-                  <th style="color: darkolivegreen;">{{transaction.SenderName}}</th>
-                </tr>
-                <tr>
-                  <th>Transaction Date</th>
-                  <th>:</th>
-                  <th style="color: darkolivegreen;">{{transaction.TransactionDate}}</th>
-                </tr>
-                <tr>
-                  <th>Transaction Type</th>
-                  <th>:</th>
-                  <th style="color: darkolivegreen;">{{transaction.Type}}</th>
-                </tr>
-                <tr>
-                  <th>Transfer Amount</th>
-                  <th>:</th>
-                  <th style="color: darkolivegreen;">{{transaction.TransferAmount}}</th>
-                </tr>
-                <tr>
-                  <th>Status</th>
-                  <th>:</th>
-                  <th style="color: darkolivegreen;">{{transaction.status}}</th>
-                </tr>
+            <tr>
+              <th>Receiver AccountId</th>
+              <th>:</th>
+              <th style="color: darkolivegreen;">{{transaction.ReciverAccountId}}</th>
+            </tr>
+            <tr>
+              <th>Sender Name</th>
+              <th>:</th>
+              <th style="color: darkolivegreen;">{{transaction.SenderName}}</th>
+            </tr>
+            <tr>
+              <th>Transaction Date</th>
+              <th>:</th>
+              <th style="color: darkolivegreen;">{{transaction.TransactionDate}}</th>
+            </tr>
+            <tr>
+              <th>Transaction Type</th>
+              <th>:</th>
+              <th style="color: darkolivegreen;">{{transaction.Type}}</th>
+            </tr>
+            <tr>
+              <th>Transfer Amount</th>
+              <th>:</th>
+              <th style="color: darkolivegreen;">{{transaction.TransferAmount}}</th>
+            </tr>
+            <tr>
+              <th>Status</th>
+              <th>:</th>
+              <th style="color: darkolivegreen;">{{transaction.status}}</th>
+            </tr>
 
-              </table>
-            </div>
-          </form>
+          </table>
         </div>
+      </form>
+    </div>
 
 
-        <div class="notes">
-          <h5>Notes:</h5>
-          <ol>
-            <li>As per the RBI circular dated Oct 14, 2010, transfer of funds through electronic mode will be executed only on the basis of the account number of the beneficiary provided while initiating the transaction, name will not be considered as a criteria for providing credit. Kindly ensure that you enter the correct beneficiary account number.</li>
-            <li>The Funds Transfer limit per transaction is Rs 10,000.</li>
-            <li>DBG Bank has the most comprehensive security standards in place to protect your interests. At the same time, we expect you to follow safe practices while using the Internet Banking channel. You are fully responsible for protecting your Internet Banking User ID and Passwords. DBG Bank will not be liable for any loss that you may incur owing to unauthorised access into your account.</li>
-            <li>DBG Bank is not responsible for</li>
-            <ul>
-              <li>Funds transferred to any unintended recipient.</li>
-              <li>Retrieval of funds transferred to any unauthorised recipient.</li>
-              <li>Charges/commission of any kind levied/charged by the payee's bank.</li>
-            </ul>
-          </ol>
-        </div>
-        <div class="lastinfo">
-          <section>Terms & Conditions | Interest Rates | Service Charges & Fees | Do Not Call Registry | Disclaimer | Multilingual Disclaimer | Code of Commitment | Group Code of Business Conduct and Ethics <br> Basel II Disclosures | Notice Board | Use of Unparliamentary Language by Customers | Privacy | USA Patriot Act Certification</section>
-        </div>
-      </div>
-      <img class="srcimg" [hidden]="errorMsg" src="assets/search.png" />
+    <br /><br />
+    <div class="notes">
+      <h5>Notes:</h5>
+      <ol>
+        <li>As per the RBI circular dated Oct 14, 2010, transfer of funds through electronic mode will be executed only on the basis of the account number of the beneficiary provided while initiating the transaction, name will not be considered as a criteria for providing credit. Kindly ensure that you enter the correct beneficiary account number.</li>
+        <li>The Funds Transfer limit per transaction is Rs 10,000.</li>
+        <li>DBG Bank has the most comprehensive security standards in place to protect your interests. At the same time, we expect you to follow safe practices while using the Internet Banking channel. You are fully responsible for protecting your Internet Banking User ID and Passwords. DBG Bank will not be liable for any loss that you may incur owing to unauthorised access into your account.</li>
+        <li>DBG Bank is not responsible for</li>
+        <ul>
+          <li>Funds transferred to any unintended recipient.</li>
+          <li>Retrieval of funds transferred to any unauthorised recipient.</li>
+          <li>Charges/commission of any kind levied/charged by the payee's bank.</li>
+        </ul>
+      </ol>
+    </div>
+    <br /><br /><br /> <div class="lastinfo">
+      <section>Terms & Conditions | Interest Rates | Service Charges & Fees | Do Not Call Registry | Disclaimer | Multilingual Disclaimer | Code of Commitment | Group Code of Business Conduct and Ethics <br> Basel II Disclosures | Notice Board | Use of Unparliamentary Language by Customers | Privacy | USA Patriot Act Certification</section>
+    </div>
+  </div>
+  <img class="srcimg" [hidden]="errorMsg" src="assets/search.png" />
 
-      <div class="errorloading">
-        <p [hidden]="errorMsg">
-          Sorry, Something went wrong.
-        </p>
-        <p [hidden]="errorMsg">
-          We're working on it and we'll get it fixed as soon as we can.
-        </p>
-        <a [hidden]="errorMsg" routerLink="/transaction-page">back</a>
-      </div>
+  <div class="errorloading">
+    <p [hidden]="errorMsg">
+      Sorry, Something went wrong.
+    </p>
+    <p [hidden]="errorMsg">
+      We're working on it and we'll get it fixed as soon as we can.
+    </p>
+    <a [hidden]="errorMsg" routerLink="/transaction-page">back</a>
+  </div>
 
-    </body>
+</body>
 </html>
