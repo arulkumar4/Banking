@@ -13,14 +13,14 @@ export class AccountService {
   list: AccountModel[];
   account: any;
   account_config = AccountConfig;
-  readonly rootURL = "https://localhost:44395/api"
+  readonly rootURL = "https://localhost:44395/"
 
   constructor(private http: HttpClient) {
     this.account = [];
   }
 
   getAllCustomerAccounts() {
-    this.account = this.http.get<AccountModel[]>(this.rootURL + '/Account/GetAllCustomerAccounts');
+    this.account = this.http.get<AccountModel[]>(this.rootURL + this.account_config.getAllCustomerAccount);
     return this.account;
   }
   getAllAccounts() {
@@ -35,9 +35,14 @@ export class AccountService {
     return this.http.post(this.rootURL + this.account_config.postNewCustomer + empId, formData)
     // alert("Form Submitted Successfully");
   }
-  getCustomerDetails(customerId: number) {
+  putCustomer(formData: AccountModel, id: number) {
+    console.log(formData);
+    return this.http.put(this.rootURL + this.account_config.putCustomerDetails + id, formData);
+  }
+  getCustomerDetails(customerId: number, No: number) {
     debugger;
-    return this.http.get(this.rootURL + this.account_config.postNewCustomer + customerId)
+    return this.http.get(this.rootURL + this.account_config.getOneCustomerDetails_id + customerId
+      + this.account_config.getOneCustomerDetails_accNo + No)
     // alert("Form Submitted Successfully");
   }
   refreshList() {

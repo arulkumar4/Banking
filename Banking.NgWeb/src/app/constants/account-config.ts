@@ -1,14 +1,17 @@
 export const AccountConfig = {
-  getOneCustomerDetails: 'api/Customer/GetCustomerDetails?customerId=&accountNo=',
-  postNewCustomer: 'api/Customer/AddNewCustomer?empId=',
-  putCustomerDetails: 'api/Customer/UpdateCustomerDetails?customerId=',
+  getOneCustomerDetails_id: 'api/Customer/GetCustomerDetails?customerId=',
+  getOneCustomerDetails_accNo: '&accountNo=',
   getAllCustomerAccount: 'api/Account/GetAllCustomerAccounts',
   getOneCustomerAccount_cusId: 'api/Account/GetCustomerAccounts?customerId=',
   getOneCustomerAccount_accNo: '&accountNo=',
-  getAccountByAccountType: 'api/Account/GetAccountByAcountType',
-  getAccountByBalance: 'api/AccountGetAccountByBalance',
-  getAccountByStatus: 'api/Account/GetCustomerByAccountStatus',
+  getAllAccountType: 'api/AccountTypeController/GetAllAccountType',
+  getOneAccountType: 'api/AccountTypeController/GetOneAccountType?acctypeId=',
+  postNewCustomer: 'api/Customer/AddNewCustomer?empId=',
+  postAccountType: 'api/AccountTypeController/AddNewAccountType',
+  putCustomerDetails: 'api/Customer/UpdateCustomerDetails?customerId=',
   putAccountPassword: 'api/Account/UpdateAccountPassword',
+  putAccountType: 'api/AccountTypeController/UpdateAccountType',
   deleteAccount_no: 'api/Account/DeleteAccount?number=',
-  deleteAccount_pass: '&pass='
+  deleteAccount_pass: '&pass=',
+  deleteAccountType: 'api/AccountTypeController/DeleteAccountType?acctype='
 }

@@ -14,7 +14,4 @@ export class CustomerDashboardComponent implements OnInit {
   ngOnInit() {
   }
 
-  logout() {
-    this.router.navigate(['/customerRegister']);
-  }
 }

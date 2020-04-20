@@ -1,16 +1,10 @@
 @media (max-width: 768px) {
-  #sidebar {
-    margin-left: -250px;
-  }
-
-    #sidebar.active {
-      margin-left: 0;
-    }
 }
 
 #acc {
   background-color: #fcead877;
   height: 850px;
+  padding-left: 25px;
 }
 
 #servicedetails {

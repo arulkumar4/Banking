@@ -28,9 +28,6 @@ namespace Banking.WebApi.Controllers
         // Post: api/Customer/AddCustomer
         [Route("api/Customer/AddNewCustomer")]
         [HttpPost]
-
-
-       
         public IdentityResult AddNewCustomer([FromBody]Customer customer, int empId)
         {
             var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
@@ -47,8 +44,6 @@ namespace Banking.WebApi.Controllers
         //{
         //    return Ok(_customerbl.AddNewCustomer(customer, empId));
         //}
-      
-
 
         [Route("api/Customer/UpdateCustomerDetails")]
         [HttpPut]
