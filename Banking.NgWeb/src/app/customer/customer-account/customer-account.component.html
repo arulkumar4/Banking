@@ -1,360 +1,200 @@
-<!-- <div id="main">
-    <div class="wrapper">
-        <nav id="sidebar">
-            <ul class="list-unstyled components">
-                <p>Dummy Heading</p>
-                <li class="active">
-                    <a data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Portfolio</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</div> -->
-<div>
-  <div id="acc">
-    <div class="row">
-      <div class="col-md-2">
-        <div class="card" id="servicedetails">
-          <h5 class="text-center" id="cardtitle1">ACCOUNT SERVICES</h5>
-          <a class="text-center" id="accservice" (click)="updateDetails()">Update Details</a>
-          <p id="line">--------------------------------------------------------</p>
-          <a class="text-center" id="accservice" (click)="changePassword()">Change Password</a>
-          <p id="line">--------------------------------------------------------</p>
-          <a class="text-center" id="accservice" (click)="delaccount()">Delete Account</a>
-          <p id="line">--------------------------------------------------------</p>
-          <a class="text-center" id="accservice" (click)="newaccount()">New Account</a>
-          <p id="line">--------------------------------------------------------</p>
-          <a class="text-center" id="accservice">Queries/Issues</a>
-        </div>
+<div id="acc">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="card" id="servicedetails">
+        <h5 class="text-center" id="cardtitle1">ACCOUNT SERVICES</h5>
+        <a class="text-center" id="accservice" (click)="updateDetails()">Update Details</a>
+        <p id="line">--------------------------------------------------------</p>
+        <a class="text-center" id="accservice" (click)="changePassword()">Change Password</a>
+        <p id="line">--------------------------------------------------------</p>
+        <a class="text-center" id="accservice" (click)="delaccount()">Delete Account</a>
+        <p id="line">--------------------------------------------------------</p>
+        <a class="text-center" id="accservice" (click)="newaccount()">New Account</a>
+        <p id="line">--------------------------------------------------------</p>
+        <a class="text-center" id="accservice">Queries/Issues</a>
       </div>
-      <div class="col-md-2"
-           *ngIf="useraccount===0">
-        <div class="card" id="accdetails" *ngFor="let dat of data">
-          <h5 class="text-center" id="cardtitle2">MY ACCOUNT PORTFOLIO</h5>
-          <img class="card-img-top" src="assets/account.png" id=account>
-          <div id="customerdetails">
-            <div class="row">
-              <a class="col-sm" id="user">User Name</a>
-              <a class="col-sm" id="name">{{dat.FullName}}</a>
-            </div>
-            <div class="row">
-              <a class="col-sm" id="user">ID</a>
-              <a class="col-sm" id="name"> {{dat.CustomerId}} </a>
-            </div>
-            <div class="row">
-              <a class="col-sm" id="user">Account Number</a>
-              <a class="col-sm" id="name"> {{dat.Number}} </a>
-            </div>
-            <div class="row">
-              <a class="col-sm" id="user">AccountType</a>
-              <a class="col-sm" id="name">{{dat.AccountType}}</a>
-            </div>
-            <div class="row">
-              <a class="col-sm" id="user">Balance</a>
-              <a class="col-sm" id="name">Rs.{{dat.Balance}}</a>
-            </div>
+    </div>
+    <div class="col-md-2"
+         *ngIf="useraccount===0">
+      <div class="card" id="accdetails" *ngFor="let dat of data">
+        <h5 class="text-center" id="cardtitle2">MY ACCOUNT PORTFOLIO</h5>
+        <img class="card-img-top" src="assets/account.png" id=account>
+        <div id="customerdetails">
+          <div class="row">
+            <a class="col-sm" id="user">User Name</a>
+            <a class="col-sm" id="name">{{dat.FullName}}</a>
+          </div>
+          <div class="row">
+            <a class="col-sm" id="user">ID</a>
+            <a class="col-sm" id="name"> {{dat.CustomerId}} </a>
+          </div>
+          <div class="row">
+            <a class="col-sm" id="user">Account Number</a>
+            <a class="col-sm" id="name"> {{dat.Number}} </a>
+          </div>
+          <div class="row">
+            <a class="col-sm" id="user">AccountType</a>
+            <a class="col-sm" id="name">{{dat.AccountType}}</a>
+          </div>
+          <div class="row">
+            <a class="col-sm" id="user">Balance</a>
+            <a class="col-sm" id="name">Rs.{{dat.Balance}}</a>
           </div>
         </div>
       </div>
-      <!----------------------------------------- Update Details ------------------------------------------>
-      <div class="col-md-2"
-           *ngIf="updatedetails===1">
-        <div class="card" id="update">
-          <form [formGroup]="updateForm" (ngSubmit)="UpdateDetailsSubmit(form)"
-                autocomplete="off" id="updateform">
-            <div class="text-center" id="errormsg">
-              {{updateError}}
-            </div>
-            <div class="form-group" id="fn">
-              <div class="row">
+    </div>
+    <!----------------------------------------- Update Details ------------------------------------------>
+    <div class="col-md-2"
+         *ngIf="updatedetails===1">
+      <div class="card" id="update">
+        <form [formGroup]="updateForm"
+              autocomplete="off" id="updateform" *ngFor="let model of model">
+          <div class="text-center" id="errormsg">
+            {{updateError}}
+          </div>
+          <div class="form-group" id="fn">
+            <div class="row">
+              <div class="col-sm">
+                <label>
+                  First Name
+                </label>
+                &nbsp;
+                <input id="fname"
+                       class="form-control"
+                       type="text"
+                       placeholder="First Name"
+                       name="firstName"
+                       formControlName="firstName"
+                       [(ngModel)]="model.FirstName"
+                       [ngClass]="{ 'is-invalid' : updatesubmitted && f.firstName.errors }">
+                <div *ngIf="updatesubmitted && f.firstName.errors" class="invalid-feedback" id="fnerror">
+                  <span *ngIf="f.firstName.errors.required">
+                    Please enter your FirstName !!!
+                  </span>
+                  <span *ngIf="f.firstName.errors.pattern">
+                    Invalid Name!
+                  </span>
+                  <span *ngIf="f.firstName.errors.minlength">
+                    Name must be atleast of 3 characters
+                  </span>
+                </div>
+              </div>
+
+              <div class="form-group" id="ln">
                 <div class="col-sm">
                   <label>
-                    First Name
+                    Last Name
                   </label>
                   &nbsp;
-                  <input id="fname"
+                  <input id="lname"
                          class="form-control"
                          type="text"
-                         placeholder="First Name"
-                         name="firstName"
-                         formControlName="firstName"
-                         [(ngModel)]="model.FirstName"
-                         [ngClass]="{ 'is-invalid' : updatesubmitted && f.firstName.errors }">
-                  <div *ngIf="updatesubmitted && f.firstName.errors" class="invalid-feedback" id="fnerror">
-                    <span *ngIf="f.firstName.errors.required">
-                      Please enter your FirstName !!!
-                    </span>
-                    <span *ngIf="f.firstName.errors.pattern">
-                      Invalid Name!
-                    </span>
-                    <span *ngIf="f.firstName.errors.minlength">
-                      Name must be atleast of 3 characters
-                    </span>
-                  </div>
-                </div>
+                         placeholder="Last Name"
+                         name="lastName"
+                         formControlName="lastName"
+                         [(ngModel)]="model.LastName"
+                         [ngClass]="{ 'is-invalid':updatesubmitted && f.lastName.errors }">
 
-                <div class="form-group" id="ln">
-                  <div class="col-sm">
-                    <label>
-                      Last Name
-                    </label>
-                    &nbsp;
-                    <input id="lname"
-                           class="form-control"
-                           type="text"
-                           placeholder="Last Name"
-                           name="lastName"
-                           formControlName="lastName"
-                           [(ngModel)]="model.LastName"
-                           [ngClass]="{ 'is-invalid':updatesubmitted && f.lastName.errors }">
-
-                    <span *ngIf="updatesubmitted && f.lastName.errors" class="invalid-feedback" id="lnerror">
-                      <span *ngIf="f.lastName.errors.required">
-                        Please enter your LastName !!!
-                      </span>
-                      <span *ngIf="f.lastName.errors.minlength">
-                        Your lastName must be minimum of 3 characters !!!
-                      </span>
-                      <span *ngIf="f.lastName.errors.maxlength">
-                        Your lastName must be maximum of 50 characters !!!
-                      </span>
+                  <span *ngIf="updatesubmitted && f.lastName.errors" class="invalid-feedback" id="lnerror">
+                    <span *ngIf="f.lastName.errors.required">
+                      Please enter your LastName !!!
                     </span>
-                  </div>
+                    <span *ngIf="f.lastName.errors.minlength">
+                      Your lastName must be minimum of 3 characters !!!
+                    </span>
+                    <span *ngIf="f.lastName.errors.maxlength">
+                      Your lastName must be maximum of 50 characters !!!
+                    </span>
+                  </span>
                 </div>
               </div>
+            </div>
 
-              <div class="row">
-                <div class="form-group" id="add">
-                  <div class="col-sm">
-                    <label>
-                      Address
-                    </label>
-                    &nbsp;
-                    <textarea id="add"
-                              class="form-control"
-                              type="text"
-                              placeholder="Address"
-                              name="address"
-                              formControlName="address"
-                              [(ngModel)]="model.Address"
-                              [ngClass]="{ 'is-invalid':updatesubmitted && f.address.errors }">
-                                        </textarea>
-                    <span *ngIf="updatesubmitted && f.address.errors" class="invalid-feedback" id="adderror">
-                      <span *ngIf="f.address.errors.required">
-                        Please enter your Address !!!
-                      </span>
-                      <span *ngIf="f.address.errors.minlength">
-                        Your Address must be minimum of 3 characters !!!
-                      </span>
-                      <span *ngIf="f.address.errors.maxlength">
-                        Your Address must be within 200 characters !!!
-                      </span>
-                    </span>
-                  </div>
-                </div>
-
-                <div class="form-group" id="conNo">
-                  <div class="col-sm">
-                    <label>
-                      Contact Number
-                    </label>
-                    <input id="contactNo"
-                           class="form-control"
-                           type="text"
-                           placeholder="Contact Number"
-                           name="contactNumber"
-                           formControlName="contactNumber"
-                           [(ngModel)]="model.ContactNumber"
-                           [ngClass]="{ 'is-invalid':updatesubmitted && f.contactNumber.errors }">
-                    <span *ngIf="updatesubmitted && f.contactNumber.errors" class="invalid-feedback" id="conNoerror">
-                      <span *ngIf="f.contactNumber.errors.required">
-                        Please enter your Contact Number !!!
-                      </span>
-                      <span *ngIf="f.contactNumber.errors.minlength">
-                        Your Contact Number must be of 10 characters !!!
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="form-group" id="email">
-                  <div class="col-sm">
-                    <label>
-                      Mail ID
-                    </label>
-                    <input id="mail"
-                           class="form-control"
-                           type="text"
-                           placeholder="_____@____.com"
-                           name="mail"
-                           formControlName="mail"
-                           [(ngModel)]="model.Mail"
-                           [ngClass]="{ 'is-invalid': updatesubmitted && f.mail.errors }">
-                    <span *ngIf="updatesubmitted && f.mail.errors" class="invalid-feedback" id="emailerror">
-                      <span *ngIf="f.mail.errors.required">
-                        Please enter your Mail ID !!!
-                      </span>
-                      <span *ngIf="f.mail.errors.minlength">
-                        Your Mail ID must be minimum of 3 characters !!!
-                      </span>
-                      <span *ngIf="f.mail.errors.maxlength">
-                        Your Mail ID must be maximum of 500 characters !!!
-                      </span>
-                    </span>
-                  </div>
-                </div>
+            <div class="row">
+              <div class="form-group" id="add">
                 <div class="col-sm">
-                  <div class="form-group" style="display:flex;flex-direction:row;"
-                       id="updatebuttons">
-                    <div class="form-group">
-                      <button class="btn btn-lg btn-block"
-                              type="reset"
-                              id="reset">
-                        Reset
-                      </button>
-                    </div>
-                    <div class="form-group">
-                      <button class="btn btn-lg btn-block"
-                              type="submit"
-                              id="submit">
-                        Submit
-                      </button>
-                    </div>
-                  </div>
+                  <label>
+                    Address
+                  </label>
+                  &nbsp;
+                  <textarea id="add"
+                            class="form-control"
+                            type="text"
+                            placeholder="Address"
+                            name="address"
+                            formControlName="address"
+                            [(ngModel)]="model.Address"
+                            [ngClass]="{ 'is-invalid':updatesubmitted && f.address.errors }">
+                                        </textarea>
+                  <span *ngIf="updatesubmitted && f.address.errors" class="invalid-feedback" id="adderror">
+                    <span *ngIf="f.address.errors.required">
+                      Please enter your Address !!!
+                    </span>
+                    <span *ngIf="f.address.errors.minlength">
+                      Your Address must be minimum of 3 characters !!!
+                    </span>
+                    <span *ngIf="f.address.errors.maxlength">
+                      Your Address must be within 200 characters !!!
+                    </span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="form-group" id="conNo">
+                <div class="col-sm">
+                  <label>
+                    Contact Number
+                  </label>
+                  <input id="contactNo"
+                         class="form-control"
+                         type="text"
+                         placeholder="Contact Number"
+                         name="contactNumber"
+                         formControlName="contactNumber"
+                         [(ngModel)]="model.ContactNumber"
+                         [ngClass]="{ 'is-invalid':updatesubmitted && f.contactNumber.errors }">
+                  <span *ngIf="updatesubmitted && f.contactNumber.errors" class="invalid-feedback" id="conNoerror">
+                    <span *ngIf="f.contactNumber.errors.required">
+                      Please enter your Contact Number !!!
+                    </span>
+                    <span *ngIf="f.contactNumber.errors.minlength">
+                      Your Contact Number must be of 10 characters !!!
+                    </span>
+                  </span>
                 </div>
               </div>
             </div>
-          </form>
-        </div>
-      </div>
-      <!---------------------------------------- Change Password ------------------------------------------->
 
-      <div class="col-md-2"
-           *ngIf="changepassword===1">
-        <div class="card" id="password">
-          <form [formGroup]="changepasswordform" (ngSubmit)="ChangePasswordSubmit(form)"
-                autocomplete="off" id="passwordform">
-            <div class="text-center" id="errormsg">
-              {{passworderror}}
-            </div>
-
-            <div class="form-group" id="opass">
-              <label>
-                Old Password
-              </label>
-              &nbsp;
-              <input id="oldpass"
-                     class="form-control"
-                     type="password"
-                     placeholder="Old Password"
-                     name="oldpassword"
-                     formControlName="oldpassword"
-                     [(ngModel)]="extradata.Password"
-                     [ngClass]="{ 'is-invalid' : submitted && c.oldpassword.errors }">
-              <div *ngIf="submitted && c.oldpassword.errors" class="invalid-feedback" id="operror">
-                <span *ngIf="c.oldpassword.errors.required">
-                  Please enter your Password !!!
-                </span>
-                <span *ngIf="c.oldpassword.errors.minlength">
-                  Password must be atleast of 3 characters!
-                </span>
-                <span *ngIf="c.oldpassword.errors.maxlength">
-                  Password must be within of 100 characters
-                </span>
-              </div>
-            </div>
-
-            <div class="form-group" id="newpass">
-              <label>
-                New Password
-              </label>
-              &nbsp;
-              <input id="newpass"
-                     class="form-control"
-                     type="password"
-                     placeholder="New Password"
-                     name="newpassword"
-                     formControlName="newpassword"
-                     [(ngModel)]="extradata.NewPassword"
-                     [ngClass]="{ 'is-invalid' : submitted && c.newpassword.errors }">
-              <div *ngIf="submitted && c.newpassword.errors" class="invalid-feedback" id="nperror">
-                <span *ngIf="c.newpassword.errors.required">
-                  Please enter your Password !!!
-                </span>
-                <span *ngIf="c.newpassword.errors.minlength">
-                  Password must be atleast of 3 characters
-                </span>
-                <span *ngIf="c.newpassword.errors.maxlength">
-                  Password must be within of 100 characters
-                </span>
-              </div>
-            </div>
-
-            <div class="form-group" id="confirmpass">
-              <label>
-                Confirm Password
-              </label>
-              &nbsp;
-              <input id="conpass"
-                     class="form-control"
-                     type="password"
-                     placeholder="Confirm Password"
-                     name="confirmpassword"
-                     formControlName="confirmpassword"
-                     [(ngModel)]="extradata.ConfirmPassword"
-                     [ngClass]="{ 'is-invalid' : submitted && c.confirmpassword.errors }">
-              <div *ngIf="submitted && c.confirmpassword.errors" class="invalid-feedback" id="cperror">
-                <span *ngIf="c.confirmpassword.errors.required">
-                  Please enter your FirstName !!!
-                </span>
-                <span *ngIf="c.confirmpassword.errors.minlength">
-                  Name must be atleast of 3 characters
-                </span>
-                <span *ngIf="c.confirmpassword.errors.maxlength">
-                  Password must be within of 100 characters
-                </span>
-              </div>
-            </div>
             <div class="row">
+              <div class="form-group" id="email">
+                <div class="col-sm">
+                  <label>
+                    Mail ID
+                  </label>
+                  <input id="mail"
+                         class="form-control"
+                         type="text"
+                         placeholder="_____@____.com"
+                         name="mail"
+                         formControlName="mail"
+                         [(ngModel)]="model.Mail"
+                         [ngClass]="{ 'is-invalid': updatesubmitted && f.mail.errors }">
+                  <span *ngIf="updatesubmitted && f.mail.errors" class="invalid-feedback" id="emailerror">
+                    <span *ngIf="f.mail.errors.required">
+                      Please enter your Mail ID !!!
+                    </span>
+                    <span *ngIf="f.mail.errors.minlength">
+                      Your Mail ID must be minimum of 3 characters !!!
+                    </span>
+                    <span *ngIf="f.mail.errors.maxlength">
+                      Your Mail ID must be maximum of 500 characters !!!
+                    </span>
+                  </span>
+                </div>
+              </div>
               <div class="col-sm">
                 <div class="form-group" style="display:flex;flex-direction:row;"
-                     id="passwordbuttons">
+                     id="updatebuttons">
                   <div class="form-group">
                     <button class="btn btn-lg btn-block"
                             type="reset"
@@ -365,142 +205,254 @@
                   <div class="form-group">
                     <button class="btn btn-lg btn-block"
                             type="submit"
-                            id="submit">
+                            id="submit" (click)="UpdateDetailsSubmit(updateForm,model.CustomerId)">
                       Submit
                     </button>
                   </div>
                 </div>
               </div>
             </div>
-          </form>
-        </div>
-      </div>
-      <!---------------------------------------------Delete Account----------------------------------------------->
-
-      <div class="col-md-2"
-           *ngIf="deleteacc===1">
-        <div class="card" id="deleteacc">
-          <form [formGroup]="deleteaccform" (ngSubmit)="DeleteAccount(form)"
-                autocomplete="off" id="delaccform">
-            <div class="text-center" id="passerrormsg">
-              {{passerror}}
-            </div>
-            <div class="form-group" id="pass">
-              <label>
-                Password
-              </label>
-              &nbsp;
-              <input id="pas"
-                     class="form-control"
-                     type="password"
-                     placeholder="Password"
-                     name="password"
-                     formControlName="password"
-                     [(ngModel)]="extradata.Password"
-                     [ngClass]="{ 'is-invalid' : deletesubmitted && d.password.errors }">
-              <div *ngIf="deletesubmitted && d.password.errors" class="invalid-feedback" id="perror">
-                <span *ngIf="d.password.errors.required">
-                  Please enter your Password !!!
-                </span>
-                <span *ngIf="d.password.errors.minlength">
-                  Password must be atleast of 3 characters!
-                </span>
-                <span *ngIf="d.password.errors.maxlength">
-                  Password must be within of 100 characters
-                </span>
-              </div>
-            </div>
-
-            <div class="form-group" id="confirmpass">
-              <label>
-                Confirm Password
-              </label>
-              &nbsp;
-              <input id="newpass"
-                     class="form-control"
-                     type="password"
-                     placeholder="Confirm Password"
-                     name="newpassword"
-                     formControlName="newpassword"
-                     [(ngModel)]="extradata.NewPassword"
-                     [ngClass]="{ 'is-invalid' : deletesubmitted && d.newpassword.errors }">
-              <div *ngIf="deletesubmitted && d.newpassword.errors" class="invalid-feedback" id="npasserror">
-                <span *ngIf="d.newpassword.errors.required">
-                  Please enter your Password !!!
-                </span>
-                <span *ngIf="d.newpassword.errors.minlength">
-                  Password must be atleast of 3 characters
-                </span>
-                <span *ngIf="d.newpassword.errors.maxlength">
-                  Password must be within of 100 characters
-                </span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm">
-                <div class="form-group" style="display:flex;flex-direction:row;"
-                     id="delaccbuttons">
-                  <div class="form-group">
-                    <button class="btn btn-lg btn-block"
-                            type="reset"
-                            id="reset">
-                      Reset
-                    </button>
-                  </div>
-                  <div class="form-group">
-                    <button class="btn btn-lg btn-block"
-                            type="submit"
-                            id="submit">
-                      Submit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
-    <!---------------------------------------------------------------------------------------------------------->
-    <div class="row">
-      <div class="col-md-2">
-        <div class="card" id="whatsnew">
-          <h6 class="text-center" id="cardtitle3">What's New</h6>
-          <h5 id="subhead3">Quick Pay</h5>
-          <a id="quickpay">
-            Use <b>Quick Pay</b>
-            to make instance bill payments online with cashbacks
-            and offers.Conditions apply*
-          </a>
-          <p id="line1">----------------------------------------------</p>
-          <h5 id="subhead3">iWish-Flexible RD</h5>
-          <a id="quickpay">
-            Deposit any amount any time.
-            Open <b>Quick Pay</b> a/c and get Rs.200 Back instantly.Conditions apply*
-          </a>
-        </div>
+    <!---------------------------------------- Change Password ------------------------------------------->
+
+    <div class="col-md-2"
+         *ngIf="changepassword===1">
+      <div class="card" id="password">
+        <form [formGroup]="changepasswordform" (ngSubmit)="ChangePasswordSubmit(form)"
+              autocomplete="off" id="passwordform">
+          <div class="text-center" id="errormsg">
+            {{passworderror}}
+          </div>
+
+          <div class="form-group" id="opass">
+            <label>
+              Old Password
+            </label>
+            &nbsp;
+            <input id="oldpass"
+                   class="form-control"
+                   type="password"
+                   placeholder="Old Password"
+                   name="oldpassword"
+                   formControlName="oldpassword"
+                   [(ngModel)]="extradata.Password"
+                   [ngClass]="{ 'is-invalid' : submitted && c.oldpassword.errors }">
+            <div *ngIf="submitted && c.oldpassword.errors" class="invalid-feedback" id="operror">
+              <span *ngIf="c.oldpassword.errors.required">
+                Please enter your Password !!!
+              </span>
+              <span *ngIf="c.oldpassword.errors.minlength">
+                Password must be atleast of 3 characters!
+              </span>
+              <span *ngIf="c.oldpassword.errors.maxlength">
+                Password must be within of 100 characters
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group" id="newpass">
+            <label>
+              New Password
+            </label>
+            &nbsp;
+            <input id="newpass"
+                   class="form-control"
+                   type="password"
+                   placeholder="New Password"
+                   name="newpassword"
+                   formControlName="newpassword"
+                   [(ngModel)]="extradata.NewPassword"
+                   [ngClass]="{ 'is-invalid' : submitted && c.newpassword.errors }">
+            <div *ngIf="submitted && c.newpassword.errors" class="invalid-feedback" id="nperror">
+              <span *ngIf="c.newpassword.errors.required">
+                Please enter your Password !!!
+              </span>
+              <span *ngIf="c.newpassword.errors.minlength">
+                Password must be atleast of 3 characters
+              </span>
+              <span *ngIf="c.newpassword.errors.maxlength">
+                Password must be within of 100 characters
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group" id="confirmpass">
+            <label>
+              Confirm Password
+            </label>
+            &nbsp;
+            <input id="conpass"
+                   class="form-control"
+                   type="password"
+                   placeholder="Confirm Password"
+                   name="confirmpassword"
+                   formControlName="confirmpassword"
+                   [(ngModel)]="extradata.ConfirmPassword"
+                   [ngClass]="{ 'is-invalid' : submitted && c.confirmpassword.errors }">
+            <div *ngIf="submitted && c.confirmpassword.errors" class="invalid-feedback" id="cperror">
+              <span *ngIf="c.confirmpassword.errors.required">
+                Please enter your FirstName !!!
+              </span>
+              <span *ngIf="c.confirmpassword.errors.minlength">
+                Name must be atleast of 3 characters
+              </span>
+              <span *ngIf="c.confirmpassword.errors.maxlength">
+                Password must be within of 100 characters
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm">
+              <div class="form-group" style="display:flex;flex-direction:row;"
+                   id="passwordbuttons">
+                <div class="form-group">
+                  <button class="btn btn-lg btn-block"
+                          type="reset"
+                          id="reset">
+                    Reset
+                  </button>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-lg btn-block"
+                          type="submit"
+                          id="submit" (click)="ChangePasswordSubmit(changepasswordform)">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
-      <div class="col-md-2">
-        <div class="card" id="cc">
-          <h6 class="text-center" id="reccard">Recommended cards for you</h6>
-          <img class="d-block w-100" id="cardsection"
-               src="assets/visacard.png">
-          <a id="bankname">DBG</a>
-          <a id="cardname">CREDIT CARD</a>
-          <a id="ccname">CARD HOLDER NAME</a>
-          <img class="d-block w-100" id="cardlogo"
-               src="assets/cardlogo.png">
-          <a id="ccpoint1">
-            DBG Bank Credit Card offers a host of
-            benifits, offers & features to cater to your needs.
-          </a>
-          <br>
-          <a id="ccpoint2">
-            You can choose from a wide range of
-            Credit Cards that suits your requirement.
-          </a>
-          <a (click)="cc()" id="ccbutton">Apply Now</a>
-        </div>
+    </div>
+    <!---------------------------------------------Delete Account----------------------------------------------->
+
+    <div class="col-md-2"
+         *ngIf="deleteacc===1">
+      <div class="card" id="deleteacc">
+        <form [formGroup]="deleteaccform"
+              autocomplete="off" id="delaccform">
+          <div class="text-center" id="passerrormsg">
+            {{passerror}}
+          </div>
+          <div class="form-group" id="pass">
+            <label>
+              Password
+            </label>
+            &nbsp;
+            <input id="pas"
+                   class="form-control"
+                   type="password"
+                   placeholder="Password"
+                   name="password"
+                   formControlName="password"
+                   [(ngModel)]="extradata.Password"
+                   [ngClass]="{ 'is-invalid' : deletesubmitted && d.password.errors }">
+            <div *ngIf="deletesubmitted && d.password.errors" class="invalid-feedback" id="perror">
+              <span *ngIf="d.password.errors.required">
+                Please enter your Password !!!
+              </span>
+              <span *ngIf="d.password.errors.minlength">
+                Password must be atleast of 3 characters!
+              </span>
+              <span *ngIf="d.password.errors.maxlength">
+                Password must be within of 100 characters
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group" id="confirmpass">
+            <label>
+              Confirm Password
+            </label>
+            &nbsp;
+            <input id="newpass"
+                   class="form-control"
+                   type="password"
+                   placeholder="Confirm Password"
+                   name="newpassword"
+                   formControlName="newpassword"
+                   [(ngModel)]="extradata.NewPassword"
+                   [ngClass]="{ 'is-invalid' : deletesubmitted && d.newpassword.errors }">
+            <div *ngIf="deletesubmitted && d.newpassword.errors" class="invalid-feedback" id="npasserror">
+              <span *ngIf="d.newpassword.errors.required">
+                Please enter your Password !!!
+              </span>
+              <span *ngIf="d.newpassword.errors.minlength">
+                Password must be atleast of 3 characters
+              </span>
+              <span *ngIf="d.newpassword.errors.maxlength">
+                Password must be within of 100 characters
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm">
+              <div class="form-group" style="display:flex;flex-direction:row;"
+                   id="delaccbuttons">
+                <div class="form-group">
+                  <button class="btn btn-lg btn-block"
+                          type="reset"
+                          id="reset">
+                    Reset
+                  </button>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-lg btn-block"
+                          type="submit"
+                          id="submit" (click)="DeleteAccount(deleteaccform)">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!---------------------------------------------------------------------------------------------------------->
+  <div class="row">
+    <div class="col-md-2">
+      <div class="card" id="whatsnew">
+        <h6 class="text-center" id="cardtitle3">What's New</h6>
+        <h5 id="subhead3">Quick Pay</h5>
+        <a id="quickpay">
+          Use <b>Quick Pay</b>
+          to make instance bill payments online with cashbacks
+          and offers.Conditions apply*
+        </a>
+        <p id="line1">----------------------------------------------</p>
+        <h5 id="subhead3">iWish-Flexible RD</h5>
+        <a id="quickpay">
+          Deposit any amount any time.
+          Open <b>Quick Pay</b> a/c and get Rs.200 Back instantly.Conditions apply*
+        </a>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card" id="cc">
+        <h6 class="text-center" id="reccard">Recommended cards for you</h6>
+        <img class="d-block w-100" id="cardsection"
+             src="assets/visacard.png">
+        <a id="bankname">DBG</a>
+        <a id="cardname">CREDIT CARD</a>
+        <a id="ccname">CARD HOLDER NAME</a>
+        <img class="d-block w-100" id="cardlogo"
+             src="assets/cardlogo.png">
+        <a id="ccpoint1">
+          DBG Bank Credit Card offers a host of
+          benifits, offers & features to cater to your needs.
+        </a>
+        <br>
+        <a id="ccpoint2">
+          You can choose from a wide range of
+          Credit Cards that suits your requirement.
+        </a>
+        <a (click)="cc()" id="ccbutton">Apply Now</a>
       </div>
     </div>
   </div>

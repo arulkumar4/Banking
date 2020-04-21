@@ -34,7 +34,7 @@ namespace Banking.WebApi.Controllers
         // POST: api/PostAccountType
         [Route("api/AccountTypeController/AddNewAccountType")]
         [HttpPost]
-        public IHttpActionResult AddNewAccountType([FromBody]AccountType acctype)
+        public IHttpActionResult AddNewAccountType(AccountType acctype)
         {
             return Ok(_accountTypeBl.AddNewAccountType(acctype));
         }
@@ -42,7 +42,7 @@ namespace Banking.WebApi.Controllers
         // PUT: api/PutAccountType
         [Route("api/AccountTypeController/UpdateAccountType")]
         [HttpPut]
-        public IHttpActionResult UpdateAccountType([FromBody]AccountType acctype)
+        public IHttpActionResult UpdateAccountType(AccountType acctype)
         {
             return Ok(_accountTypeBl.UpdateAccountType(acctype));
         }

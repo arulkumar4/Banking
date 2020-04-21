@@ -1,5 +1,5 @@
 <div class="main">
-  <div *ngIf="newCustomer===true">
+  <div *ngIf="newCustomer===false">
     <form [formGroup]="registerationForm"
           (ngSubmit)="onSubmit(form)"
           autocomplete="off">
@@ -153,22 +153,17 @@
                 Gender
               </label>
               <mat-radio-group class="radio-group"
+                               name="gender"
                                formControlName="gender"
-                               [(ngModel)]="account.Gender"
-                               [ngClass]="{ 'is-invalid':submitted && f.gender.errors }">
+                               [(ngModel)]="account.Gender">
                 <mat-radio-button class="radio-button"
                                   *ngFor="let gend of gen"
-                                  [value]="gend"
+                                  [(value)]="gend"
                                   color="primary">
                   {{gend}} &nbsp;
                 </mat-radio-button>
               </mat-radio-group>
-              <div *ngIf="submitted && f.gender.errors" class="invalid-feedback" id="error">
-                <span *ngIf="f.gender.errors.required">
-                  Please select your Gender !!!
-                </span>
-              </div>
-              <div>
+              <div *ngIf="genmesg===true" id="gender-error">
                 {{generror}}
               </div>
             </div>
@@ -194,12 +189,10 @@
                          [bsConfig]="{containerClass:'theme-dark-blue'}"
                          (bsValueChange)="bsValueChange($event)"
                          value="{{ datevalue | date:'yyyy-MM-dd' }}">
-                  <!-- <div class="col-sm-2"> -->
                   <mat-icon class="column" id="icon"
                             style="font-size: xx-large;">
                     event
                   </mat-icon>
-                  <!-- </div>  -->
                   <div *ngIf="submitted && f.dob.errors" class="invalid-feedback" id="error">
                     <span *ngIf="f.dob.errors.required">
                       Please Select your Dob !!!
@@ -258,6 +251,9 @@
               <div *ngIf="submitted && f.balance.errors" class="invalid-feedback" id="error">
                 <span *ngIf="f.balance.errors.required">
                   Please enter Initial Deposit Amount !!!
+                </span>
+                <span *ngIf="f.balance.errors.minlength">
+                  Amount must be atleast 1000 !!!
                 </span>
                 <span *ngIf="f.balance.errors.maxlength">
                   Invalid Amount !!!
@@ -351,7 +347,7 @@
     </form>
   </div>
 
-  <div *ngIf="newCustomer===false">
+  <div *ngIf="newCustomer===true">
     <h3 id="newCustomerDetails">
       Your New Account Details
     </h3>
@@ -361,8 +357,6 @@
         <th style="color:rgb(3, 3, 3);">AccountNumber</th>
         <th style="color:rgb(3, 3, 3);">FirstName</th>
         <th style="color:rgb(3, 3, 3);">LastName</th>
-        <th style="color:rgb(3, 3, 3);">OpenDate</th>
-        <th style="color:rgb(3, 3, 3);">Status</th>
         <th style="color:rgb(3, 3, 3);">Balance</th>
         <th style="color:rgb(3, 3, 3);">AccountType</th>
         <th style="color:rgb(3, 3, 3);">ContactNumber</th>
@@ -371,22 +365,16 @@
 
       <tr *ngFor="let dat of data">
         <td width="700%">
-          {{dat.CustomerId}}dfghj
+          {{dat.CustomerId}}
         </td>
         <td>
-          {{dat.Number}}dfghj
+          {{dat.Number}}
         </td>
         <td>
-          {{dat.FirstName}}fghj
+          {{dat.FirstName}}
         </td>
         <td>
-          {{dat.LastName}}fghjk
-        </td>
-        <td>
-          {{dat.OpenDate}}
-        </td>
-        <td>
-          {{dat.Status}}
+          {{dat.LastName}}
         </td>
         <td>
           {{dat.Balance}}
@@ -402,27 +390,21 @@
         </td>
       </tr>
     </table>
-    <div class="form-group"
+    <div class="row"
          id="buttons">
-      <div class="form-group">
+      <div class="form-group" class1="col">
         <button class="btn btn-lg btn-block"
                 type="button"
                 id="back">
           Back
         </button>
       </div>
-      <div>
+      <div class="form-group" class1="col">
         <button class="btn btn-lg btn-block"
                 type="button"
-                id="home">
+                id="home" (click)="login()">
           Home
         </button>
-        <!-- <mat-icon class="btn btn-lg btn-block"
-                    id="arrowicon"
-                    style="font-size: xx-large;">
-                    keyboard_arrow_right
-        </mat-icon> -->
-
       </div>
     </div>
   </div>

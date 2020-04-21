@@ -1,4 +1,37 @@
 /* --------------------------------------------------------------------------------------------------- */
+a#welcome {
+  position: absolute;
+  margin-left: 55rem;
+  margin-top: -148px;
+  font-size: x-large;
+  font-weight: 500;
+  text-shadow: 0px 0px 3px rgba(199, 41, 41, 0.267);
+  color: rgba(63, 21, 21, 0.795);
+}
+
+#customername {
+  margin-top: 49px;
+  margin-left: 64rem;
+  font-size: 22px;
+  font-weight: 500;
+  text-shadow: 0px 0px 3px rgba(199, 41, 41, 0.267);
+  color: rgba(71, 36, 36, 0.795);
+}
+
+#logoutButton {
+  position: absolute;
+  cursor: pointer;
+  border-radius: 4px;
+  padding-left: 10px;
+  width: 80px;
+  padding: 7px;
+  margin-top: -150px;
+  margin-left: 1230px;
+  color: rgb(255, 255, 255);
+  border-color: rgb(146, 17, 17);
+  background-color: rgb(146, 17, 17);
+  box-shadow: 1px 1px 50px rgba(209, 160, 160, 0.486);
+}
 
 p {
   font-family: 'Poppins', sans-serif;
