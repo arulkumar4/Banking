@@ -20,9 +20,7 @@ form {
   margin-bottom: 20px;
   box-shadow: 1px 1px 50px rgb(173, 173, 173);
 }
-/* .row{
-    margin-bottom: 10px;
-} */
+
 label {
   color: rgb(33, 29, 90);
   font-weight: 600;
@@ -42,9 +40,7 @@ input, textarea {
 #fname, #lname {
   margin-top: -20px !important;
 }
-/* #actype,#accType{
-    margin-left: 140px !important;
-} */
+
 #add {
   margin-top: -20px !important;
 }
@@ -150,9 +146,7 @@ mat-icon {
   width: 300px;
   color: red;
 }
-/* #accerror{
-    margin-left: 140px;
-} */
+
 input.ng-touched.ng-invalid, input.ng-dirty.ng-invalid {
   border-color: red
 }
@@ -196,13 +190,16 @@ th {
 #newCustomerDetails {
   color: rgb(33, 29, 90);
   font-weight: 600;
-  /* font-size: large; */
   margin-left: 32rem;
   margin-top: 30px;
   margin-bottom: 20px;
 }
 
 #back {
+  cursor: pointer;
+  width: 80px;
+  height: 38px;
+  padding: 4px;
   color: white;
   background-color: orange;
   -webkit-box-shadow: 0 8px 6px -6px rgb(90, 90, 90);
@@ -211,25 +208,21 @@ th {
 }
 
 #home {
+  cursor: pointer;
+  width: 80px;
+  height: 38px;
+  padding: 4px;
+  margin-left: 20px;
   color: rgb(13, 17, 56);
-  background-color: rgba(0, 162, 255, 0.068);
+  background-color: rgba(0, 162, 255, 0.336);
   -webkit-box-shadow: 0 8px 6px -6px rgb(90, 90, 90);
   -moz-box-shadow: 0 8px 6px -6px rgb(90, 90, 90);
   box-shadow: 0 8px 6px -6px rgb(90, 90, 90);
 }
 
-#back {
-  cursor: pointer;
-  width: 80px;
-  height: 38px;
-  padding: 4px;
-}
-
-#home {
-  cursor: pointer;
-  width: 120px;
-  height: 40px;
-  padding: 4px;
+#back, #home {
+  margin-top: 100px;
+  margin-left: 30px;
 }
 
 #arrowicon {

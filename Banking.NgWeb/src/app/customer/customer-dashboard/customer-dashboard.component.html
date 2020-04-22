@@ -26,218 +26,220 @@
     </form>
 </ul> -->
 
+<div>
+  <a id="welcome">WELCOME  Customer !!!</a>
+  <div>
+    <button class="nav-link" (click)="logout()" id="logoutButton">LOGOUT</button>
+  </div>
+</div>
 <div class="main">
+<div id="carousel" class="carousel slide" data-interval="1000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="assets/home-page.jpg">
+      <h3 id="welcomeheading">
+        DIGITAL BANKING IS NOW MORE EASY AND SECURED FOR ALL YOUR TRANSACTIONS & PAYMENTS.
+      </h3>
+      <p id="welcometext">
+        Get more offers on our mobile app
+        Download Now!
+      </p>
+    </div>
+  </div>
+</div>
 
-  <div id="carousel" class="carousel slide" data-interval="1000">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="assets/home-page.jpg">
-        <h3 id="welcomeheading">
-          DIGITAL BANKING IS NOW MORE EASY AND SECURED FOR ALL YOUR TRANSACTIONS & PAYMENTS.
-        </h3>
-        <p id="welcometext">
-          Get more offers on our mobile app
-          Download Now!
+<h3 class="text-center" id="loans">OUR LOAN SCHEMES</h3>
+<div class="row">
+  <div class="col-md-2" id="carLoan_card">
+    <div class="card" id="cards">
+      <img class="card-img-top" id="carloan_img" src="assets/carLoan.png">
+      <h5 class="card-title" id="carLoan">Personal Loan</h5>
+      <a (click)="carLoan()" class="carLoanbutton">ApplyNow</a>
+    </div>
+  </div>
+
+  <div class="col-md-2" id="homeLoan_card">
+    <div class="card" id="cards">
+      <img class="card-img-top" id="homeloan_img" src="assets/homeLoan.png">
+      <h5 class="card-title" id="homeLoan">Home Loan</h5>
+      <a (click)="homeLoan()" class="homeLoanbutton">ApplyNow</a>
+    </div>
+  </div>
+
+  <div class="col-md-2" id="studentLoan_card">
+    <div class="card" id="cards">
+      <img class="card-img-top" id="studentloan_img" src="assets/studentLoan.png">
+      <h5 class="card-title" id="studentLoan">Education Loan</h5>
+      <a (click)="studentLoan()" class="studentLoanbutton">ApplyNow</a>
+    </div>
+  </div>
+
+  <div class="col-md-2" id="businessLoan_card">
+    <div class="card" id="cards">
+      <img class="card-img-top" id="businessloan_img" src="assets/business.png">
+      <h5 class="card-title" id="businessLoan">Business Loan</h5>
+      <a (click)="carLoan()" class="businessLoanbutton">ApplyNow</a>
+    </div>
+  </div>
+</div>
+
+<div>
+  <img class="d-block w-100" id="section1"
+        src="assets/mutualFunds.jpg">
+  <h3 id="mutualfund">DO YOU KNOW THE RIGHT TIME TO INVEST IN MUTUAL FUND?</h3>
+  <a (click)="goldLoan()" class="mutualfundbutton">Learn More</a>
+
+</div>
+
+<section id="section">
+  <div>
+    <h3 class="text-center" id="handpicks">HANDPICKS FOR YOU</h3>
+  </div>
+  <div class="row text-center text-lg-left" id="section2">
+    <div class="card" id="cards2">
+      <img class="card-img-top" src="assets/fixedDeposits.jpg" id="fd_img">
+      <div class="card-body">
+        <h5 class="card-title text-center" id="card2heading">FIXED DEPOSIT</h5>
+        <p class="card-text text-center" id="card2text">
+          Save your money in FD with your own customized time period
+        </p>
+        <a (click)="fd()" id="fdbutton">Read More</a>
+      </div>
+    </div>
+
+    <div class="card" id="cards2" id="health">
+      <img class="card-img-top" src="assets/health.jpg" id="health_img">
+      <div class="card-body">
+        <h5 class="card-title text-center" id="card2heading">HEALTH INSURANCE</h5>
+        <p class="card-text text-center" id="card2text">
+          Secure your loved once life with our Health Insurance
+        </p>
+        <a (click)="health()" id="healthbutton">Read More</a>
+      </div>
+    </div>
+
+    <div class="card" id="cards2" id="agri">
+      <img class="card-img-top" src="assets/agri.jpg" id="agri_img">
+      <div class="card-body">
+        <h5 class="card-title text-center" id="card2heading">FARMER SCHEMES</h5>
+        <p class="card-text text-center" id="card2text">
+          Get Instance Loan and Special schemes only for you
+        </p>
+        <a (click)="farmerscheme()" id="agributton">Read More</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="cc">
+    <h3 id="creditcard">
+      Get Upto 10% Cashback on <b id="visa">Visa</b>
+      and <b id="master">Master</b> CreditCards
+      on your Transactions
+    </h3>
+    <p id="tc">T&C apply*</p>
+    <img class="d-block w-100" id="cardsection"
+          src="assets/visacard.png">
+    <a id="bankname">DBG</a>
+    <a id="cardname">CREDIT CARD</a>
+    <a id="ccname">CARD HOLDER NAME</a>
+    <img class="d-block w-100" id="cardlogo"
+          src="assets/cardlogo.png">
+    <a (click)="cc()" id="ccbutton">Apply Now</a>
+  </div>
+</section>
+
+<div id="onlinesection">
+  <h3 id="online" class="text-center">UPCOMING SERVICES</h3>
+  <div class="row text-center text-lg-left" id="section3">
+    <div class="card" id="card3">
+      <img class="card-img-top" src="assets/icons/InternetBanking.png" id="net">
+      <div class="card-body" id="online">
+        <h5 class="card-title text-center" id="onlineheading">Internet Banking</h5>
+        <p class="card-text text-center" id="onlinetext">
+          Explore the power of simple and smarter Banking.
+          Bank online with over 300+ services
+        </p>
+      </div>
+    </div>
+
+    <div class="card" id="card3">
+      <img class="card-img-top" src="assets/icons/MobileBanking.png" id="mobile">
+      <div class="card-body" id="online">
+        <h5 class="card-title text-center" id="onlineheading">Mobile Banking</h5>
+        <p class="card-text text-center" id="onlinetext">
+          Bank on the go with our mobile Banking services.
+          Download our app or use SMS
+        </p>
+      </div>
+    </div>
+
+    <div class="card" id="card3">
+      <img class="card-img-top" src="assets/icons/Facebook.png" id="pocket">
+      <div class="card-body" id="online">
+        <h5 class="card-title text-center" id="onlineheading">Pockets of DBG Bank</h5>
+        <p class="card-text text-center" id="onlinetext">
+          VISA powered universal payment wallet.
+          Download today
+        </p>
+      </div>
+    </div>
+
+    <div class="card" id="card3">
+      <img class="card-img-top" src="assets/icons/AtmBanking.png" id="atm">
+      <div class="card-body" id="online">
+        <h5 class="card-title text-center" id="onlineheading">Find ATM/Branch</h5>
+        <p class="card-text text-center" id="onlinetext">
+          Bank 24/7 through a widespread network of
+          over 4,970 branches and 10,906 ATM's
         </p>
       </div>
     </div>
   </div>
+</div>
 
-  <h3 class="text-center" id="loans">OUR LOAN SCHEMES</h3>
-  <div class="row">
-    <div class="col-md-2" id="carLoan_card">
-      <div class="card" id="cards">
-        <img class="card-img-top" id="carloan_img" src="assets/carLoan.png">
-        <h5 class="card-title" id="carLoan">Personal Loan</h5>
-        <a (click)="carLoan()" class="carLoanbutton">ApplyNow</a>
-      </div>
-    </div>
-
-    <div class="col-md-2" id="homeLoan_card">
-      <div class="card" id="cards">
-        <img class="card-img-top" id="homeloan_img" src="assets/homeLoan.png">
-        <h5 class="card-title" id="homeLoan">Home Loan</h5>
-        <a (click)="homeLoan()" class="homeLoanbutton">ApplyNow</a>
-      </div>
-    </div>
-
-    <div class="col-md-2" id="studentLoan_card">
-      <div class="card" id="cards">
-        <img class="card-img-top" id="studentloan_img" src="assets/studentLoan.png">
-        <h5 class="card-title" id="studentLoan">Education Loan</h5>
-        <a (click)="studentLoan()" class="studentLoanbutton">ApplyNow</a>
-      </div>
-    </div>
-
-    <div class="col-md-2" id="businessLoan_card">
-      <div class="card" id="cards">
-        <img class="card-img-top" id="businessloan_img" src="assets/business.png">
-        <h5 class="card-title" id="businessLoan">Business Loan</h5>
-        <a (click)="carLoan()" class="businessLoanbutton">ApplyNow</a>
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <img class="d-block w-100" id="section1"
-         src="assets/mutualFunds.jpg">
-    <h3 id="mutualfund">DO YOU KNOW THE RIGHT TIME TO INVEST IN MUTUAL FUND?</h3>
-    <a (click)="goldLoan()" class="mutualfundbutton">Learn More</a>
-
-  </div>
-
-  <section id="section">
-    <div>
-      <h3 class="text-center" id="handpicks">HANDPICKS FOR YOU</h3>
-    </div>
-    <div class="row text-center text-lg-left" id="section2">
-      <div class="card" id="cards2">
-        <img class="card-img-top" src="assets/fixedDeposits.jpg" id="fd_img">
-        <div class="card-body">
-          <h5 class="card-title text-center" id="card2heading">FIXED DEPOSIT</h5>
-          <p class="card-text text-center" id="card2text">
-            Save your money in FD with your own customized time period
-          </p>
-          <a (click)="fd()" id="fdbutton">Read More</a>
+<div>
+  <footer id="footer">
+    <div class="container">
+      <div class="row" id="footer">
+        <div class="col-xs-6 col-sm-6 col-md-3 column">
+          <h5 id="footerhead">Products</h5>
+          <ul id="footerpart">
+            <p href="">Creditcard</p>
+            <p href="">InternetBanking</p>
+            <p href="">MobileBanking</p>
+            <p href="">Account</p>
+            <p href="">FixedDeposit</p>
+          </ul>
         </div>
-      </div>
-
-      <div class="card" id="cards2" id="health">
-        <img class="card-img-top" src="assets/health.jpg" id="health_img">
-        <div class="card-body">
-          <h5 class="card-title text-center" id="card2heading">HEALTH INSURANCE</h5>
-          <p class="card-text text-center" id="card2text">
-            Secure your loved once life with our Health Insurance
-          </p>
-          <a (click)="health()" id="healthbutton">Read More</a>
+        <div class="col-xs-6 col-md-3 column">
+          <h5 id="footerhead">Follow Us</h5>
+          <ul id="footerpart">
+            <p href="www.facebook.com">Facebook</p>
+            <p href="www.twitter.com">Twitter</p>
+            <p href="www.google.com">Google+</p>
+            <p href="www.instagram.com">Instagram</p>
+          </ul>
         </div>
-      </div>
-
-      <div class="card" id="cards2" id="agri">
-        <img class="card-img-top" src="assets/agri.jpg" id="agri_img">
-        <div class="card-body">
-          <h5 class="card-title text-center" id="card2heading">FARMER SCHEMES</h5>
-          <p class="card-text text-center" id="card2text">
-            Get Instance Loan and Special schemes only for you
-          </p>
-          <a (click)="farmerscheme()" id="agributton">Read More</a>
+        <div class="col-xs-6 col-md-3 column">
+          <h5 id="footerhead">Contact Us</h5>
+          <ul id="footerpart">
+            <p href="">Email</p>
+            <p href="">Headquarters</p>
+            <p href="">Management+</p>
+            <p href="">Support</p>
+          </ul>
+        </div>
+        <div class="col-xs-6 col-md-3 column">
+          <h5 id="footerhead">Customer Service</h5>
+          <ul id="footerpart">
+            <p href="">About Us</p>
+            <p href="">Delivery Information</p>
+            <p href="">Privacy Policy</p>
+            <p href="">Terms & Conditions</p>
+          </ul>
         </div>
       </div>
     </div>
-
-    <div id="cc">
-      <h3 id="creditcard">
-        Get Upto 10% Cashback on <b id="visa">Visa</b>
-        and <b id="master">Master</b> CreditCards
-        on your Transactions
-      </h3>
-      <p id="tc">T&C apply*</p>
-      <img class="d-block w-100" id="cardsection"
-           src="assets/visacard.png">
-      <a id="bankname">DBG</a>
-      <a id="cardname">CREDIT CARD</a>
-      <a id="ccname">CARD HOLDER NAME</a>
-      <img class="d-block w-100" id="cardlogo"
-           src="assets/cardlogo.png">
-      <a (click)="cc()" id="ccbutton">Apply Now</a>
-    </div>
-  </section>
-
-  <div id="onlinesection">
-    <h3 id="online" class="text-center">UPCOMING SERVICES</h3>
-    <div class="row text-center text-lg-left" id="section3">
-      <div class="card" id="card3">
-        <img class="card-img-top" src="assets/icons/InternetBanking.png" id="net">
-        <div class="card-body" id="online">
-          <h5 class="card-title text-center" id="onlineheading">Internet Banking</h5>
-          <p class="card-text text-center" id="onlinetext">
-            Explore the power of simple and smarter Banking.
-            Bank online with over 300+ services
-          </p>
-        </div>
-      </div>
-
-      <div class="card" id="card3">
-        <img class="card-img-top" src="assets/icons/MobileBanking.png" id="mobile">
-        <div class="card-body" id="online">
-          <h5 class="card-title text-center" id="onlineheading">Mobile Banking</h5>
-          <p class="card-text text-center" id="onlinetext">
-            Bank on the go with our mobile Banking services.
-            Download our app or use SMS
-          </p>
-        </div>
-      </div>
-
-      <div class="card" id="card3">
-        <img class="card-img-top" src="assets/icons/Facebook.png" id="pocket">
-        <div class="card-body" id="online">
-          <h5 class="card-title text-center" id="onlineheading">Pockets of DBG Bank</h5>
-          <p class="card-text text-center" id="onlinetext">
-            VISA powered universal payment wallet.
-            Download today
-          </p>
-        </div>
-      </div>
-
-      <div class="card" id="card3">
-        <img class="card-img-top" src="assets/icons/AtmBanking.png" id="atm">
-        <div class="card-body" id="online">
-          <h5 class="card-title text-center" id="onlineheading">Find ATM/Branch</h5>
-          <p class="card-text text-center" id="onlinetext">
-            Bank 24/7 through a widespread network of
-            over 4,970 branches and 10,906 ATM's
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <footer id="footer">
-      <div class="container">
-        <div class="row" id="footer">
-          <div class="col-xs-6 col-sm-6 col-md-3 column">
-            <h5 id="footerhead">Products</h5>
-            <ul id="footerpart">
-              <p href="">Creditcard</p>
-              <p href="">InternetBanking</p>
-              <p href="">MobileBanking</p>
-              <p href="">Account</p>
-              <p href="">FixedDeposit</p>
-              <p href="">PersonalLoan</p>
-              <p href="">HomeLoan</p>
-              <p href="">LifeInsurance</p>
-            </ul>
-          </div>
-          <div class="col-xs-6 col-md-3 column">
-            <h5 id="footerhead">Follow Us</h5>
-            <ul id="footerpart">
-              <p href="www.facebook.com">Facebook</p>
-              <p href="www.twitter.com">Twitter</p>
-              <p href="www.google.com">Google+</p>
-              <p href="www.instagram.com">Instagram</p>
-            </ul>
-          </div>
-          <div class="col-xs-6 col-md-3 column">
-            <h5 id="footerhead">Contact Us</h5>
-            <ul id="footerpart">
-              <p href="">Email</p>
-              <p href="">Headquarters</p>
-              <p href="">Management+</p>
-              <p href="">Support</p>
-            </ul>
-          </div>
-          <div class="col-xs-6 col-md-3 column">
-            <h5 id="footerhead">Customer Service</h5>
-            <ul id="footerpart">
-              <p href="">About Us</p>
-              <p href="">Delivery Information</p>
-              <p href="">Privacy Policy</p>
-              <p href="">Terms & Conditions</p>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </div>
+  </footer>
+</div>
 </div>

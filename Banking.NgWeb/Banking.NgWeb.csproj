@@ -19276,8 +19276,6 @@
     <Content Include="src\app\customer\customer-account\customer-account.component.html" />
     <Content Include="src\app\customer\customer-dashboard\customer-dashboard.component.css" />
     <Content Include="src\app\customer\customer-dashboard\customer-dashboard.component.html" />
-    <Content Include="src\app\customer\customer-registered-details\customer-registered-details.component.css" />
-    <Content Include="src\app\customer\customer-registered-details\customer-registered-details.component.html" />
     <Content Include="src\app\customer\customer.component.css" />
     <Content Include="src\app\customer\customer.component.html" />
     <Content Include="src\app\employee-dashboard\employee-dashboard.component.css" />
@@ -30928,8 +30926,6 @@
     <TypeScriptCompile Include="src\app\customer\customer-account\customer-account.component.ts" />
     <TypeScriptCompile Include="src\app\customer\customer-dashboard\customer-dashboard.component.spec.ts" />
     <TypeScriptCompile Include="src\app\customer\customer-dashboard\customer-dashboard.component.ts" />
-    <TypeScriptCompile Include="src\app\customer\customer-registered-details\customer-registered-details.component.spec.ts" />
-    <TypeScriptCompile Include="src\app\customer\customer-registered-details\customer-registered-details.component.ts" />
     <TypeScriptCompile Include="src\app\customer\customer.component.spec.ts" />
     <TypeScriptCompile Include="src\app\customer\customer.component.ts" />
     <TypeScriptCompile Include="src\app\employee-dashboard\employee-dashboard.component.spec.ts" />
@@ -30942,6 +30938,7 @@
     <TypeScriptCompile Include="src\app\manager-dashboard\employee-list\employee-list.component.ts" />
     <TypeScriptCompile Include="src\app\manager-dashboard\manager-dashboard.component.spec.ts" />
     <TypeScriptCompile Include="src\app\manager-dashboard\manager-dashboard.component.ts" />
+    <TypeScriptCompile Include="src\app\model\account-type.model.ts" />
     <TypeScriptCompile Include="src\app\model\account.model.ts" />
     <TypeScriptCompile Include="src\app\model\Bank\customer.ts" />
     <TypeScriptCompile Include="src\app\model\Bank\employee.ts" />
@@ -30951,6 +30948,7 @@
     <TypeScriptCompile Include="src\app\model\transaction\transaction.model.ts" />
     <TypeScriptCompile Include="src\app\model\transaction\TransactionResult.Model.ts" />
     <TypeScriptCompile Include="src\app\model\transaction\transactionType.model.ts" />
+    <TypeScriptCompile Include="src\app\service\account-type.service.ts" />
     <TypeScriptCompile Include="src\app\service\account.service.ts" />
     <TypeScriptCompile Include="src\app\service\Bank\customer.service.ts" />
     <TypeScriptCompile Include="src\app\service\Bank\employee.service.ts" />
