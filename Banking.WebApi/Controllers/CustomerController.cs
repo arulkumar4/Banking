@@ -3,6 +3,7 @@ using Banking.Business.Models.Account;
 using Banking.WebApi.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Web.Http;
@@ -62,10 +63,16 @@ namespace Banking.WebApi.Controllers
             Customer customer = new Customer()
             {
                 Mail = identityClaims.FindFirst("UserName").Value,
+                Number=GetCustomerNumber(identityClaims.FindFirst("UserName").Value),
                 CustomerId = GetCustomerId(identityClaims.FindFirst("UserName").Value),
                 LoggedOn = identityClaims.FindFirst("LoggedOn").Value
             };
             return Ok(customer);
+        }
+
+        private long GetCustomerNumber(string mail)
+        {
+            return _customerbl.GetAccnumber(mail);
         }
 
         private long GetCustomerId(string mail)

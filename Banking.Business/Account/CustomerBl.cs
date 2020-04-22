@@ -34,6 +34,11 @@ namespace Banking.Business.Account
         {
             return _customerDal.GetCustomerId(mail);
         }
+
+        public long GetAccnumber(string mail)
+        {
+            return _customerDal.GetAccnumber(mail);
+        }
     }
 
 }

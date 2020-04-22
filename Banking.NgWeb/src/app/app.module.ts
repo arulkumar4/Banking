@@ -7,7 +7,6 @@ import { AngularMaterialModule } from '../app/angular-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerComponent } from './customer/customer.component';
-import { CustomerRegisteredDetailsComponent } from './customer/customer-registered-details/customer-registered-details.component';
 import { CustomerAccountComponent } from './customer/customer-account/customer-account.component';
 import { AccountTypesComponent } from './account-types/account-types.component';
 import { AccountService } from './service/account.service';
@@ -51,7 +50,6 @@ import { CustomerEditGuard } from './employee-dashboard/customer-edit/customer-e
     AppComponent,
     CustomerComponent,
     CustomerAccountComponent,
-    CustomerRegisteredDetailsComponent,
     CustomerDashboardComponent,
     CustomerHeaderComponent,
     AccountTypesComponent,

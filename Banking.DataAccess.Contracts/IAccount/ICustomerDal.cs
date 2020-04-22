@@ -9,5 +9,6 @@ namespace Banking.DataAccess.Contracts.IAccount
         List<Customer> AddNewCustomer(Customer customer,int empId);
         string UpdateCustomerDetails(Customer customer, long customerId);
         long GetCustomerId(string mail);
+        long GetAccnumber(string mail);
     }
 }

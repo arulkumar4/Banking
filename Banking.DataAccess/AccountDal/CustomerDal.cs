@@ -71,5 +71,14 @@ namespace Banking.DataAccess.Account
                   );
             return id;
         }
+
+        public long GetAccnumber(string mail)
+        {
+            var id = GetValue<long>(ProcedureNames.Account.GetAccNumber,
+                  new SqlParameter("email", mail)
+                  );
+            return id;
+
+        }
     }
 }
