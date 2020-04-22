@@ -69,6 +69,7 @@ namespace Banking.DataAccess
             public const string UpdateAccountType = "[Account].[UpdateAccountType]";
             public const string DeleteAccountType = "[Account].[DeleteAccountType]";
             public const string GetCustomerId = "[Bank].[FindCustomerId]";
+            public const string GetAccNumber = "[Bank].[FindAccountNumber]";
         }
     }
 }

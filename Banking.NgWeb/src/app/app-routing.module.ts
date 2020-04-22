@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerDashboardComponent } from './customer/customer-dashboard/customer-dashboard.component';
 import { CustomerAccountComponent } from './customer/customer-account/customer-account.component';
-import { CustomerRegisteredDetailsComponent } from './customer/customer-registered-details/customer-registered-details.component';
 import { FundTransferComponent } from './Transaction/transaction-page/fund-transfer/fund-transfer.component';
 import { PayBillsComponent } from './Transaction/transaction-page/pay-bills/pay-bills.component';
 import { MyTransactionComponent } from './Transaction/transaction-page/my-transaction/my-transaction.component';

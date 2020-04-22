@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../../service/Bank/user.service';
 
 
 @Component({
@@ -8,10 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./customer-dashboard.component.css']
 })
 export class CustomerDashboardComponent implements OnInit {
-
-  constructor(public router: Router) { }
+  userClaims: any;
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
-  }
+    this.userService.getUserClaimsCustomer().subscribe((data: any) => {
+      this.userClaims = data;
+      console.log(this.userClaims);
+    })}
 
 }
