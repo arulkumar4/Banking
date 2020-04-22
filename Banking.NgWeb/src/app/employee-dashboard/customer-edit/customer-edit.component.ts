@@ -14,7 +14,7 @@ import { CustomerService } from '../../service/Bank/customer.service';
   templateUrl: './customer-edit.component.html',
   styleUrls: ['./customer-edit.component.css']
 })
-export class CustomerEditComponent implements OnInit {
+export class CustomerEditComponent implements OnInit, AfterViewInit  {
   @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[];
   private sub: Subscription;
   customer: ICustomer;
@@ -158,6 +158,7 @@ export class CustomerEditComponent implements OnInit {
   saveCustomer(): void {
     if (this.customerForm.valid) {
       if (this.customerForm.dirty) {
+       
 
         const c = { ...this.customer, ...this.customerForm.value };
         console.log(c);
@@ -165,14 +166,13 @@ export class CustomerEditComponent implements OnInit {
           c.Dob = this.value;
         }
         if (c.CustomerId == 0) {
-          console.log(c);
           this.customerService.createCustomer(c)
             .subscribe({
               next: () => this.onSaveComplete(),
               error: err => this.errorMessage = err
             });
         } else {
-          console.log(c);
+          
           this.customerService.updateCustomer(c)
             .subscribe({
               next: () => this.onSaveComplete(),

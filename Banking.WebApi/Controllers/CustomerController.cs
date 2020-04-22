@@ -28,6 +28,7 @@ namespace Banking.WebApi.Controllers
         // Post: api/Customer/AddCustomer
         [Route("api/Customer/AddNewCustomer")]
         [HttpPost]
+
         public IdentityResult AddNewCustomer([FromBody]Customer customer, int empId)
         {
             var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
