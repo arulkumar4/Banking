@@ -8,7 +8,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
 import { ExtraData } from '../model/account.datamodel';
 
-
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
@@ -36,7 +35,9 @@ export class CustomerComponent implements OnInit {
   myroot = "https://localhost:44395/";
   gen: string[] = ['Male', 'Female', 'Other'];
   generror: any;
-    passerror: string;
+  passerror: string;
+  genmesg = false;
+  string: string;
 
   constructor(private services: AccountService,
     private fb: FormBuilder,
@@ -47,6 +48,7 @@ export class CustomerComponent implements OnInit {
     this.account = new AccountModel();
     this.extradata = new ExtraData();
     this.empId = 10000;
+    this.string = "Process Failed. Check Your Data And Please Try Again !!!"
   }
   onChange: (value: any) => void;
 
@@ -113,20 +115,29 @@ export class CustomerComponent implements OnInit {
 
   onSubmit() {
     debugger;
+    console.log(this.account)
     this.submitted = true;
-    if (this.account.Gender = null) {
+    if (this.account.Gender == null || this.account.Gender == undefined) {
+      this.genmesg = true;
       this.generror = "Please select your gender !!!"
     }
     if (this.registerationForm.valid) {
       if (this.account.Password === this.extradata.ConfirmPassword) {
         this.account.Role = "Customer";
         this.services.postCustomer(this.account, this.empId).subscribe(res => {
-          this.onReset();
-          console.log(res);
-          this.data = res;
+          if (res === this.string) {
+            console.log(res);
+            alert(res);
+            this.registerationForm.reset();
+          }
+          else {
+            console.log(res);
+            alert("Your New Account Created Succesfully !!!");
+            this.data = res;
+            this.newCustomer = true;
+          }
         })
         // this.myRoute.navigate(['CustomerDetails']);   
-        this.newCustomer = true;
       }
       else {
         this.passerror = "Passwords doesn't match !!!"
@@ -136,7 +147,9 @@ export class CustomerComponent implements OnInit {
       this.errormessage = "Invalid Form !!!"
     }
   }
-
+  login() {
+    this.myRoute.navigate(['/login'])
+  } 
   onReset() {
     this.submitted = false;
     this.registerationForm.reset();

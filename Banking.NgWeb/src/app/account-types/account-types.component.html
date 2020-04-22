@@ -1,1 +1,377 @@
-<p>account-types works!</p>
+<!-- <hr>
+<h1>Get ACCOUNT TYPE LIST</h1>
+<hr>
+<table>
+    <tr>
+        <th>Account Type</th>
+        <th>MinimumBalance</th>
+        <th>TransactionLimit</th>
+    </tr>
+    <tr *ngFor="let data of accountTypeDetailsList">
+        <td>{{data.Type}}</td>
+        <td>{{data.MinimumBalance}}</td>
+        <td>{{data.TransactionLimit}}</td>
+    </tr>
+
+</table>
+
+<hr>
+<h1>Create Account Type</h1>
+<hr>
+<label>Account Type:</label>
+<input type="text" [(ngModel)]="account.Type"><br>
+<label>MinimumBalance:</label>
+<input type="text" [(ngModel)]="account.MinimumBalance"><br>
+<label>TransactionLimit:</label>
+<input type="text" [(ngModel)]="account.TransactionLimit"><br>
+<p>{{CreateAccountResult}}</p>
+<button (click)="CreateAccountType()">Insert</button>
+
+
+<hr>
+<h1>GET ACCOUNT TYPE</h1>
+<hr>
+<select [(ngModel)]="val" (change)="GetAccountType()">
+    <option [disabled]="true">--SELECT--</option>
+    <option *ngFor ="let app of accountTypeDetailsList" [ngValue]="app"
+     >{{app.Type}}</option>
+</select>
+<table *ngIf="getAccount">
+    <tr>
+        <th>Account Type</th>
+        <th>MinimumBalance</th>
+        <th>TransactionLimit</th>
+    </tr>
+    <tr *ngFor = "let app of getAccount">
+        <td>{{app.Type}}</td>
+        <td>{{app.MinimumBalance}}</td>
+        <td>{{app.TransactionLimit}}</td>
+    </tr>
+
+</table>
+
+
+<hr>
+<h1>UPDATE ACCOUNT TYPE</h1>
+<hr>
+<select [(ngModel)]="Updateval" (change)="func()">
+    <option [disabled]="true">--SELECT--</option>
+    <option *ngFor ="let app of accountTypeDetailsList" [ngValue]="app"
+     >{{app.Id}}</option>
+</select>
+<div *ngIf="Updateval">
+    <label>Account Type:</label>
+    <input type="text" [(ngModel)]="Updateval.Type">
+    <label>MinimumBalance:</label>
+    <input type="text" [(ngModel)]="Updateval.MinimumBalance" >
+    <label>TransactionLimit:</label>
+    <input type="text" [(ngModel)]="Updateval.TransactionLimit">
+    <button (click)="UpdateAccountType()">update</button>
+
+</div>
+<p>{{updateAccountResult}}</p>
+
+
+
+<hr>
+<h1>DELETE ACCOUNT TYPE</h1>
+<hr>
+<select [(ngModel)]="Deleteval" (change)="func()">
+    <option [disabled]="true">--SELECT--</option>
+    <option *ngFor ="let app of accountTypeDetailsList" [ngValue]="app"
+     >{{app.Id}}</option>
+</select>
+<div *ngIf="Deleteval">
+    <label>Account Type:</label>
+    <input [disabled]="true" type="text" value="{{Deleteval.Type}}">
+    <label>MinimumBalance:</label>
+    <input type="text" [disabled]="true"  value="{{Deleteval.MinimumBalance}}" >
+    <label>TransactionLimit:</label>
+    <input type="text" [disabled]="true" value="{{Deleteval.TransactionLimit}}">
+    <button (click)="DeleteAccountType()">Delete</button>
+
+</div>
+<mat-form-field  id="filter">
+                <mat-label>Filter By</mat-label>
+                <mat-select [(value)]="val" (change)="GetAccountType()">
+                    <mat-option *ngFor="let app of accountTypeDetailsList" [value]="app">
+                    {{app.Type}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+<p>{{deleteAccountResult}}</p> -->
+
+<div class="card" id="typetable">
+  <div class="row">
+    <h4 class="col-lg-3" id="types">
+      Account Types
+    </h4>
+    <button class="col-sm-2" class="btn btn-sm" id="addtype"
+            *ngIf="newbutton===true" (click)="new()">
+      Add New <b>+</b>
+    </button>
+  </div>
+  <table class="table" *ngIf="alltype===1">
+    <tr style="background-color:rgb(255, 255, 255)">
+      <th class="text-center" style="color:rgb(3, 3, 3);">ID</th>
+      <th class="text-center" style="color:rgb(3, 3, 3);">Account Type</th>
+      <th class="text-center" style="color:rgb(3, 3, 3);">Minimum Balance</th>
+      <th class="text-center" style="color:rgb(3, 3, 3);">Transaction Limit</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let data of getdata">
+      <td class="text-center">{{data.Id}}</td>
+      <td class="text-center">{{data.Type}}</td>
+      <td class="text-center">{{data.MinimumBalance}}</td>
+      <td class="text-center">{{data.TransactionLimit}}</td>
+      <td>
+        <button (click)="updatetypeform(data.Id)"
+                class="btn btn-sm btn-outline-primary">
+          Update
+        </button>
+      </td>
+      <td>
+        <button (click)="onDelete(data.Type)"
+                class="btn btn-sm btn-outline-danger">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </table>
+
+  <div *ngIf="updatetype===1">
+    <form [formGroup]="updateForm" (ngSubmit)="onAccTypeSubmit(updateForm)"
+          autocomplete="off" id="updateform" *ngFor="let account of account">
+      <div *ngIf="errormesg===true" class="text-center" id="errormsg">
+        {{updateError}}
+      </div>
+      <div class="form-group" id="tid">
+        <div class="row">
+          <div class="col-sm">
+            <label>
+              Type ID
+            </label>
+            &nbsp;
+            <input class="form-control"
+                   name="typeid"
+                   formControlName="Id"
+                   [(ngModel)]="account.Id"
+                   disabled="true">
+          </div>
+
+          <div class="col-sm" id="tyname">
+            <label>
+              Account Type
+            </label>
+            &nbsp;
+            <input class="form-control"
+                   formControlName="Type"
+                   name="typename"
+                   [(ngModel)]="account.Type"
+                   disabled="true">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" id="minbal">
+        <div class="row">
+          <div class="col-sm">
+            <label>
+              MinimumBalance
+            </label>
+            <input id="contactNo"
+                   class="form-control"
+                   type="text"
+                   placeholder="Minimum Balance"
+                   name="minbalance"
+                   formControlName="MinimumBalance"
+                   [(ngModel)]="account.MinimumBalance"
+                   [ngClass]="{ 'is-invalid':updatesubmitted && f.MinimumBalance.errors }">
+            <span *ngIf="updatesubmitted && f.MinimumBalance.errors" class="invalid-feedback" id="error">
+              <span *ngIf="f.MinimumBalance.errors.required">
+                Please enter the MinimumBalance !!!
+              </span>
+              <span *ngIf="f.MinimumBalance.errors.pattern">
+                Decimal values and special characters are not allowed!!!
+              </span>
+              <span *ngIf="f.MinimumBalance.errors.minlength">
+                MinimumBalance must be atleast 1000 !!!
+              </span>
+              <span *ngIf="f.MinimumBalance.errors.maxlength">
+                MinimumBalance must be maximum 999999 !!!
+              </span>
+            </span>
+          </div>
+
+          <div class="col-sm" id="tranbal">
+            <label>
+              Transaction Limit
+            </label>
+            <input id="contactNo"
+                   class="form-control"
+                   type="text"
+                   placeholder="Transaction Limit"
+                   name="TransactionLimit"
+                   formControlName="TransactionLimit"
+                   [(ngModel)]="account.TransactionLimit"
+                   [ngClass]="{ 'is-invalid':updatesubmitted && f.TransactionLimit.errors }">
+            <span *ngIf="updatesubmitted && f.TransactionLimit.errors" class="invalid-feedback" id="error">
+              <span *ngIf="f.TransactionLimit.errors.required">
+                Please enter the TransactionLimit !!!
+              </span>
+              <span *ngIf="f.TransactionLimit.errors.pattern">
+                Decimal values and special characters are not allowed!!!
+              </span>
+              <span *ngIf="f.TransactionLimit.errors.minlength">
+                TransactionLimit must be atleast 10000 !!!
+              </span>
+              <span *ngIf="f.TransactionLimit.errors.maxlength">
+                TransactionLimit must be maximum 9999999999 !!!
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" id="updatebuttons" style="display:flex;flex-direction:row;">
+        <div class="form-group">
+          <button class="btn btn-lg btn-block"
+                  type="button"
+                  id="cancel" (click)="back()">
+            Cancel
+          </button>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-lg btn-block"
+                  type="submit"
+                  id="submit">
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf="newacctype===1">
+    <form [formGroup]="newForm" (ngSubmit)="onNewAccTypeSubmit(newForm)"
+          autocomplete="off" id="newform">
+      <div *ngIf="newerrormsg===true" class="text-center" id="newmsg">
+        {{newError}}
+      </div>
+      <div class="form-group" id="newty">
+        <div class="col-sm">
+          <label>
+            Account Type
+          </label>
+          &nbsp;
+          <input class="form-control"
+                 formControlName="Type"
+                 name="typename"
+                 placeholder="Account Type"
+                 [(ngModel)]="account.Type"
+                 [ngClass]="{'is-invalid' : newsubmitted && n.Type.errors}">
+          <div *ngIf="newsubmitted && n.Type.errors" class="invalid-feedback" id="error">
+            <span *ngIf="n.Type.errors.required">
+              Please enter Account Type !!!
+            </span>
+            <span *ngIf="n.Type.errors.pattern">
+              Invalid Account Type !!!
+            </span>
+            <span *ngIf="n.Type.errors.minlength">
+              Account Type must be atleast of 3 characters
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" id="newmin">
+        <div class="col-sm">
+          <label>
+            MinimumBalance
+          </label>
+          <input id="contactNo"
+                 class="form-control"
+                 type="text"
+                 placeholder="Minimum Balance"
+                 name="minbalance"
+                 formControlName="MinimumBalance"
+                 [(ngModel)]="account.MinimumBalance"
+                 [ngClass]="{ 'is-invalid':newsubmitted && n.MinimumBalance.errors }">
+          <span *ngIf="newsubmitted && n.MinimumBalance.errors" class="invalid-feedback" id="error">
+            <span *ngIf="n.MinimumBalance.errors.required">
+              Please enter the MinimumBalance !!!
+            </span>
+            <span *ngIf="n.MinimumBalance.errors.pattern">
+              Decimal values and special characters are not allowed!!!
+            </span>
+            <span *ngIf="n.MinimumBalance.errors.minlength">
+              MinimumBalance must be atleast 1000 !!!
+            </span>
+            <span *ngIf="n.MinimumBalance.errors.maxlength">
+              MinimumBalance must be maximum 999999 !!!
+            </span>
+          </span>
+        </div>
+
+        <div class="col-sm" id="newtran">
+          <label>
+            Transaction Limit
+          </label>
+          <input id="contactNo"
+                 class="form-control"
+                 type="text"
+                 placeholder="Transaction Limit"
+                 name="transactionlimit"
+                 formControlName="TransactionLimit"
+                 [(ngModel)]="account.TransactionLimit"
+                 [ngClass]="{ 'is-invalid':newsubmitted && n.TransactionLimit.errors }">
+          <span *ngIf="newsubmitted && f.TransactionLimit.errors" class="invalid-feedback" id="error">
+            <span *ngIf="n.TransactionLimit.errors.required">
+              Please enter the TransactionLimit !!!
+            </span>
+            <span *ngIf="n.TransactionLimit.errors.pattern">
+              Decimal values and special characters are not allowed!!!
+            </span>
+            <span *ngIf="n.TransactionLimit.errors.minlength">
+              TransactionLimit must be atleast 10000 !!!
+            </span>
+            <span *ngIf="n.TransactionLimit.errors.maxlength">
+              TransactionLimit must be maximum 9999999999 !!!
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group" id="newbuttons" style="display:flex;flex-direction:row;">
+        <div class="form-group">
+          <button class="btn btn-lg btn-block"
+                  type="button"
+                  id="newcancel" (click)="back()">
+            Cancel
+          </button>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-lg btn-block"
+                  type="reset"
+                  id="newreset">
+            Reset
+          </button>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-lg btn-block"
+                  type="submit"
+                  id="newsubmit">
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

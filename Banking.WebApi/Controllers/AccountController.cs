@@ -31,37 +31,6 @@ namespace Banking.WebApi.Controllers
             return Ok(_accountbl.GetCustomerAccounts(customerId, accountNo));
         }
 
-        // GET: api/GetAccount/string/accountType
-        [Route("api/Account/GetAccountByAcountType")]
-        [HttpGet]
-        public IHttpActionResult GetAccountByAcountType(string acccountType)
-        
-        {
-            return Ok(_accountbl.GetAccountbyAccountType(acccountType));
-        }
-
-        // GET: api/GetAccount/string/balance
-        [Route("api/AccountGetAccountByBalance")]
-        [HttpGet]
-        public IHttpActionResult GetAccountByBalance(decimal balance)
-        {
-            return Ok(_accountbl.GetAccountByBalance(balance));
-        }
-
-        // GET: api/GetAccount/string/accountstatus
-        [Route("api/Account/GetCustomerByAccountStatus")]
-        [HttpGet]
-        public IHttpActionResult GetCustomerByAccountStatus(bool status)
-        {
-            return Ok(_accountbl.GetCustomerByAccountStatus(status));
-        }
-        // GET: api/UpdateCustomerByEmployee
-        [Route("api/Account/UpdateCustomerByEmployee")]
-        [HttpPut]
-        public IHttpActionResult UpdateCustomerByEmployee(Customer customer)
-        {
-            return Ok(_accountbl.UpdateCustomerByEmployee(customer));
-        }
         // GET: api/UpdateAccountPassword
         [Route("api/Account/UpdateAccountPassword")]
         [HttpPut]

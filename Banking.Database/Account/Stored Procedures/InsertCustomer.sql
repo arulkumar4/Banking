@@ -50,11 +50,8 @@ BEGIN
 							END
 						ELSE IF(@Id NOT IN (SELECT CustomerId FROM [Account].[Account] WHERE CustomerId=@Id))				
 						BEGIN
-							IF @Balance>1000
-								INSERT INTO [Account].[Account]([Id],[Number],[Password],[Balance],[OpenDate],[Status],[CustomerId],[AccountTypeId])
-								VALUES('DBG-' + RIGHT(REPLACE(NEWID(),'-',''),16),@AccNo,@Pass,@Balance,GETDATE(),'1',@Id,@TypeId)
-							ELSE
-								PRINT 'Balance must be greater than 1000'
+							INSERT INTO [Account].[Account]([Id],[Number],[Password],[Balance],[OpenDate],[Status],[CustomerId],[AccountTypeId])
+							VALUES('DBG-' + RIGHT(REPLACE(NEWID(),'-',''),16),@AccNo,@Pass,@Balance,GETDATE(),'1',@Id,@TypeId)
 						END 
 						SET @CustomerId = (SELECT CustomerId FROM [Account].[Account] WHERE CustomerId = @CustomerId)
 						IF(@CustomerId!=@Id)		   

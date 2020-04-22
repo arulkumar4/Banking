@@ -27,23 +27,7 @@ namespace Banking.Business.Account
         {
             return _accountDal.GetCustomerAccount(customerId, accountNo);
         }
-        public List<Customer> GetAccountbyAccountType(string accountType)
-        {
-            return _accountDal.GetCustomerAccountbyAccountType(accountType);
-        }
-        public List<Customer> GetAccountByBalance(decimal balance)
-        {
-            return _accountDal.GetCustomerAccountbyBalance(balance);
-        }
-        public List<Customer> GetCustomerByAccountStatus(bool status)
-        {
-            return _accountDal.GetCustomerByAccountStatus(status);
-        }
-        public List<Customer> UpdateCustomerByEmployee(Customer customer)
-        {
-            return _accountDal.UpdateCustomerByEmployee(customer);
-        }
-
+       
         public string UpdateAccountPassword(Customer customer)
         {
             return _accountDal.UpdateAccountPassword(customer);

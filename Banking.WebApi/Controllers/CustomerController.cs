@@ -45,8 +45,6 @@ namespace Banking.WebApi.Controllers
         //{
         //    return Ok(_customerbl.AddNewCustomer(customer, empId));
         //}
-      
-
 
         [Route("api/Customer/UpdateCustomerDetails")]
         [HttpPut]
