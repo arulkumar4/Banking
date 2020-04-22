@@ -30920,6 +30920,8 @@
     <TypeScriptCompile Include="src\app\employee-dashboard\customer-edit\customer-edit.component.ts" />
     <TypeScriptCompile Include="src\app\customer-header\customer-header.component.spec.ts" />
     <TypeScriptCompile Include="src\app\customer-header\customer-header.component.ts" />
+    <TypeScriptCompile Include="src\app\employee-dashboard\customer-edit\customer-edit.guard.spec.ts" />
+    <TypeScriptCompile Include="src\app\employee-dashboard\customer-edit\customer-edit.guard.ts" />
     <TypeScriptCompile Include="src\app\employee-dashboard\customer-list\customer-list.component.spec.ts" />
     <TypeScriptCompile Include="src\app\employee-dashboard\customer-list\customer-list.component.ts" />
     <TypeScriptCompile Include="src\app\customer\customer-account\customer-account.component.spec.ts" />

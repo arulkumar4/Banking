@@ -123,8 +123,8 @@ private genericValidator: GenericValidator;
     if(this.employee.Id===0){
       this.isButtonVisible=false;
       this.pageTitle="Add Employee";
-    }else{
-      
+    } else {
+      console.log(this.employee);
       this.pageTitle=`Edit Employee:${this.employee.FullName}`;
     }
     this.employeeForm.patchValue({
@@ -213,7 +213,7 @@ private genericValidator: GenericValidator;
   onValueChange(val){
     setTimeout(()=>{
       this.value = val;
-      console.log(this.value)
+     
       this.status=false;
         if (val instanceof Date){
           this.value=new Date(val.getTime() - val.getTimezoneOffset() * 60 * 1000);

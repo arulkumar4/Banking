@@ -34,6 +34,24 @@ namespace Banking.WebApi.Controllers
             _employeebl.AddEmployee(employee);
             return result;
         }
+        [Route("api/UpdatePassword")]
+        [HttpPost]
+        public IHttpActionResult updatePassword(string username,string currentpassword,string newpassword)
+        {
+            var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
+            var manager = new UserManager<ApplicationUser>(userStore);
+            var user = manager.FindByName(username);
+            bool success = false;
+            if (user!=null)
+            {
+                IdentityResult result =manager.ChangePassword(user.Id, currentpassword, newpassword);
+                success = true;
+            }
+            return Ok(success);
+            
+        }
+
+
         [Route("api/GetEmployee")]
         //[Authorize(Roles =  "Employee" )]
         [HttpGet]

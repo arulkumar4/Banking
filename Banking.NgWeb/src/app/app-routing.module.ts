@@ -20,6 +20,8 @@ import { CustomerListComponent } from './employee-dashboard/customer-list/custom
 import { CustomerEditComponent } from './employee-dashboard/customer-edit/customer-edit.component';
 import { WelcomeEmployeeComponent } from './employee-dashboard/welcome-employee/welcome-employee.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
+import { CustomerEditGuard } from './employee-dashboard/customer-edit/customer-edit.guard';
+
 
 const routes: Routes = [
   
@@ -49,7 +51,7 @@ const routes: Routes = [
       path: 'customers/:id', component: CustomerDetailComponent, canActivate: [AuthGuard]
     },
       { path: 'customers', component: CustomerListComponent, canActivate: [AuthGuard] },
-      { path: 'customers/:id/edit', component: CustomerEditComponent, canActivate: [AuthGuard] },
+      { path: 'customers/:id/edit', component: CustomerEditComponent, canActivate: [AuthGuard], canDeactivate: [CustomerEditGuard] },
       { path: 'welcomecustomer', component: WelcomeEmployeeComponent, canActivate: [AuthGuard] }
     ]
   },
