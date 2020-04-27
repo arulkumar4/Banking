@@ -31,9 +31,7 @@ export class AccountService {
     return this.account;
   }
   postCustomer(formData: AccountModel, empId: number) {
-    debugger;
     return this.http.post(this.rootURL + this.account_config.postNewCustomer + empId, formData)
-    // alert("Form Submitted Successfully");
   }
   putCustomer(formData: AccountModel, id: number) {
     console.log(formData);
@@ -43,9 +41,9 @@ export class AccountService {
     debugger;
     return this.http.get(this.rootURL + this.account_config.getOneCustomerDetails_id + customerId
       + this.account_config.getOneCustomerDetails_accNo + No)
-    // alert("Form Submitted Successfully");
+    }
+  deleteAccount(no: number) {
+    return this.http.delete(this.rootURL + this.account_config.deleteAccount + no)
   }
-  refreshList() {
-    return this.http.get(this.rootURL + '/values').toPromise().then(res => this.list = res as AccountModel[]);
-  }
+
 }

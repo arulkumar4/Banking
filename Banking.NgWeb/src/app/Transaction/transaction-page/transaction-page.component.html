@@ -2,7 +2,9 @@
     <router-outlet></router-outlet>
 
 </div>
-<div>
+<div *ngIf="href === check">
+  <img class="img" src="assets/transLogo.webp" />
+  <p class="title"> To make a transaction, you can simply start by Clicking on Fund-Transfer</p>
 </div>
 <section class="app">
     <aside class="sidebar">
@@ -11,13 +13,13 @@
    
         <ul>
           <li>
-            <a routerLink="/transaction-page/fund-transfer" ><i class="ion-ios-medical-outline"></i> <span class="">Fund Transfer</span></a>
+            <a  (click)="fundTransfer()"><i class="ion-ios-medical-outline"></i> <span class="">Fund Transfer</span></a>
           </li>
           <li>
-            <a routerLink="/transaction-page/pay-bills" ><i class="ion-ios-medical-outline"></i> <span class="">Pay Bills</span></a>
+            <a  (click)="payBills()" ><i class="ion-ios-medical-outline"></i> <span class="">Pay Bills</span></a>
           </li>
           <li>
-            <a routerLink="/transaction-page/my-transaction" ><i class="ion-ios-medical-outline"></i> <span class="">My Transaction</span></a>
+            <a  (click)="myTransaction()" ><i class="ion-ios-medical-outline"></i> <span class="">My Transaction</span></a>
           </li>
         </ul>
       </nav>

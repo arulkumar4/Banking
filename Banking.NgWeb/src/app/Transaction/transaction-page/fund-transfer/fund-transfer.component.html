@@ -13,13 +13,9 @@
         <label class="rcolumn2">To Account Number</label>
         <label class="rcolumn3">Confirm Account Number</label>
         <br>
-        <input class="inRow1" type="text" formControlName="SenderName">
+        <input class="inRow1" type="text" value ="{{id}}" disabled ="true">
         <input class="inRow1" type="text" formControlName="ReciverAccountId">
         <input class="inRow1" type="text" formControlName="ConfirmAccountID"><br>
-        <span *ngIf="(SenderName.errors && SenderName.touched) || (submitted && SenderName.errors)">
-          <span class="errorsRow1" *ngIf="SenderName.errors.required">SenderName cannot be empty</span>
-          <span class="errorsRow1" *ngIf="SenderName.errors.pattern">Invalid </span>
-        </span>
         <span *ngIf="(ReciverAccountId.errors && ReciverAccountId.touched) || (submitted && ReciverAccountId.errors)">
           <span class="errorsRow2" *ngIf="ReciverAccountId.errors.required">ReceiverAccountId cannot be empty</span>
           <span class="errorsRow2" *ngIf="ReciverAccountId.errors.minlength">Invalid ReceiverAccountId</span>

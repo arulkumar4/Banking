@@ -11,7 +11,6 @@ export const AccountConfig = {
   putCustomerDetails: 'api/Customer/UpdateCustomerDetails?customerId=',
   putAccountPassword: 'api/Account/UpdateAccountPassword',
   putAccountType: 'api/AccountTypeController/UpdateAccountType',
-  deleteAccount_no: 'api/Account/DeleteAccount?number=',
-  deleteAccount_pass: '&pass=',
+  deleteAccount: 'api/Account/DeleteAccount?number=',
   deleteAccountType: 'api/AccountTypeController/DeleteAccountType?acctype='
 }

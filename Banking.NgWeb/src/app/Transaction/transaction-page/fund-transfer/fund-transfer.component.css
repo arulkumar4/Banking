@@ -123,6 +123,7 @@ select {
 .box {
   width: 100%;
   position: absolute;
+  top:40%;
 }
 
 .container {

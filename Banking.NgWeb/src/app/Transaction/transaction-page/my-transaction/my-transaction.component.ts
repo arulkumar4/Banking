@@ -4,6 +4,9 @@ import * as $ from 'jquery';
 import { MyTransaction } from '../../../model/transaction/myTransaction.model';
 import { MyTransactionService } from '../../../service/transaction/myTransaction.service';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { UserService } from '../../../service/Bank/user.service';
+import { AccountService } from '../../../service/account.service';
+import { AccountModel } from '../../../model/account.model';
 @Component({
   selector: 'app-my-transaction',
   templateUrl: './my-transaction.component.html',
@@ -12,6 +15,7 @@ import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 export class MyTransactionComponent implements OnInit, AfterViewInit {
   transaction: MyTransaction[];
   msg: boolean = true;
+  userClaims: AccountModel;
   errormsg: string;
   public displayedColumns = ['AccountId', 'TransactionId', 'ReceiverName', 'ReceiverAccountId', 'TransactionDate', 'TransactionType', 'TransferAmount', 'Status'];
   public dataSource = new MatTableDataSource<MyTransaction>();
@@ -21,7 +25,8 @@ export class MyTransactionComponent implements OnInit, AfterViewInit {
 
 
 
-  constructor(private service: MyTransactionService) {
+
+  constructor(private service: MyTransactionService, private userService: UserService, private accountService: AccountService) {
 
   }
 
@@ -29,23 +34,27 @@ export class MyTransactionComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = value.trim().toLocaleLowerCase();
   }
 
+  getCustomerDetails() {
+   
+    
 
+  }
 
+ngOnInit() {
+  this.userService.getUserClaimsCustomer().subscribe((logData: AccountModel) => {
+    this.userClaims = logData;
+    this.accountService.getCustomerDetails(this.userClaims.CustomerId, this.userClaims.Number).subscribe((loginData: AccountModel) => {
+      this.service.getDataFromAPI(loginData[0].Id).subscribe((data: MyTransaction[]) => {
+        this.dataSource.data = data;
+        if (this.dataSource.data == null) {
+          this.msg = false;
+        }
+      }, error => {
+        this.msg = error;
 
-
-
-  ngOnInit() {
-    this.AccountID = "ididididid";
-    this.service.getDataFromAPI(this.AccountID).subscribe((data: MyTransaction[]) => {
-      this.dataSource.data = data;
-      if (this.dataSource.data == null) {
-        this.msg = false;
-      }
-    }, error => {
-      this.msg = error;
-
+      });
     });
-
+  });
   }
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;

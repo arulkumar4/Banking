@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   username: string;
   passwordvalue: string;
   isLoginError: boolean = false;
+  wrongCredentials: boolean = false;
 
 
 
@@ -41,23 +42,19 @@ login()
 {
   this.submitted = true;
   if (this.myForm.valid) {
-    console.log(this.emailAddress.value);
     this.username = this.emailAddress.value;
-    this.passwordvalue = this.password.value;
+    this.passwordvalue = this.password.value
     this.userService.userAuthentication(this.username, this.passwordvalue).subscribe((data: any) => {
-     
       localStorage.setItem('userToken', data.access_token);
       localStorage.setItem('userRoles', data.role)
       if (this.userService.roleMatch(['Manager'])) {
-        console.log("deril");
         this.router.navigate(['employeedashboard/welcome']);
       }
       else if (this.userService.roleMatch(['Employee'])) {
-        console.log("hi");
         this.router.navigate(['/customerdashboard/welcomecustomer']);
       }
       else if (this.userService.roleMatch(['Customer'])) {
-        this.router.navigate(['/userDashboard']);
+        this.router.navigate(['Customerheader/userDashboard']);
       }
 
         //if(data.role=="Employee")
@@ -66,15 +63,17 @@ login()
     },
       (err: HttpErrorResponse) => {
         this.isLoginError = true;
-        console.log(this.isLoginError);
+        if (err.status === 400) {
+          this.wrongCredentials = true;
+
+        }
       })
   }
 }
 func()
 {
   myFunction();
-}
-
+  }
 
   ngOnInit() {
   }

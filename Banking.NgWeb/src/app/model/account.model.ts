@@ -18,4 +18,5 @@ export class AccountModel
   Status: boolean;
   OpenDate: string;
   Role: string;
+  Id: string;
 }

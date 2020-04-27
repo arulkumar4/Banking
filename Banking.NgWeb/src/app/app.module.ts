@@ -41,6 +41,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { CustomerService } from './service/Bank/customer.service';
 import { WelcomeEmployeeComponent } from './employee-dashboard/welcome-employee/welcome-employee.component';
 import { CustomerEditGuard } from './employee-dashboard/customer-edit/customer-edit.guard';
+import { AccountTypeService } from './service/account-type.service';
 
 
 
@@ -93,7 +94,7 @@ import { CustomerEditGuard } from './employee-dashboard/customer-edit/customer-e
     FlexLayoutModule,
     MatPaginatorModule
   ],
-  providers: [AccountService, TransactionService, MyTransactionService, EmployeeService, UserService, CustomerEditGuard, AuthGuard, CustomerService,  {
+  providers: [AccountService, TransactionService, MyTransactionService, EmployeeService, UserService, CustomerEditGuard, AuthGuard, CustomerService,AccountTypeService,  {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
