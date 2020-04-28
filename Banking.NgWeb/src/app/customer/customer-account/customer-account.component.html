@@ -7,8 +7,6 @@
         <p id="line">--------------------------------------------------------</p>
         <a class="text-center" id="accservice" (click)="changePassword()">Change Password</a>
         <p id="line">--------------------------------------------------------</p>
-        <a class="text-center" id="accservice" (click)="delaccount()">Delete Account</a>
-        <p id="line">--------------------------------------------------------</p>
         <a class="text-center" id="accservice" (click)="newaccount()">New Account</a>
         <p id="line">--------------------------------------------------------</p>
         <a class="text-center" id="accservice">Queries/Issues</a>
@@ -221,7 +219,7 @@
     <div class="col-md-2"
          *ngIf="changepassword===1">
       <div class="card" id="password">
-        <form [formGroup]="changepasswordform" (ngSubmit)="ChangePasswordSubmit(form)"
+        <form [formGroup]="changepasswordform" (ngSubmit)="ChangePasswordSubmit()"
               autocomplete="off" id="passwordform">
           <div class="text-center" id="errormsg">
             {{passworderror}}
@@ -318,7 +316,7 @@
                 <div class="form-group">
                   <button class="btn btn-lg btn-block"
                           type="submit"
-                          id="submit" (click)="ChangePasswordSubmit(changepasswordform)">
+                          id="submit">
                     Submit
                   </button>
                 </div>

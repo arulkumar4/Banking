@@ -4,45 +4,47 @@
             <ul class="navLinks">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Service</a></li>
+                <li><a href="https://mail.google.com/mail/u/0/#inbox?compose=new">Service</a></li>
                 <li><a href="#">Contact</a></li>
-                <li><a href="#">Find ATM/Branch</a></li>
+                <li><a href="https://www.google.com/maps/@21.125498,81.914063,5z">Find ATM/Branch</a></li>
             </ul>
         </div>
     </div>
     <div>
         <img src="/assets/background.jpg"class="image" >
         <form (ngSubmit)="login()" [formGroup]="myForm">    
-        <div class="container">      
+          <div class="container">
             <h3><span>🔒&#xFE0E;</span> Login to Internet Banking</h3><br><br>
-              <div class="group">  
-                <input type="text" formControlName="emailAddress" class="form-control" required>
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label>Email Address</label>
-                <span *ngIf="(emailAddress.errors && emailAddress.touched)||(submitted && emailAddress.errors)">
-                  <span class="errors" *ngIf="emailAddress.errors.required">Email Address cannot be empty</span>
-                  <span class="errors" *ngIf="emailAddress.errors.pattern">Email Address is not valid</span>
-                  </span>
-              </div>
-              <div class="group">      
-                <input type="password" value="FakePSW" formControlName="password" class="form-control" id="myInput" required>
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label>Password</label>
-                <input type="checkbox" (click)="func()" style="position: absolute; top: 60%; ">  
-                <span style="position: absolute;left: 4%; top:58%;">Show Password</span>
-                <br><br>            
-                <span  *ngIf = "(password.errors && password.touched) || (submitted && password.errors)">
-                  <span class="errors" *ngIf = "password.errors.required">Password cannot be empty</span>
-                  <span class="errors" *ngIf = "password.errors.pattern">Invalid Password</span>
-                </span>
-              </div>
-              <br><br><button class="btn first" >Login</button>
-              <div class="needhelp">
-                <hr>
-                <p class="pos"><a style="color: #5264AE;" href="https://www.w3schools.com/html/">Need Help?</a></p>
-            </div>   
+            <div class="group">
+              <input type="text" formControlName="emailAddress" class="form-control" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Email Address</label>
+              <span *ngIf="(emailAddress.errors && emailAddress.touched)||(submitted && emailAddress.errors)">
+                <span class="errors" *ngIf="emailAddress.errors.required">Email Address cannot be empty</span>
+                <span class="errors" *ngIf="emailAddress.errors.pattern">Email Address is not valid</span>
+              </span>
+            </div>
+            <div class="group">
+              <input type="password" value="FakePSW" formControlName="password" class="form-control" id="myInput" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Password</label>
+              <input type="checkbox" (click)="func()" style="position: absolute; top: 60%; ">
+              <span style="position: absolute;left: 4%; top:58%;">Show Password</span>
+              <br><br>
+              <span *ngIf="(password.errors && password.touched) || (submitted && password.errors)">
+                <span class="errors" *ngIf="password.errors.required">Password cannot be empty</span>
+                <span class="errors" *ngIf="password.errors.pattern">Invalid Password</span>
+              </span>
+            </div>
+            <span class="errors" *ngIf="wrongCredentials === true">Invalid user credentials</span>
+            <br><br><button class="btn first">Login</button>
+                    <div class="needhelp">
+                      <hr>
+                      <p><a style="color: #5264AE; font-size:15px; position:absolute;top:90%" href="http://localhost:4200/Customerheader/customer/0">First Time User? Register</a></p>
+                      <p class="pos"><a style="color: #5264AE; font-size:15px; position:absolute;top:90%" href="https://mail.google.com/mail/u/0/#inbox?compose=new">Need Help?</a></p>
+                    </div>
           </div>
         </form>  
           <div class="imginfo">

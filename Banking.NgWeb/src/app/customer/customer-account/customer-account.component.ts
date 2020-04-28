@@ -6,6 +6,7 @@ import { ExtraData } from 'src/app/model/account.datamodel';
 import { HttpClient } from '@angular/common/http';
 import { AccountService } from 'src/app/service/account.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { UserService } from '../../service/Bank/user.service';
 
 
 @Component({
@@ -39,14 +40,20 @@ export class CustomerAccountComponent implements OnInit {
   updateError: string = "";
   passworderror: string;
   passerror: string;
+  userClaims: AccountModel;
+
+
+
+
+
+
+
   constructor(private http: HttpClient,
+    private userService: UserService,
     private fb: FormBuilder,
     private services: AccountService,
     private myRoute: Router,
     private activatedRoute: ActivatedRoute) {
-    this.customerId = 100000090077;
-    this.accountNo = 802188699111;
-    // this.model=new AccountModel();
     this.extradata = new ExtraData();
     this.updatesubmitted = false;
     this.deletesubmitted = false;
@@ -54,8 +61,8 @@ export class CustomerAccountComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loginDetails();
     this.getCustomerAccount();
-
     this.updateForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(3),
       Validators.maxLength(50), Validators.pattern("^[a-zA-Z]+$")]],
@@ -97,25 +104,28 @@ export class CustomerAccountComponent implements OnInit {
   }
 
   getCustomerAccount() {
-    // debugger;
-    return this.http.get(this.myroot + this.account_config.getOneCustomerAccount_cusId
-      + this.customerId + this.account_config.getOneCustomerAccount_accNo
-      + this.accountNo).subscribe(res => {
-        console.log(res);
-        this.useraccount = 0;
-        this.updatedetails = 0;
-        this.data = res;
-      })
+    this.userService.getUserClaimsCustomer().subscribe((data: AccountModel) => {
+      this.userClaims = data;
+      return this.http.get(this.myroot + this.account_config.getOneCustomerAccount_cusId
+        + this.userClaims.CustomerId + this.account_config.getOneCustomerAccount_accNo
+        + this.userClaims.Number).subscribe(res => {
+          this.useraccount = 0;
+          this.updatedetails = 0;
+          this.data = res;
+        })
+    })
+
   }
 
   putPassword(extradata: ExtraData) {
-    console.log(extradata);
     return this.http.put(this.myroot + this.account_config.putAccountPassword, extradata);
   }
-  deleteAccount(no: number, pass: any) {
-    console.log(pass, no);
-    return this.http.delete(this.myroot + this.account_config.deleteAccount_no + no
-      + this.account_config.deleteAccount_pass + pass)
+
+
+  loginDetails() {
+    this.userService.getUserClaimsCustomer().subscribe((data: AccountModel) => {
+      this.userClaims = data;
+    })
   }
 
   updateDetails() {
@@ -123,10 +133,9 @@ export class CustomerAccountComponent implements OnInit {
     this.changepassword = 0;
     this.updatedetails = 1;
     this.deleteacc = 0;
-    this.services.getCustomerDetails(this.customerId, this.accountNo).subscribe((res: AccountModel[]) => {
-    this.model = res;
-      console.log(this.model);
-    })
+    this.services.getCustomerDetails(this.userClaims.CustomerId, this.userClaims.Number).subscribe((res: AccountModel[]) => {
+        this.model = res;
+      })
   }
   changePassword() {
     this.useraccount = 1;
@@ -142,24 +151,21 @@ export class CustomerAccountComponent implements OnInit {
   }
 
   UpdateDetailsSubmit(form: AccountModel, id: number) {
-    debugger;
     if (this.updateForm.valid) {
-      // this.formData= new AccountModel();
       this.services.putCustomer(this.updateForm.value, id).subscribe(res => {
-        console.log(res);
         this.updatedata = res;
         alert(this.updatedata)
         this.updateForm.reset();
+        this.useraccount = 0;
+        this.updatedetails = 0;
         this.updatesubmitted = false;
       })
-      // this.myRoute.navigate(['CustomerDetails']);   
     }
     else {
       this.updateError = "Please fill all the details !!!"
     }
   }
-  ChangePasswordSubmit(extradata: ExtraData) {
-    debugger;
+  ChangePasswordSubmit() {
     this.submitted = true;
     if (this.changepasswordform.valid) {
       if (this.extradata.NewPassword === this.extradata.Password) {
@@ -167,12 +173,13 @@ export class CustomerAccountComponent implements OnInit {
       }
       else {
         if (this.extradata.ConfirmPassword === this.extradata.NewPassword) {
+          this.extradata.Number = this.userClaims.Number;
+          this.extradata.Mail = this.userClaims.Mail;
           this.putPassword(this.extradata).subscribe(res => {
-            // console.log(res);
             this.passdata = res;
+            this.submitted = false;
             alert(this.passdata);
             this.changepasswordform.reset();
-            this.submitted = false;
           });
         }
         else {
@@ -184,30 +191,7 @@ export class CustomerAccountComponent implements OnInit {
       this.passworderror = "Invalid Form !!!"
     }
   }
-  DeleteAccount(extradata: ExtraData) {
-    debugger;
-    this.deletesubmitted = true;
-    alert("Are you sure? you want to Delete your Account?")
-    if (this.deleteaccform.valid) {
-      if (this.extradata.Password === this.extradata.NewPassword) {
-        this.deleteAccount(this.extradata.Number, this.extradata.Password)
-          .subscribe(res => {
-            // console.log(res);
-            this.deldata = res;
-            alert(this.deldata);
-            this.deleteaccform.reset();
-            this.deletesubmitted = false;
-          });
-      }
-      else {
-        this.passerror = "Passwords doesn't match !!!"
-      }
-    }
-    else {
-      this.passerror = "Invalid Form !!!"
-    }
-  }
   newaccount() {
-    this.myRoute.navigate(['/customer'])
+    this.myRoute.navigate(['/Customerheader/customer', 1]);
   }
 }

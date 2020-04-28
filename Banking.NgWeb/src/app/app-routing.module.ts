@@ -20,20 +20,32 @@ import { CustomerEditComponent } from './employee-dashboard/customer-edit/custom
 import { WelcomeEmployeeComponent } from './employee-dashboard/welcome-employee/welcome-employee.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
 import { CustomerEditGuard } from './employee-dashboard/customer-edit/customer-edit.guard';
+import { CustomerHeaderComponent } from './customer-header/customer-header.component';
 
 
 const routes: Routes = [
   
-  { path: 'customer', component: CustomerComponent },
-  { path: 'userDashboard', component: CustomerDashboardComponent },
-  { path: 'customerAccount', component: CustomerAccountComponent },
   {
-    path: 'transaction-page', component: TransactionPageComponent, children: [
-      { path: 'fund-transfer', component: FundTransferComponent },
-      { path: 'pay-bills', component: PayBillsComponent },
-      { path: 'my-transaction', component: MyTransactionComponent }
+    path:'Customerheader',component:CustomerHeaderComponent,
+    children: [
+      { path: 'customer/:id', component: CustomerComponent },
+      { path: 'userDashboard', component: CustomerDashboardComponent },
+      { path: 'customerAccount', component: CustomerAccountComponent },
+      {
+        path: 'transaction-page', component: TransactionPageComponent, children: [
+          { path: 'fund-transfer', component: FundTransferComponent },
+          { path: 'pay-bills', component: PayBillsComponent },
+          { path: 'my-transaction', component: MyTransactionComponent }
+        ]
+      }
     ]
   },
+
+
+
+
+
+
   { path: 'login', component: LoginComponent },
   {
     path: 'employeedashboard', component: ManagerDashboardComponent, canActivate: [AuthGuard],
@@ -54,6 +66,8 @@ const routes: Routes = [
       { path: 'welcomecustomer', component: WelcomeEmployeeComponent, canActivate: [AuthGuard] }
     ]
   },
+
+
   { path: '', component: LoginComponent },
   { path: '**', component: LoginComponent }
 

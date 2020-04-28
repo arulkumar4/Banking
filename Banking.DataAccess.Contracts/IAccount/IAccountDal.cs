@@ -8,6 +8,6 @@ namespace Banking.DataAccess.Contracts.IAccount
         List<Customer> GetAllCustomersAccount();
         List<Customer> GetCustomerAccount(long customerId, long accountNo);
         string UpdateAccountPassword(Customer customer);
-        string DeleteCustomerAccount(long number, string pass);
+        string DeleteCustomerAccount(long number);
     }
 }

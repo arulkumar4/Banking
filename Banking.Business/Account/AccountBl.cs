@@ -32,9 +32,9 @@ namespace Banking.Business.Account
         {
             return _accountDal.UpdateAccountPassword(customer);
         }
-        public string DeleteCustomerAccount(long number, string pass)
+        public string DeleteCustomerAccount(long number)
         {
-            return _accountDal.DeleteCustomerAccount(number,pass);
+            return _accountDal.DeleteCustomerAccount(number);
         }
     }
 

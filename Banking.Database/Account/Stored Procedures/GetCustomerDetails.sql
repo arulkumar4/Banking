@@ -1,5 +1,4 @@
-﻿--Procedure for GetOnecustomer	
-CREATE PROCEDURE [Account].[GetCustomerDetails]
+﻿CREATE PROCEDURE [Account].[GetCustomerDetails]
 (
 	@CustomerId VARCHAR(20),
 	@AccNumber BIGINT
@@ -8,8 +7,8 @@ AS
 BEGIN
 	IF EXISTS (SELECT * FROM [Account].[Account] WHERE @CustomerId=CustomerId AND @AccNumber=Number)
 	  BEGIN
-		SELECT a.CustomerId, a.Number, c.FirstName,c.LastName,c.FullName,c.ContactNumber,
-			   c.Mail,a. Balance, at.Type AS AccountType, a.OpenDate, a. Status
+		SELECT a.CustomerId, a.Number, c.FirstName,c.LastName,c.FullName,c.ContactNumber,c.[Address],
+			   c.Mail,a. Balance,a.Id, at.Type AS AccountType, a.OpenDate, a. Status
 		FROM [Account].[Customer] c
 		JOIN [Account].[Account] a
 		ON c.Id = a.CustomerId AND @CustomerId=a.CustomerId

@@ -26,6 +26,7 @@ export class UserService {
     return this.http.get(this.rooturl + '/api/GetUserClaims');
   }
   getUserClaimsCustomer() {
+    debugger;
     return this.http.get(this.rooturl + '/api/GetUserClaims/customer');
   }
   getUserClaimsManager() {
