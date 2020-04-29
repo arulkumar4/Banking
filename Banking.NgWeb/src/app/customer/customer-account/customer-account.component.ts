@@ -134,8 +134,8 @@ export class CustomerAccountComponent implements OnInit {
     this.updatedetails = 1;
     this.deleteacc = 0;
     this.services.getCustomerDetails(this.userClaims.CustomerId, this.userClaims.Number).subscribe((res: AccountModel[]) => {
-        this.model = res;
-      })
+      this.model = res;
+    })
   }
   changePassword() {
     this.useraccount = 1;

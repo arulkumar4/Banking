@@ -54,9 +54,15 @@ namespace Banking.WebApi.Controllers
         // GET: api/DeleteAccount/string
         [Route("api/Account/DeleteAccount")]
         [HttpDelete]
-        public IHttpActionResult DeleteAccount(long number)
+        public IHttpActionResult DeleteAccount(long number,string mail)
         {
-
+            var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
+            var manager = new UserManager<ApplicationUser>(userStore);
+            var user = manager.FindByName(mail);
+            if(user!=null)
+            {
+                IdentityResult result = manager.Delete(user);
+            }
             return Ok(_accountbl.DeleteCustomerAccount(number));
         }
 

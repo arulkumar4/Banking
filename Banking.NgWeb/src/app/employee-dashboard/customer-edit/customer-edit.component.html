@@ -219,13 +219,20 @@
                   [routerLink]="['/customerdashboard/customers']">
             Cancel
           </button>
-          <!-- <button *ngIf="this.isButtonVisible" class="btn btn-outline-danger"
+          <button *ngIf="this.isButtonVisible" class="btn btn-outline-danger"
                   style="width:80px"
                   type="button"
                   title="Delete this product"
-                  (click)="deletecustomer()">
-               Delete
-          </button> -->
+                  (click)="deleteCustomer()">
+            Delete
+          </button>
+          <!-- <button *ngIf="this.isButtonVisible" class="btn btn-outline-danger"
+          style="width:80px"
+          type="button"
+          title="Delete this product"
+          (click)="deletecustomer()">
+       Delete
+  </button> -->
         </div>
       </div>
     </form>

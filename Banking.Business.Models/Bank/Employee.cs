@@ -11,20 +11,12 @@ namespace Banking.Business.Models
         public string Mail { get; set; }
         public DateTime DOB { get; set; }
         public int ManagerId { get; set; }
-        public string FullName
-        {
+
+        private string fullname;
+        public string FullName {
             get
             {
-                string fullName = LastName;
-                if (!string.IsNullOrWhiteSpace(FirstName))
-                {
-                    if (!string.IsNullOrWhiteSpace(LastName))
-                    {
-                        fullName += ", ";
-                    }
-                    fullName += FirstName;
-                }
-                return fullName;
+                return fullname;
             }
             set
             {
@@ -37,7 +29,6 @@ namespace Banking.Business.Models
                     }
                     fullName += FirstName;
                 }
-                  
             }
         }
         public string UseName { get; set; }
