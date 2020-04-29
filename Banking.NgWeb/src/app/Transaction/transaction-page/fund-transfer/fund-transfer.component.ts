@@ -47,6 +47,7 @@ export class FundTransferComponent implements OnInit {
     this.dataTransaction = new Transaction();
     this.transactionService.getTransactionTypeDataFromAPI().subscribe((data: any) => {
       this.trans = data;
+      console.log(this.trans);
     });
     this.myForm = new FormGroup(
       {
@@ -56,7 +57,7 @@ export class FundTransferComponent implements OnInit {
           Validators.required])),
         ReceiverName: new FormControl(null, Validators.compose([
           Validators.required,
-          Validators.pattern('[A-Za-z.]+')])),
+          ])),
         TransferAmount: new FormControl(null, Validators.compose([
           Validators.required,
           Validators.pattern('[0-9]+'),
@@ -119,17 +120,17 @@ export class FundTransferComponent implements OnInit {
     }
   }
 
-  loginDetails(): Promise<AccountModel>
-  {
+  loginDetails(): Promise<AccountModel> {
 
     return new Promise(resolve => {
       this.userService.getUserClaimsCustomer().subscribe((logData: AccountModel) => {
-      this.userClaims = logData;
+        this.userClaims = logData;
         return this.accountService.getCustomerDetails(this.userClaims.CustomerId, this.userClaims.Number).map(value => value)
-        .subscribe((data: AccountModel) => {
-          this.Details = data;
-        resolve(this.Details);
-        });
+          .subscribe((data: AccountModel) => {
+            console.log(data);
+            this.Details = data;
+            resolve(this.Details);
+          });
       });
     });
   }
@@ -138,7 +139,7 @@ export class FundTransferComponent implements OnInit {
 
   ngOnInit() {
     this.loginDetails().then((data: AccountModel) => {
-      this.id = data[0].FullName+"/"+data[0].Id;
+      this.id = data[0].FullName + "/" + data[0].Id;
       console.log(this.id);
     })
   }
