@@ -185,7 +185,6 @@ export class CustomerAccountComponent implements OnInit {
     }
   }
   DeleteAccount(extradata: ExtraData) {
-    debugger;
     this.deletesubmitted = true;
     alert("Are you sure? you want to Delete your Account?")
     if (this.deleteaccform.valid) {

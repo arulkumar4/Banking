@@ -1,5 +1,8 @@
 ﻿using Banking.Business.Contracts.IAccount;
 using Banking.Business.Models.Account;
+using Banking.WebApi.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
@@ -36,13 +39,19 @@ namespace Banking.WebApi.Controllers
         [HttpPut]
         public IHttpActionResult UpdateAccountPassword(Customer customer)
         {
-            return Ok(_accountbl.UpdateAccountPassword(customer));
+
+            var result = _accountbl.UpdateAccountPassword(customer);
+            return Ok(result);
         }
         // GET: api/DeleteAccount/string
         [Route("api/Account/DeleteAccount")]
         [HttpDelete]
-        public IHttpActionResult DeleteAccount(long number, string pass)
+        public IHttpActionResult DeleteAccount(long number, string pass,string mail)
         {
+            var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
+            var manager = new UserManager<ApplicationUser>(userStore);
+            var user = manager.FindById(mail);
+            var Deleteoperation = manager?.Delete(user);
             return Ok(_accountbl.DeleteCustomerAccount(number, pass));
         }
 
