@@ -21,7 +21,7 @@
 
 #cardtitle1 {
   padding-top: 2rem;
-  padding-bottom: 20px;
+  padding-bottom: 36px;
 }
 
 #accservice {
@@ -39,6 +39,7 @@
 p#line {
   font-size: medium;
   color: rgb(167, 164, 164);
+  margin-top: 10px;
 }
 
 #accdetails {

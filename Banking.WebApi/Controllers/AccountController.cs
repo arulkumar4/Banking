@@ -39,20 +39,25 @@ namespace Banking.WebApi.Controllers
         [HttpPut]
         public IHttpActionResult UpdateAccountPassword(Customer customer)
         {
-
-            var result = _accountbl.UpdateAccountPassword(customer);
-            return Ok(result);
+            var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
+            var manager = new UserManager<ApplicationUser>(userStore);
+            var user = manager.FindByName(customer.Mail);
+            bool success = false;
+            if (user != null)
+            {
+                IdentityResult result = manager.ChangePassword(user.Id, customer.Password, customer.NewPassword);
+                success = true;
+            }
+            var res = _accountbl.UpdateAccountPassword(customer);
+            return Ok(res);
         }
         // GET: api/DeleteAccount/string
         [Route("api/Account/DeleteAccount")]
         [HttpDelete]
-        public IHttpActionResult DeleteAccount(long number, string pass,string mail)
+        public IHttpActionResult DeleteAccount(long number)
         {
-            var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
-            var manager = new UserManager<ApplicationUser>(userStore);
-            var user = manager.FindById(mail);
-            var Deleteoperation = manager?.Delete(user);
-            return Ok(_accountbl.DeleteCustomerAccount(number, pass));
+
+            return Ok(_accountbl.DeleteCustomerAccount(number));
         }
 
     }

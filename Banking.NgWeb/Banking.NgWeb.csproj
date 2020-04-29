@@ -19348,6 +19348,7 @@
     <Content Include="src\assets\snow.jpg" />
     <Content Include="src\assets\studentLoan.png" />
     <Content Include="src\assets\telephone.jpg" />
+    <Content Include="src\assets\transactionLogo.png" />
     <Content Include="src\assets\visacard.png" />
     <Content Include="src\assets\wallet.png" />
     <Content Include="src\assets\waterTap.png" />
@@ -26731,6 +26732,7 @@
     <Content Include="src\assets\dth.webp" />
     <Content Include="src\assets\gas.webp" />
     <Content Include="src\assets\money.webp" />
+    <Content Include="src\assets\transLogo.webp" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

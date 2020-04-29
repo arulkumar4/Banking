@@ -7,6 +7,7 @@ import { AccountConfig } from '../constants/account-config';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
 import { ExtraData } from '../model/account.datamodel';
+import { AccountTypeService } from '../service/account-type.service';
 
 @Component({
   selector: 'app-customer',
@@ -25,6 +26,7 @@ export class CustomerComponent implements OnInit {
   errormessage: string;
   empId: number;
   account: AccountModel;
+  accounts: AccountModel[];
   extradata: ExtraData;
   account_config = AccountConfig;
   registerationForm: FormGroup;
@@ -38,16 +40,21 @@ export class CustomerComponent implements OnInit {
   passerror: string;
   genmesg = false;
   string: string;
+  AccountType: any;
+  accountType: string;
+  buttonSelection:any;
 
   constructor(private services: AccountService,
     private fb: FormBuilder,
     private http: HttpClient,
     private myRoute: Router,
-    private activatedRoute: ActivatedRoute)
+    private accType: AccountTypeService,
+    private activatedRoute: ActivatedRoute, private route: ActivatedRoute)
   {
     this.account = new AccountModel();
     this.extradata = new ExtraData();
     this.empId = 10000;
+    this.accounts = [];
     this.string = "Process Failed. Check Your Data And Please Try Again !!!"
   }
   onChange: (value: any) => void;
@@ -74,13 +81,26 @@ export class CustomerComponent implements OnInit {
       confirmpassword: ['', [Validators.required, Validators.minLength(4),
       Validators.maxLength(100)]],
     });
+    this.accType.GetAllAccountType().subscribe((AccountTypedata: any) => {
+      this.AccountType = AccountTypedata;
+
+    });
+    this.buttonSelection = this.route.snapshot.paramMap.get('id');
+
+  
   }
+
 
   get f() {
     return this.registerationForm.controls;
   }
 
+  getAccounType() {  }
+
   onDateChange(newDate: Date) {
+  }
+  cancel() {
+    this.myRoute.navigateByUrl('/login');
   }
 
   bsValueChange(val) {
@@ -88,17 +108,14 @@ export class CustomerComponent implements OnInit {
       this.value = val;
       if (val instanceof Date) {
         this.onDateChange(new Date(val.getTime() - val.getTimezoneOffset() * 60 * 1000));
-        console.log(val);
         this.birthday = val;
         this.ageValidation(this.birthday);
         if (this.age < 18) {
-          console.log(this.age);
           this.ageError = "Your age must be atleast 18!!!";
           this.account.Dob = null;
           this.age = 0;
         }
         else {
-          console.log(this.age);
           this.account.Dob = val;
         }
       }
@@ -115,7 +132,6 @@ export class CustomerComponent implements OnInit {
 
   onSubmit() {
     debugger;
-    console.log(this.account)
     this.submitted = true;
     if (this.account.Gender == null || this.account.Gender == undefined) {
       this.genmesg = true;
@@ -124,20 +140,17 @@ export class CustomerComponent implements OnInit {
     if (this.registerationForm.valid) {
       if (this.account.Password === this.extradata.ConfirmPassword) {
         this.account.Role = "Customer";
-        this.services.postCustomer(this.account, this.empId).subscribe(res => {
-          if (res === this.string) {
-            console.log(res);
+        this.services.postCustomer(this.account, this.empId).subscribe((res: AccountModel[]) => {
+          if (res.length != 0 ) {
+            this.data = res;
+            alert("Your New Account Created Succesfully !!!");
+            this.newCustomer = true;
+          }
+          else {
             alert(res);
             this.registerationForm.reset();
           }
-          else {
-            console.log(res);
-            alert("Your New Account Created Succesfully !!!");
-            this.data = res;
-            this.newCustomer = true;
-          }
         })
-        // this.myRoute.navigate(['CustomerDetails']);   
       }
       else {
         this.passerror = "Passwords doesn't match !!!"
@@ -148,7 +161,7 @@ export class CustomerComponent implements OnInit {
     }
   }
   login() {
-    this.myRoute.navigate(['/login'])
+    this.myRoute.navigate(['/login']);
   } 
   onReset() {
     this.submitted = false;

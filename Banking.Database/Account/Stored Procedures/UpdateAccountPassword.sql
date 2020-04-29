@@ -7,7 +7,7 @@
 AS
 BEGIN
 	IF EXISTS (SELECT 'True' FROM [Account].[Account] WHERE Number=@Number
-			   AND (SUBSTRING(master.dbo.fn_varbintohexstr(HashBytes('MD5', @OldPassword)), 1, 100)= Password))
+			   AND Password = (SUBSTRING(master.dbo.fn_varbintohexstr(HashBytes('MD5', @OldPassword)), 1, 100)))
 	  BEGIN
 	     BEGIN TRANSACTION
 			UPDATE [Account].[Account]
@@ -26,5 +26,5 @@ BEGIN
 		 COMMIT
 	  END
 	ELSE
-	  SELECT 'Invalid Account Number / Password'
+	  SELECT 'Invalid  Password'
 END
