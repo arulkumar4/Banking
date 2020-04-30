@@ -154,6 +154,21 @@ export class CustomerEditComponent implements OnInit, AfterViewInit  {
 
   }
 
+  deleteCustomer(): void {
+    if (this.customer.CustomerId === 0) {
+      // Don't delete, it was never saved.
+      this.onSaveComplete();
+    } else {
+      if (confirm(`Really delete the Customer: ${this.customer.FullName}?`)) {
+        this.customerService.deleteCustomer(this.customer.Number, this.customer.Mail)
+          .subscribe({
+            next: () => this.onSaveComplete(),
+            error: err => this.errorMessage = err
+          });
+      }
+    }
+  }
+
 
   saveCustomer(): void {
     if (this.customerForm.valid) {

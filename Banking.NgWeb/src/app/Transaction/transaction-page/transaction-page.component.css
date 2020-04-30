@@ -5,6 +5,25 @@
   top: 200px;
   left: 320px
 }
+.img{
+  width:10%;
+  height:13%;
+  top:58%;
+  left:50%;
+  color:darkslategrey;
+  background-color:white;
+  position:absolute;
+  margin:12px;
+}
+.title{
+  width:26%;
+  position:absolute;
+  top:74%;
+  left:45%;
+  color:darkslategray;
+  font-weight:800;
+  font-size:larger;
+}
 
 a {
   text-decoration: none;
@@ -154,3 +173,5 @@ Sidebar Nav
     -moz-transition: all 0.5s ease;
     transition: all 0.5s ease;
   }
+
+

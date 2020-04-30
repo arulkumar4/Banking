@@ -19304,6 +19304,13 @@
     <Content Include="src\app\employee-dashboard\welcome-employee\welcome-employee.component.html" />
     <Content Include="src\assets\account.png" />
     <Content Include="src\assets\agri.jpg" />
+    <Content Include="src\assets\Alice-dodo.png" />
+    <Content Include="src\assets\Alice-gryphon.png" />
+    <Content Include="src\assets\Alice-hatter.png" />
+    <Content Include="src\assets\Alice-white-rabbit.png" />
+    <Content Include="src\assets\avatar2.png" />
+    <Content Include="src\assets\avatar3.png" />
+    <Content Include="src\assets\avatar5.png" />
     <Content Include="src\assets\background.jpg" />
     <Content Include="src\assets\bulb.png" />
     <Content Include="src\assets\business.png" />
@@ -19315,6 +19322,7 @@
     <Content Include="src\assets\coin.jpg" />
     <Content Include="src\assets\dollar.jpg" />
     <Content Include="src\assets\fixedDeposits.jpg" />
+    <Content Include="src\assets\forest.jpg" />
     <Content Include="src\assets\health.jpg" />
     <Content Include="src\assets\home-page.jpg" />
     <Content Include="src\assets\homeLoan.png" />
@@ -19325,17 +19333,22 @@
     <Content Include="src\assets\icons\logopic.png" />
     <Content Include="src\assets\icons\MobileBanking.png" />
     <Content Include="src\assets\landline.png" />
+    <Content Include="src\assets\lights.jpg" />
     <Content Include="src\assets\logo.jpg" />
     <Content Include="src\assets\mon.jpg" />
+    <Content Include="src\assets\mountains.jpg" />
     <Content Include="src\assets\mutualFunds.jpg" />
+    <Content Include="src\assets\nature.jpg" />
     <Content Include="src\assets\payOnline.jpg" />
     <Content Include="src\assets\personalLoan.png" />
     <Content Include="src\assets\phone.png" />
     <Content Include="src\assets\piggy.jpg" />
     <Content Include="src\assets\scripts\custom.js" />
     <Content Include="src\assets\search.png" />
+    <Content Include="src\assets\snow.jpg" />
     <Content Include="src\assets\studentLoan.png" />
     <Content Include="src\assets\telephone.jpg" />
+    <Content Include="src\assets\transactionLogo.png" />
     <Content Include="src\assets\visacard.png" />
     <Content Include="src\assets\wallet.png" />
     <Content Include="src\assets\waterTap.png" />
@@ -26719,6 +26732,7 @@
     <Content Include="src\assets\dth.webp" />
     <Content Include="src\assets\gas.webp" />
     <Content Include="src\assets\money.webp" />
+    <Content Include="src\assets\transLogo.webp" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

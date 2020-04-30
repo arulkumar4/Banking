@@ -50,11 +50,10 @@ namespace Banking.DataAccess.Account
             return status;
         }
 
-        public string DeleteCustomerAccount(long number, string pass)
+        public string DeleteCustomerAccount(long number)
         {
             var status = GetValue<string>(ProcedureNames.Account.DeleteCustomerAccount,
-            new SqlParameter("@Number", number),
-            new SqlParameter("@Password", pass)
+            new SqlParameter("@Number", number)
             );
             return status;
         }

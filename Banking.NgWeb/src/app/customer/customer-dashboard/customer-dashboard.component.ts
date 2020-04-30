@@ -10,7 +10,11 @@ import { UserService } from '../../service/Bank/user.service';
 })
 export class CustomerDashboardComponent implements OnInit {
   userClaims: any;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private route:Router) { }
+logout()
+{
+  this.route.navigateByUrl("/login");
+}
 
   ngOnInit() {
     this.userService.getUserClaimsCustomer().subscribe((data: any) => {

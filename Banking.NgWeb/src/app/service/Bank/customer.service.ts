@@ -12,7 +12,10 @@ export class CustomerService {
   private CustomerUrl = 'https://localhost:44395/api/Account/GetAllCustomerAccounts';
   private Addcustomerurl = 'https://localhost:44395/api/Customer/AddNewCustomer';
   private UpdatecustomerUrl = 'https://localhost:44395/api/Account/UpdateCustomerByEmployee';
+  private DeleteCustomer = 'https://localhost:44395/api/Account/DeleteAccount'
   employeeid: string;
+
+  //?number = { number } & mail={ mail }
 
   constructor(private http: HttpClient, private userService: UserService) {
 
@@ -63,6 +66,16 @@ export class CustomerService {
         map((customers: ICustomer[]) => customers.find(c => c.CustomerId === id))
       );
   }
+  deleteCustomer(Accnumber: number,mail:string): Observable<{}> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const url = `${this.DeleteCustomer}?number=${Accnumber}&mail=${mail}`;
+    return this.http.delete<ICustomer>(url, { headers })
+      .pipe(
+        tap(data => console.log('deleteProduct: ' + Accnumber)),
+        catchError(this.handleError)
+      );
+  }
+ 
 
   private initializeCustomer(): ICustomer {
     return {

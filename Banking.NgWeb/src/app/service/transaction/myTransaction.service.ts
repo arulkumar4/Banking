@@ -11,7 +11,8 @@ export class MyTransactionService
   urlString: string = "https://localhost:44395";
     constructor(private http:HttpClient){}
     getDataFromAPI(AccountId:string):Observable<MyTransaction[]>
-     {
+    {
+      console.log(AccountId);
       return this.http.get<MyTransaction[]>(this.urlString+"/GetAllTransactions?AccountId=" + AccountId)
         .catch(this.errorHandler);
     }

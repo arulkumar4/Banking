@@ -208,17 +208,14 @@
 
           <div class="form-group">
             <div class="col-md-2">
-              <label id="actype">
-                Account Type
-              </label>
-              <input id="accType"
-                     class="form-control"
-                     type="text"
-                     placeholder="Current / Savings"
-                     formControlName="accountType"
-                     [(ngModel)]="account.AccountType"
-                     [ngClass]="{ 'is-invalid':submitted && f.accountType.errors }">
-
+              <mat-form-field style="position:absolute;left:400%; width:970%;top:2700%" >
+                <mat-label>Account Type</mat-label>
+                <mat-select [(ngModel)]="account.AccountType" formControlName="accountType" (ngModelChange)="getAccounType()">
+                  <mat-option *ngFor="let account of AccountType" [value]="account.Type">
+                    {{ account.Type }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
               <div *ngIf="submitted && f.accountType.errors" class="invalid-feedback" id="accerror">
                 <span *ngIf="f.accountType.errors.required">
                   Please enter your Account Type !!!
@@ -317,8 +314,8 @@
           </div>
         </div>
         <div class=row id="buttons">
-          <div class="form-group" class1="col-md-2">
-            <button class="btn btn-lg btn-block"
+          <div *ngIf ="buttonSelection == 0" class="form-group" class1="col-md-2">
+            <button  (click)="cancel()" class="btn btn-lg btn-block"
                     type="button"
                     id="cancel">
               Cancel
@@ -353,8 +350,6 @@
     </h3>
     <table class="table table-hover">
       <tr style="background-color:rgb(255, 255, 255)">
-        <th style="color:rgb(3, 3, 3);">CustomerID</th>
-        <th style="color:rgb(3, 3, 3);">AccountNumber</th>
         <th style="color:rgb(3, 3, 3);">FirstName</th>
         <th style="color:rgb(3, 3, 3);">LastName</th>
         <th style="color:rgb(3, 3, 3);">Balance</th>
@@ -363,30 +358,24 @@
         <th style="color:rgb(3, 3, 3);">Mail</th>
       </tr>
 
-      <tr *ngFor="let dat of data">
-        <td width="700%">
-          {{dat.CustomerId}}
+      <tr width="700%">
+        <td>
+          {{account.FirstName}}
         </td>
         <td>
-          {{dat.Number}}
+          {{account.LastName}}
         </td>
         <td>
-          {{dat.FirstName}}
+          {{account.Balance}}
         </td>
         <td>
-          {{dat.LastName}}
+          {{account.AccountType}}
         </td>
         <td>
-          {{dat.Balance}}
+          {{account.ContactNumber}}
         </td>
         <td>
-          {{dat.AccountType}}
-        </td>
-        <td>
-          {{dat.ContactNumber}}
-        </td>
-        <td>
-          {{dat.Mail}}
+          {{account.Mail}}
         </td>
       </tr>
     </table>
